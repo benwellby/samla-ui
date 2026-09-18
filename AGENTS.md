@@ -14,7 +14,8 @@ the live Style Guide at `/style-guide/`.
 
 ```bash
 node scripts/serve.mjs          # http://localhost:4321
-node scripts/sync-partials.mjs  # after editing anything in partials/
+node scripts/build-docs.mjs     # after editing any .md file (renders /docs/)
+node scripts/sync-partials.mjs  # after editing partials/ or rebuilding docs
 node scripts/build-css.mjs      # optional: bundle to dist/samla.css
 ```
 
@@ -34,6 +35,7 @@ than opening files directly.
 | Docs only | `assets/css/docs.css`, `assets/js/docs.js` | `sg-*` classes for the Style Guide. Never use in a project |
 | Templates | `templates/*.html` | Reference pages for the fictional client "Fieldwork" |
 | Shared markup | `partials/*.html` | Headers and footers, stamped into pages by `sync-partials` |
+| Documentation | `*.md`, `docs/*.md` | Source of truth. `docs/*.html` is generated from it: never edit the HTML |
 
 Each CSS file opens with a comment block: purpose, markup example, variants.
 That comment is the source of truth for the file; keep it current.

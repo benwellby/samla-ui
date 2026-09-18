@@ -18,6 +18,7 @@ node scripts/serve.mjs
 Then open:
 
 - `http://localhost:4321/` — the Samla homepage, built from the system
+- `http://localhost:4321/docs/` — this documentation, rendered
 - `http://localhost:4321/style-guide/` — every token, component and variant, live
 - `http://localhost:4321/templates/` — 14 reference templates for a fictional practice, "Fieldwork"
 
@@ -51,6 +52,7 @@ scripts/
   serve.mjs               Zero-dependency static server
   sync-partials.mjs       Refresh shared markup across pages
   build-css.mjs           Bundle CSS to dist/samla.css (keeps layers)
+  build-docs.mjs          Render the Markdown docs to docs/*.html
   generate-fixtures.mjs   Regenerate placeholder imagery
 style-guide/              The Style Guide
 templates/                Reference page templates
@@ -67,6 +69,13 @@ Components read semantic tokens only, so `data-surface="dark"` on a section
 restyles everything inside it without per-component overrides. Visual
 type roles (`text-display` … `text-caption`) are independent of heading
 levels.
+
+## Hosting
+
+Deploys as-is to any static host. On Cloudflare Pages: connect the GitHub
+repo, framework preset **None**, no build command, output directory `/`.
+`_headers` sets caching and serves the Markdown sources as text; `404.html`
+handles unknown URLs.
 
 ## Rebranding a project
 

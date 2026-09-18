@@ -515,4 +515,30 @@
   .sg-code .code-block {
     height: 100%;
   }
+
+  /* ---- Rendered Markdown documentation (/docs/) ---------------------------- */
+
+  .docs-prose {
+    max-width: none;
+  }
+
+  .docs-prose > :is(p, ul, ol, blockquote, h2, h3, h4) {
+    max-width: var(--measure);
+  }
+
+  .docs-prose li.docs-task {
+    list-style: none;
+    margin-left: -1.25em;
+  }
+
+  .docs-prose pre {
+    border-radius: var(--radius-1);
+  }
+
+  @media (min-width: 64em) {
+    .article-layout__aside:has(.toc + .toc) {
+      max-height: calc(100dvh - var(--space-9) - var(--space-5));
+      overflow-y: auto;
+    }
+  }
 }

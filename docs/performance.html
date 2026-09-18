@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Performance and SEO | Samla documentation</title>
+  <meta name="description" content="Samla pages are static HTML with one stylesheet and one small deferred script. These are defaults, not tuning to do later.">
+  <link rel="preload" href="/assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/samla.css">
+  <link rel="stylesheet" href="/assets/css/docs.css">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <script src="/assets/js/samla.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Generated from docs/performance.md by scripts/build-docs.mjs. Edit the Markdown, not this file. -->
+
+  <!-- partial:samla-header current="/docs/" -->
+<header class="site-header" data-behaviour="sticky" data-mobile="dropdown">
+  <div class="site-header__inner container">
+    <div class="site-header__brand">
+      <a class="wordmark" href="/" aria-label="Samla home"><span class="wordmark__mark" aria-hidden="true"></span>Samla</a>
+      <span class="badge" data-variant="pill">v1.0</span>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        <li class="site-nav__item"><a class="site-nav__link" href="/docs/" aria-current="page">Docs</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="/style-guide/">Style Guide</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="/templates/">Examples</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></li>
+      </ul>
+      <div class="site-nav__mobile-actions">
+        <a class="button" data-width="full" href="/docs/">Get started <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </nav>
+    <div class="site-header__actions">
+      <a class="button" data-size="small" href="/docs/">Get started</a>
+      <button class="site-header__toggle" type="button" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
+        <svg class="icon" data-icon="menu" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 8h16M3 14h16"/></svg>
+        <svg class="icon" data-icon="close" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- /partial:samla-header -->
+
+  <main id="main">
+    <header class="page-header">
+      <div class="page-header__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+              <li><a href="/">Samla</a></li>
+              <li><a href="/docs/">Documentation</a></li>
+              <li><a href="/docs/performance.html" aria-current="page">Performance and SEO</a></li>
+          </ol>
+        </nav>
+        <p class="page-header__label">Documentation</p>
+        <h1 class="page-header__title text-page-title">Performance and SEO</h1>
+        <p class="page-header__lead text-lead">Samla pages are static HTML with one stylesheet and one small deferred script. These are defaults, not tuning to do later.</p>
+      </div>
+    </header>
+
+    <div class="section" data-spacing="none">
+      <div class="article-layout container">
+        <aside class="article-layout__aside">
+          <nav class="toc" aria-labelledby="docs-nav-title">
+            <p class="label" id="docs-nav-title">Documentation</p>
+            <ol>
+                <li><a href="/docs/">Getting started</a></li>
+                <li><a href="/docs/agents.html">Conventions (AGENTS.md)</a></li>
+                <li><a href="/docs/taxonomy.html">Taxonomy</a></li>
+                <li><a href="/docs/components.html">Component contracts</a></li>
+                <li><a href="/docs/accessibility.html">Accessibility</a></li>
+                <li><a href="/docs/performance.html" aria-current="true">Performance and SEO</a></li>
+            </ol>
+          </nav>
+          <nav class="toc" aria-labelledby="toc-title">
+              <p class="label" id="toc-title">On this page</p>
+              <ol>
+                <li><a href="#performance">Performance</a></li>
+                <li><a href="#seo">SEO</a></li>
+              </ol>
+            </nav>
+        </aside>
+        <div class="article-layout__body prose docs-prose">
+<h2 id="performance">Performance</h2>
+<div class="table-scroll"><table class="table"><thead><tr><th scope="col">Area</th><th scope="col">Default</th></tr></thead><tbody><tr><td>JavaScript</td><td>One file, <code>samla.js</code>, ~20 KB unminified, <code>defer</code>, no dependencies. Nothing blocks rendering.</td></tr><tr><td>CSS</td><td>Layered source files for development. For production, bundle with <code>node scripts/build-css.mjs</code> (or any bundler) to remove the <code>@import</code> waterfall, then minify.</td></tr><tr><td>Fonts</td><td>Self-hosted WOFF2, subset to Latin and Latin Extended, <code>font-display: swap</code>. Instrument Sans is one variable file. Preload the Latin sans file in <code>&lt;head&gt;</code>.</td></tr><tr><td>Images</td><td>Always <code>width</code> and <code>height</code> (no layout shift). <code>loading="lazy"</code> below the fold; <code>fetchpriority="high"</code> on the largest image above it. Use <code>srcset</code>/<code>sizes</code> and AVIF/WebP in real projects.</td></tr><tr><td>Video</td><td>Poster image plus <code>media__play[data-src]</code>: the third-party player loads only when requested.</td></tr><tr><td>Layout stability</td><td>Aspect ratios via <code>data-ratio</code>; fonts with metric-compatible fallbacks; no content injected above existing content.</td></tr><tr><td>Interaction</td><td>No JS on scroll except a passive listener for the sticky header state. Transitions use <code>transform</code>, <code>opacity</code> and colour only.</td></tr></tbody></table></div>
+<h2 id="seo">SEO</h2>
+<div class="table-scroll"><table class="table"><thead><tr><th scope="col">Area</th><th scope="col">Default</th></tr></thead><tbody><tr><td>Document</td><td><code>lang</code>, unique <code>&lt;title&gt;</code> ("Page</td><td>Site"), meta description on every template, one <code>h1</code>, logical heading outline.</td></tr><tr><td>Links</td><td>Real <code>&lt;a href&gt;</code> for navigation, filters and pagination, so every listing state has a crawlable URL.</td></tr><tr><td>Content</td><td>Server-rendered text; nothing important hidden behind JavaScript. Tab panels and accordions are in the HTML.</td></tr><tr><td>Structure</td><td>Breadcrumbs on inner pages; <code>&lt;time datetime&gt;</code> for dates; <code>&lt;article&gt;</code> for articles and case studies.</td></tr><tr><td>Errors</td><td><code>404.html</code> is <code>noindex</code> and offers search and popular links.</td></tr></tbody></table></div>
+<p>Add per project: canonical URLs, Open Graph and Twitter metadata, JSON-LD (<code>Organization</code>, <code>BreadcrumbList</code>, <code>Article</code>, <code>Event</code>, <code>JobPosting</code>), an XML sitemap and <code>robots.txt</code>. These depend on the CMS and hosting, so they are not part of the v1 reference.</p>
+          <hr>
+          <p class="text-small text-muted">Source: <a href="https://github.com/benwellby/samla-ui/blob/main/docs/performance.md">docs/performance.md</a> on GitHub.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- partial:samla-footer -->
+<footer class="site-footer" data-surface="dark" data-layout="simple">
+  <div class="container">
+    <div class="site-footer__bar">
+      <a class="wordmark" href="/"><span class="wordmark__mark" aria-hidden="true"></span>Samla</a>
+      <nav aria-label="Footer">
+        <ul class="site-footer__links">
+          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/style-guide/">Style Guide</a></li>
+          <li><a href="/templates/">Examples</a></li>
+          <li><a href="https://github.com/benwellby/samla-ui">GitHub</a></li>
+        </ul>
+      </nav>
+      <p class="site-footer__meta">v1.0 / Built with Samla</p>
+    </div>
+  </div>
+</footer>
+<!-- /partial:samla-footer -->
+</body>
+</html>

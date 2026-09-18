@@ -1,0 +1,25 @@
+# Cloudflare Pages response headers. https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Show Markdown sources as readable text rather than a download.
+/README.md
+  Content-Type: text/plain; charset=utf-8
+/AGENTS.md
+  Content-Type: text/plain; charset=utf-8
+/CLAUDE.md
+  Content-Type: text/plain; charset=utf-8
+/docs/*.md
+  Content-Type: text/plain; charset=utf-8
+
+# Fonts never change; cache them for a year.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Build helpers are public but should not be indexed.
+/partials/*
+  X-Robots-Tag: noindex
+/scripts/*
+  X-Robots-Tag: noindex

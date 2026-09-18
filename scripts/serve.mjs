@@ -36,7 +36,7 @@ createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': types[extname(path)] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
     res.end(body);
   } catch {
-    const body = await readFile(join(root, 'templates/404.html')).catch(() => 'Not found');
+    const body = await readFile(join(root, '404.html')).catch(() => 'Not found');
     res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
     res.end(body);
   }
