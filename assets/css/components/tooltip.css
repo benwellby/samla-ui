@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Components / Tooltip
+   --------------------------------------------------------------------------
+   Supplementary text only; never the sole place information lives. The
+   trigger must be focusable. Shown on hover and focus, dismissed with
+   Escape (samla.js).
+
+   <span class="tooltip">
+     <button type="button" class="tooltip__trigger" aria-describedby="tt-1">…</button>
+     <span class="tooltip__content" role="tooltip" id="tt-1">…</span>
+   </span>
+   data-position: top (default) | bottom
+   ========================================================================== */
+
+.tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltip__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--surface-muted);
+}
+
+.tooltip__content {
+  position: absolute;
+  bottom: calc(100% + var(--space-2));
+  left: 50%;
+  z-index: var(--z-dropdown);
+  width: max-content;
+  max-width: 16rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-1);
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  font-size: 0.8125rem;
+  font-weight: var(--weight-regular);
+  line-height: 1.4;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 4px);
+  transition: opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard),
+    visibility var(--duration-fast);
+}
+
+.tooltip[data-position="bottom"] .tooltip__content {
+  top: calc(100% + var(--space-2));
+  bottom: auto;
+}
+
+.tooltip:hover .tooltip__content,
+.tooltip:focus-within .tooltip__content {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.tooltip[data-dismissed] .tooltip__content {
+  opacity: 0;
+  visibility: hidden;
+}

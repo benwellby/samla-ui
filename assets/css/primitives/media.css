@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Primitives / Media (image, video, embed, figure)
+   --------------------------------------------------------------------------
+   <figure class="media" data-ratio="photo">
+     <img src="…" alt="…" width="1200" height="800" loading="lazy">
+     <figcaption class="media__caption">…</figcaption>
+   </figure>
+
+   data-ratio: square | portrait | standard (4:3) | photo (3:2) | video (16:9)
+               | cinema (21:9) | natural (default, image's own ratio)
+   data-fit:   cover (default) | contain (logos, diagrams)
+   A media element with no image shows a stone placeholder.
+   Video: use <video> or an <iframe> inside .media__frame; add
+   .media__play for a poster-with-play-button pattern.
+   ========================================================================== */
+
+.media {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.media__frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--surface-subtle);
+}
+
+.media[data-ratio] .media__frame,
+.media[data-ratio] > img,
+.media[data-ratio] > video,
+.media[data-ratio] > iframe {
+  aspect-ratio: var(--_ratio, auto);
+}
+
+.media[data-ratio="square"]   { --_ratio: var(--ratio-square); }
+.media[data-ratio="portrait"] { --_ratio: var(--ratio-portrait); }
+.media[data-ratio="standard"] { --_ratio: var(--ratio-standard); }
+.media[data-ratio="photo"]    { --_ratio: var(--ratio-photo); }
+.media[data-ratio="video"]    { --_ratio: var(--ratio-video); }
+.media[data-ratio="cinema"]   { --_ratio: var(--ratio-cinema); }
+
+.media img,
+.media video,
+.media iframe {
+  width: 100%;
+  background-color: var(--surface-subtle);
+}
+
+.media[data-ratio] img,
+.media[data-ratio] video,
+.media[data-ratio] iframe {
+  height: 100%;
+  object-fit: cover;
+}
+
+.media__frame > img,
+.media__frame > video,
+.media__frame > iframe {
+  position: absolute;
+  inset: 0;
+  border: 0;
+}
+
+.media[data-fit="contain"] img {
+  object-fit: contain;
+}
+
+.media__caption {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--surface-muted);
+}
+
+/* Placeholder label for fixtures without imagery. */
+.media__placeholder {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--surface-muted);
+}
+
+/* Play affordance over a poster image. The button loads the video (JS). */
+.media__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--media-control-text);
+}
+
+.media__play-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--media-control-bg);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.media__play:hover .media__play-icon {
+  transform: scale(1.06);
+}
+
+.media__play .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+  stroke: none;
+  margin-left: 3px;
+}

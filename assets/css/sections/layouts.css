@@ -1,0 +1,262 @@
+/* ==========================================================================
+   Sections / Layout blocks
+   --------------------------------------------------------------------------
+   Placed inside .section > .container.
+
+   split          Aside (label, heading, intro) beside main content. FAQ,
+                  contact, service detail, long reads.
+                  data-ratio: 4-8 (default) | 5-7 | 6-6
+                  data-sticky: the aside sticks while main scrolls (64em+)
+   media-content  Image or video beside text.
+                  data-media: start (default) | end
+                  data-align: center (default) | start
+   cta            Call to action. data-layout: inline (heading left, actions
+                  right) | stacked (default) | centered
+   logo-rail      Label in columns 1 to 3, logos in a row from column 4.
+   gallery        data-layout: grid (default, equal tiles) | mosaic (first
+                  item large)
+   ========================================================================== */
+
+/* ---- Split --------------------------------------------------------------- */
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-heading);
+}
+
+.split > * {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.split__aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.split__aside > .section-header > * {
+  grid-column: 1 / -1; /* sections layer outranks the component */
+  grid-row: auto;
+}
+
+.split__aside > .section-header > .section-header__action {
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+@media (min-width: 64em) {
+  .split__aside { grid-column: 1 / span 4; }
+  .split__main { grid-column: 6 / -1; }
+
+  .split[data-ratio="5-7"] .split__aside { grid-column: 1 / span 5; }
+  .split[data-ratio="5-7"] .split__main { grid-column: 6 / -1; }
+
+  .split[data-ratio="6-6"] .split__aside { grid-column: 1 / span 6; }
+  .split[data-ratio="6-6"] .split__main { grid-column: 7 / -1; }
+
+  .split[data-ratio="3-9"] .split__aside { grid-column: 1 / span 3; }
+  .split[data-ratio="3-9"] .split__main { grid-column: 4 / -1; }
+
+  .split[data-sticky] .split__aside {
+    position: sticky;
+    top: var(--space-9);
+    align-self: start;
+  }
+}
+
+/* ---- Media + content ----------------------------------------------------- */
+
+.media-content {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-6);
+  align-items: center;
+}
+
+.media-content > * {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.media-content[data-align="start"] {
+  align-items: start;
+}
+
+.media-content__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.media-content__body > .button-group,
+.media-content__body > .link {
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 64em) {
+  .media-content__media { grid-column: 1 / span 6; }
+  .media-content__body { grid-column: 8 / span 5; }
+
+  .media-content[data-media="end"] .media-content__media {
+    grid-column: 7 / -1;
+    grid-row: 1;
+  }
+
+  .media-content[data-media="end"] .media-content__body {
+    grid-column: 1 / span 5;
+    grid-row: 1;
+  }
+}
+
+/* ---- CTA ----------------------------------------------------------------- */
+
+.cta {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-6);
+}
+
+.cta > * {
+  grid-column: 1 / -1;
+}
+
+.cta__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.cta__text {
+  max-width: 36rem;
+  color: var(--surface-muted);
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+}
+
+.cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (min-width: 64em) {
+  .cta__content { grid-column: 1 / span 7; }
+  .cta__actions { grid-column: 1 / span 7; }
+
+  .cta[data-layout="inline"] {
+    align-items: end;
+  }
+
+  .cta[data-layout="inline"] .cta__content { grid-column: 1 / span 7; }
+  .cta[data-layout="inline"] .cta__actions {
+    grid-column: 9 / -1;
+    align-items: flex-end;
+  }
+
+  .cta[data-layout="inline"] .cta__actions > .button-group {
+    justify-content: flex-end;
+  }
+
+  .cta[data-layout="inline"] .cta__actions > .form,
+  .cta[data-layout="inline"] .cta__actions > .subscribe {
+    width: 100%;
+  }
+}
+
+.cta[data-layout="centered"] {
+  justify-items: center;
+  text-align: center;
+}
+
+.cta[data-layout="centered"] > * {
+  grid-column: 1 / -1;
+  align-items: center;
+}
+
+.cta[data-layout="centered"] .cta__content {
+  max-width: 48rem;
+}
+
+.cta[data-layout="centered"] .button-group {
+  justify-content: center;
+}
+
+/* ---- Subscribe form (newsletter) ----------------------------------------- */
+
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 32rem;
+}
+
+.subscribe__note {
+  color: var(--surface-muted);
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+}
+
+/* ---- Logo rail ----------------------------------------------------------- */
+
+.logo-rail {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-5);
+  border-block: 1px solid var(--surface-line);
+}
+
+.logo-rail > * {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 64em) {
+  .logo-rail > .label { grid-column: 1 / span 3; }
+  .logo-rail > .logo-list { grid-column: 4 / -1; }
+}
+
+/* ---- Gallery ------------------------------------------------------------- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 64em) {
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .gallery[data-layout="mosaic"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .gallery[data-layout="mosaic"] > :first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gallery[data-layout="mosaic"] > :first-child .media__frame {
+    height: 100%;
+  }
+}
+
+.gallery .media__frame {
+  aspect-ratio: var(--ratio-standard);
+}
+
+.gallery[data-layout="mosaic"] > :first-child .media__frame {
+  aspect-ratio: auto;
+  min-height: 100%;
+}

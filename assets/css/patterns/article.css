@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Patterns / Article layout
+   --------------------------------------------------------------------------
+   Long-form body with a sticky aside for contents, author and sharing.
+   Used for articles, case study narratives, job descriptions and legal
+   pages.
+
+   <div class="article-layout container">
+     <aside class="article-layout__aside">…meta-list, toc, share…</aside>
+     <div class="article-layout__body prose">…</div>
+   </div>
+   ========================================================================== */
+
+.article-layout {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-7);
+}
+
+.article-layout > * {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.article-layout__aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  font-size: var(--text-small);
+}
+
+@media (min-width: 64em) {
+  .article-layout__aside {
+    grid-column: 1 / span 3;
+    position: sticky;
+    top: var(--space-9);
+    align-self: start;
+  }
+
+  .article-layout__body {
+    grid-column: 4 / span 7;
+  }
+}
+
+/* Table of contents */
+.toc ol {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--surface-rule);
+}
+
+.toc a {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  border-bottom: 1px solid var(--surface-line);
+  color: var(--surface-muted);
+  text-decoration: none;
+}
+
+.toc a:hover,
+.toc a[aria-current="true"] {
+  color: var(--surface-text);
+}
+
+.toc .label {
+  margin-bottom: var(--space-3);
+}

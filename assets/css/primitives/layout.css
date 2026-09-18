@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Primitives / Layout
+   --------------------------------------------------------------------------
+   container  Centres content, applies page gutters.
+              data-width: narrow | standard (default) | wide | full
+   grid       The page grid: 4 / 8 / 12 columns. Children place themselves
+              with grid-column in their own component CSS. For simple equal
+              columns use data-columns: 2 | 3 | 4 (collapses on small screens).
+              data-columns="6" gives 2 / 3 / 6 (short items: layers, logos).
+              Asymmetric placement: data-span (3 to 9, 12) and optional
+              data-start (1 to 10) on direct children, from 64em. On tablet,
+              spans of 5+ go full width and smaller spans take half.
+   stack      Vertical flow with consistent gaps.
+              data-gap: 1 to 8 (space scale), default 5 (24px)
+   cluster    Horizontal wrapping group (buttons, tags, meta).
+              data-gap: 1 to 6, default 3. data-justify: start | between | end
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--width-content) + var(--page-gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.container[data-width="narrow"] {
+  max-width: calc(var(--width-narrow) + var(--page-gutter) * 2);
+}
+
+.container[data-width="wide"] {
+  max-width: calc(var(--width-wide) + var(--page-gutter) * 2);
+}
+
+.container[data-width="full"] {
+  max-width: none;
+}
+
+/* ---- Grid --------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-7);
+}
+
+.grid > * {
+  grid-column: 1 / -1;
+}
+
+.grid[data-columns] {
+  --_cols: 1;
+  grid-template-columns: repeat(var(--_cols), minmax(0, 1fr));
+}
+
+.grid[data-columns] > * {
+  grid-column: auto;
+}
+
+.grid[data-columns="6"] {
+  --_cols: 2;
+}
+
+@media (min-width: 48em) {
+  .grid[data-columns="2"],
+  .grid[data-columns="3"],
+  .grid[data-columns="4"] {
+    --_cols: 2;
+  }
+
+  .grid[data-columns="6"] {
+    --_cols: 3;
+  }
+}
+
+@media (min-width: 64em) {
+  .grid[data-columns="3"] {
+    --_cols: 3;
+  }
+
+  .grid[data-columns="4"] {
+    --_cols: 4;
+  }
+
+  .grid[data-columns="6"] {
+    --_cols: 6;
+  }
+}
+
+.grid[data-gap="tight"] {
+  row-gap: var(--space-5);
+}
+
+/* Divided grid: hairlines between cells (specimen boards, logo grids). */
+.grid[data-divided] {
+  gap: 1px;
+  background-color: var(--surface-line);
+  border: 1px solid var(--surface-line);
+}
+
+.grid[data-divided] > * {
+  background-color: var(--surface-bg);
+}
+
+
+/* ---- Grid placement (children of .grid) --------------------------------- */
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .grid > :is([data-span="3"], [data-span="4"]) {
+    grid-column: span 4;
+  }
+}
+
+@media (min-width: 64em) {
+  .grid > [data-span="3"] { grid-column-end: span 3; }
+  .grid > [data-span="4"] { grid-column-end: span 4; }
+  .grid > [data-span="5"] { grid-column-end: span 5; }
+  .grid > [data-span="6"] { grid-column-end: span 6; }
+  .grid > [data-span="7"] { grid-column-end: span 7; }
+  .grid > [data-span="8"] { grid-column-end: span 8; }
+  .grid > [data-span="9"] { grid-column-end: span 9; }
+  .grid > [data-span="12"] { grid-column-end: span 12; }
+  .grid > [data-start="1"] { grid-column-start: 1; }
+  .grid > [data-start="2"] { grid-column-start: 2; }
+  .grid > [data-start="3"] { grid-column-start: 3; }
+  .grid > [data-start="4"] { grid-column-start: 4; }
+  .grid > [data-start="5"] { grid-column-start: 5; }
+  .grid > [data-start="6"] { grid-column-start: 6; }
+  .grid > [data-start="7"] { grid-column-start: 7; }
+  .grid > [data-start="8"] { grid-column-start: 8; }
+  .grid > [data-start="9"] { grid-column-start: 9; }
+  .grid > [data-start="10"] { grid-column-start: 10; }
+
+  .grid > [data-span]:not([data-start]) {
+    grid-column-start: auto;
+  }
+}
+
+/* ---- Stack -------------------------------------------------------------- */
+
+.stack {
+  --_gap: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--_gap);
+}
+
+.stack[data-gap="1"] { --_gap: var(--space-1); }
+.stack[data-gap="2"] { --_gap: var(--space-2); }
+.stack[data-gap="3"] { --_gap: var(--space-3); }
+.stack[data-gap="4"] { --_gap: var(--space-4); }
+.stack[data-gap="5"] { --_gap: var(--space-5); }
+.stack[data-gap="6"] { --_gap: var(--space-6); }
+.stack[data-gap="7"] { --_gap: var(--space-7); }
+.stack[data-gap="8"] { --_gap: var(--space-8); }
+
+.stack[data-align="start"] {
+  align-items: flex-start;
+}
+
+/* ---- Cluster ------------------------------------------------------------ */
+
+.cluster {
+  --_gap: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--_gap);
+}
+
+.cluster[data-gap="1"] { --_gap: var(--space-1); }
+.cluster[data-gap="2"] { --_gap: var(--space-2); }
+.cluster[data-gap="3"] { --_gap: var(--space-3); }
+.cluster[data-gap="4"] { --_gap: var(--space-4); }
+.cluster[data-gap="5"] { --_gap: var(--space-5); }
+.cluster[data-gap="6"] { --_gap: var(--space-6); }
+
+.cluster[data-justify="between"] { justify-content: space-between; }
+.cluster[data-justify="end"] { justify-content: flex-end; }
+.cluster[data-justify="center"] { justify-content: center; }

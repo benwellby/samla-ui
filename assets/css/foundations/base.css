@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Foundations / Base
+   Element defaults. Headings inherit Body size on purpose: visual size comes
+   from a text-* class (typography.css), never from the element.
+   ========================================================================== */
+
+html {
+  font-family: var(--font-sans);
+  font-size: 100%;
+  line-height: var(--leading-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: var(--space-9);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background-color: var(--surface-bg);
+  color: var(--surface-text);
+  font-size: var(--text-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-card-title);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+strong,
+b {
+  font-weight: var(--weight-medium);
+}
+
+small {
+  font-size: var(--text-small);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+:not(pre) > code,
+kbd {
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-1);
+  background-color: var(--surface-subtle);
+}
+
+kbd {
+  border: 1px solid var(--surface-line);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--surface-line);
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+::selection {
+  background-color: var(--surface-text);
+  color: var(--surface-bg);
+}
+
+::placeholder {
+  color: var(--surface-muted);
+  opacity: 1;
+}
+
+/* Focus: 2px outline, 2px offset, in the surface text colour. */
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus);
+  outline-offset: var(--focus-offset);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

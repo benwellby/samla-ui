@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Primitives / Breadcrumb and Pagination
+   ========================================================================== */
+
+/* <nav class="breadcrumb" aria-label="Breadcrumb"><ol>
+     <li><a href="/">Home</a></li> … <li><a aria-current="page">Current</a></li>
+   </ol></nav> */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--surface-muted);
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  color: var(--surface-line-strong);
+}
+
+.breadcrumb a {
+  color: var(--surface-muted);
+  text-decoration: none;
+  padding-block: var(--space-2);
+}
+
+.breadcrumb a:hover {
+  color: var(--surface-text);
+  text-decoration: underline;
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--surface-text);
+}
+
+/* <nav class="pagination" aria-label="Pagination"> with prev/next links and
+   a numbered list. The current page carries aria-current="page". */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--surface-line);
+}
+
+.pagination__list {
+  display: flex;
+  gap: var(--space-1);
+  padding: 0;
+  list-style: none;
+}
+
+.pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: var(--target-min);
+  min-height: var(--target-min);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-1);
+  color: var(--surface-text);
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.pagination__link:hover {
+  background-color: var(--surface-subtle);
+}
+
+.pagination__link[aria-current="page"] {
+  background-color: var(--surface-selected-bg);
+  color: var(--surface-selected-text);
+}
+
+.pagination__link[aria-disabled="true"] {
+  color: var(--surface-muted);
+  pointer-events: none;
+}
+
+@media (max-width: 47.99em) {
+  .pagination__list li:not(:has([aria-current])) {
+    display: none;
+  }
+}

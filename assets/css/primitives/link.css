@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Primitives / Link and Icon
+   --------------------------------------------------------------------------
+   Inline links in running text are styled in base.css (always underlined).
+
+   .link  A standalone text link (section actions, "Learn more").
+          data-variant: default | arrow (trailing arrow, nudges on hover)
+                        | external (trailing ↗, add rel="noopener")
+   .icon  Inline SVG, sized by data-size: 12 | 14 | 16 (default) | 20 | 24.
+          Always aria-hidden="true" unless it is the only content.
+   ========================================================================== */
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--target-min);
+  color: var(--surface-text);
+  font-weight: var(--weight-medium);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: text-decoration-thickness var(--duration-fast) var(--ease-standard);
+}
+
+.link:hover {
+  text-decoration-thickness: 2px;
+}
+
+button.link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.link[data-variant="arrow"] {
+  text-decoration: none;
+}
+
+.link[data-variant="arrow"]:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.link .icon {
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.link[data-variant="arrow"]:hover .icon {
+  transform: translateX(4px);
+}
+
+.link[data-variant="external"]:hover .icon {
+  transform: translate(2px, -2px);
+}
+
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: square;
+}
+
+.icon[data-size="12"] { width: 0.75rem; height: 0.75rem; }
+.icon[data-size="14"] { width: 0.875rem; height: 0.875rem; }
+.icon[data-size="20"] { width: 1.25rem; height: 1.25rem; }
+.icon[data-size="24"] { width: 1.5rem; height: 1.5rem; }

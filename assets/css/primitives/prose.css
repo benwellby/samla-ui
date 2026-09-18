@@ -1,0 +1,166 @@
+/* ==========================================================================
+   Primitives / Prose (rich text) and Table
+   --------------------------------------------------------------------------
+   Wrap CMS-authored rich text in .prose. It styles bare elements (h2, p,
+   ul, blockquote, table, figure, pre) so editors need no classes.
+   Heading sizes inside prose: h2 = Section Heading scaled down one step,
+   h3 = Card Title, h4 = Body medium.
+   ========================================================================== */
+
+.prose {
+  max-width: var(--measure);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+.prose > * + * {
+  margin-top: 1.25em;
+}
+
+.prose > :is(h2, h3, h4) + * {
+  margin-top: 0.75em;
+}
+
+.prose h2 {
+  margin-top: 2.5em;
+  font-size: clamp(1.5rem, 1.2rem + 0.9vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: var(--tracking-section-heading);
+}
+
+.prose h3 {
+  margin-top: 2em;
+  font-size: var(--text-card-title);
+  line-height: var(--leading-card-title);
+  letter-spacing: var(--tracking-card-title);
+}
+
+.prose h4 {
+  margin-top: 1.75em;
+  font-size: var(--text-body);
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose .text-lead,
+.prose > p:first-child.lead {
+  color: var(--surface-muted);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.25em;
+}
+
+.prose li + li {
+  margin-top: 0.5em;
+}
+
+.prose li::marker {
+  color: var(--surface-muted);
+}
+
+.prose ol li::marker {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+.prose blockquote {
+  padding-left: var(--space-5);
+  border-left: 1px solid var(--surface-rule);
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+}
+
+.prose figure {
+  margin-block: 2em;
+}
+
+.prose figcaption {
+  margin-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--surface-muted);
+}
+
+.prose pre {
+  padding: var(--space-5);
+  overflow-x: auto;
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.prose hr {
+  margin-block: 2.5em;
+}
+
+.prose dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--space-2) var(--space-5);
+}
+
+.prose dt {
+  font-weight: var(--weight-medium);
+}
+
+/* Wide content inside a prose column (figures, tables). */
+.prose > [data-width="wide"] {
+  max-width: none;
+}
+
+/* ---- Table -------------------------------------------------------------- */
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table,
+.prose table {
+  width: 100%;
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.table caption,
+.prose table caption {
+  padding-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--surface-muted);
+  text-align: left;
+}
+
+.table th,
+.table td,
+.prose th,
+.prose td {
+  padding: var(--space-3) var(--space-3) var(--space-3) 0;
+  border-bottom: 1px solid var(--surface-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table thead th,
+.prose thead th {
+  padding-block: 0.625rem;
+  border-bottom-color: var(--surface-rule);
+  color: var(--surface-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: var(--weight-regular);
+}
+
+.table tbody th {
+  font-weight: var(--weight-medium);
+}
+
+.table [data-align="end"] {
+  text-align: right;
+}

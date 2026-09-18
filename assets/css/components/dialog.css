@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Components / Dialog (modal and drawer)
+   --------------------------------------------------------------------------
+   Native <dialog>: focus trapping, Escape to close and inert background come
+   from the browser. samla.js wires [data-dialog-open="id"] triggers,
+   [data-dialog-close] buttons and closing on backdrop click.
+
+   <dialog class="dialog" id="enquiry" data-variant="modal" aria-labelledby="enquiry-title">
+     <div class="dialog__header">
+       <h2 class="dialog__title" id="enquiry-title">…</h2>
+       <button class="dialog__close" type="button" data-dialog-close aria-label="Close">…</button>
+     </div>
+     <div class="dialog__body">…</div>
+     <div class="dialog__footer">…</div>     optional
+   </dialog>
+
+   data-variant: modal (default, centred) | drawer (right edge, full height)
+   data-size:    default (36rem) | large (52rem)
+   ========================================================================== */
+
+.dialog {
+  width: min(36rem, calc(100vw - var(--page-gutter) * 2));
+  max-height: min(48rem, calc(100dvh - var(--space-7)));
+  padding: 0;
+  border: 0;
+  --surface-bg: var(--overlay-bg);
+  --surface-text: var(--overlay-text);
+  --surface-muted: var(--overlay-muted);
+  --surface-line: var(--overlay-line);
+  --surface-subtle: var(--overlay-subtle);
+  --action-bg: var(--overlay-action-bg);
+  --action-text: var(--overlay-action-text);
+  --action-bg-hover: var(--overlay-action-bg-hover);
+  --focus: var(--overlay-text);
+  background-color: var(--surface-bg);
+  color: var(--surface-text);
+  box-shadow: var(--shadow-overlay);
+  overflow: hidden;
+}
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog[data-size="large"] {
+  width: min(52rem, calc(100vw - var(--page-gutter) * 2));
+}
+
+.dialog::backdrop {
+  background-color: rgb(18 18 18 / 0.48);
+}
+
+.dialog__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-5) var(--space-4) var(--space-component);
+  border-bottom: 1px solid var(--surface-line);
+}
+
+.dialog__title {
+  padding-top: var(--space-2);
+  font-size: var(--text-card-title);
+  line-height: var(--leading-card-title);
+  letter-spacing: var(--tracking-card-title);
+}
+
+.dialog__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--target-min);
+  height: var(--target-min);
+  border: 0;
+  border-radius: var(--radius-1);
+  background: transparent;
+  color: var(--surface-text);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.dialog__close:hover {
+  background-color: var(--surface-subtle);
+}
+
+.dialog__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-component);
+}
+
+.dialog__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-component);
+  border-top: 1px solid var(--surface-line);
+}
+
+.dialog[data-variant="drawer"] {
+  width: min(30rem, 92vw);
+  height: 100dvh;
+  max-height: none;
+  margin: 0 0 0 auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dialog[open] {
+    animation: dialog-in var(--duration-slow) var(--ease-standard);
+  }
+
+  .dialog[data-variant="drawer"][open] {
+    animation: drawer-in var(--duration-slow) var(--ease-standard);
+  }
+
+  .dialog[open]::backdrop {
+    animation: fade-in var(--duration-slow) var(--ease-standard);
+  }
+}
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

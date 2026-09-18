@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Components / Quote (blockquote, pull quote, testimonial)
+   --------------------------------------------------------------------------
+   <figure class="quote">
+     <blockquote class="quote__text"><p>…</p></blockquote>
+     <figcaption class="quote__cite">
+       <span class="avatar" data-size="small">…</span>        optional
+       <span><span class="quote__name">Name</span>
+             <span class="quote__role">Role, Company</span></span>
+     </figcaption>
+   </figure>
+
+   data-size:    default (Lead) | large (Section Heading, pull quote)
+                 | display (Page Title, a single statement per page)
+   data-variant: plain (default) | rule (ink rule on the left) | panel
+   ========================================================================== */
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 56rem;
+}
+
+.quote__text {
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+  letter-spacing: var(--tracking-lead);
+}
+
+.quote__text > * + * {
+  margin-top: var(--space-3);
+}
+
+.quote[data-size="large"] .quote__text {
+  font-size: var(--text-section-heading);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-section-heading);
+  font-weight: var(--weight-medium);
+  text-wrap: balance;
+}
+
+.quote[data-size="display"] .quote__text {
+  font-size: var(--text-page-title);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-page-title);
+  font-weight: var(--weight-medium);
+  text-wrap: balance;
+}
+
+.quote[data-size="large"] .quote__text p::before,
+.quote[data-size="display"] .quote__text p::before {
+  content: "\201C";
+}
+
+.quote[data-size="large"] .quote__text p::after,
+.quote[data-size="display"] .quote__text p::after {
+  content: "\201D";
+}
+
+.quote[data-size="large"] .quote__text p:first-child::before,
+.quote[data-size="display"] .quote__text p:first-child::before {
+  margin-left: -0.4em;
+}
+
+.quote__cite {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-small);
+  line-height: 1.4;
+}
+
+.quote__name {
+  display: block;
+  font-weight: var(--weight-medium);
+}
+
+.quote__role {
+  display: block;
+  color: var(--surface-muted);
+}
+
+.quote[data-variant="rule"] {
+  padding-left: var(--space-5);
+  border-left: 1px solid var(--surface-rule);
+}
+
+.quote[data-variant="panel"] {
+  padding: var(--space-component);
+  background-color: var(--surface-subtle);
+}

@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Components / Logo item and logo list
+   --------------------------------------------------------------------------
+   Client and partner logos. Use SVG or transparent PNG with alt text of
+   the organisation name. Logos are muted until hover.
+
+   <ul class="logo-list" data-layout="rail">
+     <li class="logo"><img src="…" alt="Halden"></li>
+   </ul>
+
+   data-layout: rail (one row, scrolls on small screens) | grid (divided grid)
+   ========================================================================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  color: var(--surface-line-strong);
+  transition: color var(--duration-base) var(--ease-standard);
+}
+
+.logo img,
+.logo svg {
+  max-height: 2rem;
+  width: auto;
+}
+
+.logo:hover {
+  color: var(--surface-text);
+}
+
+.logo-list {
+  padding: 0;
+  list-style: none;
+}
+
+.logo-list[data-layout="rail"] {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(7rem, 1fr);
+  gap: var(--space-5);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.logo-list[data-layout="rail"] .logo {
+  justify-content: flex-start;
+}
+
+.logo-list[data-layout="grid"] {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background-color: var(--surface-line);
+  border: 1px solid var(--surface-line);
+}
+
+.logo-list[data-layout="grid"] .logo {
+  min-height: 8rem;
+  background-color: var(--surface-bg);
+}
+
+@media (min-width: 48em) {
+  .logo-list[data-layout="grid"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64em) {
+  .logo-list[data-layout="grid"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

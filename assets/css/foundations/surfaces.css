@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Foundations / Surfaces
+   --------------------------------------------------------------------------
+   <section data-surface="dark"> remaps the semantic tokens below for every
+   descendant. Components read only these tokens, so one implementation works
+   on every surface. Never restyle a component per surface.
+
+   Surfaces: default | light | alternate | brand | dark | image
+
+   Floating layers (menus, dialogs, the mobile nav panel) do not inherit the
+   surface beneath them: they read the --overlay-* tokens, so they stay
+   legible wherever they open and can be themed on their own.
+   ========================================================================== */
+
+:root,
+[data-surface="default"] {
+  --surface-bg: var(--color-paper);
+  --surface-text: var(--color-ink);
+  --surface-muted: var(--color-muted);
+  --surface-line: var(--color-line);
+  --surface-line-strong: var(--color-border-strong);
+  --surface-rule: var(--color-ink);          /* the strong rule that opens a section */
+  --surface-subtle: var(--color-stone);      /* placeholders, inline code, hover fills */
+  --surface-selected-bg: var(--color-ink);
+  --surface-selected-text: var(--color-paper);
+
+  --action-bg: var(--color-ink);
+  --action-text: var(--color-paper);
+  --action-bg-hover: var(--color-ink-hover);
+  --action-border: var(--color-border-strong);  /* secondary button */
+  --action-border-hover: var(--color-ink);
+
+  --input-bg: var(--color-white);
+  --input-text: var(--color-ink);
+
+  --feedback-error: var(--color-error);
+  --feedback-positive: var(--color-positive);
+  --feedback-warning: var(--color-warning);
+
+  --accent: var(--color-brand);            /* one accent per view */
+
+  --focus: var(--color-ink);
+}
+
+/* Surface-independent roles. */
+:root {
+  --overlay-bg: var(--color-paper);
+  --overlay-text: var(--color-ink);
+  --overlay-muted: var(--color-muted);
+  --overlay-line: var(--color-line);
+  --overlay-subtle: var(--color-stone);
+  --overlay-action-bg: var(--color-ink);
+  --overlay-action-text: var(--color-paper);
+  --overlay-action-bg-hover: var(--color-ink-hover);
+
+  --tooltip-bg: var(--color-ink);
+  --tooltip-text: var(--color-on-dark);
+
+  --media-text: var(--color-on-dark);     /* text over imagery, always on a scrim */
+  --media-control-bg: var(--color-paper); /* play buttons over imagery */
+  --media-control-text: var(--color-ink);
+}
+
+[data-surface="light"] {
+  --surface-bg: var(--color-white);
+  --surface-subtle: var(--color-paper);
+  --input-bg: var(--color-white);
+}
+
+[data-surface="alternate"] {
+  --surface-bg: var(--color-stone);
+  --surface-line: var(--color-stone-line);
+  --surface-subtle: var(--color-paper);
+}
+
+[data-surface="brand"] {
+  /* On brand, all text is solid white. Tinted white fails contrast. */
+  --surface-bg: var(--color-brand);
+  --surface-text: var(--color-brand-contrast);
+  --surface-muted: var(--color-brand-contrast);
+  --surface-line: rgb(255 255 255 / 0.5);
+  --surface-line-strong: var(--color-brand-contrast);
+  --surface-rule: var(--color-brand-contrast);
+  --surface-subtle: rgb(255 255 255 / 0.12);
+  --surface-selected-bg: var(--color-brand-contrast);
+  --surface-selected-text: var(--color-brand);
+
+  --action-bg: var(--color-brand-contrast);
+  --action-text: var(--color-brand);
+  --action-bg-hover: var(--color-paper);
+  --action-border: rgb(255 255 255 / 0.7);
+  --action-border-hover: var(--color-brand-contrast);
+
+  --feedback-error: var(--color-brand-contrast); /* paired with an icon, never colour alone */
+  --feedback-positive: var(--color-brand-contrast);
+  --feedback-warning: var(--color-brand-contrast);
+
+  --accent: var(--color-brand-contrast);
+
+  --focus: var(--color-brand-contrast);
+}
+
+[data-surface="dark"],
+[data-surface="image"] {
+  --surface-bg: var(--color-ink);
+  --surface-text: var(--color-on-dark);
+  --surface-muted: var(--color-muted-on-dark);
+  --surface-line: var(--color-ink-line);
+  --surface-line-strong: #75736D; /* 3.9:1 on ink */
+  --surface-rule: var(--color-on-dark);
+  --surface-subtle: var(--color-ink-raised);
+  --surface-selected-bg: var(--color-on-dark);
+  --surface-selected-text: var(--color-ink);
+
+  --action-bg: var(--color-paper);
+  --action-text: var(--color-ink);
+  --action-bg-hover: var(--color-white);
+  --action-border: #75736D;
+  --action-border-hover: var(--color-on-dark);
+
+  --input-bg: var(--color-ink-raised);
+  --input-text: var(--color-on-dark);
+
+  --feedback-error: var(--code-string);
+  --feedback-positive: #7FC4A4;
+  --feedback-warning: #E3B566;
+
+  --focus: var(--color-on-dark);
+}
+
+/* Image surface: text sits on a photograph with a scrim (see hero.css). */
+[data-surface="image"] {
+  --surface-bg: var(--color-ink);
+  --surface-muted: var(--color-on-dark);
+}
+
+/* Any element carrying data-surface paints itself. */
+[data-surface] {
+  background-color: var(--surface-bg);
+  color: var(--surface-text);
+}

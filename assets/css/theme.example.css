@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Example project theme
+   --------------------------------------------------------------------------
+   Load after samla.css. Override raw tokens only; semantic tokens and every
+   component follow. Check white-on-brand contrast reaches 4.5:1.
+   ========================================================================== */
+
+@layer project {
+  :root {
+    --color-brand: #2B45C9;          /* 7.5:1 with white */
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --radius-1: 2px;
+  }
+}

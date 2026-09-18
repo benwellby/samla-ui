@@ -1,0 +1,203 @@
+/* ==========================================================================
+   Components / Card
+   --------------------------------------------------------------------------
+   One card for articles, case studies, services, people and products.
+   Content contract: media?, meta?, title, summary?, tags?, action?, url?
+
+   <article class="card">
+     <figure class="card__media media" data-ratio="photo"><img …></figure>
+     <p class="card__meta">Journal / 6 min read</p>
+     <h3 class="card__title"><a class="card__link" href="…">Title</a></h3>
+     <p class="card__summary">…</p>
+     <ul class="card__tags tag-list">…</ul>
+     <span class="card__action" aria-hidden="true">Read article <svg class="icon">…</svg></span>
+   </article>
+
+   The .card__link stretches over the whole card, so the card is one link
+   with the title as its accessible name. Keep other links out of linked cards.
+
+   data-layout:  stacked (default) | horizontal (media beside text, 48em+)
+                 | overlay (text over media on dark scrim)
+   data-variant: plain (default) | panel (padded, filled with surface-subtle)
+                 | bordered (padded with a hairline)
+   data-size:    default | large (Section Heading title, for featured items)
+   ========================================================================== */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+  color: var(--surface-text);
+}
+
+.card__media {
+  margin-bottom: var(--space-1);
+}
+
+.card__media img {
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--surface-muted);
+}
+
+.card__title {
+  font-size: var(--text-card-title);
+  line-height: var(--leading-card-title);
+  letter-spacing: var(--tracking-card-title);
+  font-weight: var(--weight-medium);
+}
+
+.card__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-raised);
+}
+
+.card__link:focus-visible {
+  outline: none;
+}
+
+.card:has(.card__link:focus-visible) {
+  outline: var(--focus-width) solid var(--focus);
+  outline-offset: var(--space-2);
+}
+
+.card__summary {
+  color: var(--surface-muted);
+  max-width: var(--measure);
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-1);
+  font-size: 0.9375rem;
+  font-weight: var(--weight-medium);
+}
+
+.card__action .icon {
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.card:has(.card__link):hover .card__title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.card:has(.card__link):hover .card__action .icon {
+  transform: translateX(4px);
+}
+
+.card:has(.card__link):hover .card__media img {
+  transform: scale(1.02);
+}
+
+/* Person details inside a card (profile cards, testimonials). */
+.card__person {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ---- Variants ----------------------------------------------------------- */
+
+.card[data-variant="panel"] {
+  padding: var(--space-component);
+  background-color: var(--surface-subtle);
+}
+
+.card[data-variant="bordered"] {
+  padding: var(--space-component);
+  border: 1px solid var(--surface-line);
+}
+
+.card[data-variant="panel"] .card__media,
+.card[data-variant="bordered"] .card__media {
+  margin: calc(var(--space-component) * -1) calc(var(--space-component) * -1) var(--space-2);
+}
+
+.card[data-size="large"] .card__title {
+  font-size: var(--text-section-heading);
+  line-height: var(--leading-section-heading);
+  letter-spacing: var(--tracking-section-heading);
+}
+
+.card[data-size="large"] .card__summary {
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+}
+
+@media (min-width: 48em) {
+  .card[data-layout="horizontal"] {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: var(--grid-gap);
+    align-items: start;
+  }
+
+  .card[data-layout="horizontal"] > .card__media {
+    grid-row: 1 / span 10;
+    margin: 0;
+  }
+
+  .card[data-layout="horizontal"] > :not(.card__media) {
+    grid-column: 2;
+  }
+}
+
+.card[data-layout="overlay"] {
+  justify-content: flex-end;
+  min-height: 24rem;
+  padding: var(--space-component);
+  color: var(--media-text);
+  --surface-text: var(--media-text);
+  --surface-muted: var(--media-text);
+  --focus: var(--media-text);
+  isolation: isolate;
+}
+
+.card[data-layout="overlay"] > .card__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin: 0;
+}
+
+.card[data-layout="overlay"] > .card__media .media__frame,
+.card[data-layout="overlay"] > .card__media img {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.card[data-layout="overlay"] > .card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(18 18 18 / 0.78), rgb(18 18 18 / 0.1) 60%);
+}

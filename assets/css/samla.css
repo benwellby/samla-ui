@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Samla Frontend v1
+   --------------------------------------------------------------------------
+   Entry point. Layers make the cascade explicit: a later layer always wins
+   over an earlier one regardless of selector specificity, so project
+   overrides in the `project` layer (or unlayered CSS) always win.
+
+   For production, concatenate these imports with any bundler (or
+   `node scripts/build-css.mjs`) to avoid the import waterfall.
+   ========================================================================== */
+
+@layer foundations, primitives, components, sections, patterns, project;
+
+@import url("foundations/fonts.css") layer(foundations);
+@import url("foundations/tokens.css") layer(foundations);
+@import url("foundations/surfaces.css") layer(foundations);
+@import url("foundations/reset.css") layer(foundations);
+@import url("foundations/base.css") layer(foundations);
+@import url("foundations/typography.css") layer(foundations);
+@import url("foundations/accessibility.css") layer(foundations);
+
+@import url("primitives/layout.css") layer(primitives);
+@import url("primitives/button.css") layer(primitives);
+@import url("primitives/link.css") layer(primitives);
+@import url("primitives/media.css") layer(primitives);
+@import url("primitives/tag.css") layer(primitives);
+@import url("primitives/navigation.css") layer(primitives);
+@import url("primitives/form.css") layer(primitives);
+@import url("primitives/accordion.css") layer(primitives);
+@import url("primitives/tabs.css") layer(primitives);
+@import url("primitives/prose.css") layer(primitives);
+
+@import url("components/section-header.css") layer(components);
+@import url("components/card.css") layer(components);
+@import url("components/feature.css") layer(components);
+@import url("components/quote.css") layer(components);
+@import url("components/stat.css") layer(components);
+@import url("components/logo.css") layer(components);
+@import url("components/lists.css") layer(components);
+@import url("components/notice.css") layer(components);
+@import url("components/site-header.css") layer(components);
+@import url("components/site-footer.css") layer(components);
+@import url("components/dropdown.css") layer(components);
+@import url("components/dialog.css") layer(components);
+@import url("components/cookie-banner.css") layer(components);
+@import url("components/carousel.css") layer(components);
+@import url("components/tooltip.css") layer(components);
+@import url("components/code-block.css") layer(components);
+
+@import url("sections/section.css") layer(sections);
+@import url("sections/hero.css") layer(sections);
+@import url("sections/layouts.css") layer(sections);
+
+@import url("patterns/page-header.css") layer(patterns);
+@import url("patterns/listing.css") layer(patterns);
+@import url("patterns/article.css") layer(patterns);
+@import url("patterns/profile.css") layer(patterns);

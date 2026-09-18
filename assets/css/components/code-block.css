@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Components / Code block
+   --------------------------------------------------------------------------
+   Code sits on its own dark surface in every theme. Line numbers are
+   optional and generated with CSS counters from one <span class="line">
+   per line. The copy button is added by samla.js if [data-copy] is set.
+
+   <figure class="code-block">
+     <figcaption class="code-block__header">
+       <span class="code-block__file">tokens.css</span>
+       <button class="code-block__copy" type="button" data-copy>Copy</button>
+     </figcaption>
+     <pre class="code-block__pre" data-line-numbers><code>…</code></pre>
+   </figure>
+
+   Syntax: wrap tokens in <span class="tok-keyword|tok-property|tok-string|tok-comment">.
+   ========================================================================== */
+
+.code-block {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  --surface-text: var(--code-text);
+  --surface-muted: var(--code-comment);
+  --surface-line: var(--code-line);
+  --focus: var(--code-text);
+}
+
+.code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 4rem;
+  padding: 0 var(--space-4) 0 var(--space-5);
+  border-bottom: 1px solid var(--code-line);
+}
+
+.code-block__file {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.code-block__copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: 6rem;
+  height: 2.5rem;
+  padding: 0 0.875rem;
+  border: 1px solid var(--code-line);
+  border-radius: var(--radius-1);
+  background: transparent;
+  color: var(--code-text);
+  font-size: var(--text-small);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.code-block__copy:hover {
+  border-color: var(--code-comment);
+}
+
+.code-block__pre {
+  margin: 0;
+  padding: var(--space-5);
+  overflow: auto;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  tab-size: 2;
+}
+
+@media (min-width: 48em) {
+  .code-block__pre {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+
+.code-block__pre code {
+  display: block;
+  min-width: max-content;
+  font-size: inherit;
+}
+
+.code-block__pre[data-line-numbers] {
+  padding-left: var(--space-2);
+  counter-reset: line;
+}
+
+/* Lines stay inline: the newlines in <pre> break them, so an empty line
+   still gets its number. */
+.code-block__pre[data-line-numbers] .line {
+  display: inline;
+}
+
+.code-block__pre[data-line-numbers] .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 3rem;
+  padding-right: 1.25rem;
+  color: var(--code-comment);
+  text-align: right;
+  user-select: none;
+}
+
+.tok-keyword { color: var(--code-keyword); }
+.tok-property { color: var(--code-property); }
+.tok-string { color: var(--code-string); }
+.tok-comment { color: var(--code-comment); }

@@ -1,0 +1,148 @@
+/* ==========================================================================
+   Primitives / Tabs
+   --------------------------------------------------------------------------
+   Progressive enhancement. Without JS every panel is visible, each with its
+   own heading. samla.js adds roles, aria-selected, roving tabindex and
+   arrow-key navigation, then hides inactive panels.
+
+   <div class="tabs" data-orientation="horizontal">
+     <div class="tabs__list" data-tabs-list>
+       <button class="tabs__tab" type="button" aria-controls="p1">One</button> …
+     </div>
+     <section class="tabs__panel" id="p1"><h3 class="tabs__heading">One</h3>…</section>
+   </div>
+
+   data-orientation: horizontal (default) | vertical (list beside panels, 64em+)
+   data-variant:     line (default) | contained (for code viewers on dark)
+   ========================================================================== */
+
+.tabs__list {
+  display: none; /* shown once JS has enhanced the component */
+}
+
+.tabs[data-enhanced] .tabs__list {
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  border-bottom: 1px solid var(--surface-line);
+  scrollbar-width: none;
+}
+
+.tabs__tab {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: var(--target-min);
+  padding: var(--space-3) 0;
+  border: 0;
+  background: transparent;
+  color: var(--surface-muted);
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  text-align: left;
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.tabs__tab:hover,
+.tabs__tab[aria-selected="true"] {
+  color: var(--surface-text);
+}
+
+.tabs__tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background-color: transparent;
+}
+
+.tabs__tab[aria-selected="true"]::after {
+  background-color: var(--surface-text);
+}
+
+.tabs__tab-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-regular);
+}
+
+.tabs__panel {
+  padding-top: var(--space-6);
+}
+
+.tabs[data-enhanced] .tabs__heading {
+  /* Headings are for the no-JS reading; the tab labels replace them. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.tabs:not([data-enhanced]) .tabs__panel + .tabs__panel {
+  margin-top: var(--space-6);
+  border-top: 1px solid var(--surface-line);
+}
+
+.tabs__heading {
+  margin-bottom: var(--space-4);
+  font-size: var(--text-card-title);
+  letter-spacing: var(--tracking-card-title);
+}
+
+/* ---- Contained (code viewer) -------------------------------------------- */
+
+.tabs[data-variant="contained"][data-enhanced] .tabs__list {
+  gap: 0;
+  border-bottom-color: var(--surface-line);
+}
+
+.tabs[data-variant="contained"] .tabs__tab {
+  padding: var(--space-4) var(--space-5);
+}
+
+.tabs[data-variant="contained"] .tabs__tab::after {
+  content: none;
+}
+
+.tabs[data-variant="contained"] .tabs__tab[aria-selected="true"] {
+  background-color: var(--surface-subtle);
+}
+
+.tabs[data-variant="contained"] .tabs__panel {
+  padding-top: 0;
+}
+
+/* ---- Vertical ----------------------------------------------------------- */
+
+@media (min-width: 64em) {
+  .tabs[data-orientation="vertical"][data-enhanced] {
+    display: grid;
+    grid-template-columns: minmax(14rem, 21rem) minmax(0, 1fr);
+  }
+
+  .tabs[data-orientation="vertical"][data-enhanced] .tabs__list {
+    flex-direction: column;
+    gap: 0;
+    padding-block: var(--space-4);
+    border-bottom: 0;
+    border-right: 1px solid var(--surface-line);
+  }
+
+  .tabs[data-orientation="vertical"] .tabs__tab {
+    min-height: 4.75rem;
+    white-space: normal;
+  }
+
+  .tabs[data-orientation="vertical"] .tabs__panel {
+    padding-top: 0;
+    min-width: 0;
+  }
+}

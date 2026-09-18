@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Components / Stat
+   --------------------------------------------------------------------------
+   <div class="stat">
+     <dt class="stat__label">Visitors per year</dt>    (or <p> outside a <dl>)
+     <dd class="stat__value">1.2m</dd>
+     <dd class="stat__text">Across twelve parks…</dd>   optional
+   </div>
+   Wrap a set in <dl class="stat-list"> for correct semantics.
+
+   data-size: default (Page Title value) | small (Section Heading value)
+   ========================================================================== */
+
+.stat-list {
+  display: grid;
+  grid-template-columns: repeat(var(--_cols, 2), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-7);
+}
+
+@media (min-width: 64em) {
+  .stat-list {
+    --_cols: 4;
+  }
+
+  .stat-list[data-columns="3"] {
+    --_cols: 3;
+  }
+
+  .stat-list[data-columns="2"] {
+    --_cols: 2;
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--surface-rule);
+}
+
+.stat__value {
+  order: -1;
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-page-title);
+  line-height: 1;
+  letter-spacing: var(--tracking-page-title);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat[data-size="small"] .stat__value {
+  font-size: var(--text-section-heading);
+  letter-spacing: var(--tracking-section-heading);
+}
+
+.stat__label {
+  font-weight: var(--weight-medium);
+}
+
+.stat__text {
+  margin: 0;
+  color: var(--surface-muted);
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+}

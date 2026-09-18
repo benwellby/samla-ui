@@ -1,0 +1,284 @@
+/* ==========================================================================
+   Sections / Hero
+   --------------------------------------------------------------------------
+   <section class="hero" data-layout="text" data-surface="default">
+     <div class="hero__inner container">
+       <div class="hero__content">
+         <p class="hero__eyebrow">Landscape architecture</p>
+         <h1 class="hero__title text-display">…</h1>
+       </div>
+       <dl class="hero__aside meta-list">…</dl>                   optional
+       <div class="hero__body">
+         <p class="hero__lead text-lead">…</p>
+         <div class="hero__actions button-group" data-stack="mobile">…</div>
+       </div>
+       <figure class="hero__media media" data-ratio="…">…</figure> optional
+     </div>
+   </section>
+
+   The heading's size is chosen with a text-* class (Display or Page Title).
+
+   data-layout:  text (default: title across the grid, lead and actions below
+                 at column 7, aside facts at column 1)
+                 | split (content left, media right)
+                 | media (image fills the band behind the content; use
+                   data-surface="image")
+                 | centered (centred stack, optional wide media below)
+   data-align:   left (default) | center (text layout only)
+   data-width:   narrow (8 cols) | standard (11 cols, default) | wide (12 cols)
+   data-surface: default | alternate | brand | dark | image
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  padding-block: clamp(3rem, 1.2rem + 6vw, 7rem) var(--space-section);
+  background-color: var(--surface-bg);
+  color: var(--surface-text);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-6);
+  align-items: start;
+}
+
+.hero__inner > * {
+  grid-column: 1 / -1;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--surface-muted);
+}
+
+.hero__content > .hero__eyebrow {
+  margin-bottom: clamp(0rem, -1rem + 3vw, 1rem);
+}
+
+.hero__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.hero__lead {
+  color: var(--surface-muted);
+  max-width: 40rem;
+}
+
+.hero__media {
+  margin: 0;
+}
+
+@media (max-width: 47.99em) {
+  .hero__aside.meta-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5) var(--space-4);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--surface-line);
+  }
+
+  .hero__aside.meta-list > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .hero__aside {
+    order: 3;
+  }
+}
+
+/* ---- Text (default) ------------------------------------------------------ */
+
+@media (min-width: 64em) {
+  .hero:not([data-layout]) .hero__content,
+  .hero[data-layout="text"] .hero__content {
+    grid-column: 1 / span 11;
+  }
+
+  .hero[data-width="narrow"] .hero__content {
+    grid-column: 1 / span 8;
+  }
+
+  .hero[data-width="wide"] .hero__content {
+    grid-column: 1 / -1;
+  }
+
+  .hero:not([data-layout]) .hero__aside,
+  .hero[data-layout="text"] .hero__aside {
+    grid-column: 1 / span 4;
+    margin-top: var(--space-9);
+  }
+
+  .hero:not([data-layout]) .hero__body,
+  .hero[data-layout="text"] .hero__body {
+    grid-column: 1 / span 6;
+    margin-top: var(--space-7);
+  }
+
+  .hero:not([data-layout]) .hero__aside + .hero__body,
+  .hero[data-layout="text"] .hero__aside + .hero__body {
+    grid-column: 7 / span 5;
+    margin-top: var(--space-9);
+  }
+
+  .hero:not([data-layout]) .hero__media,
+  .hero[data-layout="text"] .hero__media {
+    margin-top: var(--space-8);
+  }
+}
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .hero__body {
+    margin-top: var(--space-5);
+  }
+}
+
+/* ---- Align center -------------------------------------------------------- */
+
+.hero[data-align="center"] .hero__content,
+.hero[data-align="center"] .hero__body,
+.hero[data-layout="centered"] .hero__content,
+.hero[data-layout="centered"] .hero__body {
+  grid-column: 1 / -1;
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.hero[data-align="center"] .hero__title,
+.hero[data-layout="centered"] .hero__title {
+  max-width: 18ch;
+}
+
+.hero[data-align="center"] .hero__lead,
+.hero[data-layout="centered"] .hero__lead {
+  margin-inline: auto;
+}
+
+.hero[data-align="center"] .hero__actions,
+.hero[data-layout="centered"] .hero__actions {
+  justify-content: center;
+}
+
+.hero[data-layout="centered"] .hero__body {
+  margin-top: 0;
+}
+
+.hero[data-layout="centered"] .hero__media {
+  margin-top: var(--space-7);
+}
+
+/* ---- Split --------------------------------------------------------------- */
+
+@media (min-width: 64em) {
+  .hero[data-layout="split"] .hero__inner {
+    align-items: end;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  .hero[data-layout="split"] .hero__content,
+  .hero[data-layout="split"] .hero__body,
+  .hero[data-layout="split"] .hero__aside {
+    grid-column: 1 / span 6;
+  }
+
+  .hero[data-layout="split"] .hero__content {
+    grid-row: 1;
+  }
+
+  .hero[data-layout="split"] .hero__body {
+    grid-row: 2;
+    align-self: start;
+  }
+
+  .hero[data-layout="split"] .hero__aside {
+    grid-row: 3;
+    align-self: start;
+    margin-top: var(--space-5);
+  }
+
+  .hero[data-layout="split"] .hero__media {
+    grid-column: 8 / -1;
+    grid-row: 1 / span 3;
+    align-self: stretch;
+  }
+
+  .hero[data-layout="split"][data-width="wide"] .hero__media {
+    grid-column: 7 / -1;
+  }
+}
+
+/* ---- Media background ---------------------------------------------------- */
+
+.hero[data-layout="media"] {
+  display: flex;
+  align-items: flex-end;
+  min-height: min(52rem, 88vh);
+  padding-top: calc(var(--space-section) + 4rem);
+  isolation: isolate;
+}
+
+.hero[data-layout="media"] .hero__inner {
+  width: 100%;
+}
+
+.hero[data-layout="media"] .hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin: 0;
+}
+
+.hero[data-layout="media"] .hero__media img,
+.hero[data-layout="media"] .hero__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Scrim: guarantees 4.5:1 for on-dark text over any photograph. */
+.hero[data-layout="media"] .hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgb(18 18 18 / 0.82) 0%, rgb(18 18 18 / 0.35) 55%, rgb(18 18 18 / 0.2) 100%);
+}
+
+@media (min-width: 64em) {
+  .hero[data-layout="media"] .hero__content {
+    grid-column: 1 / span 9;
+  }
+
+  .hero[data-layout="media"] .hero__body {
+    grid-column: 1 / span 6;
+  }
+
+  .hero[data-layout="media"] .hero__aside {
+    grid-column: 9 / span 4;
+    align-self: end;
+  }
+}
+
+.hero[data-layout="media"] .hero__lead {
+  color: var(--surface-text);
+}
+
+/* Offset for an overlay header. */
+.site-header[data-behaviour="overlay"] + main > .hero:first-child,
+.site-header[data-behaviour="overlay"] ~ main > .hero:first-child {
+  padding-top: calc(var(--space-section) + 4.5rem);
+}

@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Patterns / Page header
+   --------------------------------------------------------------------------
+   The opening band of an inner page: article, case study, service, job,
+   event, person, index pages. One pattern, not six.
+
+   <header class="page-header" data-layout="stacked">
+     <div class="page-header__inner container">
+       <nav class="breadcrumb" aria-label="Breadcrumb">…</nav>
+       <p class="page-header__label">Case study</p>
+       <h1 class="page-header__title text-page-title">…</h1>
+       <p class="page-header__lead text-lead">…</p>
+       <dl class="page-header__meta meta-list">…</dl>
+       <div class="page-header__actions button-group">…</div>
+       <figure class="page-header__media media" data-ratio="cinema">…</figure>
+     </div>
+   </header>
+
+   data-layout: stacked (default: Swiss hang, title from column 4 with
+                label and meta in columns 1 to 3) | split (text left,
+                media right) | centered
+   data-surface: any surface
+   ========================================================================== */
+
+.page-header {
+  padding-block: var(--space-7) var(--space-section);
+  background-color: var(--surface-bg);
+  color: var(--surface-text);
+}
+
+.page-header__inner {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-5);
+}
+
+.page-header__inner > * {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.page-header .breadcrumb {
+  margin-bottom: clamp(1rem, 0rem + 3vw, 3.5rem);
+}
+
+.page-header__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--surface-muted);
+}
+
+.page-header__lead {
+  max-width: 40rem;
+  color: var(--surface-muted);
+}
+
+.page-header__meta {
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--surface-line);
+}
+
+.page-header__media {
+  margin-top: var(--space-7);
+}
+
+@media (min-width: 64em) {
+  /* Dense auto-placement: the label sits beside the title and the facts
+     beside the lead, whichever optional parts are present. */
+  .page-header:not([data-layout]) .page-header__inner,
+  .page-header[data-layout="stacked"] .page-header__inner {
+    grid-auto-flow: row dense;
+    row-gap: var(--space-6);
+  }
+
+  .page-header:not([data-layout]) .page-header__label,
+  .page-header[data-layout="stacked"] .page-header__label {
+    grid-column: 1 / span 3;
+    padding-top: 0.75rem;
+  }
+
+  .page-header:not([data-layout]) .page-header__title,
+  .page-header[data-layout="stacked"] .page-header__title {
+    grid-column: 4 / span 9;
+  }
+
+  .page-header:not([data-layout]) .page-header__lead,
+  .page-header[data-layout="stacked"] .page-header__lead,
+  .page-header:not([data-layout]) .page-header__actions,
+  .page-header[data-layout="stacked"] .page-header__actions {
+    grid-column: 4 / span 6;
+  }
+
+  .page-header:not([data-layout]) .page-header__meta,
+  .page-header[data-layout="stacked"] .page-header__meta {
+    grid-column: 1 / span 3;
+    grid-row: span 2;
+    align-self: start;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-1);
+  }
+
+  .page-header:not([data-layout]) .page-header__meta dd + dt,
+  .page-header[data-layout="stacked"] .page-header__meta dd + dt {
+    margin-top: var(--space-3);
+  }
+
+  .page-header:not([data-layout]) .page-header__media,
+  .page-header[data-layout="stacked"] .page-header__media {
+    grid-column: 1 / -1;
+  }
+
+  /* Split */
+  .page-header[data-layout="split"] .page-header__inner {
+    align-items: start;
+  }
+
+  .page-header[data-layout="split"] .page-header__inner > :not(.page-header__media) {
+    grid-column: 1 / span 6;
+  }
+
+  .page-header[data-layout="split"] .page-header__media {
+    grid-column: 8 / -1;
+    grid-row: 1 / span 7;
+    margin-top: 0;
+  }
+
+  .page-header[data-layout="split"] .page-header__meta {
+    margin-top: var(--space-5);
+  }
+}
+
+.page-header[data-layout="centered"] .page-header__inner {
+  justify-items: center;
+  text-align: center;
+}
+
+.page-header[data-layout="centered"] .page-header__title {
+  max-width: 20ch;
+}
+
+.page-header[data-layout="centered"] .breadcrumb ol {
+  justify-content: center;
+}
+
+.page-header[data-layout="centered"] .page-header__meta {
+  width: 100%;
+}

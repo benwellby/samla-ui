@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Components / Section header
+   --------------------------------------------------------------------------
+   The Swiss hanging label: a strong rule, a mono label in columns 1 to 3,
+   the heading from column 4, an optional action on the right.
+
+   <header class="section-header">
+     <p class="section-header__label">Principles</p>
+     <h2 class="section-header__title text-section-heading">…</h2>
+     <p class="section-header__intro">…</p>          optional
+     <div class="section-header__action"><a class="link">…</a></div>  optional
+   </header>
+
+   data-rule:  strong (default) | none
+   data-align: hang (default, label left of heading) | stack (label above,
+               heading full width) | center
+   On mobile, the label stacks above the heading.
+   ========================================================================== */
+
+.section-header {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-4);
+  align-items: start;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--surface-rule);
+}
+
+.section-header[data-rule="none"] {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.section-header > * {
+  grid-column: 1 / -1;
+}
+
+.section-header__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--surface-muted);
+}
+
+.section-header__intro {
+  max-width: 36rem;
+  color: var(--surface-muted);
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+}
+
+.section-header__action {
+  display: flex;
+}
+
+@media (min-width: 64em) {
+  .section-header {
+    row-gap: var(--space-5);
+  }
+
+  .section-header:not([data-align="stack"]):not([data-align="center"]) > .section-header__label {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+  }
+
+  .section-header:not([data-align="stack"]):not([data-align="center"]) > .section-header__title,
+  .section-header:not([data-align="stack"]):not([data-align="center"]) > .section-header__intro {
+    grid-column: 4 / span 6;
+  }
+
+  .section-header:not([data-align="stack"]):not([data-align="center"]) > .section-header__title {
+    grid-row: 1;
+  }
+
+  .section-header:not([data-align="stack"]):not([data-align="center"]) > .section-header__intro {
+    grid-column: 4 / span 5;
+  }
+
+  .section-header:not([data-align="center"]) > .section-header__action {
+    grid-column: 10 / span 3;
+    grid-row: 1;
+    justify-content: flex-end;
+    margin-top: calc(var(--space-1) * -1);
+  }
+
+  .section-header[data-align="stack"] > .section-header__title {
+    grid-column: 1 / span 8;
+  }
+}
+
+.section-header[data-align="center"] {
+  justify-items: center;
+  text-align: center;
+}
+
+.section-header[data-align="center"] > .section-header__title {
+  max-width: 24ch;
+}
+
+/* Space between a section header and the content it introduces. */
+.section-header + * {
+  margin-top: var(--space-heading);
+}

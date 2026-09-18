@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Patterns / Profile
+   --------------------------------------------------------------------------
+   A person's page: portrait, name, role, biography, contact details.
+
+   <div class="profile container">
+     <figure class="profile__portrait media" data-ratio="portrait">…</figure>
+     <div class="profile__body">
+       <p class="label">Partner</p>
+       <h1 class="text-page-title">Name</h1>
+       <div class="prose">…</div>
+       <dl class="meta-list">…</dl>
+       <ul class="social-links">…</ul>
+     </div>
+   </div>
+   ========================================================================== */
+
+.profile {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--space-7);
+  align-items: start;
+}
+
+.profile > * {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.profile__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.profile__body > .meta-list {
+  margin-top: var(--space-3);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--surface-line);
+}
+
+@media (min-width: 48em) {
+  .profile__portrait {
+    grid-column: 1 / span 4;
+  }
+
+  .profile__body {
+    grid-column: 5 / -1;
+  }
+}
+
+@media (min-width: 64em) {
+  .profile__portrait {
+    grid-column: 1 / span 5;
+    position: sticky;
+    top: var(--space-9);
+  }
+
+  .profile__body {
+    grid-column: 7 / span 6;
+  }
+}

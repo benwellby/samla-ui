@@ -1,0 +1,176 @@
+/* ==========================================================================
+   Primitives / Tag, Badge, Avatar, Divider, Label
+   --------------------------------------------------------------------------
+   .tag     Content labels and filters. <span>, <a> or <button>.
+            data-selected (or aria-pressed="true" / aria-current) fills it.
+   .badge   Status with a dot. data-status: stable | positive | review |
+            warning | error | planned | neutral. Text always accompanies colour.
+   .avatar  Portrait or initials. data-size: small (32) | medium (48) | large (96)
+   .divider <hr class="divider">. data-weight: strong (ink rule that opens a
+            section). data-spacing: 5 to 8 adds vertical margin.
+   .label   Mono caption used as a section or field label ("Specimen").
+   ========================================================================== */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.4375rem 0.625rem; /* 7 / 10 */
+  border: 1px solid var(--surface-line);
+  border-radius: var(--radius-1);
+  background-color: transparent;
+  color: var(--surface-text);
+  font-size: 0.8125rem; /* 13 */
+  font-weight: var(--weight-regular);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+a.tag,
+button.tag {
+  /* Interactive tags meet the 44px target via padding on the hit area. */
+  position: relative;
+  cursor: pointer;
+}
+
+a.tag::after,
+button.tag::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem -0.125rem;
+}
+
+a.tag:hover,
+button.tag:hover {
+  border-color: var(--surface-line-strong);
+}
+
+.tag[data-selected],
+.tag[aria-pressed="true"],
+.tag[aria-current] {
+  background-color: var(--surface-selected-bg);
+  border-color: var(--surface-selected-bg);
+  color: var(--surface-selected-text);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+/* ---- Badge -------------------------------------------------------------- */
+
+.badge {
+  --_dot: var(--surface-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-small);
+  line-height: 1.2;
+}
+
+.badge::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--_dot);
+}
+
+.badge[data-status="stable"],
+.badge[data-status="positive"] { --_dot: var(--feedback-positive); }
+.badge[data-status="review"],
+.badge[data-status="warning"] { --_dot: var(--feedback-warning); }
+.badge[data-status="error"] { --_dot: var(--feedback-error); }
+
+.badge[data-status="planned"]::before {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--surface-muted);
+}
+
+/* Count or version pill: <span class="badge" data-variant="pill">v1.0</span> */
+.badge[data-variant="pill"] {
+  padding: 0.3125rem 0.4375rem;
+  border: 1px solid var(--surface-line);
+  border-radius: var(--radius-1);
+  color: var(--surface-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: 1;
+}
+
+.badge[data-variant="pill"]::before {
+  content: none;
+}
+
+/* ---- Avatar ------------------------------------------------------------- */
+
+.avatar {
+  --_size: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--_size);
+  height: var(--_size);
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background-color: var(--surface-subtle);
+  color: var(--surface-text);
+  font-size: calc(var(--_size) * 0.36);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.01em;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar[data-size="small"] { --_size: 2rem; }
+.avatar[data-size="large"] { --_size: 6rem; }
+
+.avatar-group {
+  display: flex;
+}
+
+.avatar-group > .avatar + .avatar {
+  margin-left: -0.5rem;
+  box-shadow: 0 0 0 2px var(--surface-bg);
+}
+
+/* ---- Divider ------------------------------------------------------------ */
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--surface-line);
+}
+
+.divider[data-weight="strong"] {
+  border-top-color: var(--surface-rule);
+}
+
+.divider[data-spacing="5"] { margin-block: var(--space-5); }
+.divider[data-spacing="6"] { margin-block: var(--space-6); }
+.divider[data-spacing="7"] { margin-block: var(--space-7); }
+.divider[data-spacing="8"] { margin-block: var(--space-8); }
+
+/* ---- Label -------------------------------------------------------------- */
+
+.label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  font-weight: var(--weight-regular);
+  color: var(--surface-muted);
+}

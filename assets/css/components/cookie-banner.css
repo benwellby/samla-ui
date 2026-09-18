@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Components / Cookie banner
+   --------------------------------------------------------------------------
+   A non-modal region fixed to the bottom of the viewport. Reject is as
+   prominent as Accept. samla.js stores the choice (localStorage key
+   "samla-consent") and hides the banner; it stays hidden if already set.
+
+   <section class="cookie-banner" aria-label="Cookie preferences" data-surface="dark" hidden>
+     <p class="cookie-banner__text">…</p>
+     <div class="cookie-banner__actions">
+       <button class="button" data-size="small" data-consent="accept">Accept all</button>
+       <button class="button" data-size="small" data-consent="reject">Reject non-essential</button>
+       <a class="link" href="/cookies">Manage</a>
+     </div>
+   </section>
+   ========================================================================== */
+
+.cookie-banner {
+  position: fixed;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: var(--space-3);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 40rem;
+  padding: var(--space-5);
+  background-color: var(--surface-bg);
+  color: var(--surface-text);
+  box-shadow: var(--shadow-overlay);
+}
+
+.cookie-banner__text {
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+}
+
+.cookie-banner__text a {
+  color: inherit;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+@media (min-width: 48em) {
+  .cookie-banner {
+    left: var(--space-5);
+    right: auto;
+    bottom: var(--space-5);
+  }
+}
+
+/* Static preview (style guide): render in flow. */
+.cookie-banner[data-static] {
+  position: static;
+  box-shadow: none;
+}

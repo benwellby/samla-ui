@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Primitives / Accordion and Disclosure
+   --------------------------------------------------------------------------
+   Built on native <details>/<summary>: keyboard, screen reader and no-JS
+   support come free. Give items a shared `name` to allow only one open.
+
+   <div class="accordion">
+     <details class="accordion__item" name="faq" open>
+       <summary class="accordion__trigger">Question<span class="accordion__icon" aria-hidden="true"></span></summary>
+       <div class="accordion__panel">…</div>
+     </details>
+   </div>
+
+   data-size: default (18px trigger) | small (16px, for dense lists)
+   Disclosure: a single .accordion__item without the .accordion wrapper.
+   ========================================================================== */
+
+.accordion {
+  border-top: 1px solid var(--surface-rule);
+}
+
+.accordion__item {
+  border-bottom: 1px solid var(--surface-line);
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 4rem;
+  padding: var(--space-4) var(--space-2) var(--space-4) 0;
+  font-size: 1.125rem;
+  font-weight: var(--weight-medium);
+  line-height: 1.4;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.accordion__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.accordion__trigger:hover {
+  background-color: var(--surface-subtle);
+}
+
+.accordion[data-size="small"] .accordion__trigger {
+  min-height: 3.25rem;
+  font-size: var(--text-body);
+}
+
+/* Plus that becomes a minus. */
+.accordion__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+.accordion__icon::before,
+.accordion__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.125rem;
+  right: 0.125rem;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background-color: currentColor;
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.accordion__icon::after {
+  transform: rotate(90deg);
+}
+
+.accordion__item[open] .accordion__icon::after {
+  transform: rotate(0deg);
+}
+
+.accordion__panel {
+  padding: 0 var(--space-7) var(--space-5) 0;
+  color: var(--surface-muted);
+  max-width: var(--measure);
+}
+
+.accordion__panel > * + * {
+  margin-top: var(--space-3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .accordion__item[open] .accordion__panel {
+    animation: accordion-reveal var(--duration-base) var(--ease-standard);
+  }
+}
+
+@keyframes accordion-reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}

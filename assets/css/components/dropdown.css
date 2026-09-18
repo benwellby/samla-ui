@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Components / Dropdown (disclosure menu)
+   --------------------------------------------------------------------------
+   A button that reveals a list of links or actions (sort, share, language).
+   Navigation menus in the header use .site-nav__menu instead.
+
+   <div class="dropdown">
+     <button class="button" data-variant="secondary" data-size="small"
+             aria-expanded="false" aria-controls="sort-menu" data-dropdown-toggle>Sort <svg>…</svg></button>
+     <div class="dropdown__menu" id="sort-menu" hidden>
+       <a class="dropdown__item" href="…" aria-current="true">Newest</a> …
+     </div>
+   </div>
+   data-align: start (default) | end
+   ========================================================================== */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  left: 0;
+  z-index: var(--z-dropdown);
+  display: flex;
+  flex-direction: column;
+  min-width: 12rem;
+  padding: var(--space-2);
+  --surface-bg: var(--overlay-bg);
+  --surface-text: var(--overlay-text);
+  --surface-muted: var(--overlay-muted);
+  --surface-line: var(--overlay-line);
+  --surface-subtle: var(--overlay-subtle);
+  --action-bg: var(--overlay-action-bg);
+  --action-text: var(--overlay-action-text);
+  --action-bg-hover: var(--overlay-action-bg-hover);
+  --focus: var(--overlay-text);
+  border: 1px solid var(--surface-line);
+  background-color: var(--surface-bg);
+  color: var(--surface-text);
+  box-shadow: var(--shadow-overlay);
+}
+
+.dropdown[data-align="end"] .dropdown__menu {
+  left: auto;
+  right: 0;
+}
+
+.dropdown__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--target-min);
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-1);
+  background: transparent;
+  color: inherit;
+  font-size: 0.9375rem;
+  text-align: left;
+  text-decoration: none;
+}
+
+.dropdown__item:hover {
+  background-color: var(--surface-subtle);
+}
+
+.dropdown__item[aria-current="true"] {
+  font-weight: var(--weight-medium);
+}
+
+/* Without JS: no toggle, the options render inline as plain links. */
+.dropdown:not([data-enhanced]) [data-dropdown-toggle] {
+  display: none;
+}
+
+.dropdown:not([data-enhanced]) .dropdown__menu {
+  position: static;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+}

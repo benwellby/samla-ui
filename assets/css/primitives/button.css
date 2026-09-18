@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Primitives / Button
+   --------------------------------------------------------------------------
+   <a class="button" href="…">Label</a>   <button class="button" type="button">
+
+   data-variant: primary (default) | secondary | text
+   data-size:    default (48) | small (44, headers)   Never below 44.
+   data-width:   full (stretch; use on mobile stacks)
+   Icons: add an inline <svg class="icon"> after the label.
+   Disabled: native [disabled] or aria-disabled="true".
+
+   button-group: a cluster of buttons. Stacks full width on small screens
+   with data-stack="mobile".
+   ========================================================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: var(--control-height);
+  padding: 0 1.375rem; /* 22 */
+  border: 1px solid transparent;
+  border-radius: var(--radius-1);
+  background-color: var(--action-bg);
+  color: var(--action-text);
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    text-decoration-thickness var(--duration-fast) var(--ease-standard);
+}
+
+.button:hover {
+  background-color: var(--action-bg-hover);
+  color: var(--action-text);
+}
+
+.button .icon {
+  flex-shrink: 0;
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.button:hover .icon[data-icon="arrow-right"] {
+  transform: translateX(2px);
+}
+
+.button[data-variant="secondary"] {
+  background-color: transparent;
+  border-color: var(--action-border);
+  color: var(--surface-text);
+}
+
+.button[data-variant="secondary"]:hover {
+  border-color: var(--action-border-hover);
+}
+
+.button[data-variant="text"] {
+  padding-inline: 0;
+  background-color: transparent;
+  color: var(--surface-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.button[data-variant="text"]:hover {
+  text-decoration-thickness: 2px;
+}
+
+.button[data-size="small"] {
+  min-height: var(--control-height-small);
+  padding-inline: 1.125rem; /* 18 */
+  font-size: 0.9375rem;     /* 15 */
+}
+
+.button[data-width="full"] {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  background-color: var(--surface-line);
+  border-color: transparent;
+  color: var(--surface-muted);
+  cursor: not-allowed;
+}
+
+.button[data-variant="secondary"]:disabled,
+.button[data-variant="secondary"][aria-disabled="true"] {
+  background-color: transparent;
+  border-color: var(--surface-line);
+}
+
+/* Icon-only button: square, needs an aria-label. */
+.button[data-icon-only] {
+  width: var(--control-height);
+  padding: 0;
+}
+
+.button[data-icon-only][data-size="small"] {
+  width: var(--control-height-small);
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+@media (max-width: 47.99em) {
+  .button-group[data-stack="mobile"] {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-group[data-stack="mobile"] > .button:not([data-variant="text"]) {
+    min-height: 3.25rem; /* 52 */
+    justify-content: space-between;
+    padding-inline: var(--space-5);
+  }
+
+  .button-group[data-stack="mobile"] > .button[data-variant="secondary"] {
+    justify-content: flex-start;
+  }
+}

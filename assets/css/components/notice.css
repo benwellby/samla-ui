@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Components / Notice
+   --------------------------------------------------------------------------
+   Inline message: form success, service status, content warnings.
+   <div class="notice" data-status="positive" role="status">
+     <svg class="icon">…</svg>
+     <div class="notice__body"><p class="notice__title">…</p><p>…</p></div>
+   </div>
+   data-status: info (default) | positive | warning | error
+   Use role="status" for polite updates, role="alert" for errors after submit.
+   ========================================================================== */
+
+.notice {
+  --_accent: var(--surface-text);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-left: var(--border-width-accent) solid var(--_accent);
+  background-color: var(--surface-subtle);
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+}
+
+.notice > .icon {
+  margin-top: 0.125rem;
+  color: var(--_accent);
+}
+
+.notice__title {
+  font-weight: var(--weight-medium);
+}
+
+.notice[data-status="positive"] { --_accent: var(--feedback-positive); }
+.notice[data-status="warning"] { --_accent: var(--feedback-warning); }
+.notice[data-status="error"] { --_accent: var(--feedback-error); }

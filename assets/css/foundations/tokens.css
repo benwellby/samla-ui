@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Foundations / Tokens
+   --------------------------------------------------------------------------
+   Two tiers:
+   1. Raw tokens    (--color-*, --font-*, --space-*, ...) define the palette.
+   2. Semantic tokens (--surface-*, --action-*, --focus, ...) are what
+      components consume. Surfaces (surfaces.css) remap the semantic tier.
+
+   Components must never reference a raw colour. Rebrand a project by
+   overriding raw tokens in a theme file loaded after samla.css.
+   ========================================================================== */
+
+:root {
+  /* ---- Colour: raw palette --------------------------------------------- */
+  --color-paper: #F7F6F2;          /* default background */
+  --color-white: #FFFFFF;          /* light surface, inputs */
+  --color-stone: #ECEAE4;          /* alternate surface, media placeholders */
+  --color-stone-line: #C9C6BE;     /* hairline on stone */
+  --color-line: #D8D6CF;           /* hairlines, dividers (decorative) */
+  --color-border-strong: #8A8881;  /* inputs, secondary buttons. 3.3:1 on paper */
+  --color-muted: #5C5B57;          /* secondary text. 6.3:1 paper, 5.7:1 stone */
+  --color-ink: #121212;            /* text, primary actions, dark surface */
+  --color-ink-hover: #2E2E2C;      /* primary action hover */
+  --color-ink-raised: #1F1F1E;     /* selected item on dark */
+  --color-ink-line: #3A3A38;       /* hairline on dark */
+  --color-on-dark: #F2F1ED;        /* text on dark. 16.6:1 on ink */
+  --color-muted-on-dark: #9D9B94;  /* secondary text on dark. 6.7:1 on ink */
+
+  --color-brand: #C4331A;          /* one accent per view. White on brand 5.5:1 */
+  --color-brand-contrast: #FFFFFF; /* text on brand */
+
+  --color-positive: #1F6B4F;
+  --color-warning: #B7791F;
+  --color-error: #C4331A;
+
+  /* Code (always its own dark surface) */
+  --code-bg: #161615;
+  --code-text: #F2F1ED;
+  --code-keyword: #A9B8F5;
+  --code-property: #D9C9A3;
+  --code-string: #E9A08E;
+  --code-comment: #8C8A84;
+  --code-line: #3A3A38;
+
+  /* ---- Typography ------------------------------------------------------- */
+  --font-sans: 'Instrument Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 600; /* wordmarks only */
+
+  /* Visual type scale. Names describe roles, never HTML elements.
+     Desktop / mobile sizes: 92/44, 64/36, 40/28, 24/20, 20/18, 16, 14, 12 */
+  --text-display: clamp(2.75rem, 1.2rem + 5vw, 5.75rem);
+  --text-page-title: clamp(2.25rem, 1.5rem + 2.75vw, 4rem);
+  --text-section-heading: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
+  --text-card-title: clamp(1.25rem, 1.1rem + 0.4vw, 1.5rem);
+  --text-lead: clamp(1.125rem, 1.05rem + 0.25vw, 1.25rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+
+  --leading-display: 0.98;
+  --leading-page-title: 1;
+  --leading-section-heading: 1.1;
+  --leading-card-title: 1.25;
+  --leading-lead: 1.5;
+  --leading-body: 1.6;
+  --leading-small: 1.5;
+  --leading-caption: 1.4;
+
+  --tracking-display: -0.04em;
+  --tracking-page-title: -0.035em;
+  --tracking-section-heading: -0.025em;
+  --tracking-card-title: -0.015em;
+  --tracking-lead: -0.005em;
+  --tracking-body: 0;
+  --tracking-caption: 0.02em;
+
+  --measure: 68ch;        /* running text, 60 to 72 characters */
+  --measure-narrow: 44ch; /* intros, captions beside media */
+
+  /* ---- Space (4px base) ------------------------------------------------- */
+  --space-1: 0.25rem;  /* 4 */
+  --space-2: 0.5rem;   /* 8 */
+  --space-3: 0.75rem;  /* 12 */
+  --space-4: 1rem;     /* 16 */
+  --space-5: 1.5rem;   /* 24 */
+  --space-6: 2rem;     /* 32 */
+  --space-7: 3rem;     /* 48 */
+  --space-8: 4rem;     /* 64 */
+  --space-9: 6rem;     /* 96 */
+  --space-10: 8rem;    /* 128 */
+
+  /* Fluid roles */
+  --space-section: clamp(5rem, 3.4rem + 4.4vw, 8rem);     /* 80 to 128 */
+  --space-heading: clamp(2rem, 1.3rem + 2.2vw, 3.5rem);   /* heading to content, 32 to 56 */
+  --space-component: clamp(1.5rem, 1.2rem + 1vw, 2rem);   /* padding inside panels, 24 to 32 */
+  --space-stack: var(--space-5);                           /* default vertical rhythm */
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --grid-columns: 4;
+  --grid-gap: 1rem;       /* 16 mobile, 20 tablet, 24 laptop+ */
+  --page-gutter: 1.25rem; /* 20 mobile, 40 tablet, 48 laptop, 64 desktop */
+
+  --width-content: 82rem; /* 1312 */
+  --width-wide: 90rem;    /* 1440, full-bleed media inside a max */
+  --width-narrow: 45rem;  /* 720, long-form reading column */
+
+  /* Breakpoints (for reference: custom properties cannot be used in media
+     queries). Mobile < 48em (768), tablet >= 48em, laptop >= 64em (1024),
+     desktop >= 90em (1440). */
+
+  /* ---- Shape and line --------------------------------------------------- */
+  --radius-0: 0;
+  --radius-1: 4px;      /* buttons, inputs, tags */
+  --radius-full: 999px; /* status dots only */
+
+  --border-width: 1px;
+  --border-width-strong: 1px;
+  --border-width-accent: 3px;
+
+  --shadow-none: none;
+  --shadow-overlay: 0 1px 2px rgb(18 18 18 / 0.06), 0 12px 32px rgb(18 18 18 / 0.12); /* dialogs, menus only */
+
+  /* ---- Aspect ratios ---------------------------------------------------- */
+  --ratio-square: 1 / 1;
+  --ratio-portrait: 4 / 5;
+  --ratio-standard: 4 / 3;
+  --ratio-photo: 3 / 2;
+  --ratio-video: 16 / 9;
+  --ratio-cinema: 21 / 9;
+
+  /* ---- Controls --------------------------------------------------------- */
+  --control-height: 3rem;          /* 48 */
+  --control-height-small: 2.75rem; /* 44, never below */
+  --target-min: 2.75rem;           /* touch target */
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --duration-fast: 120ms;  /* hover and press */
+  --duration-base: 200ms;  /* state changes */
+  --duration-slow: 320ms;  /* overlays, drawers */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  /* ---- Focus ------------------------------------------------------------ */
+  --focus-width: 2px;
+  --focus-offset: 2px;
+
+  /* ---- Z-index ---------------------------------------------------------- */
+  --z-base: 0;
+  --z-raised: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-dialog: 400;
+  --z-toast: 500;
+}
+
+@media (min-width: 48em) {
+  :root {
+    --grid-columns: 8;
+    --grid-gap: 1.25rem;
+    --page-gutter: 2.5rem;
+  }
+}
+
+@media (min-width: 64em) {
+  :root {
+    --grid-columns: 12;
+    --grid-gap: 1.5rem;
+    --page-gutter: 3rem;
+  }
+}
+
+@media (min-width: 90em) {
+  :root {
+    --page-gutter: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

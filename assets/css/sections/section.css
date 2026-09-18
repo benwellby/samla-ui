@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Sections / Section (the page band)
+   --------------------------------------------------------------------------
+   Every page band except the hero is a .section. It owns vertical spacing
+   and surface; a .container inside owns width and gutters.
+
+   <section class="section" data-surface="alternate" aria-labelledby="features-title">
+     <div class="container">
+       <header class="section-header">…<h2 id="features-title">…</h2></header>
+       <div class="section__body">…</div>
+     </div>
+   </section>
+
+   data-surface: default | light | alternate | brand | dark
+   data-spacing: default (80 to 128) | compact (48 to 64) | none
+   Adjacent sections on the same surface drop their top padding when the
+   second opens with a section header, so the rule separates them and the
+   rhythm stays at one section space.
+
+   section__body data-indent: aligns body content with the heading
+   (column 4 on desktop), for text-led sections.
+   ========================================================================== */
+
+.section {
+  padding-block: var(--space-section);
+}
+
+.section[data-spacing="compact"] {
+  padding-block: clamp(3rem, 2.4rem + 1.8vw, 4rem);
+}
+
+.section[data-spacing="none"] {
+  padding-block: 0;
+}
+
+/* Same-surface neighbours share one gap when the second opens with a ruled
+   section header: the rule, not extra space, separates them. */
+.section:has(> .container > .section-header:first-child:not([data-rule="none"])):is(
+  :is(.section:not([data-spacing="none"]), .hero, .page-header):not([data-surface]) + .section:not([data-surface]),
+  .section:not([data-spacing="none"])[data-surface="default"] + .section[data-surface="default"],
+  .section:not([data-spacing="none"])[data-surface="light"] + .section[data-surface="light"],
+  .section:not([data-spacing="none"])[data-surface="alternate"] + .section[data-surface="alternate"],
+  .section:not([data-spacing="none"])[data-surface="dark"] + .section[data-surface="dark"],
+  .section:not([data-spacing="none"])[data-surface="brand"] + .section[data-surface="brand"]
+) {
+  padding-top: 0;
+}
+
+.section__body[data-indent] {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+}
+
+.section__body[data-indent] > * {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 64em) {
+  .section__body[data-indent] > * {
+    grid-column: 4 / -1;
+  }
+}
+
+.section__footer {
+  margin-top: var(--space-7);
+}
+
+/* Utility row under a section body: supporting notes in three columns. */
+.section__notes {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  color: var(--surface-muted);
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+}
+
+.section__notes strong {
+  color: var(--surface-text);
+}
+
+@media (min-width: 64em) {
+  .section__notes {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+  }
+
+  .section__notes > * {
+    grid-column: span 3;
+  }
+
+  .section__notes > :first-child {
+    grid-column: 4 / span 3;
+  }
+}
