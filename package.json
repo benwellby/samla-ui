@@ -5,7 +5,9 @@
   "description": "Samla Frontend v1: a stack-agnostic frontend system for marketing websites. Static reference implementation.",
   "type": "module",
   "scripts": {
+    "setup": "git config core.hooksPath .githooks",
     "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build-docs.mjs && node scripts/sync-partials.mjs",
     "build:css": "node scripts/build-css.mjs",
     "fixtures": "node scripts/generate-fixtures.mjs"
   },

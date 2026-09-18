@@ -80,6 +80,7 @@
                 <li><a href="#quick-start">Quick start</a></li>
                 <li><a href="#what-s-here">What's here</a></li>
                 <li><a href="#the-system-in-one-paragraph">The system in one paragraph</a></li>
+                <li><a href="#editing-the-docs-and-shared-markup">Editing the docs and shared markup</a></li>
                 <li><a href="#hosting">Hosting</a></li>
                 <li><a href="#rebranding-a-project">Rebranding a project</a></li>
                 <li><a href="#status">Status</a></li>
@@ -126,8 +127,20 @@ style-guide/              The Style Guide
 templates/                Reference page templates</code></pre>
 <h2 id="the-system-in-one-paragraph">The system in one paragraph</h2>
 <p>Six layers, each composed from the one below: <strong>foundations</strong> (tokens, surfaces, type roles) → <strong>primitives</strong> (generic UI) → <strong>components</strong> (combinations) → <strong>sections</strong> (page bands) → <strong>patterns</strong> (domain arrangements) → <strong>templates</strong> (example pages). Classes say what something is, BEM-style; <code>data-*</code> attributes say how it varies, from a finite list. Components read semantic tokens only, so <code>data-surface="dark"</code> on a section restyles everything inside it without per-component overrides. Visual type roles (<code>text-display</code> … <code>text-caption</code>) are independent of heading levels.</p>
+<h2 id="editing-the-docs-and-shared-markup">Editing the docs and shared markup</h2>
+<p>Two parts of the site are generated from other files:</p>
+<div class="table-scroll"><table class="table"><thead><tr><th scope="col">You edit</th><th scope="col">Generated</th><th scope="col">Command</th></tr></thead><tbody><tr><td><code>README.md</code>, <code>AGENTS.md</code>, <code>docs/*.md</code></td><td><code>docs/*.html</code></td><td><code>node scripts/build-docs.mjs</code></td></tr><tr><td><code>partials/*.html</code> (headers, footers)</td><td>The header and footer in every page</td><td><code>node scripts/sync-partials.mjs</code></td></tr></tbody></table></div>
+<p>Everything else (CSS, JavaScript, templates, the homepage, the Style Guide) is edited directly and needs no command.</p>
+<p>You don't need to run these by hand. They run automatically in two places:</p>
+<ul><li><strong>On every commit</strong>, through a git pre-commit hook in <code>.githooks/</code>. It regenerates the files and stages them with your commit. Enable it once after cloning:</li></ul>
+<p>``<code>bash git config core.hooksPath .githooks </code>``</p>
+<p>(<code>npm run setup</code> does the same). If a regenerated file also has unstaged edits of yours, the hook leaves it unstaged and tells you, so work in progress is never committed by accident.</p>
+<ul><li><strong>On every Cloudflare deploy</strong>, through the build command below.</li></ul>
+<p>To see doc changes in the local preview before committing, run <code>npm run build</code>, which runs both scripts.</p>
 <h2 id="hosting">Hosting</h2>
-<p>Deploys as-is to any static host. On Cloudflare Pages: connect the GitHub repo, framework preset <strong>None</strong>, no build command, output directory <code>/</code>. <code>_headers</code> sets caching and serves the Markdown sources as text; <code>404.html</code> handles unknown URLs.</p>
+<p>Deploys as-is to any static host. On Cloudflare Pages, connect the GitHub repo with these build settings:</p>
+<div class="table-scroll"><table class="table"><thead><tr><th scope="col">Setting</th><th scope="col">Value</th></tr></thead><tbody><tr><td>Framework preset</td><td>None</td></tr><tr><td>Build command</td><td><code>node scripts/build-docs.mjs &amp;&amp; node scripts/sync-partials.mjs</code></td></tr><tr><td>Build output directory</td><td><code>/</code></td></tr></tbody></table></div>
+<p><code>_headers</code> sets caching and serves the Markdown sources as text; <code>404.html</code> handles unknown URLs.</p>
 <h2 id="rebranding-a-project">Rebranding a project</h2>
 <p>Load a theme after <code>samla.css</code> and override raw tokens only:</p>
 <pre><code>@layer project {

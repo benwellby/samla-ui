@@ -70,10 +70,47 @@ restyles everything inside it without per-component overrides. Visual
 type roles (`text-display` … `text-caption`) are independent of heading
 levels.
 
+## Editing the docs and shared markup
+
+Two parts of the site are generated from other files:
+
+| You edit | Generated | Command |
+| --- | --- | --- |
+| `README.md`, `AGENTS.md`, `docs/*.md` | `docs/*.html` | `node scripts/build-docs.mjs` |
+| `partials/*.html` (headers, footers) | The header and footer in every page | `node scripts/sync-partials.mjs` |
+
+Everything else (CSS, JavaScript, templates, the homepage, the Style Guide)
+is edited directly and needs no command.
+
+You don't need to run these by hand. They run automatically in two places:
+
+- **On every commit**, through a git pre-commit hook in `.githooks/`. It
+  regenerates the files and stages them with your commit. Enable it once
+  after cloning:
+
+  ```bash
+  git config core.hooksPath .githooks
+  ```
+
+  (`npm run setup` does the same). If a regenerated file also has unstaged
+  edits of yours, the hook leaves it unstaged and tells you, so work in
+  progress is never committed by accident.
+- **On every Cloudflare deploy**, through the build command below.
+
+To see doc changes in the local preview before committing, run
+`npm run build`, which runs both scripts.
+
 ## Hosting
 
-Deploys as-is to any static host. On Cloudflare Pages: connect the GitHub
-repo, framework preset **None**, no build command, output directory `/`.
+Deploys as-is to any static host. On Cloudflare Pages, connect the GitHub
+repo with these build settings:
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | None |
+| Build command | `node scripts/build-docs.mjs && node scripts/sync-partials.mjs` |
+| Build output directory | `/` |
+
 `_headers` sets caching and serves the Markdown sources as text; `404.html`
 handles unknown URLs.
 

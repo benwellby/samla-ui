@@ -19,6 +19,9 @@ node scripts/sync-partials.mjs  # after editing partials/ or rebuilding docs
 node scripts/build-css.mjs      # optional: bundle to dist/samla.css
 ```
 
+A pre-commit hook in `.githooks/` runs the docs and partials steps on every
+commit. Enable it once per clone with `git config core.hooksPath .githooks`.
+
 No dependencies. Pages use root-relative paths, so serve the folder rather
 than opening files directly.
 
