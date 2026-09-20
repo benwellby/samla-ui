@@ -8,7 +8,7 @@ html {
   font-family: var(--font-sans);
   font-size: 100%;
   line-height: var(--leading-body);
-  background-color: var(--color-paper);
+  background-color: var(--color-white);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

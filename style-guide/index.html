@@ -24,17 +24,16 @@
     </div>
     <nav class="site-nav" aria-label="Primary">
       <ul class="site-nav__list">
-        <li class="site-nav__item"><a class="site-nav__link" href="/docs/">Docs</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="/docs/">Philosophy</a></li>
         <li class="site-nav__item"><a class="site-nav__link" href="/style-guide/">Style Guide</a></li>
         <li class="site-nav__item"><a class="site-nav__link" href="/templates/">Examples</a></li>
-        <li class="site-nav__item"><a class="site-nav__link" href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></li>
       </ul>
       <div class="site-nav__mobile-actions">
-        <a class="button" data-width="full" href="/docs/">Get started <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="button" data-variant="secondary" data-width="full" href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a>
       </div>
     </nav>
     <div class="site-header__actions">
-      <a class="button" data-size="small" href="/docs/">Get started</a>
+      <a class="button" data-variant="secondary" data-size="small" href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a>
       <button class="site-header__toggle" type="button" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
         <svg class="icon" data-icon="menu" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 8h16M3 14h16"/></svg>
         <svg class="icon" data-icon="close" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg>
@@ -243,7 +242,7 @@
               <div class="field"><label class="field__label" for="surf-5">Email</label><input class="input" id="surf-5" type="email" placeholder="name@company.com"></div>
               <div class="cluster" data-gap="3"><a class="button" href="#surfaces">Primary</a><a class="button" data-variant="secondary" href="#surfaces">Secondary</a><span class="badge" data-status="stable">Stable</span></div>
             </div>
-            <div data-surface="image" style="background: linear-gradient(rgb(18 18 18 / 0.55), rgb(18 18 18 / 0.75)), url('/assets/img/fixtures/park-04.svg') center / cover">
+            <div data-surface="image" style="background: linear-gradient(rgb(18 18 18 / 0.55), rgb(18 18 18 / 0.75)), url('https://placehold.co/800x600/ECEAE4/5C5B57') center / cover">
               <span class="label">data-surface="image"</span>
               <span class="tag" style="align-self: flex-start">Tag</span>
               <p class="text-card-title">Plan your next launch with confidence.</p>
@@ -354,6 +353,7 @@
       <section class="sg-section" id="shape" aria-labelledby="shape-title">
         <div class="container">
           <h3 class="text-card-title" id="shape-title">Shape, line and ratio</h3>
+          <p class="text-muted">A restrained shape vocabulary: mostly square, one radius for controls, hairlines instead of shadows for separation.</p>
           <div class="grid" data-columns="3">
             <div class="stack" data-gap="3">
               <p class="label">Radius</p>
@@ -391,6 +391,7 @@
       <section class="sg-section" id="motion" aria-labelledby="motion-title">
         <div class="container">
           <h3 class="text-card-title" id="motion-title">Motion, focus and layers</h3>
+          <p class="text-muted">Motion confirms a state change; it never carries information on its own, and it always respects <code>prefers-reduced-motion</code> — durations drop to zero, nothing keeps moving.</p>
           <div class="grid" data-columns="3">
             <div class="table-scroll">
               <table class="table">
@@ -535,9 +536,11 @@
       <section class="sg-section" id="links" aria-labelledby="links-title">
         <div class="container">
           <h3 class="text-card-title" id="links-title">Links</h3>
+          <p class="text-muted">Navigates to another page or place on this one, in text or on its own. Use a button instead for an action that changes state without changing location.</p>
           <dl class="meta-list">
             <dt>Inline</dt><dd>Any <code>&lt;a&gt;</code> in text. Always underlined: 1px at rest, 2px on hover.</dd>
             <dt>.link</dt><dd>A standalone action. <code>data-variant</code>: default, arrow (arrow nudges 4px), external.</dd>
+            <dt>Accessibility</dt><dd>The underline is the cue, not colour — links stay identifiable for colour-blind readers and in print. The arrow and external icons are <code>aria-hidden</code>: they reinforce the link's own text, and "external" links open in the same tab, so the icon is a hint, not a warning that needs its own announcement.</dd>
           </dl>
           <div class="sg-surfaces">
             <div data-surface="default">
@@ -563,21 +566,23 @@
       <section class="sg-section" id="tags" aria-labelledby="tags-title">
         <div class="container">
           <h3 class="text-card-title" id="tags-title">Tags, badges, avatars and dividers</h3>
+          <p class="text-muted">Small labelling primitives: a tag categorises or filters, a badge reports status, an avatar identifies a person. Pick by what the label means, not by how it looks.</p>
           <dl class="meta-list">
             <dt>tag</dt><dd>Content labels and filters. <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>. Selected via <code>data-selected</code>, <code>aria-pressed</code> or <code>aria-current</code>.</dd>
             <dt>badge</dt><dd>Status: <code>data-status</code> stable, review, error, planned, neutral. Text always accompanies the dot. <code>data-variant="pill"</code> for versions and counts.</dd>
             <dt>avatar</dt><dd>Image or initials. <code>data-size</code>: small, medium, large. Group with <code>avatar-group</code>.</dd>
+            <dt>Accessibility</dt><dd>A filter tag is a real <code>&lt;button&gt;</code> with <code>aria-pressed</code>, so its selected state is announced, not just shown by colour. Status badges pair the dot with text for the same reason — never colour alone.</dd>
           </dl>
           <div class="sg-surfaces">
             <div data-surface="default">
               <ul class="tag-list" role="list"><li><span class="tag">Static</span></li><li><a class="tag" href="#tags">Linked tag</a></li><li><button class="tag" type="button" aria-pressed="false">Filter</button></li><li><button class="tag" type="button" aria-pressed="true">Selected</button></li></ul>
               <div class="cluster" data-gap="5"><span class="badge" data-status="stable">Stable</span><span class="badge" data-status="review">In review</span><span class="badge" data-status="error">Deprecated</span><span class="badge" data-status="planned">Planned</span><span class="badge" data-variant="pill">v1.0</span></div>
-              <div class="cluster" data-gap="4"><span class="avatar" data-size="small">RH</span><span class="avatar"><img src="/assets/img/fixtures/portrait-01.svg" alt="" width="1200" height="1500"></span><span class="avatar" data-size="large"><img src="/assets/img/fixtures/portrait-06.svg" alt="" width="1200" height="1500"></span><span class="avatar-group"><span class="avatar" data-size="small"><img src="/assets/img/fixtures/portrait-02.svg" alt="" width="1200" height="1500"></span><span class="avatar" data-size="small"><img src="/assets/img/fixtures/portrait-03.svg" alt="" width="1200" height="1500"></span><span class="avatar" data-size="small">+4</span></span></div>
+              <div class="cluster" data-gap="4"><span class="avatar" data-size="small">RH</span><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar" data-size="large"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar-group"><span class="avatar" data-size="small"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar" data-size="small"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar" data-size="small">+4</span></span></div>
             </div>
             <div data-surface="dark">
               <ul class="tag-list" role="list"><li><span class="tag">Static</span></li><li><a class="tag" href="#tags">Linked tag</a></li><li><button class="tag" type="button" aria-pressed="false">Filter</button></li><li><button class="tag" type="button" aria-pressed="true">Selected</button></li></ul>
               <div class="cluster" data-gap="5"><span class="badge" data-status="stable">Stable</span><span class="badge" data-status="review">In review</span><span class="badge" data-status="error">Deprecated</span><span class="badge" data-status="planned">Planned</span><span class="badge" data-variant="pill">v1.0</span></div>
-              <div class="cluster" data-gap="4"><span class="avatar" data-size="small">RH</span><span class="avatar"><img src="/assets/img/fixtures/portrait-01.svg" alt="" width="1200" height="1500"></span><span class="avatar" data-size="large"><img src="/assets/img/fixtures/portrait-06.svg" alt="" width="1200" height="1500"></span></div>
+              <div class="cluster" data-gap="4"><span class="avatar" data-size="small">RH</span><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar" data-size="large"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span></div>
             </div>
           </div>
         </div>
@@ -586,7 +591,9 @@
       <section class="sg-section" id="breadcrumb" aria-labelledby="breadcrumb-title">
         <div class="container">
           <h3 class="text-card-title" id="breadcrumb-title">Breadcrumb and pagination</h3>
+          <p class="text-muted">Two ways to say where the reader is: breadcrumb shows the path down through the site, pagination shows a position within one long list.</p>
           <dl class="meta-list">
+            <dt>Content</dt><dd>Breadcrumb: an ordered list of ancestor pages ending at the current one. Pagination: previous, a list of page numbers, next.</dd>
             <dt>Accessibility</dt><dd>Both are <code>&lt;nav&gt;</code> landmarks with an <code>aria-label</code>. The current item carries <code>aria-current="page"</code>. On mobile, pagination shows only the current page between previous and next.</dd>
           </dl>
           <div class="sg-example">
@@ -657,9 +664,11 @@
       <section class="sg-section" id="accordion" aria-labelledby="accordion-title">
         <div class="container">
           <h3 class="text-card-title" id="accordion-title">Accordion and disclosure</h3>
+          <p class="text-muted">Optional or secondary content the reader chooses to reveal: FAQs, footnotes, dense specifications. Not for content every reader needs — that belongs in the page, not behind a trigger.</p>
           <dl class="meta-list">
             <dt>Built on</dt><dd>Native <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code>. Works without JavaScript; a shared <code>name</code> makes the group exclusive.</dd>
             <dt>Variants</dt><dd><code>data-size</code>: default, small.</dd>
+            <dt>Accessibility</dt><dd>Keyboard and screen-reader support come from the native elements: no <code>role</code> or <code>aria-expanded</code> to manage by hand. The trigger is the full-width <code>&lt;summary&gt;</code>, so it stays a 44px+ target even when the label text is short.</dd>
           </dl>
           <div class="grid" data-columns="2">
             <div class="accordion">
@@ -685,24 +694,43 @@
       <section class="sg-section" id="tabs" aria-labelledby="tabs-title">
         <div class="container">
           <h3 class="text-card-title" id="tabs-title">Tabs</h3>
+          <p class="text-muted">Use for panels of equal weight the reader compares one at a time, in a space too tight to show them all — a spec sheet, a set of related views. If the panels form a sequence, use an accordion or a page instead.</p>
           <dl class="meta-list">
             <dt>Behaviour</dt><dd>Without JavaScript every panel shows with its own heading. samla.js adds the tablist, roving tabindex, arrow keys, Home and End.</dd>
             <dt>Variants</dt><dd><code>data-orientation</code>: horizontal, vertical. <code>data-variant</code>: line, contained.</dd>
+            <dt>Accessibility</dt><dd>The tablist, <code>aria-selected</code> and panel association are managed by samla.js. Arrow keys move focus and selection together (roving tabindex); Home and End jump to the first and last tab.</dd>
           </dl>
-          <div class="sg-example">
-            <div class="sg-example__stage">
-              <div class="tabs">
-                <div class="tabs__list">
-                  <button class="tabs__tab" type="button" aria-controls="sg-tab-1">Overview</button>
-                  <button class="tabs__tab" type="button" aria-controls="sg-tab-2">Specification</button>
-                  <button class="tabs__tab" type="button" aria-controls="sg-tab-3">Maintenance</button>
+          <div class="grid" data-columns="2">
+            <div class="sg-example">
+              <div class="sg-example__stage">
+                <div class="tabs">
+                  <div class="tabs__list">
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-1">Overview</button>
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-2">Specification</button>
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-3">Maintenance</button>
+                  </div>
+                  <section class="tabs__panel" id="sg-tab-1"><h4 class="tabs__heading">Overview</h4><p>Eleven hectares of former railway sidings returned to the river.</p></section>
+                  <section class="tabs__panel" id="sg-tab-2"><h4 class="tabs__heading">Specification</h4><p>Five terraces built from ballast and spoil already on site.</p></section>
+                  <section class="tabs__panel" id="sg-tab-3"><h4 class="tabs__heading">Maintenance</h4><p>A thirty-year plan agreed with the council's parks team.</p></section>
                 </div>
-                <section class="tabs__panel" id="sg-tab-1"><h4 class="tabs__heading">Overview</h4><p>Eleven hectares of former railway sidings returned to the river.</p></section>
-                <section class="tabs__panel" id="sg-tab-2"><h4 class="tabs__heading">Specification</h4><p>Five terraces built from ballast and spoil already on site.</p></section>
-                <section class="tabs__panel" id="sg-tab-3"><h4 class="tabs__heading">Maintenance</h4><p>A thirty-year plan agreed with the council's parks team.</p></section>
               </div>
+              <p class="sg-caption">data-orientation="horizontal" data-variant="line" (default)</p>
             </div>
-            <p class="sg-caption">tabs (horizontal, line). The homepage code viewer uses data-orientation="vertical" data-variant="contained".</p>
+            <div class="sg-example">
+              <div class="sg-example__stage" data-surface="dark">
+                <div class="tabs" data-orientation="vertical" data-variant="contained">
+                  <div class="tabs__list">
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-4">Overview</button>
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-5">Specification</button>
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-6">Maintenance</button>
+                  </div>
+                  <section class="tabs__panel" id="sg-tab-4"><h4 class="tabs__heading">Overview</h4><p>Eleven hectares of former railway sidings returned to the river.</p></section>
+                  <section class="tabs__panel" id="sg-tab-5"><h4 class="tabs__heading">Specification</h4><p>Five terraces built from ballast and spoil already on site.</p></section>
+                  <section class="tabs__panel" id="sg-tab-6"><h4 class="tabs__heading">Maintenance</h4><p>A thirty-year plan agreed with the council's parks team.</p></section>
+                </div>
+              </div>
+              <p class="sg-caption">data-orientation="vertical" data-variant="contained" — used by the homepage code viewer</p>
+            </div>
           </div>
         </div>
       </section>
@@ -714,16 +742,17 @@
             <dt>Variants</dt><dd><code>data-ratio</code>: square, portrait, standard, photo, video, cinema. <code>data-fit</code>: cover, contain.</dd>
             <dt>Content</dt><dd>Image with width, height and alt; optional caption. Video: a poster image and <code>.media__play[data-src]</code>, which loads the player only on request.</dd>
             <dt>Performance</dt><dd>Always set width and height. <code>loading="lazy"</code> below the fold, <code>fetchpriority="high"</code> on the largest image above it.</dd>
+            <dt>Accessibility</dt><dd>Alt text describes the image's content or purpose, never "image of…". Purely decorative images (backgrounds, textures) use <code>alt=""</code> so screen readers skip them. The play button's <code>aria-label</code> states the run time, not just "play".</dd>
           </dl>
           <div class="grid" data-columns="3">
-            <figure class="media" data-ratio="square"><img src="/assets/img/fixtures/plan-01.svg" alt="Site plan" width="1600" height="1200" loading="lazy"><figcaption class="media__caption">square</figcaption></figure>
-            <figure class="media" data-ratio="portrait"><img src="/assets/img/fixtures/street-02.svg" alt="Street" width="1600" height="1200" loading="lazy"><figcaption class="media__caption">portrait</figcaption></figure>
-            <figure class="media" data-ratio="photo"><img src="/assets/img/fixtures/park-01.svg" alt="Park" width="1600" height="1200" loading="lazy"><figcaption class="media__caption">photo, with caption</figcaption></figure>
+            <figure class="media" data-ratio="square"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Site plan" width="1600" height="1200" loading="lazy"><figcaption class="media__caption">square</figcaption></figure>
+            <figure class="media" data-ratio="portrait"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Street" width="1600" height="1200" loading="lazy"><figcaption class="media__caption">portrait</figcaption></figure>
+            <figure class="media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Park" width="1600" height="1200" loading="lazy"><figcaption class="media__caption">photo, with caption</figcaption></figure>
           </div>
           <div class="grid" data-columns="2">
             <figure class="media" data-ratio="video">
               <div class="media__frame">
-                <img src="/assets/img/fixtures/park-03.svg" alt="" width="1600" height="1200" loading="lazy">
+                <img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy">
                 <button class="media__play" type="button" data-src="https://player.vimeo.com/video/76979871?autoplay=1&amp;dnt=1" aria-label="Play video, 3 minutes"><span class="media__play-icon"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5l10 5.5-10 5.5z"/></svg></span></button>
               </div>
               <figcaption class="media__caption">video: poster with play, loads an embed on click</figcaption>
@@ -750,7 +779,7 @@
                 <ul><li>An unordered list item</li><li>A second item, long enough to wrap onto another line at narrow widths so the hanging indent is visible</li></ul>
                 <ol><li>An ordered step</li><li>Another step</li></ol>
                 <blockquote><p>A tree planted in the right soil will outlive every other decision on the drawing.</p></blockquote>
-                <figure><img src="/assets/img/fixtures/plan-04.svg" alt="Planting plan" width="1600" height="1200" loading="lazy"><figcaption>A figure with a caption.</figcaption></figure>
+                <figure><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Planting plan" width="1600" height="1200" loading="lazy"><figcaption>A figure with a caption.</figcaption></figure>
                 <pre><code>&lt;div class="prose"&gt;…&lt;/div&gt;</code></pre>
                 <div class="table-scroll">
                   <table>
@@ -784,6 +813,7 @@
             <dt>Content</dt><dd>label, title, intro?, action?</dd>
             <dt>Variants</dt><dd><code>data-align</code>: hang (default, Swiss hanging label), stack, center. <code>data-rule</code>: strong (default), none.</dd>
             <dt>Guidance</dt><dd>Opens almost every section. The heading level follows the outline; the size is a text class.</dd>
+            <dt>Accessibility</dt><dd>The label is a <code>&lt;p&gt;</code>, not a heading — it's a visual eyebrow, not a level in the outline. Only <code>.section-header__title</code> is a real heading, at whatever level the page's outline calls for.</dd>
           </dl>
           <div class="sg-example">
             <div class="sg-example__stage">
@@ -815,7 +845,7 @@
           <ul class="grid" data-columns="3" role="list">
             <li>
               <article class="card">
-                <figure class="card__media media" data-ratio="photo"><img src="/assets/img/fixtures/park-02.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
                 <p class="card__meta"><span>Case study</span><span>Halden, 2025</span></p>
                 <h4 class="card__title"><a class="card__link" href="#cards">Millbrook Riverside Park</a></h4>
                 <p class="card__summary">Eleven hectares of railway sidings returned to the river.</p>
@@ -828,14 +858,14 @@
                 <p class="card__meta">Article / 6 min read</p>
                 <h4 class="card__title"><a class="card__link" href="#cards">Designing parks for hotter summers</a></h4>
                 <p class="card__summary">Shade, water and soil: what a decade of heatwaves has taught us.</p>
-                <div class="card__person"><span class="avatar" data-size="small"><img src="/assets/img/fixtures/portrait-07.svg" alt="" width="1200" height="1500"></span><span class="text-small">Ruth Hallam</span></div>
+                <div class="card__person"><span class="avatar" data-size="small"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="text-small">Ruth Hallam</span></div>
                 <span class="card__action" aria-hidden="true">Read article <svg class="icon" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
               </article>
               <p class="sg-caption" style="margin-top: var(--space-3)">panel, no media, with person and action</p>
             </li>
             <li>
               <article class="card" data-variant="bordered">
-                <figure class="card__media media" data-ratio="photo"><img src="/assets/img/fixtures/street-01.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
                 <p class="card__meta">02</p>
                 <h4 class="card__title"><a class="card__link" href="#cards">Streets and public realm</a></h4>
                 <p class="card__summary">Street redesigns that make walking the obvious choice.</p>
@@ -845,7 +875,7 @@
             </li>
             <li>
               <article class="card">
-                <figure class="card__media media" data-ratio="portrait"><img src="/assets/img/fixtures/portrait-08.svg" alt="" width="1200" height="1500" loading="lazy"></figure>
+                <figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure>
                 <h4 class="card__title"><a class="card__link" href="#cards">Mairi Campbell</a></h4>
                 <p class="card__meta">Partner, Glasgow</p>
               </article>
@@ -853,7 +883,7 @@
             </li>
             <li>
               <article class="card" data-layout="overlay">
-                <figure class="card__media media"><img src="/assets/img/fixtures/park-04.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <figure class="card__media media"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
                 <p class="card__meta">Featured</p>
                 <h4 class="card__title"><a class="card__link" href="#cards">Kelvin Meadows</a></h4>
                 <p class="card__summary">A community meadow made permanent.</p>
@@ -862,7 +892,7 @@
             </li>
             <li data-surface="dark" style="padding: var(--space-component)">
               <article class="card">
-                <figure class="card__media media" data-ratio="photo"><img src="/assets/img/fixtures/plan-02.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
                 <p class="card__meta">On dark</p>
                 <h4 class="card__title"><a class="card__link" href="#cards">Oakmere Fields</a></h4>
                 <p class="card__summary">Cards inherit the surface.</p>
@@ -872,7 +902,7 @@
           <div class="sg-example">
             <div class="sg-example__stage">
               <article class="card" data-layout="horizontal" data-size="large">
-                <figure class="card__media media" data-ratio="standard"><img src="/assets/img/fixtures/park-03.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
                 <p class="card__meta"><span>Essay</span><span>12 June 2026</span></p>
                 <h4 class="card__title"><a class="card__link" href="#cards">Designing parks for hotter summers</a></h4>
                 <p class="card__summary">Shade, water and soil: what a decade of heatwaves has taught us about the parks we design.</p>
@@ -886,10 +916,12 @@
       <section class="sg-section" id="features" aria-labelledby="features-title">
         <div class="container">
           <h3 class="text-card-title" id="features-title">Feature</h3>
+          <p class="text-muted">The workhorse for any short, repeated point: a numbered step, a value, a service summary. Reach for a card only once the item needs its own image.</p>
           <dl class="meta-list">
             <dt>Replaces</dt><dd>Feature item, feature card, step, value, principle, service summary.</dd>
             <dt>Content</dt><dd>index? or icon?, title, text, link?</dd>
             <dt>Variants</dt><dd><code>data-variant</code>: rule, plain, panel. <code>data-size</code>: default, large, xlarge. <code>data-layout</code>: stacked, row. <code>data-accent</code>.</dd>
+            <dt>Accessibility</dt><dd>The index number and icon are decorative — the title carries the meaning. Choose the heading level (<code>&lt;h3&gt;</code>/<code>&lt;h4&gt;</code>) from where the list sits in the outline, not from <code>data-size</code>.</dd>
           </dl>
           <ol class="grid" data-columns="4" role="list">
             <li class="feature"><span class="feature__index">01</span><h4 class="feature__title">Rule (default)</h4><p class="feature__text">An ink hairline above, mono index, small text.</p></li>
@@ -912,10 +944,12 @@
       <section class="sg-section" id="quotes" aria-labelledby="quotes-title">
         <div class="container">
           <h3 class="text-card-title" id="quotes-title">Quote</h3>
+          <p class="text-muted">A real, attributed statement — someone's actual words. If there's no name and role behind it, it's not a quote; write it as regular copy instead.</p>
           <dl class="meta-list">
             <dt>Replaces</dt><dd>Blockquote, pull quote, testimonial.</dd>
             <dt>Content</dt><dd>text, name?, role?, avatar?</dd>
             <dt>Variants</dt><dd><code>data-size</code>: default, large, display. <code>data-variant</code>: plain, rule, panel.</dd>
+            <dt>Accessibility</dt><dd>The quote is a native <code>&lt;blockquote&gt;</code> and the attribution a <code>&lt;figcaption&gt;</code>, so assistive tech announces it as a quotation with its source, not as an unrelated paragraph.</dd>
           </dl>
           <div class="grid" data-columns="2">
             <figure class="quote" data-variant="rule">
@@ -924,14 +958,14 @@
             </figure>
             <figure class="quote" data-variant="panel">
               <blockquote class="quote__text"><p>I drew the planting plan for a park I now walk through on my way to work.</p></blockquote>
-              <figcaption class="quote__cite"><span class="avatar"><img src="/assets/img/fixtures/portrait-01.svg" alt="" width="1200" height="1500"></span><span><span class="quote__name">Priya Nair</span><span class="quote__role">Landscape Architect</span></span></figcaption>
+              <figcaption class="quote__cite"><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span><span class="quote__name">Priya Nair</span><span class="quote__role">Landscape Architect</span></span></figcaption>
             </figure>
           </div>
           <div class="sg-example">
             <div class="sg-example__stage" data-surface="dark">
               <figure class="quote" data-size="large">
                 <blockquote class="quote__text"><p>Fieldwork listened longer than anyone we have worked with. The park works because the people who use it helped design it.</p></blockquote>
-                <figcaption class="quote__cite"><span class="avatar"><img src="/assets/img/fixtures/portrait-03.svg" alt="" width="1200" height="1500"></span><span><span class="quote__name">Amara Okafor</span><span class="quote__role">Head of Parks, Halden Council</span></span></figcaption>
+                <figcaption class="quote__cite"><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span><span class="quote__name">Amara Okafor</span><span class="quote__role">Head of Parks, Halden Council</span></span></figcaption>
               </figure>
             </div>
             <p class="sg-caption">data-size="large" on dark: testimonial sections</p>
@@ -942,9 +976,11 @@
       <section class="sg-section" id="stats" aria-labelledby="stats-title">
         <div class="container">
           <h3 class="text-card-title" id="stats-title">Stat</h3>
+          <p class="text-muted">A headline number with the label that explains it — proof points on an about or case study page. For more than a handful of related figures, use a table instead.</p>
           <dl class="meta-list">
             <dt>Content</dt><dd>value, label, text?. Wrap in <code>&lt;dl class="stat-list"&gt;</code>: the label is the <code>&lt;dt&gt;</code>, the value its <code>&lt;dd&gt;</code>, shown first visually.</dd>
             <dt>Variants</dt><dd><code>data-size</code>: default, small. <code>stat-list data-columns</code>: 2, 3, 4.</dd>
+            <dt>Accessibility</dt><dd>The label stays the <code>&lt;dt&gt;</code> in source order — a screen reader hears "hectares of public space, 146", label before value — while CSS alone reorders the big number first for sighted readers. The pairing is never rebuilt with two unrelated elements.</dd>
           </dl>
           <dl class="stat-list">
             <div class="stat"><dt class="stat__label">Hectares of public space</dt><dd class="stat__value">146</dd><dd class="stat__text">Designed since 2009.</dd></div>
@@ -963,10 +999,10 @@
             <dt>Accessibility</dt><dd>Alt text is the organisation's name. Logos are muted until hover.</dd>
           </dl>
           <ul class="logo-list" data-layout="grid">
-            <li class="logo"><img src="/assets/img/fixtures/logo-halden.svg" alt="Halden Council" width="110" height="40" loading="lazy"></li>
-            <li class="logo"><img src="/assets/img/fixtures/logo-oakmere.svg" alt="Oakmere Homes" width="150" height="40" loading="lazy"></li>
-            <li class="logo"><img src="/assets/img/fixtures/logo-northgate.svg" alt="Northgate Trust" width="140" height="40" loading="lazy"></li>
-            <li class="logo"><img src="/assets/img/fixtures/logo-parallel.svg" alt="Parallel Developments" width="120" height="40" loading="lazy"></li>
+            <li class="logo"><img src="https://placehold.co/110x40/ECEAE4/5C5B57" alt="Halden Council" width="110" height="40" loading="lazy"></li>
+            <li class="logo"><img src="https://placehold.co/150x40/ECEAE4/5C5B57" alt="Oakmere Homes" width="150" height="40" loading="lazy"></li>
+            <li class="logo"><img src="https://placehold.co/140x40/ECEAE4/5C5B57" alt="Northgate Trust" width="140" height="40" loading="lazy"></li>
+            <li class="logo"><img src="https://placehold.co/120x40/ECEAE4/5C5B57" alt="Parallel Developments" width="120" height="40" loading="lazy"></li>
           </ul>
         </div>
       </section>
@@ -974,10 +1010,12 @@
       <section class="sg-section" id="lists" aria-labelledby="lists-title">
         <div class="container">
           <h3 class="text-card-title" id="lists-title">Meta list, link list, social links</h3>
+          <p class="text-muted">Three ways to list things that aren't cards: facts as pairs, links as rows, icons as a compact row of their own.</p>
           <dl class="meta-list">
             <dt>meta-list</dt><dd>Key and value pairs: facts, contact details, job details. <code>data-layout</code>: inline, stacked, columns.</dd>
             <dt>link-list</dt><dd>Rows of links with an arrow: documentation, jobs, events. Optional meta column. <code>data-size</code>: default, small.</dd>
             <dt>social-links</dt><dd>44px icon links with visually hidden names.</dd>
+            <dt>Accessibility</dt><dd>Each social icon's platform name (e.g. "Instagram") is present as a <code>.visually-hidden</code> span — read by a screen reader, not shown visually, since the icon alone isn't a reliable label.</dd>
           </dl>
           <div class="grid" data-columns="3">
             <dl class="meta-list"><dt>Client</dt><dd>Halden Council</dd><dt>Completed</dt><dd>April 2025</dd><dt>Area</dt><dd>11.2 hectares</dd></dl>
@@ -1006,7 +1044,9 @@
       <section class="sg-section" id="notice" aria-labelledby="notice-title">
         <div class="container">
           <h3 class="text-card-title" id="notice-title">Notice</h3>
+          <p class="text-muted">An in-page message about the current state of things — a closure, a confirmation, a warning. For a single field's own validation error, use the field's own error text instead.</p>
           <dl class="meta-list">
+            <dt>Content</dt><dd>title?, text.</dd>
             <dt>Variants</dt><dd><code>data-status</code>: info, positive, warning, error. Always an icon plus text.</dd>
             <dt>Accessibility</dt><dd><code>role="status"</code> for polite updates, <code>role="alert"</code> for errors after an action.</dd>
           </dl>
@@ -1076,7 +1116,7 @@
             <p class="sg-caption">data-logo="center" on the alternate surface</p>
           </div>
           <div class="sg-example">
-            <div class="sg-example__stage" data-bleed style="position: relative; min-height: 18rem; background: url('/assets/img/fixtures/park-01.svg') center / cover">
+            <div class="sg-example__stage" data-bleed style="position: relative; min-height: 18rem; background: url('https://placehold.co/1600x480/ECEAE4/5C5B57') center / cover">
               <header class="site-header" data-behaviour="overlay" data-surface="image">
                 <div class="site-header__inner container">
                   <div class="site-header__brand"><a class="wordmark" href="#header"><span class="wordmark__mark" aria-hidden="true"></span>Fieldwork</a></div>
@@ -1096,8 +1136,11 @@
       <section class="sg-section" id="footer" aria-labelledby="footer-title">
         <div class="container">
           <h3 class="text-card-title" id="footer-title">Site footer</h3>
+          <p class="text-muted">Closes every page with wayfinding the header doesn't have room for, plus legal and utility links. Not a second navigation for the primary pages already in the header.</p>
           <dl class="meta-list">
             <dt>Variants</dt><dd><code>data-layout</code>: simple (one row), columns (intro, link groups, newsletter, bottom bar). Any surface.</dd>
+            <dt>Content</dt><dd>Wordmark, a handful of link groups (label + list), optional newsletter field, and a bottom bar of legal links and a copyright line.</dd>
+            <dt>Accessibility</dt><dd>The footer is a landmark; each link group is a <code>&lt;nav&gt;</code> with its own <code>aria-label</code> so screen reader users can tell them apart from the header's primary navigation.</dd>
           </dl>
         </div>
         <div class="container stack" data-gap="5">
@@ -1133,10 +1176,12 @@
       <section class="sg-section" id="overlays" aria-labelledby="overlays-title">
         <div class="container">
           <h3 class="text-card-title" id="overlays-title">Dropdown, dialog, drawer and tooltip</h3>
+          <p class="text-muted">Floating layers that sit above the page rather than inside its flow. Reach for the lightest one that does the job: a tooltip for a definition, a dropdown for a short menu, a dialog only when the reader must act or decide before continuing.</p>
           <dl class="meta-list">
             <dt>dropdown</dt><dd>Button plus a menu of links or actions. Without JavaScript the options render inline. Escape and outside click close it.</dd>
             <dt>dialog</dt><dd>Native <code>&lt;dialog&gt;</code>: focus is trapped and restored by the browser. Open with <code>data-dialog-open="id"</code>; close with <code>data-dialog-close</code>, Escape or a backdrop click. <code>data-variant</code>: modal, drawer. <code>data-size</code>: default, large.</dd>
             <dt>tooltip</dt><dd>Supplementary text on hover and focus, dismissed with Escape. Never the only place information lives.</dd>
+            <dt>Accessibility</dt><dd>Native <code>&lt;dialog&gt;</code> traps and restores focus for free. The dropdown toggle carries <code>aria-expanded</code>; its trigger button gets focus back on close. A tooltip trigger is a real button with <code>aria-describedby</code>, so its content reaches assistive tech the same way hover reaches a mouse.</dd>
           </dl>
           <div class="sg-example">
             <div class="sg-example__stage cluster" data-gap="5" style="min-height: 13rem; align-items: flex-start">
@@ -1174,8 +1219,10 @@
       <section class="sg-section" id="cookie" aria-labelledby="cookie-title">
         <div class="container">
           <h3 class="text-card-title" id="cookie-title">Cookie banner</h3>
+          <p class="text-muted">Asks for consent once, without blocking the page. Not a dialog — the reader can ignore it and keep browsing.</p>
           <dl class="meta-list">
             <dt>Behaviour</dt><dd>Non-modal, fixed to the bottom. Reject is as prominent as accept. The choice is stored and dispatched as a <code>samla:consent</code> event. Shown here in flow with <code>data-static</code>.</dd>
+            <dt>Accessibility</dt><dd>Carries its own <code>aria-label</code> so it announces as a distinct region, not part of the page's main content. It never traps focus or scroll: a reader can tab past it or ignore it entirely.</dd>
           </dl>
           <section class="cookie-banner" data-surface="dark" data-static aria-label="Cookie preferences example">
             <p class="cookie-banner__text">We use essential cookies to run this site, and optional analytics cookies to improve it. <a href="#cookie">Cookie policy</a></p>
@@ -1187,9 +1234,11 @@
       <section class="sg-section" id="carousel" aria-labelledby="carousel-title">
         <div class="container">
           <h3 class="text-card-title" id="carousel-title">Carousel</h3>
+          <p class="text-muted">A horizontally scrolling set of equally-weighted items — related projects, a small gallery. Never the only way to reach content that matters; pair it with a link to the full listing.</p>
           <dl class="meta-list">
             <dt>Behaviour</dt><dd>A scroll-snap track that works with touch, trackpad and keyboard without JavaScript. samla.js adds previous and next buttons and a live position label. No autoplay.</dd>
             <dt>Variants</dt><dd><code>data-per-view</code>: 1, 2, 3 (default), auto.</dd>
+            <dt>Accessibility</dt><dd><code>aria-roledescription="carousel"</code> and an <code>aria-live</code> status announce the current position as it changes. The track itself is reachable by keyboard (<code>tabindex="0"</code>) and scrolls with arrow keys even before samla.js adds the prev/next buttons. No autoplay: nothing moves without the reader asking it to.</dd>
           </dl>
           <section class="carousel" aria-roledescription="carousel" aria-labelledby="carousel-title">
             <div class="carousel__controls">
@@ -1198,11 +1247,11 @@
               <button class="button" type="button" data-variant="secondary" data-size="small" data-icon-only data-carousel="next" aria-label="Next"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
             </div>
             <ul class="carousel__track" tabindex="0" aria-label="Projects, scrollable">
-              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="/assets/img/fixtures/park-01.svg" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Kelvin Meadows</a></h4></article></li>
-              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="/assets/img/fixtures/street-01.svg" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Garnet Street</a></h4></article></li>
-              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="/assets/img/fixtures/plan-01.svg" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Oakmere Fields</a></h4></article></li>
-              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="/assets/img/fixtures/park-02.svg" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Millbrook Riverside Park</a></h4></article></li>
-              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="/assets/img/fixtures/street-02.svg" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Kingsmead Square</a></h4></article></li>
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Kelvin Meadows</a></h4></article></li>
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Garnet Street</a></h4></article></li>
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Oakmere Fields</a></h4></article></li>
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Millbrook Riverside Park</a></h4></article></li>
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Kingsmead Square</a></h4></article></li>
             </ul>
           </section>
         </div>
@@ -1211,9 +1260,11 @@
       <section class="sg-section" id="code-block" aria-labelledby="code-block-title">
         <div class="container">
           <h3 class="text-card-title" id="code-block-title">Code block</h3>
+          <p class="text-muted">The one place mono type is purely decorative-adjacent and still correct: real code, meant to be read character by character and copied.</p>
           <dl class="meta-list">
             <dt>Content</dt><dd>file name?, code, line numbers (optional, <code>data-line-numbers</code> with one <code>.line</code> per line). Syntax colours: <code>tok-keyword</code>, <code>tok-property</code>, <code>tok-string</code>, <code>tok-comment</code>.</dd>
             <dt>Behaviour</dt><dd>A copy button with <code>data-copy</code> copies the block's text.</dd>
+            <dt>Accessibility</dt><dd>Syntax colour is a bonus for sighted readers, never the only way to tell tokens apart — the underlying text reads correctly with no colour at all. The copy button's label changes to confirm the copy, not just its icon.</dd>
           </dl>
           <figure class="code-block">
             <figcaption class="code-block__header"><span class="code-block__file">theme.css</span><button class="code-block__copy" type="button" data-copy><span data-copy-label>Copy</span></button></figcaption>
@@ -1258,9 +1309,11 @@
       <section class="sg-section" id="hero" aria-labelledby="hero-title" style="padding-bottom: 0">
         <div class="container">
           <h3 class="text-card-title" id="hero-title">Hero</h3>
+          <p class="text-muted">Opens the homepage or a landing page: one clear statement of what the page is for, before anything else. Every other page opens with a page header instead.</p>
           <dl class="meta-list">
             <dt>Content</dt><dd>eyebrow?, title, lead?, actions?, aside facts?, media?</dd>
             <dt>Variants</dt><dd><code>data-layout</code>: text, split, media, centered. <code>data-align</code>: left, center. <code>data-width</code>: narrow, standard, wide. <code>data-surface</code>: default, alternate, brand, dark, image.</dd>
+            <dt>Accessibility</dt><dd>On <code>data-surface="image"</code>, a scrim sits between the photo and the text so the title and lead keep their contrast ratio regardless of what the image looks like — never rely on the photo being dark enough on its own.</dd>
           </dl>
         </div>
       </section>
@@ -1276,14 +1329,14 @@
           <div class="hero__inner container">
             <div class="hero__content"><p class="hero__eyebrow">data-layout="split"</p><p class="hero__title text-page-title">Parks and open space</p></div>
             <div class="hero__body"><p class="hero__lead text-lead">Content left, media right. Here the title uses Page Title instead of Display.</p><div class="hero__actions button-group" data-stack="mobile"><a class="button" href="#hero">Discuss a project</a></div></div>
-            <figure class="hero__media media" data-ratio="standard"><img src="/assets/img/fixtures/park-04.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+            <figure class="hero__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
           </div>
         </section>
         <section class="hero" data-layout="media" data-surface="image">
           <div class="hero__inner container">
             <div class="hero__content"><p class="hero__eyebrow">data-layout="media" / image</p><p class="hero__title text-display">Learn landscape by building one.</p></div>
             <div class="hero__body"><p class="hero__lead text-lead">The image fills the band behind a scrim that guarantees contrast.</p><div class="hero__actions button-group" data-stack="mobile"><a class="button" href="#hero">Register interest</a></div></div>
-            <figure class="hero__media media"><img src="/assets/img/fixtures/park-01.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+            <figure class="hero__media media"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
           </div>
         </section>
         <section class="hero" data-layout="centered" data-surface="brand">
@@ -1302,15 +1355,17 @@
       <section class="sg-section" id="media-content" aria-labelledby="mc-title">
         <div class="container">
           <h3 class="text-card-title" id="mc-title">Media + content</h3>
+          <p class="text-muted">One idea explained with a single image or diagram beside it: a process, a value, a piece of work. For more than one such pairing in a row, use a card grid instead.</p>
           <dl class="meta-list">
+            <dt>Content</dt><dd>label?, title, text?, media, action?.</dd>
             <dt>Variants</dt><dd><code>data-media</code>: start, end. <code>data-align</code>: center, start.</dd>
           </dl>
           <div class="media-content">
-            <figure class="media-content__media media" data-ratio="standard"><img src="/assets/img/fixtures/street-03.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+            <figure class="media-content__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
             <div class="media-content__body"><p class="label">The studio</p><p class="text-section-heading">Designers, ecologists and engineers at one table.</p><p class="text-muted">Media in columns 1 to 6, content from column 8.</p><a class="link" data-variant="arrow" href="#media-content">How we work <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
           </div>
           <div class="media-content" data-media="end" data-surface="alternate" style="padding: var(--space-component)">
-            <figure class="media-content__media media" data-ratio="photo"><img src="/assets/img/fixtures/plan-03.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+            <figure class="media-content__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
             <div class="media-content__body"><p class="label">data-media="end"</p><p class="text-section-heading">Chartership, paid for and planned in.</p><ul class="tag-list" role="list"><li><span class="tag">LI fees paid</span></li><li><span class="tag">10 study days</span></li></ul></div>
           </div>
         </div>
@@ -1319,8 +1374,11 @@
       <section class="sg-section" id="split" aria-labelledby="split-title">
         <div class="container">
           <h3 class="text-card-title" id="split-title">Split and FAQ</h3>
+          <p class="text-muted">Two related blocks side by side: a heading with the content it introduces, an aside with a longer main column. The FAQ pairing above is one example, not the only one.</p>
           <dl class="meta-list">
+            <dt>Content</dt><dd>aside (heading, intro or facts), main (any content — accordion, list, form, media).</dd>
             <dt>Variants</dt><dd><code>data-ratio</code>: 4-8 (default), 3-9, 5-7, 6-6. <code>data-sticky</code> keeps the aside in view.</dd>
+            <dt>Accessibility</dt><dd><code>data-sticky</code> keeps the aside visible with CSS position only — it never traps focus or scroll, so keyboard and screen reader navigation move through the page exactly as the source order suggests.</dd>
           </dl>
           <div class="split" data-sticky>
             <div class="split__aside">
@@ -1340,8 +1398,11 @@
       <section class="sg-section" id="cta" aria-labelledby="cta-title" style="padding-bottom: 0">
         <div class="container">
           <h3 class="text-card-title" id="cta-title">CTA and newsletter</h3>
+          <p class="text-muted">Closes a section, or the page, with one clear next step. One CTA per view — if a page needs several, they're competing with each other.</p>
           <dl class="meta-list">
+            <dt>Content</dt><dd>label?, title, text?, actions (button group or a single-field subscribe form).</dd>
             <dt>Variants</dt><dd><code>data-layout</code>: stacked (default), inline, centered. Actions are a button group or a subscribe form. Place inside any surface.</dd>
+            <dt>Accessibility</dt><dd>The subscribe field's label is present but <code>visually-hidden</code> — the heading reads as the visible label, but the input still has its own for a screen reader. Success is announced via a <code>role="status"</code> notice, not a colour change alone.</dd>
           </dl>
         </div>
       </section>
@@ -1380,14 +1441,19 @@
       <section class="sg-section" id="logo-rail" aria-labelledby="lr-title">
         <div class="container">
           <h3 class="text-card-title" id="lr-title">Logo rail</h3>
+          <p class="text-muted">A page band that pairs a short label with a row of logos — "Trusted by", "As featured in". For the logo list itself and its layout variants, see <a class="link" href="#logos">Logo item and logo list</a>.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>label (short, e.g. "Trusted by"), 4 to 8 logos with alt text set to the organisation's name.</dd>
+            <dt>Variants</dt><dd>Composed from <code>.logo-list</code>'s own <code>data-layout</code>: rail (default here) or grid. Any surface.</dd>
+          </dl>
           <div class="logo-rail">
             <p class="label">Trusted by</p>
             <ul class="logo-list" data-layout="rail">
-              <li class="logo"><img src="/assets/img/fixtures/logo-halden.svg" alt="Halden Council" width="110" height="40" loading="lazy"></li>
-              <li class="logo"><img src="/assets/img/fixtures/logo-oakmere.svg" alt="Oakmere Homes" width="150" height="40" loading="lazy"></li>
-              <li class="logo"><img src="/assets/img/fixtures/logo-northgate.svg" alt="Northgate Trust" width="140" height="40" loading="lazy"></li>
-              <li class="logo"><img src="/assets/img/fixtures/logo-parallel.svg" alt="Parallel Developments" width="120" height="40" loading="lazy"></li>
-              <li class="logo"><img src="/assets/img/fixtures/logo-linden.svg" alt="Linden and Co" width="160" height="40" loading="lazy"></li>
+              <li class="logo"><img src="https://placehold.co/110x40/ECEAE4/5C5B57" alt="Halden Council" width="110" height="40" loading="lazy"></li>
+              <li class="logo"><img src="https://placehold.co/150x40/ECEAE4/5C5B57" alt="Oakmere Homes" width="150" height="40" loading="lazy"></li>
+              <li class="logo"><img src="https://placehold.co/140x40/ECEAE4/5C5B57" alt="Northgate Trust" width="140" height="40" loading="lazy"></li>
+              <li class="logo"><img src="https://placehold.co/120x40/ECEAE4/5C5B57" alt="Parallel Developments" width="120" height="40" loading="lazy"></li>
+              <li class="logo"><img src="https://placehold.co/160x40/ECEAE4/5C5B57" alt="Linden and Co" width="160" height="40" loading="lazy"></li>
             </ul>
           </div>
         </div>
@@ -1396,13 +1462,18 @@
       <section class="sg-section" id="gallery" aria-labelledby="gallery-title">
         <div class="container">
           <h3 class="text-card-title" id="gallery-title">Gallery</h3>
-          <dl class="meta-list"><dt>Variants</dt><dd><code>data-layout</code>: grid (default), mosaic (first item large).</dd></dl>
+          <p class="text-muted">A set of images with no single one more important than the rest — a project's finished photography, a set of plans. Give the first item real weight with the mosaic layout, or treat them all equally with grid.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>image with alt text; caption is optional per item, not required for the set.</dd>
+            <dt>Variants</dt><dd><code>data-layout</code>: grid (default), mosaic (first item large).</dd>
+            <dt>Accessibility</dt><dd>Alt text describes what's in each photo, not that it's "a gallery image" — a screen reader user hears "Terraces at Millbrook", not "image 1 of 5". A caption adds context alt text shouldn't (a date, a place); it's never a duplicate of the alt text.</dd>
+          </dl>
           <ul class="gallery" data-layout="mosaic" role="list">
-            <li><figure class="media"><div class="media__frame"><img src="/assets/img/fixtures/park-02.svg" alt="Terraces at Millbrook" width="1600" height="1200" loading="lazy"></div><figcaption class="media__caption">Millbrook, spring</figcaption></figure></li>
-            <li><figure class="media"><div class="media__frame"><img src="/assets/img/fixtures/plan-01.svg" alt="Site plan" width="1600" height="1200" loading="lazy"></div></figure></li>
-            <li><figure class="media"><div class="media__frame"><img src="/assets/img/fixtures/street-02.svg" alt="Street" width="1600" height="1200" loading="lazy"></div></figure></li>
-            <li><figure class="media"><div class="media__frame"><img src="/assets/img/fixtures/park-03.svg" alt="Lawn" width="1600" height="1200" loading="lazy"></div></figure></li>
-            <li><figure class="media"><div class="media__frame"><img src="/assets/img/fixtures/plan-04.svg" alt="Planting plan" width="1600" height="1200" loading="lazy"></div></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Terraces at Millbrook" width="1600" height="1200" loading="lazy"></div><figcaption class="media__caption">Millbrook, spring</figcaption></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Site plan" width="1600" height="1200" loading="lazy"></div></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Street" width="1600" height="1200" loading="lazy"></div></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Lawn" width="1600" height="1200" loading="lazy"></div></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Planting plan" width="1600" height="1200" loading="lazy"></div></figure></li>
           </ul>
         </div>
       </section>
@@ -1420,10 +1491,12 @@
       <section class="sg-section" id="page-header" aria-labelledby="ph-title" style="padding-bottom: 0">
         <div class="container">
           <h3 class="text-card-title" id="ph-title">Page header</h3>
+          <p class="text-muted">Opens every page below the homepage: it orients the reader (where am I, in what section) before the content starts. One per page, always the first thing in <code>&lt;main&gt;</code>.</p>
           <dl class="meta-list">
             <dt>Replaces</dt><dd>Article header, case study header, service header, job and event header, index page header.</dd>
             <dt>Content</dt><dd>breadcrumb?, label?, title, lead?, meta facts?, actions?, media?</dd>
             <dt>Variants</dt><dd><code>data-layout</code>: stacked (default), split, centered. Any surface.</dd>
+            <dt>Accessibility</dt><dd>The title is the page's one <code>h1</code>. The breadcrumb's current item takes <code>aria-current="page"</code>, not a visual style alone.</dd>
           </dl>
         </div>
       </section>
@@ -1444,7 +1517,7 @@
             <p class="page-header__lead text-lead">Lead park projects from brief to opening day in our Glasgow studio.</p>
             <dl class="page-header__meta meta-list"><dt>Location</dt><dd>Glasgow, hybrid</dd><dt>Salary</dt><dd>£48,000 to £56,000</dd><dt>Closes</dt><dd>30 October 2026</dd></dl>
             <div class="page-header__actions button-group"><a class="button" href="#page-header">Apply now</a></div>
-            <figure class="page-header__media media" data-ratio="standard"><img src="/assets/img/fixtures/street-02.svg" alt="" width="1600" height="1200" loading="lazy"></figure>
+            <figure class="page-header__media media" data-ratio="standard"><div class="media__frame"><img src="https://placehold.co/1200x900/ECEAE4/5C5B57" alt="" width="1200" height="900" loading="lazy"></div></figure>
           </div>
         </header>
         <header class="page-header" data-layout="centered" data-surface="dark">
@@ -1459,10 +1532,12 @@
       <section class="sg-section" id="listing" aria-labelledby="listing-title">
         <div class="container">
           <h3 class="text-card-title" id="listing-title">Listing</h3>
+          <p class="text-muted">The index page above a set of similar items: browse, narrow, page through. Not for a one-off arrangement of unrelated content — that's a composition, not a listing.</p>
           <dl class="meta-list">
             <dt>Used for</dt><dd>Case studies, articles, services, team, events and careers indexes.</dd>
             <dt>Parts</dt><dd>toolbar (filters, count, sort), results (card grid or link-list rows), pagination.</dd>
             <dt>Filtering</dt><dd>Link filters (server-rendered, shareable) by default. For client-side filtering use buttons with <code>data-filter</code> inside <code>[data-filter-root]</code> and <code>data-tags</code> on results.</dd>
+            <dt>Accessibility</dt><dd>The result count (<code>.listing__count</code>) carries <code>aria-live="polite"</code>, so a screen reader announces the new total whenever a filter changes the results — without an extra live-region element to manage.</dd>
           </dl>
           <div class="listing" data-filter-root>
             <div class="listing__toolbar">
@@ -1470,9 +1545,9 @@
               <p class="listing__count" aria-live="polite" data-noun="projects">3 projects</p>
             </div>
             <ul class="listing__results grid" data-columns="3" role="list">
-              <li data-tags="parks"><article class="card"><figure class="card__media media" data-ratio="photo"><img src="/assets/img/fixtures/park-02.svg" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta">Parks</p><h4 class="card__title"><a class="card__link" href="#listing">Millbrook Riverside Park</a></h4></article></li>
-              <li data-tags="streets"><article class="card"><figure class="card__media media" data-ratio="photo"><img src="/assets/img/fixtures/street-01.svg" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta">Streets</p><h4 class="card__title"><a class="card__link" href="#listing">Garnet Street</a></h4></article></li>
-              <li data-tags="parks"><article class="card"><figure class="card__media media" data-ratio="photo"><img src="/assets/img/fixtures/park-03.svg" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta">Parks</p><h4 class="card__title"><a class="card__link" href="#listing">St Agnes Park</a></h4></article></li>
+              <li data-tags="parks"><article class="card"><figure class="card__media media" data-ratio="photo"><div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div></figure><p class="card__meta">Parks</p><h4 class="card__title"><a class="card__link" href="#listing">Millbrook Riverside Park</a></h4></article></li>
+              <li data-tags="streets"><article class="card"><figure class="card__media media" data-ratio="photo"><div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div></figure><p class="card__meta">Streets</p><h4 class="card__title"><a class="card__link" href="#listing">Garnet Street</a></h4></article></li>
+              <li data-tags="parks"><article class="card"><figure class="card__media media" data-ratio="photo"><div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div></figure><p class="card__meta">Parks</p><h4 class="card__title"><a class="card__link" href="#listing">St Agnes Park</a></h4></article></li>
             </ul>
           </div>
         </div>
@@ -1481,11 +1556,15 @@
       <section class="sg-section" id="article-layout" aria-labelledby="al-title">
         <div class="container">
           <h3 class="text-card-title" id="al-title">Article layout</h3>
-          <dl class="meta-list"><dt>Used for</dt><dd>Articles, case study narratives, job descriptions, legal pages. Sticky aside for author, contents and sharing; prose body from column 4.</dd></dl>
+          <dl class="meta-list">
+            <dt>Used for</dt><dd>Articles, case study narratives, job descriptions, legal pages. Sticky aside for author, contents and sharing; prose body from column 4.</dd>
+            <dt>Variants</dt><dd>The aside is optional — drop it for a plain single-column read. Sticky positioning is CSS-only; remove it by not adding <code>position: sticky</code> in a project override.</dd>
+            <dt>Accessibility</dt><dd>The contents list marks the section in view with <code>aria-current="true"</code>, updated by samla.js as the reader scrolls — sighted readers see it via the link style, and it's exposed to assistive tech the same way. The sticky aside never traps focus or scroll.</dd>
+          </dl>
         </div>
         <div class="article-layout container">
           <aside class="article-layout__aside">
-            <div class="card__person"><span class="avatar"><img src="/assets/img/fixtures/portrait-07.svg" alt="" width="1200" height="1500"></span><span><strong>Ruth Hallam</strong><br><span class="text-muted">Founding partner</span></span></div>
+            <div class="card__person"><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span><strong>Ruth Hallam</strong><br><span class="text-muted">Founding partner</span></span></div>
             <nav class="toc" aria-labelledby="sg-toc"><p class="label" id="sg-toc">Contents</p><ol><li><a href="#al-title" aria-current="true">Shade first</a></li><li><a href="#al-title">Water that stays</a></li><li><a href="#al-title">Soil is the park</a></li></ol></nav>
           </aside>
           <div class="article-layout__body prose">
@@ -1498,8 +1577,14 @@
       <section class="sg-section" id="profile" aria-labelledby="profile-title">
         <div class="container stack" data-gap="6">
           <h3 class="text-card-title" id="profile-title">Profile</h3>
+          <p class="text-muted">A single person's page: team members, authors, speakers. Portrait, name and role first, facts and contact second.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>portrait, name, role, intro?, facts (studio, specialisms, contact)?.</dd>
+            <dt>Variants</dt><dd>Any surface. Pairs with a listing (team index) linking in, and an article layout below for longer writing.</dd>
+            <dt>Accessibility</dt><dd>The portrait's alt text is the person's name, not a generic label — the name text nearby doesn't substitute for it in every screen reader's announcement order.</dd>
+          </dl>
           <div class="profile">
-            <figure class="profile__portrait media" data-ratio="portrait"><img src="/assets/img/fixtures/portrait-07.svg" alt="Ruth Hallam" width="1200" height="1500" loading="lazy"></figure>
+            <figure class="profile__portrait media" data-ratio="portrait"><div class="media__frame"><img src="https://placehold.co/960x1200/ECEAE4/5C5B57" alt="Ruth Hallam" width="960" height="1200" loading="lazy"></div></figure>
             <div class="profile__body">
               <p class="label">Founding partner</p>
               <p class="text-page-title">Ruth Hallam</p>
@@ -1532,7 +1617,7 @@
             <div class="stack" data-gap="3">
               <p class="label">Location: bordered card + meta-list</p>
               <article class="card" data-variant="bordered">
-                <figure class="card__media media" data-ratio="photo"><img src="/assets/img/fixtures/plan-01.svg" alt="Map of the Bristol studio" width="1600" height="1200" loading="lazy"></figure>
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Map of the Bristol studio" width="1600" height="1200" loading="lazy"></figure>
                 <h4 class="card__title">Bristol</h4>
                 <dl class="meta-list"><dt>Address</dt><dd>22 Feeder Road, Bristol BS2 0SB</dd><dt>Telephone</dt><dd><a href="#domain">0117 946 0000</a></dd></dl>
               </article>
@@ -1596,10 +1681,10 @@
       <a class="wordmark" href="/"><span class="wordmark__mark" aria-hidden="true"></span>Samla</a>
       <nav aria-label="Footer">
         <ul class="site-footer__links">
-          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/docs/">Philosophy</a></li>
           <li><a href="/style-guide/">Style Guide</a></li>
           <li><a href="/templates/">Examples</a></li>
-          <li><a href="https://github.com/benwellby/samla-ui">GitHub</a></li>
+          <li><a href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></li>
         </ul>
       </nav>
       <p class="site-footer__meta">v1.0 / Built with Samla</p>

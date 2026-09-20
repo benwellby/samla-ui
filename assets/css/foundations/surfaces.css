@@ -14,7 +14,7 @@
 
 :root,
 [data-surface="default"] {
-  --surface-bg: var(--color-paper);
+  --surface-bg: var(--color-white);
   --surface-text: var(--color-ink);
   --surface-muted: var(--color-muted);
   --surface-line: var(--color-line);

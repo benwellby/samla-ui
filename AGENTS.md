@@ -35,7 +35,7 @@ than opening files directly.
 | Sections | `assets/css/sections/` | Page bands and their layout blocks: section, hero, split, media-content, cta |
 | Patterns | `assets/css/patterns/` | Domain arrangements: page-header, listing, article-layout, profile |
 | Behaviour | `assets/js/samla.js` | All JavaScript. One file, progressive enhancement |
-| Docs only | `assets/css/docs.css`, `assets/js/docs.js` | `sg-*` classes for the Style Guide. Never use in a project |
+| Docs only | `assets/css/docs.css`, `assets/js/docs.js` | `sg-*` classes for the Style Guide and the homepage's self-describing specimen sections. Never use in a project |
 | Templates | `templates/*.html` | Reference pages for the fictional client "Fieldwork" |
 | Shared markup | `partials/*.html` | Headers and footers, stamped into pages by `sync-partials` |
 | Documentation | `*.md`, `docs/*.md` | Source of truth. `docs/*.html` is generated from it: never edit the HTML |

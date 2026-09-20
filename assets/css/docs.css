@@ -297,6 +297,128 @@
     height: 6px;
   }
 
+  /* Interactive grid explorer: mobile / tablet / desktop preview control */
+  .sg-grid-explorer__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .sg-grid-explorer__tab {
+    min-height: var(--target-min);
+    padding: 0 var(--space-4);
+    border: var(--border-width) solid var(--surface-line-strong);
+    border-radius: var(--radius-1);
+    background-color: transparent;
+    color: var(--surface-muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    cursor: pointer;
+    transition:
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard),
+      color var(--duration-fast) var(--ease-standard);
+  }
+
+  .sg-grid-explorer__tab[aria-pressed="true"] {
+    border-color: var(--surface-rule);
+    background-color: var(--surface-subtle);
+    color: var(--surface-text);
+  }
+
+  .sg-grid-explorer__stage {
+    margin-top: var(--space-4);
+    transition: padding-inline var(--duration-slow) var(--ease-standard);
+  }
+
+  .sg-grid-explorer__demo {
+    display: grid;
+    height: var(--space-9);
+    transition: gap var(--duration-slow) var(--ease-standard);
+  }
+
+  .sg-grid-explorer__bar {
+    background-color: var(--surface-subtle);
+    border-radius: var(--radius-1);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sg-grid-explorer__bar {
+      animation: grid-bar-in var(--duration-slow) var(--ease-standard);
+    }
+  }
+
+  @keyframes grid-bar-in {
+    from { opacity: 0; transform: scaleY(0.7); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* Layer stack: the six-layer architecture explorer (homepage) */
+  .layer-stack {
+    margin-top: var(--space-heading);
+  }
+
+  .layer-stack__list {
+    position: relative;
+    padding-left: var(--space-6);
+    border-left: var(--border-width) solid var(--surface-line);
+  }
+
+  .layer-stack__item {
+    position: relative;
+  }
+
+  .layer-stack__marker {
+    position: absolute;
+    top: 1.9375rem; /* centred on the 4rem trigger */
+    left: calc(var(--space-6) * -1 - (var(--space-3) / 2) - 1px);
+    width: var(--space-3);
+    height: var(--space-3);
+    border-radius: var(--radius-full);
+    border: var(--border-width-strong) solid var(--surface-line-strong);
+    background-color: var(--surface-bg);
+    transition: background-color var(--duration-base) var(--ease-standard), border-color var(--duration-base) var(--ease-standard);
+  }
+
+  .layer-stack__trigger {
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-4);
+  }
+
+  .layer-stack__index {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--surface-muted);
+  }
+
+  .layer-stack__name {
+    flex-basis: 11rem;
+  }
+
+  .layer-stack__text {
+    flex: 1 1 16rem;
+    font-weight: var(--weight-regular);
+  }
+
+  .layer-stack__demo {
+    padding-top: var(--space-2);
+  }
+
+  .layer-stack__demo p {
+    font-family: var(--font-mono);
+  }
+
+  /* Cumulative fill: every marker up to the open layer reads as "built". */
+  .layer-stack__list:has(.layer-stack__item:nth-of-type(1)[open]) .layer-stack__item:nth-of-type(-n + 1) .layer-stack__marker,
+  .layer-stack__list:has(.layer-stack__item:nth-of-type(2)[open]) .layer-stack__item:nth-of-type(-n + 2) .layer-stack__marker,
+  .layer-stack__list:has(.layer-stack__item:nth-of-type(3)[open]) .layer-stack__item:nth-of-type(-n + 3) .layer-stack__marker,
+  .layer-stack__list:has(.layer-stack__item:nth-of-type(4)[open]) .layer-stack__item:nth-of-type(-n + 4) .layer-stack__marker,
+  .layer-stack__list:has(.layer-stack__item:nth-of-type(5)[open]) .layer-stack__item:nth-of-type(-n + 5) .layer-stack__marker,
+  .layer-stack__list:has(.layer-stack__item:nth-of-type(6)[open]) .layer-stack__item:nth-of-type(-n + 6) .layer-stack__marker {
+    background-color: var(--surface-rule);
+    border-color: var(--surface-rule);
+  }
+
   /* Viewport frames for responsive demos */
   .sg-frames {
     display: flex;

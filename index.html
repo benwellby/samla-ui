@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/assets/css/docs.css">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <script src="/assets/js/samla.js" defer></script>
+  <script src="/assets/js/docs.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -23,17 +24,16 @@
     </div>
     <nav class="site-nav" aria-label="Primary">
       <ul class="site-nav__list">
-        <li class="site-nav__item"><a class="site-nav__link" href="/docs/">Docs</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="/docs/">Philosophy</a></li>
         <li class="site-nav__item"><a class="site-nav__link" href="/style-guide/">Style Guide</a></li>
         <li class="site-nav__item"><a class="site-nav__link" href="/templates/">Examples</a></li>
-        <li class="site-nav__item"><a class="site-nav__link" href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></li>
       </ul>
       <div class="site-nav__mobile-actions">
-        <a class="button" data-width="full" href="/docs/">Get started <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="button" data-variant="secondary" data-width="full" href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a>
       </div>
     </nav>
     <div class="site-header__actions">
-      <a class="button" data-size="small" href="/docs/">Get started</a>
+      <a class="button" data-variant="secondary" data-size="small" href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a>
       <button class="site-header__toggle" type="button" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
         <svg class="icon" data-icon="menu" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 8h16M3 14h16"/></svg>
         <svg class="icon" data-icon="close" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg>
@@ -158,7 +158,7 @@
           <div data-tile="card">
             <p class="label">Card</p>
             <article class="card">
-              <div class="card__media media" data-ratio="standard"><div class="media__frame"><span class="media__placeholder">Image 4:3</span></div></div>
+              <div class="card__media media" data-ratio="standard"><div class="media__frame"><img src="https://placehold.co/1200x900/ECEAE4/5C5B57" alt="" width="1200" height="900" loading="lazy"></div></div>
               <p class="card__meta">Pattern</p>
               <h3 class="card__title"><a class="card__link" href="/templates/">Pricing with three tiers</a></h3>
               <p class="card__summary">A comparison section built from the Plan card, Table and Button components.</p>
@@ -184,12 +184,22 @@
           </div>
 
           <div data-tile="grid">
-            <div class="sg-board__head label"><span>Grid</span><span>12 / 24 / 64</span></div>
-            <div class="sg-grid-demo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="sg-grid-span" aria-hidden="true"><span style="grid-column: 1 / span 3; background: var(--color-muted)"></span><span style="grid-column: 4 / span 9; background: var(--color-ink)"></span></div>
-            <div class="sg-foot stack" data-gap="1">
-              <span><strong style="color: var(--surface-text)">12 columns</strong>, 24px gutter, 64px margin at 1440.</span>
-              <span>Labels hang in columns 1 to 3. Content starts at column 4.</span>
+            <div class="sg-board__head label"><span>Grid</span><span data-grid-explorer-caption>12 columns, 24px gutter, 64px margin at 1440</span></div>
+            <div class="sg-grid-explorer" data-grid-explorer>
+              <div class="sg-grid-explorer__tabs" role="group" aria-label="Preview breakpoint">
+                <button class="sg-grid-explorer__tab" type="button" data-columns="4" data-gutter="16" data-margin="20" data-viewport="375" aria-pressed="false">Mobile</button>
+                <button class="sg-grid-explorer__tab" type="button" data-columns="8" data-gutter="20" data-margin="40" data-viewport="768" aria-pressed="false">Tablet</button>
+                <button class="sg-grid-explorer__tab" type="button" data-columns="12" data-gutter="24" data-margin="64" data-viewport="1440" aria-pressed="true">Desktop</button>
+              </div>
+              <div class="sg-grid-explorer__stage" data-grid-explorer-stage style="padding-inline: 64px">
+                <div class="sg-grid-explorer__demo" data-grid-explorer-demo aria-hidden="true" style="grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px">
+                  <span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span>
+                </div>
+              </div>
+              <div class="sg-foot stack" data-gap="1">
+                <span><strong style="color: var(--surface-text)" data-grid-explorer-columns>12 columns</strong><span data-grid-explorer-detail>, 24px gutter, 64px margin at 1440.</span></span>
+                <span>Labels hang in columns 1 to 3. Content starts at column 4.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -199,11 +209,10 @@
     <!-- Principles ---------------------------------------------------------->
     <section class="section" aria-labelledby="principles-title">
       <div class="container">
-        <header class="section-header">
-          <p class="section-header__label">Principles</p>
+        <header class="section-header" data-align="stack">
           <h2 class="section-header__title text-section-heading" id="principles-title">Four ideas the whole system is built on.</h2>
         </header>
-        <div class="section__body" data-indent>
+        <div class="section__body">
           <ol class="feature-list" role="list">
             <li class="feature" data-layout="row" data-size="xlarge">
               <h3 class="feature__title">Designed, not decorated.</h3>
@@ -244,6 +253,97 @@
       </div>
     </section>
 
+    <!-- Architecture -------------------------------------------------------->
+    <section class="section" id="architecture" aria-labelledby="architecture-title">
+      <div class="container">
+        <header class="section-header" data-align="stack">
+          <h2 class="section-header__title text-section-heading" id="architecture-title">Six layers, each composed from the one below.</h2>
+          <p class="section-header__intro">Open a layer to see what it adds, from a single token to a whole page. Work down from Foundations, or start at Templates and take it apart.</p>
+        </header>
+
+        <div class="layer-stack">
+          <div class="accordion layer-stack__list">
+            <details class="accordion__item layer-stack__item" name="layers" open>
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">01</span><span class="layer-stack__name">Foundations</span><span class="layer-stack__text text-small text-muted">Tokens for colour, type, space, radius and motion.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <div class="cluster" data-gap="3">
+                  <span style="display: block; width: var(--space-6); height: var(--space-6); border-radius: var(--radius-1); background: var(--color-ink)"></span>
+                  <span style="display: block; width: var(--space-6); height: var(--space-6); border-radius: var(--radius-1); background: var(--color-muted)"></span>
+                  <span style="display: block; width: var(--space-6); height: var(--space-6); border-radius: var(--radius-1); background: var(--color-stone)"></span>
+                  <span style="display: block; width: var(--space-6); height: var(--space-6); border-radius: var(--radius-1); background: var(--color-brand)"></span>
+                  <span class="text-page-title" style="margin-left: var(--space-2)">Aa</span>
+                </div>
+                <p class="text-caption text-muted">--color-ink · --color-muted · --color-stone · --color-brand · --text-page-title</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">02</span><span class="layer-stack__name">Primitives</span><span class="layer-stack__text text-small text-muted">Layout, buttons, links, forms, media, tags.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <div class="cluster" data-gap="4">
+                  <button class="button" type="button">Button</button>
+                  <a class="link" href="#architecture">Link</a>
+                  <span class="tag">Tag</span>
+                </div>
+                <p class="text-caption text-muted">.button · .link · .tag</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">03</span><span class="layer-stack__name">Components</span><span class="layer-stack__text text-small text-muted">Cards, quotes, navigation, dialogs, carousels.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <article class="card" style="max-width: 16rem">
+                  <div class="card__media media" data-ratio="standard"><div class="media__frame"><img src="https://placehold.co/1200x900/ECEAE4/5C5B57" alt="" width="1200" height="900" loading="lazy"></div></div>
+                  <p class="card__meta">Pattern</p>
+                  <p class="card__title text-card-title">Assembled from primitives</p>
+                </article>
+                <p class="text-caption text-muted">.card, built from .media and .button</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">04</span><span class="layer-stack__name">Sections</span><span class="layer-stack__text text-small text-muted">Complete page bands: heroes, splits, CTAs, logo rails.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <div data-surface="alternate" style="padding: var(--space-5)">
+                  <header class="section-header" data-rule="none">
+                    <p class="section-header__label">Example</p>
+                    <p class="text-card-title">A surface, a container and a layout block.</p>
+                  </header>
+                </div>
+                <p class="text-caption text-muted">.section + data-surface + .container</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">05</span><span class="layer-stack__name">Patterns</span><span class="layer-stack__text text-small text-muted">Domain arrangements: listings, profiles, articles.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <div class="grid" data-columns="3" data-gap="tight">
+                  <span style="display: block; height: var(--space-8); background: var(--surface-subtle); border-radius: var(--radius-1)"></span>
+                  <span style="display: block; height: var(--space-8); background: var(--surface-subtle); border-radius: var(--radius-1)"></span>
+                  <span style="display: block; height: var(--space-8); background: var(--surface-subtle); border-radius: var(--radius-1)"></span>
+                </div>
+                <p class="text-caption text-muted">A Listing: repeated Cards placed on the grid</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">06</span><span class="layer-stack__name">Templates</span><span class="layer-stack__text text-small text-muted">Full-page reference compositions.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <figure class="media" data-ratio="photo" style="max-width: 20rem"><div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div></figure>
+                <p class="text-caption text-muted">Fourteen templates, no new components. See Examples.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Components ---------------------------------------------------------->
     <section class="section" id="components" aria-labelledby="components-title">
       <div class="container">
@@ -276,10 +376,10 @@
               <div class="logo-rail" data-surface="light" style="padding-inline: var(--space-6); border-bottom: 0; border-top-color: var(--color-stone)">
                 <p class="label">Trusted by</p>
                 <ul class="logo-list" data-layout="rail">
-                  <li class="logo"><img src="/assets/img/fixtures/logo-halden.svg" alt="Halden" width="110" height="40" style="height: 1.5rem"></li>
-                  <li class="logo"><img src="/assets/img/fixtures/logo-oakmere.svg" alt="Oakmere" width="150" height="40" style="height: 1.5rem"></li>
-                  <li class="logo"><img src="/assets/img/fixtures/logo-northgate.svg" alt="Northgate" width="140" height="40" style="height: 1.5rem"></li>
-                  <li class="logo"><img src="/assets/img/fixtures/logo-parallel.svg" alt="Parallel" width="120" height="40" style="height: 1.5rem"></li>
+                  <li class="logo"><img src="https://placehold.co/110x40/ECEAE4/5C5B57" alt="Halden" width="110" height="40" style="height: 1.5rem"></li>
+                  <li class="logo"><img src="https://placehold.co/150x40/ECEAE4/5C5B57" alt="Oakmere" width="150" height="40" style="height: 1.5rem"></li>
+                  <li class="logo"><img src="https://placehold.co/140x40/ECEAE4/5C5B57" alt="Northgate" width="140" height="40" style="height: 1.5rem"></li>
+                  <li class="logo"><img src="https://placehold.co/120x40/ECEAE4/5C5B57" alt="Parallel" width="120" height="40" style="height: 1.5rem"></li>
                 </ul>
               </div>
             </div>
@@ -310,7 +410,9 @@
 
           <figure class="media" data-span="4">
             <article class="card">
-              <div class="card__media media" data-ratio="photo"><div class="media__frame"><img src="/assets/img/fixtures/plan-02.svg" alt="" width="1600" height="1200" loading="lazy"></div></div>
+              <div class="card__media media" data-ratio="photo">
+                <div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div>
+              </div>
               <p class="card__meta">Journal / 6 min read</p>
               <h3 class="card__title"><a class="card__link" href="/templates/article.html">Why every page starts with a grid</a></h3>
               <p class="card__summary">Notes on proportion, measure and the columns underneath this site.</p>
@@ -512,24 +614,6 @@
       </div>
     </section>
 
-    <!-- Architecture -------------------------------------------------------->
-    <section class="section" id="architecture" aria-labelledby="architecture-title">
-      <div class="container">
-        <header class="section-header">
-          <p class="section-header__label">Architecture</p>
-          <h2 class="section-header__title text-section-heading" id="architecture-title">Six layers, each composed from the one below.</h2>
-        </header>
-        <ol class="grid" data-columns="6" role="list">
-          <li class="feature" data-size="large"><h3 class="feature__title">Foundations</h3><p class="feature__text text-small">Tokens for colour, type, space, radius and motion.</p></li>
-          <li class="feature" data-size="large"><h3 class="feature__title">Primitives</h3><p class="feature__text text-small">Layout, buttons, links, forms, media, tags.</p></li>
-          <li class="feature" data-size="large" data-accent><h3 class="feature__title">Components</h3><p class="feature__text text-small">Cards, quotes, navigation, dialogs, carousels.</p></li>
-          <li class="feature" data-size="large"><h3 class="feature__title">Sections</h3><p class="feature__text text-small">Complete page bands: heroes, splits, CTAs, logo rails.</p></li>
-          <li class="feature" data-size="large"><h3 class="feature__title">Patterns</h3><p class="feature__text text-small">Domain arrangements: listings, profiles, articles.</p></li>
-          <li class="feature" data-size="large"><h3 class="feature__title">Templates</h3><p class="feature__text text-small">Full-page reference compositions.</p></li>
-        </ol>
-      </div>
-    </section>
-
     <!-- Documentation ------------------------------------------------------->
     <section class="section" id="docs" data-surface="dark" aria-labelledby="docs-title">
       <div class="container">
@@ -537,7 +621,7 @@
           <div class="split__aside" style="gap: var(--space-6)">
             <p class="label">Documentation</p>
             <h2 class="text-page-title" id="docs-title">From reading about Samla to building with it.</h2>
-            <p class="text-muted" style="font-size: 1.125rem">The documentation covers every layer, from tokens to templates, with guidance on accessibility, SEO and performance throughout.</p>
+            <p class="text-muted" style="font-size: 1.125rem">The working agreement, the accessibility checklist and the performance notes that sit behind every layer above.</p>
             <div class="button-group" data-stack="mobile">
               <a class="button" href="/docs/">Get started <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
               <a class="button" data-variant="secondary" href="https://github.com/benwellby/samla-ui">View on GitHub</a>
@@ -566,10 +650,10 @@
       <a class="wordmark" href="/"><span class="wordmark__mark" aria-hidden="true"></span>Samla</a>
       <nav aria-label="Footer">
         <ul class="site-footer__links">
-          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/docs/">Philosophy</a></li>
           <li><a href="/style-guide/">Style Guide</a></li>
           <li><a href="/templates/">Examples</a></li>
-          <li><a href="https://github.com/benwellby/samla-ui">GitHub</a></li>
+          <li><a href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></li>
         </ul>
       </nav>
       <p class="site-footer__meta">v1.0 / Built with Samla</p>

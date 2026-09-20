@@ -8,8 +8,7 @@
     "setup": "git config core.hooksPath .githooks",
     "dev": "node scripts/serve.mjs",
     "build": "node scripts/build-docs.mjs && node scripts/sync-partials.mjs",
-    "build:css": "node scripts/build-css.mjs",
-    "fixtures": "node scripts/generate-fixtures.mjs"
+    "build:css": "node scripts/build-css.mjs"
   },
   "license": "UNLICENSED"
 }

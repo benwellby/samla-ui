@@ -1,4 +1,7 @@
-# Cloudflare Pages response headers. https://developers.cloudflare.com/pages/configuration/headers/
+# Response headers for this deployment's host, Cloudflare Pages:
+# https://developers.cloudflare.com/pages/configuration/headers/
+# Hosting is not a Samla concern — translate to your own host's equivalent,
+# or drop this file, if you deploy somewhere else. See README.md > Hosting.
 
 /*
   X-Content-Type-Options: nosniff

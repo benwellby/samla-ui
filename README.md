@@ -41,7 +41,6 @@ assets/
   css/docs.css            Style Guide presentation only (sg-*), never shipped
   js/samla.js             All behaviour, progressive enhancement
   fonts/                  Instrument Sans (variable), IBM Plex Mono 400/500, WOFF2
-  img/fixtures/           Generated placeholder imagery and client logos
 docs/
   taxonomy.md             The brief's inventory rationalised into Samla elements
   components.md           Content contracts and variants for every element
@@ -53,7 +52,6 @@ scripts/
   sync-partials.mjs       Refresh shared markup across pages
   build-css.mjs           Bundle CSS to dist/samla.css (keeps layers)
   build-docs.mjs          Render the Markdown docs to docs/*.html
-  generate-fixtures.mjs   Regenerate placeholder imagery
 style-guide/              The Style Guide
 templates/                Reference page templates
 ```
@@ -95,15 +93,17 @@ You don't need to run these by hand. They run automatically in two places:
   (`npm run setup` does the same). If a regenerated file also has unstaged
   edits of yours, the hook leaves it unstaged and tells you, so work in
   progress is never committed by accident.
-- **On every Cloudflare deploy**, through the build command below.
+- **On every deploy**, if your host runs a build command (see Hosting below).
 
 To see doc changes in the local preview before committing, run
 `npm run build`, which runs both scripts.
 
 ## Hosting
 
-Deploys as-is to any static host. On Cloudflare Pages, connect the GitHub
-repo with these build settings:
+Samla is a folder of static HTML, CSS and JavaScript. It deploys as-is to
+any static host and has no opinion on which one — the generated files
+(`docs/*.html`, the partial-stamped headers and footers) are committed, so
+a host doesn't need to run a build step at all. If yours does, point it at:
 
 | Setting | Value |
 | --- | --- |
@@ -111,8 +111,17 @@ repo with these build settings:
 | Build command | `node scripts/build-docs.mjs && node scripts/sync-partials.mjs` |
 | Build output directory | `/` |
 
-`_headers` sets caching and serves the Markdown sources as text; `404.html`
-handles unknown URLs.
+`404.html` handles unknown routes on any host that serves a custom 404 page.
+
+#### Example: Cloudflare Pages
+
+This repository happens to be deployed on Cloudflare Pages, so it also
+ships a `_headers` file (Cloudflare's own syntax for response headers:
+caching, and serving the Markdown sources as plain text). Connect the
+GitHub repo and use the build settings above; `_headers` and `404.html`
+are picked up automatically. None of this is Samla-specific — on another
+host, translate `_headers` to that host's equivalent (or drop it) and keep
+the same 404 page.
 
 ## Rebranding a project
 

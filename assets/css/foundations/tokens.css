@@ -12,8 +12,8 @@
 
 :root {
   /* ---- Colour: raw palette --------------------------------------------- */
-  --color-paper: #F7F6F2;          /* default background */
-  --color-white: #FFFFFF;          /* light surface, inputs */
+  --color-paper: #F7F6F2;          /* overlays, subtle fills, text on ink */
+  --color-white: #FFFFFF;          /* default page background, light surface, inputs */
   --color-stone: #ECEAE4;          /* alternate surface, media placeholders */
   --color-stone-line: #C9C6BE;     /* hairline on stone */
   --color-line: #D8D6CF;           /* hairlines, dividers (decorative) */
