@@ -1,0 +1,144 @@
+---
+import FieldworkLayout from '../../layouts/FieldworkLayout.astro';
+---
+
+<FieldworkLayout
+  title="Projects | Fieldwork"
+  description="Parks, streets and masterplans by Fieldwork, landscape architects in Bristol and Glasgow."
+>
+  <main id="main">
+    <!-- Template: Case studies index. Page header / Listing (client-side filter) / Pagination / CTA -->
+
+    <header class="page-header">
+      <div class="page-header__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/templates/home/">Home</a></li>
+            <li><a href="/templates/case-studies/" aria-current="page">Projects</a></li>
+          </ol>
+        </nav>
+        <p class="page-header__label">Projects</p>
+        <h1 class="page-header__title text-page-title">118 places, and counting.</h1>
+        <p class="page-header__lead text-lead">A selection of parks, streets and masterplans from the last ten years.</p>
+      </div>
+    </header>
+
+    <section class="section" data-spacing="none" aria-label="Project listing">
+      <div class="container">
+        <div class="listing" data-filter-root>
+          <div class="listing__toolbar">
+            <div class="listing__filters" role="group" aria-label="Filter by type">
+              <ul class="tag-list" role="list">
+                <li><button class="tag" type="button" data-filter="all" aria-pressed="true">All</button></li>
+                <li><button class="tag" type="button" data-filter="parks" aria-pressed="false">Parks</button></li>
+                <li><button class="tag" type="button" data-filter="streets" aria-pressed="false">Streets</button></li>
+                <li><button class="tag" type="button" data-filter="masterplanning" aria-pressed="false">Masterplanning</button></li>
+              </ul>
+            </div>
+            <p class="listing__count" aria-live="polite" data-noun="projects">9 projects</p>
+          </div>
+
+          <ul class="listing__results grid" data-columns="3" role="list">
+            <li data-tags="parks">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200"></figure>
+                <p class="card__meta"><span>Parks</span><span>Halden, 2025</span></p>
+                <h2 class="card__title"><a class="card__link" href="/templates/case-study/">Millbrook Riverside Park</a></h2>
+                <p class="card__summary">Eleven hectares of railway sidings returned to the river as terraces, meadow and play.</p>
+              </article>
+            </li>
+            <li data-tags="streets">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200"></figure>
+                <p class="card__meta"><span>Streets</span><span>Glasgow, 2024</span></p>
+                <h2 class="card__title"><a class="card__link" href="/templates/case-study/">Garnet Street</a></h2>
+                <p class="card__summary">A four-lane road made into a planted street with room to cross, sit and trade.</p>
+              </article>
+            </li>
+            <li data-tags="masterplanning">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta"><span>Masterplanning</span><span>Oakmere, 2026</span></p>
+                <h2 class="card__title"><a class="card__link" href="/templates/case-study/">Oakmere Fields</a></h2>
+                <p class="card__summary">A landscape-led plan for 900 homes around an existing hedgerow network.</p>
+              </article>
+            </li>
+            <li data-tags="parks">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta"><span>Parks</span><span>Bristol, 2023</span></p>
+                <h2 class="card__title"><a class="card__link" href="/templates/case-study/">St Agnes Park restoration</a></h2>
+                <p class="card__summary">A Victorian park brought back into daily use, with a new café and play.</p>
+              </article>
+            </li>
+            <li data-tags="streets">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta"><span>Streets</span><span>Bath, 2023</span></p>
+                <h2 class="card__title"><a class="card__link" href="/templates/case-study/">Kingsmead Square</a></h2>
+                <p class="card__summary">A car park made into a square for markets, music and lunch breaks.</p>
+              </article>
+            </li>
+            <li data-tags="masterplanning">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta"><span>Masterplanning</span><span>Swindon, 2022</span></p>
+                <h2 class="card__title"><a class="card__link" href="/templates/case-study/">Parallel Quarter</a></h2>
+                <p class="card__summary">Green streets and shared courtyards for a former engineering works.</p>
+              </article>
+            </li>
+            <li data-tags="parks">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta"><span>Parks</span><span>Glasgow, 2022</span></p>
+                <h2 class="card__title"><a class="card__link" href="/templates/case-study/">Kelvin Meadows</a></h2>
+                <p class="card__summary">A community-run meadow saved from development and made permanent.</p>
+              </article>
+            </li>
+            <li data-tags="streets">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta"><span>Streets</span><span>Bristol, 2021</span></p>
+                <h2 class="card__title"><a class="card__link" href="/templates/case-study/">Old Market low-traffic scheme</a></h2>
+                <p class="card__summary">Parklets, crossings and trees for a neighbourhood that asked for quieter streets.</p>
+              </article>
+            </li>
+            <li data-tags="masterplanning parks">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta"><span>Masterplanning</span><span>Northgate, 2021</span></p>
+                <h2 class="card__title"><a class="card__link" href="/templates/case-study/">Northgate Commons</a></h2>
+                <p class="card__summary">A park at the centre of a new village, planned before the first house.</p>
+              </article>
+            </li>
+          </ul>
+
+          <nav class="pagination" aria-label="Pagination">
+            <a class="pagination__link" aria-disabled="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg> Previous</a>
+            <ol class="pagination__list">
+              <li><a class="pagination__link" href="?page=1" aria-current="page">1</a></li>
+              <li><a class="pagination__link" href="?page=2">2</a></li>
+              <li><a class="pagination__link" href="?page=3">3</a></li>
+              <li><a class="pagination__link" href="?page=13">13</a></li>
+            </ol>
+            <a class="pagination__link" href="?page=2">Next <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta" data-layout="inline">
+          <div class="cta__content">
+            <p class="label">Your project</p>
+            <h2 class="text-section-heading" id="cta-title">Every project on this page started with a conversation.</h2>
+          </div>
+          <div class="cta__actions">
+            <a class="button" href="/templates/contact/">Start yours <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</FieldworkLayout>

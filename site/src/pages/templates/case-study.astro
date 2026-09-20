@@ -1,0 +1,167 @@
+---
+import FieldworkLayout from '../../layouts/FieldworkLayout.astro';
+---
+
+<FieldworkLayout
+  title="Millbrook Riverside Park | Fieldwork"
+  description="Eleven hectares of former railway sidings returned to the river as terraces, meadow and play. A Fieldwork project for Halden Council."
+>
+  <main id="main">
+    <!-- Template: Case study detail. Page header with facts / Article layout / Video / Gallery / Results (stats + quote) / Related / CTA -->
+
+    <article>
+      <header class="page-header">
+        <div class="page-header__inner container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="/templates/home/">Home</a></li>
+              <li><a href="/templates/case-studies/">Projects</a></li>
+              <li><a href="/templates/case-study/" aria-current="page">Millbrook Riverside Park</a></li>
+            </ol>
+          </nav>
+          <p class="page-header__label">Case study</p>
+          <h1 class="page-header__title text-page-title">Millbrook Riverside Park</h1>
+          <p class="page-header__lead text-lead">Eleven hectares of former railway sidings returned to the river as terraces, meadow and play, designed with the neighbourhood over two years.</p>
+          <dl class="page-header__meta meta-list">
+            <dt>Client</dt><dd>Halden Council</dd>
+            <dt>Location</dt><dd>Halden, West Yorkshire</dd>
+            <dt>Completed</dt><dd>April 2025</dd>
+            <dt>Area</dt><dd>11.2 hectares</dd>
+            <dt>Services</dt><dd>Parks, engagement, ecology</dd>
+          </dl>
+          <figure class="page-header__media media" data-ratio="cinema">
+            <img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Grass terraces step down to the river, with new trees along the upper path" width="1600" height="1200" fetchpriority="high">
+            <figcaption class="media__caption">The river terraces in the first spring after opening.</figcaption>
+          </figure>
+        </div>
+      </header>
+
+      <div class="section" data-spacing="none">
+        <div class="article-layout container">
+          <aside class="article-layout__aside">
+            <div class="stack" data-gap="3">
+              <p class="label">Share</p>
+              <ul class="social-links">
+                <li><a href="https://www.linkedin.com/"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 7v4.5M5 4.75v.01M7.75 11.5V7M7.75 9c0-1.25.75-2 1.75-2s1.5.75 1.5 2v2.5"/></svg><span class="visually-hidden">Share on LinkedIn</span></a></li>
+                <li><a href="mailto:?subject=Millbrook%20Riverside%20Park"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9"/><path d="M2 4l6 4.5L14 4"/></svg><span class="visually-hidden">Share by email</span></a></li>
+              </ul>
+            </div>
+            <div class="stack" data-gap="3">
+              <p class="label">Awards</p>
+              <ul class="tag-list" role="list">
+                <li><span class="tag">LI Awards 2025, winner</span></li>
+                <li><span class="tag">Civic Trust, commended</span></li>
+              </ul>
+            </div>
+          </aside>
+          <div class="article-layout__body prose">
+            <h2>The brief</h2>
+            <p>For forty years the sidings were fenced off: a strip of scrub between the town centre and the river that most residents had never walked through. Halden Council bought the land in 2021 with a simple ambition: open it up, and make it somewhere people want to be.</p>
+            <p>We spent the first six months listening. Walks with schools, an open studio in an empty shop, and conversations on the towpath told us people wanted three things: to reach the water, to feel safe after dark, and to keep the wildness that had grown up on the site.</p>
+            <h2>The design</h2>
+            <p>The park steps down to the river in five broad terraces, built from the railway ballast and spoil already on site. Each terrace is a different habitat, from mown lawn at the top to wet meadow at the water's edge.</p>
+            <blockquote><p>We kept every tree that could be kept. The oldest birch on the site is now the centre of the play area.</p></blockquote>
+            <p>Lighting follows the main path only, leaving the lower meadow dark for bats. A new bridge connects the park to the estates on the far bank for the first time.</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="section" aria-labelledby="film-title">
+        <div class="container">
+          <header class="section-header">
+            <p class="section-header__label">Film</p>
+            <h2 class="section-header__title text-section-heading" id="film-title">Opening day, in three minutes.</h2>
+          </header>
+          <figure class="media" data-ratio="video">
+            <div class="media__frame">
+              <img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy">
+              <button class="media__play" type="button" data-src="https://player.vimeo.com/video/76979871?autoplay=1&amp;dnt=1" aria-label="Play video: Opening day at Millbrook, 3 minutes">
+                <span class="media__play-icon"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5l10 5.5-10 5.5z"/></svg></span>
+              </button>
+            </div>
+            <figcaption class="media__caption">Film by Northlight Studio. Captions available.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="gallery-title">
+        <div class="container">
+          <header class="section-header">
+            <p class="section-header__label">Gallery</p>
+            <h2 class="section-header__title text-section-heading" id="gallery-title">Through the first year.</h2>
+          </header>
+          <ul class="gallery" role="list">
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="The upper lawn terrace in summer" width="1600" height="1200" loading="lazy"></div><figcaption class="media__caption">Upper terrace, July</figcaption></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Planting plan for the wet meadow" width="1600" height="1200" loading="lazy"></div><figcaption class="media__caption">Wet meadow planting plan</figcaption></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Meadow in flower along the river path" width="1600" height="1200" loading="lazy"></div><figcaption class="media__caption">River path, August</figcaption></figure></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" data-surface="dark" aria-labelledby="results-title">
+        <div class="container">
+          <header class="section-header">
+            <p class="section-header__label">Results</p>
+            <h2 class="section-header__title text-section-heading" id="results-title">One year on.</h2>
+          </header>
+          <div class="stack" data-gap="8">
+            <dl class="stat-list">
+              <div class="stat"><dt class="stat__label">Visits in year one</dt><dd class="stat__value">410k</dd><dd class="stat__text">Counted at the four entrances.</dd></div>
+              <div class="stat"><dt class="stat__label">Biodiversity net gain</dt><dd class="stat__value">38%</dd><dd class="stat__text">Against a target of 20%.</dd></div>
+              <div class="stat"><dt class="stat__label">Trees retained</dt><dd class="stat__value">212</dd><dd class="stat__text">Plus 640 new trees planted.</dd></div>
+              <div class="stat"><dt class="stat__label">Local volunteers</dt><dd class="stat__value">85</dd><dd class="stat__text">In the Friends of Millbrook group.</dd></div>
+            </dl>
+            <figure class="quote" data-size="large">
+              <blockquote class="quote__text"><p>Fieldwork listened longer than anyone we have worked with. The park works because the people who use it helped design it.</p></blockquote>
+              <figcaption class="quote__cite">
+                <span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span>
+                <span><span class="quote__name">Amara Okafor</span><span class="quote__role">Head of Parks, Halden Council</span></span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <section class="section" aria-labelledby="related-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Related</p>
+          <h2 class="section-header__title text-section-heading" id="related-title">More parks.</h2>
+          <div class="section-header__action"><a class="link" href="/templates/case-studies/">All projects</a></div>
+        </header>
+        <ul class="grid" data-columns="2" role="list">
+          <li>
+            <article class="card" data-layout="horizontal">
+              <figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+              <p class="card__meta"><span>Parks</span><span>Bristol, 2023</span></p>
+              <h3 class="card__title"><a class="card__link" href="/templates/case-study/">St Agnes Park restoration</a></h3>
+              <p class="card__summary">A Victorian park brought back into daily use.</p>
+            </article>
+          </li>
+          <li>
+            <article class="card" data-layout="horizontal">
+              <figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+              <p class="card__meta"><span>Parks</span><span>Glasgow, 2022</span></p>
+              <h3 class="card__title"><a class="card__link" href="/templates/case-study/">Kelvin Meadows</a></h3>
+              <p class="card__summary">A community meadow saved from development.</p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" data-surface="brand" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta" data-layout="inline">
+          <div class="cta__content">
+            <h2 class="text-page-title" id="cta-title">Have a site like this?</h2>
+          </div>
+          <div class="cta__actions">
+            <a class="button" href="/templates/contact/">Start a project <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</FieldworkLayout>

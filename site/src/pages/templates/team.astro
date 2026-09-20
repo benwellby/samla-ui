@@ -1,0 +1,105 @@
+---
+import FieldworkLayout from '../../layouts/FieldworkLayout.astro';
+---
+
+<FieldworkLayout
+  title="People | Fieldwork"
+  description="The landscape architects, ecologists and engagement specialists at Fieldwork."
+>
+  <main id="main">
+    <!-- Template: Team. Page header / Listing of profile cards (tabs by studio) / Careers rows / Dialog -->
+
+    <header class="page-header">
+      <div class="page-header__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/templates/home/">Home</a></li>
+            <li><a href="/templates/about/">Practice</a></li>
+            <li><a href="/templates/team/" aria-current="page">People</a></li>
+          </ol>
+        </nav>
+        <p class="page-header__label">People</p>
+        <h1 class="page-header__title text-page-title">Twenty-four people, two studios, one table.</h1>
+        <p class="page-header__lead text-lead">Landscape architects, ecologists, engineers and engagement specialists, all owners of the practice.</p>
+      </div>
+    </header>
+
+    <section class="section" data-spacing="none" aria-label="Team">
+      <div class="container">
+        <div class="tabs">
+          <div class="tabs__list">
+            <button class="tabs__tab" type="button" aria-controls="team-bristol">Bristol <span class="tabs__tab-meta">6 people</span></button>
+            <button class="tabs__tab" type="button" aria-controls="team-glasgow">Glasgow <span class="tabs__tab-meta">4 people</span></button>
+          </div>
+          <section class="tabs__panel" id="team-bristol">
+            <h2 class="tabs__heading">Bristol</h2>
+            <ul class="grid" data-columns="4" role="list">
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Ruth Hallam</a></h3><p class="card__meta">Founding partner</p></article></li>
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Daniel Osei</a></h3><p class="card__meta">Founding partner</p></article></li>
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Sam Whitfield</a></h3><p class="card__meta">Partner, Ecology</p></article></li>
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Priya Nair</a></h3><p class="card__meta">Landscape Architect</p></article></li>
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Hannah Blake</a></h3><p class="card__meta">Graduate</p></article></li>
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Joe Ramsay</a></h3><p class="card__meta">Engagement lead</p></article></li>
+            </ul>
+          </section>
+          <section class="tabs__panel" id="team-glasgow">
+            <h2 class="tabs__heading">Glasgow</h2>
+            <ul class="grid" data-columns="4" role="list">
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Mairi Campbell</a></h3><p class="card__meta">Partner, Glasgow</p></article></li>
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Grace Chen</a></h3><p class="card__meta">Senior Landscape Architect</p></article></li>
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Tom Adeyemi</a></h3><p class="card__meta">Associate</p></article></li>
+              <li><article class="card"><figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure><h3 class="card__title"><a class="card__link" href="/templates/person/">Luis Moreno</a></h3><p class="card__meta">Landscape Architect</p></article></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="careers" aria-labelledby="careers-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Careers</p>
+          <h2 class="section-header__title text-section-heading" id="careers-title">Three open roles.</h2>
+          <div class="section-header__action"><button class="link" type="button" data-dialog-open="speculative">Send a speculative application</button></div>
+        </header>
+        <div class="section__body" data-indent>
+          <ul class="link-list">
+            <li><a class="link-list__item" href="/templates/content/"><span class="link-list__title">Senior Landscape Architect</span><span class="link-list__meta">Glasgow, full time</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/content/"><span class="link-list__title">Ecologist</span><span class="link-list__meta">Glasgow, four days a week</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/landing/"><span class="link-list__title">Graduate programme 2027</span><span class="link-list__meta">Bristol or Glasgow</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="dialog" id="speculative" aria-labelledby="speculative-title">
+      <div class="dialog__header">
+        <h2 class="dialog__title" id="speculative-title">Speculative application</h2>
+        <button class="dialog__close" type="button" data-dialog-close aria-label="Close"><svg class="icon" data-size="20" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+      </div>
+      <form class="dialog__body form" action="#" method="post" data-validate data-demo>
+        <p class="text-small text-muted">We read every application, even when we are not hiring.</p>
+        <div class="field">
+          <label class="field__label" for="s-name">Name</label>
+          <input class="input" id="s-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label class="field__label" for="s-email">Email</label>
+          <input class="input" id="s-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label class="field__label" for="s-portfolio">Portfolio link</label>
+          <input class="input" id="s-portfolio" name="portfolio" type="url" placeholder="https://" required>
+        </div>
+        <div class="button-group">
+          <button class="button" type="submit">Send</button>
+          <button class="button" type="button" data-variant="secondary" data-dialog-close>Cancel</button>
+        </div>
+        <div class="notice" data-status="positive" role="status" tabindex="-1" data-form-success hidden>
+          <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>
+          <p>Thanks. We will be in touch.</p>
+        </div>
+      </form>
+    </dialog>
+  </main>
+</FieldworkLayout>

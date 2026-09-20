@@ -1,0 +1,157 @@
+---
+import FieldworkLayout from '../../layouts/FieldworkLayout.astro';
+---
+
+<FieldworkLayout
+  title="About | Fieldwork"
+  description="Fieldwork is a landscape architecture studio of twenty-four people, founded in Bristol in 2009."
+>
+  <main id="main">
+    <!-- Template: About. Page header / Media + content / Values (feature rows) / Stats / Team preview / Gallery / CTA -->
+
+    <header class="page-header">
+      <div class="page-header__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/templates/home/">Home</a></li>
+            <li><a href="/templates/about/" aria-current="page">About</a></li>
+          </ol>
+        </nav>
+        <p class="page-header__label">About</p>
+        <h1 class="page-header__title text-page-title">We design the spaces between buildings, with the people who use them.</h1>
+        <p class="page-header__lead text-lead">Founded in Bristol in 2009, Fieldwork is an employee-owned studio of landscape architects, ecologists and engagement specialists.</p>
+        <figure class="page-header__media media" data-ratio="cinema">
+          <img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Families on the grass terraces at Millbrook Riverside Park" width="1600" height="1200" fetchpriority="high">
+        </figure>
+      </div>
+    </header>
+
+    <section class="section" data-spacing="none" aria-labelledby="story-title">
+      <div class="container">
+        <div class="split" data-ratio="5-7">
+          <div class="split__aside">
+            <p class="label">Our story</p>
+            <h2 class="text-section-heading" id="story-title">Started on a kitchen table, still run like one.</h2>
+          </div>
+          <div class="split__main prose">
+            <p>Fieldwork began when two landscape architects left a large practice to work on smaller, stranger public spaces. The first project was a churchyard in Easton; the second, a car park that became a market.</p>
+            <p>Fifteen years later we are twenty-four people across two studios, and the studio is owned by the people who work in it. We still take on small projects, and we still start every one by walking the site with the people who know it best.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="values-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Values</p>
+          <h2 class="section-header__title text-section-heading" id="values-title">Three things we will not compromise on.</h2>
+        </header>
+        <div class="section__body" data-indent>
+          <ol class="feature-list" role="list">
+            <li class="feature" data-layout="row" data-size="xlarge">
+              <h3 class="feature__title">Designed with, not for.</h3>
+              <div class="feature__body"><p class="feature__text">Every brief is written with residents. We budget engagement as a design stage, not a consultation exercise.</p></div>
+            </li>
+            <li class="feature" data-layout="row" data-size="xlarge">
+              <h3 class="feature__title">Built to be looked after.</h3>
+              <div class="feature__body"><p class="feature__text">We design maintenance plans alongside planting plans, and visit every project five years after it opens.</p></div>
+            </li>
+            <li class="feature" data-layout="row" data-size="xlarge">
+              <h3 class="feature__title">Nature first.</h3>
+              <div class="feature__body"><p class="feature__text">Existing trees, soils and water shape the layout. We aim for 20% biodiversity net gain, twice the legal minimum.</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-surface="alternate" aria-labelledby="numbers-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">In numbers</p>
+          <h2 class="section-header__title text-section-heading" id="numbers-title">Small studio, long view.</h2>
+        </header>
+        <dl class="stat-list">
+          <div class="stat"><dt class="stat__label">People</dt><dd class="stat__value">24</dd></div>
+          <div class="stat"><dt class="stat__label">Projects completed</dt><dd class="stat__value">118</dd></div>
+          <div class="stat"><dt class="stat__label">Employee owned</dt><dd class="stat__value">100%</dd></div>
+          <div class="stat"><dt class="stat__label">Years in practice</dt><dd class="stat__value">17</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="people-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Partners</p>
+          <h2 class="section-header__title text-section-heading" id="people-title">The people who lead each project.</h2>
+          <div class="section-header__action"><a class="link" href="/templates/team/">Everyone at Fieldwork</a></div>
+        </header>
+        <ul class="grid" data-columns="4" role="list">
+          <li>
+            <article class="card">
+              <figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure>
+              <h3 class="card__title"><a class="card__link" href="/templates/person/">Ruth Hallam</a></h3>
+              <p class="card__meta">Founding partner</p>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure>
+              <h3 class="card__title"><a class="card__link" href="/templates/person/">Daniel Osei</a></h3>
+              <p class="card__meta">Founding partner</p>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure>
+              <h3 class="card__title"><a class="card__link" href="/templates/person/">Mairi Campbell</a></h3>
+              <p class="card__meta">Partner, Glasgow</p>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure>
+              <h3 class="card__title"><a class="card__link" href="/templates/person/">Sam Whitfield</a></h3>
+              <p class="card__meta">Partner, Ecology</p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="studios-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Studios</p>
+          <h2 class="section-header__title text-section-heading" id="studios-title">Two long tables, 370 miles apart.</h2>
+        </header>
+        <ul class="gallery" data-layout="mosaic" role="list">
+          <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="The Bristol studio, a converted warehouse on Feeder Road" width="1600" height="1200" loading="lazy"></div><figcaption class="media__caption">Bristol, Feeder Road</figcaption></figure></li>
+          <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Model-making table with site plans" width="1600" height="1200" loading="lazy"></div></figure></li>
+          <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="The Glasgow studio overlooking the Clyde" width="1600" height="1200" loading="lazy"></div></figure></li>
+          <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Team site visit at Millbrook" width="1600" height="1200" loading="lazy"></div></figure></li>
+          <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Planting plan pinned to the studio wall" width="1600" height="1200" loading="lazy"></div></figure></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" data-surface="dark" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta" data-layout="inline">
+          <div class="cta__content">
+            <h2 class="text-page-title" id="cta-title">Work with us.</h2>
+            <p class="cta__text">We are hiring a senior landscape architect and an ecologist in Glasgow.</p>
+          </div>
+          <div class="cta__actions">
+            <div class="button-group" data-stack="mobile">
+              <a class="button" href="/templates/team/#careers">Open roles <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              <a class="button" data-variant="secondary" href="/templates/contact/">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</FieldworkLayout>

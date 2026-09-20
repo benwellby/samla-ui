@@ -1,0 +1,150 @@
+---
+import FieldworkLayout from '../../layouts/FieldworkLayout.astro';
+---
+
+<FieldworkLayout
+  title="Contact | Fieldwork"
+  description="Start a project with Fieldwork, or visit our studios in Bristol and Glasgow."
+>
+  <main id="main">
+    <!-- Template: Contact. Page header / Split (details + validated form) / Locations / FAQ -->
+
+    <header class="page-header">
+      <div class="page-header__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/templates/home/">Home</a></li>
+            <li><a href="/templates/contact/" aria-current="page">Contact</a></li>
+          </ol>
+        </nav>
+        <p class="page-header__label">Contact</p>
+        <h1 class="page-header__title text-page-title">Tell us about the place.</h1>
+        <p class="page-header__lead text-lead">A partner reads every enquiry and replies within two working days.</p>
+      </div>
+    </header>
+
+    <section class="section" data-spacing="none" aria-labelledby="form-title">
+      <div class="container">
+        <div class="split">
+          <div class="split__aside">
+            <h2 class="label" id="details-title">Direct</h2>
+            <dl class="meta-list" data-layout="stacked" aria-labelledby="details-title">
+              <dt>New projects</dt><dd><a href="mailto:projects@fieldwork.example">projects@fieldwork.example</a></dd>
+              <dt>Press</dt><dd><a href="mailto:press@fieldwork.example">press@fieldwork.example</a></dd>
+              <dt>Careers</dt><dd><a href="mailto:careers@fieldwork.example">careers@fieldwork.example</a></dd>
+              <dt>Telephone</dt><dd><a href="tel:+441179460000">0117 946 0000</a></dd>
+            </dl>
+            <ul class="social-links">
+              <li><a href="https://www.instagram.com/"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.5"/><circle cx="8" cy="8" r="2.75"/><path d="M11.75 4.25v.01"/></svg><span class="visually-hidden">Instagram</span></a></li>
+              <li><a href="https://www.linkedin.com/"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 7v4.5M5 4.75v.01M7.75 11.5V7M7.75 9c0-1.25.75-2 1.75-2s1.5.75 1.5 2v2.5"/></svg><span class="visually-hidden">LinkedIn</span></a></li>
+            </ul>
+          </div>
+          <div class="split__main">
+            <form class="form" action="#" method="post" data-validate data-demo aria-labelledby="form-title">
+              <h2 class="text-card-title" id="form-title">Project enquiry</h2>
+              <p class="text-small text-muted">All fields are required unless marked optional.</p>
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field__label" for="c-name">Name</label>
+                  <input class="input" id="c-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="c-org">Organisation <span class="field__optional">(optional)</span></label>
+                  <input class="input" id="c-org" name="organisation" type="text" autocomplete="organization">
+                </div>
+                <div class="field">
+                  <label class="field__label" for="c-email">Email</label>
+                  <input class="input" id="c-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="c-tel">Telephone <span class="field__optional">(optional)</span></label>
+                  <input class="input" id="c-tel" name="tel" type="tel" autocomplete="tel">
+                </div>
+                <div class="field">
+                  <label class="field__label" for="c-type">Project type</label>
+                  <select class="select" id="c-type" name="type" required>
+                    <option value="">Choose one</option>
+                    <option>Park or open space</option>
+                    <option>Street or public realm</option>
+                    <option>Masterplan</option>
+                    <option>Community engagement</option>
+                    <option>Something else</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="c-budget">Construction budget, £ <span class="field__optional">(optional)</span></label>
+                  <input class="input" id="c-budget" name="budget" type="number" min="0" step="1000" inputmode="numeric" aria-describedby="c-budget-help">
+                  <p class="field__help" id="c-budget-help">An estimate is fine.</p>
+                </div>
+                <div class="field" data-span="full">
+                  <label class="field__label" for="c-message">About the site</label>
+                  <textarea class="input" id="c-message" name="message" minlength="20" required data-error="Tell us about the site in at least 20 characters" aria-describedby="c-message-help"></textarea>
+                  <p class="field__help" id="c-message-help">Where is it, who uses it, and what would you like to change?</p>
+                </div>
+                <div class="field" data-span="full">
+                  <span class="field__label" id="c-files-label">Drawings or photos <span class="field__optional">(optional)</span></span>
+                  <div class="file">
+                    <input class="file__input" id="c-files" name="files" type="file" multiple accept=".pdf,.jpg,.png" aria-labelledby="c-files-label" aria-describedby="c-files-help">
+                    <label class="file__label" for="c-files"><span><strong>Choose files</strong> or drag them here</span><span id="c-files-help">PDF, JPG or PNG, up to 20 MB</span><span class="file__name" aria-live="polite"></span></label>
+                  </div>
+                </div>
+                <fieldset class="fieldset" data-span="full">
+                  <legend class="fieldset__legend">How did you hear about us? <span class="field__optional">(optional)</span></legend>
+                  <label class="check"><input type="radio" name="source" value="recommendation"> Recommendation</label>
+                  <label class="check"><input type="radio" name="source" value="project"> Saw one of your projects</label>
+                  <label class="check"><input type="radio" name="source" value="search"> Search</label>
+                </fieldset>
+                <div class="field" data-span="full">
+                  <label class="check"><input type="checkbox" name="privacy" required> I agree to Fieldwork storing these details to reply to my enquiry.</label>
+                  <label class="switch"><input type="checkbox" role="switch" name="newsletter"> Send me the quarterly newsletter</label>
+                </div>
+              </div>
+              <div class="button-group">
+                <button class="button" type="submit">Send enquiry <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+              </div>
+              <div class="notice" data-status="positive" role="status" tabindex="-1" data-form-success hidden>
+                <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>
+                <div class="notice__body"><p class="notice__title">Enquiry sent</p><p>Thank you. A partner will reply within two working days.</p></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="studios-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Studios</p>
+          <h2 class="section-header__title text-section-heading" id="studios-title">Visit us.</h2>
+        </header>
+        <ul class="grid" data-columns="2" role="list">
+          <li>
+            <article class="card" data-variant="bordered">
+              <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Map of the Bristol studio location" width="1600" height="1200" loading="lazy"></figure>
+              <h3 class="card__title">Bristol</h3>
+              <dl class="meta-list">
+                <dt>Address</dt><dd>Unit 4, 22 Feeder Road<br>Bristol BS2 0SB</dd>
+                <dt>Hours</dt><dd>Monday to Friday, 9am to 5.30pm</dd>
+                <dt>Telephone</dt><dd><a href="tel:+441179460000">0117 946 0000</a></dd>
+              </dl>
+              <a class="link" data-variant="arrow" href="https://www.openstreetmap.org/">Directions to Bristol <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </article>
+          </li>
+          <li>
+            <article class="card" data-variant="bordered">
+              <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Map of the Glasgow studio location" width="1600" height="1200" loading="lazy"></figure>
+              <h3 class="card__title">Glasgow</h3>
+              <dl class="meta-list">
+                <dt>Address</dt><dd>3rd floor, 90 Tradeston Street<br>Glasgow G5 8BH</dd>
+                <dt>Hours</dt><dd>Monday to Friday, 9am to 5.30pm</dd>
+                <dt>Telephone</dt><dd><a href="tel:+441414960000">0141 496 0000</a></dd>
+              </dl>
+              <a class="link" data-variant="arrow" href="https://www.openstreetmap.org/">Directions to Glasgow <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</FieldworkLayout>
