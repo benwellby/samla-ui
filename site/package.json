@@ -1,5 +1,7 @@
 {
-  "name": "site",
+  "name": "samla-site",
+  "private": true,
+  "description": "The public Samla website: homepage, Philosophy docs, Style Guide and Fieldwork examples. The first real consumer of the Samla framework.",
   "type": "module",
   "version": "0.0.1",
   "engines": {

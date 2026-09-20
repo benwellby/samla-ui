@@ -1,43 +1,79 @@
-# Astro Starter Kit: Minimal
+# Samla site
 
-```sh
-npm create astro@latest -- --template minimal
+The public Samla website: homepage, Philosophy docs, Style Guide and
+Fieldwork examples. An Astro application, and the first real consumer of
+[the Samla framework](../README.md) — it renders the framework's own
+`assets/css/samla.css` and `assets/js/samla.js` directly (via a symlink at
+`public/assets`, so there is exactly one implementation of Samla, never a
+copy inside this app) and reads the framework's canonical documentation
+(`../docs/*.md`, `../AGENTS.md`, `../README.md`) straight from its source
+through an Astro content collection — see `src/content.config.ts`.
+
+## Quick start
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Then open:
 
-## 🚀 Project Structure
+- `http://localhost:4321/` — the Samla homepage
+- `http://localhost:4321/docs/` — Philosophy: the working agreement, taxonomy, accessibility and performance notes
+- `http://localhost:4321/style-guide/` — every token, component and variant, live
+- `http://localhost:4321/templates/` — the Fieldwork examples gallery
 
-Inside of your Astro project, you'll see the following folders and files:
+## Build
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build    # writes static output to dist/
+npm run preview  # serve that output locally
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Output is fully static (`output: 'static'` in `astro.config.mjs`) — the
+build folds the framework's real assets into `dist/assets/`, so the result
+deploys as plain files to any static host.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Structure
 
-Any static assets, like images, can be placed in the `public/` directory.
+```
+src/
+  layouts/          SamlaHeader/Footer/Layout (the real Samla site chrome),
+                     FieldworkHeader/Footer/Layout (the fictional client's
+                     chrome — deliberately separate, never shared with the
+                     real Samla site), DocsPage (the six Philosophy pages)
+  pages/
+    index.astro      Homepage
+    404.astro
+    style-guide/     The specimen library
+    templates/       Fieldwork examples + the listing page
+    docs/            Philosophy pages, rendered from ../../docs/*.md etc.
+  data/              docsNav.ts (explicit Philosophy nav order),
+                     docsMeta.ts (title/description extraction from markdown)
+  content.config.ts  The two content collections reading the framework's
+                     canonical markdown from outside this folder
+public/
+  assets -> ../../assets   symlink to the framework, not a copy
+  css/, js/                site-only presentation (sg-* classes): never
+                           part of the framework, never shipped to a
+                           project consuming Samla
+  _headers                 Cloudflare Pages config for this deployment
+```
 
-## 🧞 Commands
+## Hosting
 
-All commands are run from the root of the project, from a terminal:
+Deploys as-is to any static host from `dist/`. This repository happens to
+deploy on Cloudflare Pages, connected with this site folder as the build
+root:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Setting | Value |
+| --- | --- |
+| Framework preset | Astro |
+| Root directory | `site` |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+`public/_headers` is Cloudflare's own header syntax; translate it to your
+host's equivalent (or drop it) elsewhere. None of this is a Samla
+requirement — the framework itself has no hosting opinion at all; only
+this site does.
