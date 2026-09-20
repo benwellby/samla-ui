@@ -1,0 +1,45 @@
+---
+---
+
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Samla site — framework consumption check</title>
+    <link rel="stylesheet" href="/assets/css/samla.css" />
+    <script src="/assets/js/samla.js" defer></script>
+  </head>
+  <body>
+    <main class="container" style="padding-block: var(--space-8)">
+      <h1 class="text-page-title">Proving /site consumes the real Samla framework</h1>
+      <p class="text-lead">No copied CSS or JS lives in this project — everything below is the actual samla.css and samla.js served from the repo root via a symlink.</p>
+
+      <section class="stack" data-gap="5" style="margin-top: var(--space-7)">
+        <div class="cluster" data-gap="4">
+          <button class="button" type="button">Primary button</button>
+          <button class="button" type="button" data-variant="secondary">Secondary button</button>
+          <a class="link" href="#accordion">A real link</a>
+        </div>
+
+        <div class="accordion" id="accordion">
+          <details class="accordion__item" name="check" open>
+            <summary class="accordion__trigger">Is this the real accordion primitive?<span class="accordion__icon" aria-hidden="true"></span></summary>
+            <div class="accordion__panel"><p>Yes — this is assets/css/primitives/accordion.css and samla.js's initAccordion, loaded from the framework root, not duplicated into /site.</p></div>
+          </details>
+          <details class="accordion__item" name="check">
+            <summary class="accordion__trigger">Where do the styles come from?<span class="accordion__icon" aria-hidden="true"></span></summary>
+            <div class="accordion__panel"><p><code>/assets/css/samla.css</code>, symlinked from <code>site/public/assets</code> to the repo root's <code>assets/</code>.</p></div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" data-surface="alternate" style="margin-top: var(--space-8)">
+        <div class="container">
+          <header class="section-header" data-align="stack">
+            <h2 class="section-header__title text-section-heading">A real Hero, for good measure</h2>
+          </header>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
