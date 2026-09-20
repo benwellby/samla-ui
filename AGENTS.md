@@ -1,14 +1,10 @@
 # Building with Samla
 
-Samla is a stack-agnostic frontend system for marketing websites: tokens,
-primitives, components, sections, patterns and templates in plain HTML, CSS
-and a little vanilla JavaScript. This file is the working agreement for
+Samla is a stack-agnostic frontend system for marketing websites: tokens, primitives, components, sections, patterns and templates in plain HTML, CSS and a little vanilla JavaScript. This file is the working agreement for
 anyone (human or agent) building with it or extending it.
 
-**Rule zero: before creating anything new, check whether an existing
-primitive, component, section, pattern or variant already solves the
-requirement.** Search `docs/taxonomy.md` and `docs/components.md` first, then
-the live Style Guide at `/style-guide/`.
+**Rule zero: before creating anything new, check whether an existing primitive, component, section, pattern or variant already solves the requirement.
+** Search `docs/taxonomy.md` and `docs/components.md` first, then the live Style Guide at `/style-guide/`.
 
 ## Run it
 
