@@ -1,0 +1,47 @@
+---
+import SamlaLayout from '../layouts/SamlaLayout.astro';
+---
+
+<SamlaLayout
+  title="Page not found | Samla"
+  description="This page isn't part of the system."
+  current="/404.html"
+  noindex
+>
+  <!-- Served for any unknown URL. Any static host that supports a custom
+       404 page can serve this file the same way. -->
+  <main id="main">
+    <section class="hero" data-width="narrow" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Error 404</p>
+          <h1 class="hero__title text-display" id="hero-title">This page isn’t part of the system.</h1>
+        </div>
+        <div class="hero__body">
+          <p class="hero__lead text-lead">The link may be out of date, or the page may have moved. These are the places most people are looking for.</p>
+          <div class="hero__actions button-group" data-stack="mobile">
+            <a class="button" href="/">Samla home <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a class="button" data-variant="secondary" href="/docs/">Documentation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="popular-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Popular</p>
+          <h2 class="section-header__title text-section-heading" id="popular-title">Where people usually go.</h2>
+        </header>
+        <div class="section__body" data-indent>
+          <ul class="link-list">
+            <li><a class="link-list__item" href="/docs/"><span class="link-list__title">Getting started</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/style-guide/"><span class="link-list__title">Style Guide</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/"><span class="link-list__title">Example templates</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/docs/components.html"><span class="link-list__title">Component contracts</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</SamlaLayout>

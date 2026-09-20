@@ -1,0 +1,1641 @@
+---
+import SamlaLayout from '../../layouts/SamlaLayout.astro';
+---
+
+<SamlaLayout
+  title="Style Guide | Samla"
+  description="Every Samla token, primitive, component, section and pattern, rendered from the production CSS and JavaScript."
+  docsAssets
+>
+  <div class="sg-shell">
+    <nav class="sg-nav" aria-label="Style guide">
+      <div class="sg-nav__group">
+        <p class="label">Foundations</p>
+        <ul>
+          <li><a href="#colour">Colour</a></li>
+          <li><a href="#surfaces">Surfaces</a></li>
+          <li><a href="#typography">Typography</a></li>
+          <li><a href="#spacing">Spacing</a></li>
+          <li><a href="#grid">Grid and breakpoints</a></li>
+          <li><a href="#shape">Shape, line, ratio</a></li>
+          <li><a href="#motion">Motion, focus, layers</a></li>
+          <li><a href="#icons">Icons</a></li>
+        </ul>
+      </div>
+      <div class="sg-nav__group">
+        <p class="label">Primitives</p>
+        <ul>
+          <li><a href="#layout">Layout</a></li>
+          <li><a href="#buttons">Buttons</a></li>
+          <li><a href="#links">Links</a></li>
+          <li><a href="#tags">Tags, badges, avatars</a></li>
+          <li><a href="#breadcrumb">Breadcrumb, pagination</a></li>
+          <li><a href="#forms">Form controls</a></li>
+          <li><a href="#accordion">Accordion</a></li>
+          <li><a href="#tabs">Tabs</a></li>
+          <li><a href="#media">Image and video</a></li>
+          <li><a href="#prose">Rich text and tables</a></li>
+        </ul>
+      </div>
+      <div class="sg-nav__group">
+        <p class="label">Components</p>
+        <ul>
+          <li><a href="#section-header">Section header</a></li>
+          <li><a href="#cards">Card</a></li>
+          <li><a href="#features">Feature</a></li>
+          <li><a href="#quotes">Quote</a></li>
+          <li><a href="#stats">Stat</a></li>
+          <li><a href="#logos">Logos</a></li>
+          <li><a href="#lists">Lists</a></li>
+          <li><a href="#notice">Notice</a></li>
+          <li><a href="#header">Site header</a></li>
+          <li><a href="#footer">Site footer</a></li>
+          <li><a href="#overlays">Dropdown, dialog, tooltip</a></li>
+          <li><a href="#cookie">Cookie banner</a></li>
+          <li><a href="#carousel">Carousel</a></li>
+          <li><a href="#code-block">Code block</a></li>
+        </ul>
+      </div>
+      <div class="sg-nav__group">
+        <p class="label">Sections</p>
+        <ul>
+          <li><a href="#hero">Hero</a></li>
+          <li><a href="#media-content">Media + content</a></li>
+          <li><a href="#split">Split and FAQ</a></li>
+          <li><a href="#cta">CTA and newsletter</a></li>
+          <li><a href="#logo-rail">Logo rail</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="sg-nav__group">
+        <p class="label">Patterns</p>
+        <ul>
+          <li><a href="#page-header">Page header</a></li>
+          <li><a href="#listing">Listing</a></li>
+          <li><a href="#article-layout">Article layout</a></li>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#domain">Careers, events, locations</a></li>
+        </ul>
+      </div>
+      <div class="sg-nav__group">
+        <p class="label">Templates</p>
+        <ul>
+          <li><a href="#templates">All templates</a></li>
+          <li><a href="#responsive">Responsive previews</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="sg-main" id="main">
+
+      <header class="page-header">
+        <div class="page-header__inner container">
+          <p class="page-header__label">Samla / Style Guide 1.0</p>
+          <h1 class="page-header__title text-page-title">Style Guide</h1>
+          <p class="page-header__lead text-lead">Every token, primitive, component, section and pattern in Samla, rendered from the production CSS and JavaScript. Nothing on this page is a demonstration copy.</p>
+          <div class="page-header__actions stack" data-gap="3">
+            <p class="label">Try a brand colour</p>
+            <div class="cluster" data-gap="4">
+              <div class="sg-accent" role="group" aria-label="Brand colour">
+                <button type="button" style="--_c: #C4331A" data-accent="#C4331A" data-ratio="5.5:1 white on brand" aria-pressed="true"><span class="visually-hidden">Vermilion #C4331A</span></button>
+                <button type="button" style="--_c: #2B45C9" data-accent="#2B45C9" data-ratio="7.5:1 white on brand" aria-pressed="false"><span class="visually-hidden">Cobalt #2B45C9</span></button>
+                <button type="button" style="--_c: #1F6B4F" data-accent="#1F6B4F" data-ratio="6.4:1 white on brand" aria-pressed="false"><span class="visually-hidden">Forest #1F6B4F</span></button>
+              </div>
+              <span class="text-caption text-muted" id="accent-ratio" aria-live="polite">5.5:1 white on brand</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- =================================================================== -->
+      <!-- FOUNDATIONS                                                         -->
+      <!-- =================================================================== -->
+
+      <section class="sg-section" id="foundations" aria-labelledby="foundations-title">
+        <div class="container">
+          <div class="sg-title"><h2 class="text-section-heading" id="foundations-title">Foundations</h2><p>Global decisions every other layer is built from. Defined in <code>assets/css/foundations/</code>.</p></div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="colour" aria-labelledby="colour-title">
+        <div class="container">
+          <h3 class="text-card-title" id="colour-title">Colour</h3>
+          <p class="text-muted">Raw tokens define the palette. Components never use them directly: they read semantic tokens, which each surface remaps. Contrast is measured against each token's usual background.</p>
+          <div class="sg-swatches">
+            <div><div class="sg-chip" style="background: var(--color-paper)"></div><strong>Paper</strong><span class="sg-token-name">--color-paper</span><span class="text-caption text-muted">#F7F6F2 / default background</span></div>
+            <div><div class="sg-chip" style="background: var(--color-white)"></div><strong>White</strong><span class="sg-token-name">--color-white</span><span class="text-caption text-muted">#FFFFFF / light surface, inputs</span></div>
+            <div><div class="sg-chip" style="background: var(--color-stone)"></div><strong>Stone</strong><span class="sg-token-name">--color-stone</span><span class="text-caption text-muted">#ECEAE4 / alternate surface</span></div>
+            <div><div class="sg-chip" style="background: var(--color-line)"></div><strong>Line</strong><span class="sg-token-name">--color-line</span><span class="text-caption text-muted">#D8D6CF / hairlines</span></div>
+            <div><div class="sg-chip" style="background: var(--color-border-strong)"></div><strong>Border strong</strong><span class="sg-token-name">--color-border-strong</span><span class="text-caption text-muted">#8A8881 / 3.3:1 on paper</span></div>
+            <div><div class="sg-chip" style="background: var(--color-muted)"></div><strong>Muted</strong><span class="sg-token-name">--color-muted</span><span class="text-caption text-muted">#5C5B57 / 6.3:1 on paper</span></div>
+            <div><div class="sg-chip" style="background: var(--color-ink)"></div><strong>Ink</strong><span class="sg-token-name">--color-ink</span><span class="text-caption text-muted">#121212 / 17.3:1 on paper</span></div>
+            <div><div class="sg-chip" style="background: var(--color-on-dark)"></div><strong>On dark</strong><span class="sg-token-name">--color-on-dark</span><span class="text-caption text-muted">#F2F1ED / 16.6:1 on ink</span></div>
+            <div><div class="sg-chip" style="background: var(--color-muted-on-dark)"></div><strong>Muted on dark</strong><span class="sg-token-name">--color-muted-on-dark</span><span class="text-caption text-muted">#9D9B94 / 6.7:1 on ink</span></div>
+            <div><div class="sg-chip" style="background: var(--color-brand)"></div><strong>Brand</strong><span class="sg-token-name">--color-brand</span><span class="text-caption text-muted">One accent per view</span></div>
+            <div><div class="sg-chip" style="background: var(--color-positive)"></div><strong>Positive</strong><span class="sg-token-name">--color-positive</span><span class="text-caption text-muted">#1F6B4F</span></div>
+            <div><div class="sg-chip" style="background: var(--color-warning)"></div><strong>Warning</strong><span class="sg-token-name">--color-warning</span><span class="text-caption text-muted">#B7791F / dots only</span></div>
+            <div><div class="sg-chip" style="background: var(--color-error)"></div><strong>Error</strong><span class="sg-token-name">--color-error</span><span class="text-caption text-muted">Always with an icon</span></div>
+            <div><div class="sg-chip" style="background: var(--code-bg)"></div><strong>Code</strong><span class="sg-token-name">--code-bg</span><span class="text-caption text-muted">#161615 / own surface</span></div>
+          </div>
+
+          <div class="sg-sub">
+            <p class="label">Semantic tokens (what components read)</p>
+            <div class="table-scroll">
+              <table class="table">
+                <thead><tr><th scope="col">Token</th><th scope="col">Role</th><th scope="col">Default</th><th scope="col">Dark</th><th scope="col">Brand</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row" class="sg-token-name">--surface-bg</th><td>Background</td><td>paper</td><td>ink</td><td>brand</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--surface-text</th><td>Text</td><td>ink</td><td>on-dark</td><td>white</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--surface-muted</th><td>Text muted</td><td>muted</td><td>muted-on-dark</td><td>white</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--surface-line</th><td>Border, hairline</td><td>line</td><td>ink-line</td><td>white 50%</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--surface-line-strong</th><td>Input and control borders</td><td>border-strong</td><td>#75736D</td><td>white</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--surface-rule</th><td>Section-opening rule</td><td>ink</td><td>on-dark</td><td>white</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--surface-subtle</th><td>Surface alternate, fills</td><td>stone</td><td>ink-raised</td><td>white 12%</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--action-bg / --action-text</th><td>Primary action (brand contrast)</td><td>ink / paper</td><td>paper / ink</td><td>white / brand</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--feedback-error</th><td>Error</td><td>error</td><td>#E9A08E</td><td>white + icon</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--focus</th><td>Focus ring</td><td>ink</td><td>on-dark</td><td>white</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="surfaces" aria-labelledby="surfaces-title">
+        <div class="container">
+          <h3 class="text-card-title" id="surfaces-title">Surfaces</h3>
+          <p class="text-muted">Put <code>data-surface</code> on any section or element. Descendants inherit background, text, muted text, borders, actions and focus. The markup in each panel below is identical.</p>
+          <div class="sg-surfaces" data-panel>
+            <div data-surface="default">
+              <span class="label">data-surface="default"</span>
+              <span class="tag" style="align-self: flex-start">Tag</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Muted text on this surface. <a href="#surfaces">An inline link</a>.</p>
+              <div class="field"><label class="field__label" for="surf-1">Email</label><input class="input" id="surf-1" type="email" placeholder="name@company.com"></div>
+              <div class="cluster" data-gap="3"><a class="button" href="#surfaces">Primary</a><a class="button" data-variant="secondary" href="#surfaces">Secondary</a><span class="badge" data-status="stable">Stable</span></div>
+            </div>
+            <div data-surface="light">
+              <span class="label">data-surface="light"</span>
+              <span class="tag" style="align-self: flex-start">Tag</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Muted text on this surface. <a href="#surfaces">An inline link</a>.</p>
+              <div class="field"><label class="field__label" for="surf-2">Email</label><input class="input" id="surf-2" type="email" placeholder="name@company.com"></div>
+              <div class="cluster" data-gap="3"><a class="button" href="#surfaces">Primary</a><a class="button" data-variant="secondary" href="#surfaces">Secondary</a><span class="badge" data-status="stable">Stable</span></div>
+            </div>
+            <div data-surface="alternate">
+              <span class="label">data-surface="alternate"</span>
+              <span class="tag" style="align-self: flex-start">Tag</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Muted text on this surface. <a href="#surfaces">An inline link</a>.</p>
+              <div class="field"><label class="field__label" for="surf-3">Email</label><input class="input" id="surf-3" type="email" placeholder="name@company.com"></div>
+              <div class="cluster" data-gap="3"><a class="button" href="#surfaces">Primary</a><a class="button" data-variant="secondary" href="#surfaces">Secondary</a><span class="badge" data-status="stable">Stable</span></div>
+            </div>
+            <div data-surface="brand">
+              <span class="label">data-surface="brand"</span>
+              <span class="tag" style="align-self: flex-start">Tag</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Muted text on this surface. <a href="#surfaces">An inline link</a>.</p>
+              <div class="field"><label class="field__label" for="surf-4">Email</label><input class="input" id="surf-4" type="email" placeholder="name@company.com"></div>
+              <div class="cluster" data-gap="3"><a class="button" href="#surfaces">Primary</a><a class="button" data-variant="secondary" href="#surfaces">Secondary</a><span class="badge" data-status="stable">Stable</span></div>
+            </div>
+            <div data-surface="dark">
+              <span class="label">data-surface="dark"</span>
+              <span class="tag" style="align-self: flex-start">Tag</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Muted text on this surface. <a href="#surfaces">An inline link</a>.</p>
+              <div class="field"><label class="field__label" for="surf-5">Email</label><input class="input" id="surf-5" type="email" placeholder="name@company.com"></div>
+              <div class="cluster" data-gap="3"><a class="button" href="#surfaces">Primary</a><a class="button" data-variant="secondary" href="#surfaces">Secondary</a><span class="badge" data-status="stable">Stable</span></div>
+            </div>
+            <div data-surface="image" style="background: linear-gradient(rgb(18 18 18 / 0.55), rgb(18 18 18 / 0.75)), url('https://placehold.co/800x600/ECEAE4/5C5B57') center / cover">
+              <span class="label">data-surface="image"</span>
+              <span class="tag" style="align-self: flex-start">Tag</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Text on a photograph always sits on a scrim. <a href="#surfaces">An inline link</a>.</p>
+              <div class="field"><label class="field__label" for="surf-6">Email</label><input class="input" id="surf-6" type="email" placeholder="name@company.com"></div>
+              <div class="cluster" data-gap="3"><a class="button" href="#surfaces">Primary</a><a class="button" data-variant="secondary" href="#surfaces">Secondary</a><span class="badge" data-status="stable">Stable</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="typography" aria-labelledby="typography-title">
+        <div class="container">
+          <h3 class="text-card-title" id="typography-title">Typography</h3>
+          <p class="text-muted">Eight visual roles, two weights, two families. Classes are <code>text-{'{'}role{'}'}</code>, tokens are <code>--text-{'{'}role{'}'}</code>. Sizes are fluid between the mobile and desktop values with <code>clamp()</code>.</p>
+          <div>
+            <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Display</strong><span>text-display</span><span>92 / 44, 0.98, −0.04em</span></span><span class="text-display">Proportion</span></div>
+            <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Page Title</strong><span>text-page-title</span><span>64 / 36, 1.0, −0.035em</span></span><span class="text-page-title">Places that last</span></div>
+            <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Section Heading</strong><span>text-section-heading</span><span>40 / 28, 1.1, −0.025em</span></span><span class="text-section-heading">Four ideas the system is built on</span></div>
+            <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Card Title</strong><span>text-card-title</span><span>24 / 20, 1.25, −0.015em</span></span><span class="text-card-title">Alignment to the grid</span></div>
+            <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Lead</strong><span>text-lead</span><span>20 / 18, 1.5, −0.005em</span></span><span class="text-lead">Intros beneath a heading, comfortable at every size.</span></div>
+            <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Body</strong><span>text-body</span><span>16, 1.6</span></span><span class="text-body">Running text sits at a measure of 60 to 72 characters so the eye can find the next line without effort.</span></div>
+            <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Small</strong><span>text-small</span><span>14, 1.5</span></span><span class="text-small">Help text, metadata and supporting detail.</span></div>
+            <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Caption</strong><span>text-caption</span><span>Mono 12, 1.4, 0.02em</span></span><span class="text-caption">Figure captions, labels and tokens</span></div>
+          </div>
+          <div class="sg-sub">
+            <p class="label">Structure and style are separate</p>
+            <p>Choose the element from the document outline, then apply the style the design needs. An <code>h2</code> can be a Page Title in one place and a Section Heading in another. Never change a heading level to change a size.</p>
+            <div class="table-scroll">
+              <table class="table">
+                <thead><tr><th scope="col">Element</th><th scope="col">Style</th><th scope="col">Where</th></tr></thead>
+                <tbody>
+                  <tr><td><code>&lt;h1&gt;</code></td><td>Display</td><td>Homepage hero statement</td></tr>
+                  <tr><td><code>&lt;h1&gt;</code></td><td>Page Title</td><td>Inner page headers</td></tr>
+                  <tr><td><code>&lt;h2&gt;</code></td><td>Section Heading</td><td>Section titles</td></tr>
+                  <tr><td><code>&lt;h2&gt;</code></td><td>Page Title</td><td>Closing CTA statements</td></tr>
+                  <tr><td><code>&lt;h3&gt;</code></td><td>Card Title</td><td>Cards within a section</td></tr>
+                  <tr><td><code>&lt;h3&gt;</code></td><td>Section Heading</td><td>Principles, values (feature rows)</td></tr>
+                  <tr><td><code>&lt;p&gt;</code></td><td>Lead</td><td>Intros under a heading</td></tr>
+                  <tr><td><code>&lt;figcaption&gt;</code></td><td>Caption</td><td>Media captions</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="spacing" aria-labelledby="spacing-title">
+        <div class="container">
+          <h3 class="text-card-title" id="spacing-title">Spacing</h3>
+          <p class="text-muted">A 4px base scale for elements and components, plus three fluid roles for sections, headings and panels.</p>
+          <div class="grid" data-columns="2">
+            <div>
+              <div class="sg-space"><span>--space-1</span><span>4</span><span class="sg-space__bar" style="width: var(--space-1)"></span></div>
+              <div class="sg-space"><span>--space-2</span><span>8</span><span class="sg-space__bar" style="width: var(--space-2)"></span></div>
+              <div class="sg-space"><span>--space-3</span><span>12</span><span class="sg-space__bar" style="width: var(--space-3)"></span></div>
+              <div class="sg-space"><span>--space-4</span><span>16</span><span class="sg-space__bar" style="width: var(--space-4)"></span></div>
+              <div class="sg-space"><span>--space-5</span><span>24</span><span class="sg-space__bar" style="width: var(--space-5)"></span></div>
+              <div class="sg-space"><span>--space-6</span><span>32</span><span class="sg-space__bar" style="width: var(--space-6)"></span></div>
+              <div class="sg-space"><span>--space-7</span><span>48</span><span class="sg-space__bar" style="width: var(--space-7)"></span></div>
+              <div class="sg-space"><span>--space-8</span><span>64</span><span class="sg-space__bar" style="width: var(--space-8)"></span></div>
+              <div class="sg-space"><span>--space-9</span><span>96</span><span class="sg-space__bar" style="width: var(--space-9)"></span></div>
+              <div class="sg-space"><span>--space-10</span><span>128</span><span class="sg-space__bar" style="width: var(--space-10)"></span></div>
+            </div>
+            <div class="table-scroll">
+              <table class="table">
+                <thead><tr><th scope="col">Role token</th><th scope="col">Mobile to desktop</th><th scope="col">Use</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row" class="sg-token-name">--space-section</th><td>80 to 128</td><td>Section padding</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--space-heading</th><td>32 to 56</td><td>Section header to content</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--space-component</th><td>24 to 32</td><td>Padding inside panels and cards</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--grid-gap</th><td>16, 20, 24</td><td>Column and grid gaps</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--page-gutter</th><td>20, 40, 48, 64</td><td>Page margins</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="grid" aria-labelledby="grid-title">
+        <div class="container">
+          <h3 class="text-card-title" id="grid-title">Grid and breakpoints</h3>
+          <p class="text-muted">Section labels hang in columns 1 to 3; headings and copy start at column 4. On mobile, labels stack above content. The live grid below uses the current viewport's column count.</p>
+          <div class="sg-grid-demo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="table-scroll">
+            <table class="table">
+              <thead><tr><th scope="col">Viewport</th><th scope="col">Query</th><th scope="col">Columns</th><th scope="col">Gutter</th><th scope="col">Margin</th></tr></thead>
+              <tbody>
+                <tr><td>Mobile</td><td><code>&lt; 48em</code> (768)</td><td>4</td><td>16</td><td>20</td></tr>
+                <tr><td>Tablet</td><td><code>≥ 48em</code></td><td>8</td><td>20</td><td>40</td></tr>
+                <tr><td>Laptop</td><td><code>≥ 64em</code> (1024)</td><td>12</td><td>24</td><td>48</td></tr>
+                <tr><td>Desktop</td><td><code>≥ 90em</code> (1440)</td><td>12</td><td>24</td><td>64</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="sg-sub">
+            <p class="label">Containers: data-width</p>
+            <div class="stack" data-gap="2">
+              <div class="container" data-width="narrow" style="padding: 0"><div class="sg-example__stage text-small" data-surface="alternate">narrow / 720, long-form reading</div></div>
+              <div class="container" style="padding: 0"><div class="sg-example__stage text-small" data-surface="alternate">standard / 1312, the default content width</div></div>
+              <div class="container" data-width="wide" style="padding: 0"><div class="sg-example__stage text-small" data-surface="alternate">wide / 1440, media that should run past the text</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="shape" aria-labelledby="shape-title">
+        <div class="container">
+          <h3 class="text-card-title" id="shape-title">Shape, line and ratio</h3>
+          <p class="text-muted">A restrained shape vocabulary: mostly square, one radius for controls, hairlines instead of shadows for separation.</p>
+          <div class="grid" data-columns="3">
+            <div class="stack" data-gap="3">
+              <p class="label">Radius</p>
+              <div class="cluster" data-gap="5">
+                <div class="stack" data-gap="2"><span class="sg-swatch" style="width: 4rem; height: 4rem; background: var(--color-stone); border-radius: var(--radius-0)"></span><span class="sg-token-name">--radius-0</span></div>
+                <div class="stack" data-gap="2"><span class="sg-swatch" style="width: 4rem; height: 4rem; background: var(--color-stone); border-radius: var(--radius-1)"></span><span class="sg-token-name">--radius-1</span></div>
+                <div class="stack" data-gap="2"><span class="sg-swatch" style="width: 4rem; height: 4rem; background: var(--color-stone); border-radius: var(--radius-full)"></span><span class="sg-token-name">--radius-full</span></div>
+              </div>
+              <p class="text-small text-muted">Surfaces, cards and media are square. Controls and tags use 4px. Full rounding is for status dots and avatars only.</p>
+            </div>
+            <div class="stack" data-gap="3">
+              <p class="label">Line and shadow</p>
+              <hr class="divider">
+              <span class="sg-token-name">divider: 1px --surface-line</span>
+              <hr class="divider" data-weight="strong">
+              <span class="sg-token-name">divider data-weight="strong": 1px --surface-rule</span>
+              <p class="text-small text-muted">No decorative shadows. <code>--shadow-overlay</code> is reserved for menus and dialogs that float above the page.</p>
+            </div>
+            <div class="stack" data-gap="3">
+              <p class="label">Aspect ratios: data-ratio</p>
+              <div class="cluster" data-gap="2" style="align-items: flex-end">
+                <span class="sg-swatch" style="width: 2.5rem; aspect-ratio: 1; height: auto; background: var(--color-stone)" title="square"></span>
+                <span class="sg-swatch" style="width: 2.5rem; aspect-ratio: 4/5; height: auto; background: var(--color-stone)" title="portrait"></span>
+                <span class="sg-swatch" style="width: 4rem; aspect-ratio: 4/3; height: auto; background: var(--color-stone)" title="standard"></span>
+                <span class="sg-swatch" style="width: 4rem; aspect-ratio: 3/2; height: auto; background: var(--color-stone)" title="photo"></span>
+                <span class="sg-swatch" style="width: 4.5rem; aspect-ratio: 16/9; height: auto; background: var(--color-stone)" title="video"></span>
+                <span class="sg-swatch" style="width: 5.5rem; aspect-ratio: 21/9; height: auto; background: var(--color-stone)" title="cinema"></span>
+              </div>
+              <p class="text-small text-muted">square 1:1, portrait 4:5, standard 4:3, photo 3:2, video 16:9, cinema 21:9</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="motion" aria-labelledby="motion-title">
+        <div class="container">
+          <h3 class="text-card-title" id="motion-title">Motion, focus and layers</h3>
+          <p class="text-muted">Motion confirms a state change; it never carries information on its own, and it always respects <code>prefers-reduced-motion</code> — durations drop to zero, nothing keeps moving.</p>
+          <div class="grid" data-columns="3">
+            <div class="table-scroll">
+              <table class="table">
+                <caption>Motion</caption>
+                <tbody>
+                  <tr><th scope="row" class="sg-token-name">--duration-fast</th><td>120ms, hover and press</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--duration-base</th><td>200ms, state changes</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--duration-slow</th><td>320ms, drawers, dialogs</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--ease-standard</th><td>cubic-bezier(.2, 0, 0, 1)</td></tr>
+                  <tr><th scope="row">Reduced motion</th><td>All durations 0, no movement</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="stack" data-gap="4">
+              <p class="label">Focus: 2px outline, 2px offset, surface text colour</p>
+              <div class="cluster" data-gap="4">
+                <span class="button" style="outline: var(--focus-width) solid var(--focus); outline-offset: var(--focus-offset)">Focused</span>
+                <span class="link" style="outline: var(--focus-width) solid var(--focus); outline-offset: var(--focus-offset)">Focused link</span>
+              </div>
+              <div class="cluster" data-gap="4" data-surface="dark" style="padding: var(--space-4)">
+                <span class="button" style="outline: var(--focus-width) solid var(--focus); outline-offset: var(--focus-offset)">On dark</span>
+              </div>
+              <p class="text-small text-muted">Press Tab anywhere on this page to see real focus states.</p>
+            </div>
+            <div class="table-scroll">
+              <table class="table">
+                <caption>Z-index</caption>
+                <tbody>
+                  <tr><th scope="row" class="sg-token-name">--z-raised</th><td>1</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--z-dropdown</th><td>100</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--z-sticky</th><td>200</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--z-overlay</th><td>300</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--z-dialog</th><td>400</td></tr>
+                  <tr><th scope="row" class="sg-token-name">--z-toast</th><td>500</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="icons" aria-labelledby="icons-title">
+        <div class="container">
+          <h3 class="text-card-title" id="icons-title">Icons</h3>
+          <p class="text-muted">Inline SVG, 1.5px stroke in <code>currentColor</code>, on a 16px grid. Decorative icons carry <code>aria-hidden="true"</code>; an icon-only control needs an <code>aria-label</code>. Sizes: <code>data-size</code> 12, 14, 16, 20, 24.</p>
+          <div class="cluster" data-gap="6">
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg><span class="text-caption text-muted">arrow-right</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg><span class="text-caption text-muted">arrow-left</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg><span class="text-caption text-muted">external</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg><span class="text-caption text-muted">chevron-down</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 8h16M3 14h16"/></svg><span class="text-caption text-muted">menu</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg><span class="text-caption text-muted">close</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span class="text-caption text-muted">search</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span class="text-caption text-muted">check</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v4M8 10.5v1"/></svg><span class="text-caption text-muted">alert</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9"/><path d="M2 4l6 4.5L14 4"/></svg><span class="text-caption text-muted">mail</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.5"/><circle cx="8" cy="8" r="2.75"/><path d="M11.75 4.25v.01"/></svg><span class="text-caption text-muted">instagram</span></span>
+            <span class="stack" data-gap="2"><svg class="icon" data-size="24" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 7v4.5M5 4.75v.01M7.75 11.5V7M7.75 9c0-1.25.75-2 1.75-2s1.5.75 1.5 2v2.5"/></svg><span class="text-caption text-muted">linkedin</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PRIMITIVES                                                          -->
+      <!-- =================================================================== -->
+
+      <section class="sg-section" id="primitives" aria-labelledby="primitives-title">
+        <div class="container">
+          <div class="sg-title"><h2 class="text-section-heading" id="primitives-title">Primitives</h2><p>Small, generic interface elements. They know nothing about case studies, people or posts. Defined in <code>assets/css/primitives/</code>.</p></div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="layout" aria-labelledby="layout-title">
+        <div class="container">
+          <h3 class="text-card-title" id="layout-title">Layout: container, grid, stack, cluster</h3>
+          <dl class="meta-list">
+            <dt>container</dt><dd>Centres content and applies gutters. <code>data-width</code>: narrow, standard, wide, full.</dd>
+            <dt>grid</dt><dd>The 4 / 8 / 12 page grid. <code>data-columns</code> 2, 3, 4, 6 for equal columns; <code>data-span</code> and <code>data-start</code> on children for asymmetric layouts; <code>data-divided</code> for hairline cells.</dd>
+            <dt>stack</dt><dd>Vertical rhythm. <code>data-gap</code> 1 to 8 on the space scale.</dd>
+            <dt>cluster</dt><dd>Wrapping horizontal group. <code>data-gap</code>, <code>data-justify</code>.</dd>
+          </dl>
+          <div class="sg-example">
+            <div class="sg-example__stage">
+              <div class="grid" data-columns="4" data-gap="tight">
+                <div class="sg-example__stage text-small" data-surface="alternate">1</div><div class="sg-example__stage text-small" data-surface="alternate">2</div><div class="sg-example__stage text-small" data-surface="alternate">3</div><div class="sg-example__stage text-small" data-surface="alternate">4</div>
+              </div>
+            </div>
+            <p class="sg-caption">grid data-columns="4" (2 on tablet, 1 on mobile)</p>
+          </div>
+          <div class="sg-example">
+            <div class="sg-example__stage">
+              <div class="grid" data-gap="tight">
+                <div class="sg-example__stage text-small" data-surface="alternate" data-span="3">span 3</div>
+                <div class="sg-example__stage text-small" data-surface="alternate" data-span="9">span 9</div>
+                <div class="sg-example__stage text-small" data-surface="alternate" data-span="7">span 7</div>
+                <div class="sg-example__stage text-small" data-surface="alternate" data-span="5">span 5</div>
+                <div class="sg-example__stage text-small" data-surface="alternate" data-start="4" data-span="6">start 4, span 6</div>
+              </div>
+            </div>
+            <p class="sg-caption">grid with data-span / data-start (64em+)</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="buttons" aria-labelledby="buttons-title">
+        <div class="container">
+          <h3 class="text-card-title" id="buttons-title">Button and button group</h3>
+          <dl class="meta-list">
+            <dt>Variants</dt><dd><code>data-variant</code>: primary (default), secondary, text. <code>data-size</code>: default (48), small (44). <code>data-width="full"</code>. <code>data-icon-only</code>.</dd>
+            <dt>Content</dt><dd>Label, optional trailing icon. Use <code>&lt;a&gt;</code> to navigate, <code>&lt;button&gt;</code> to act.</dd>
+            <dt>Accessibility</dt><dd>Never below 44px. Icon-only buttons need <code>aria-label</code>. Disabled links use <code>aria-disabled="true"</code>.</dd>
+          </dl>
+          <div class="sg-surfaces">
+            <div data-surface="default">
+              <div class="sg-row"><span class="sg-caption">default</span><button class="button" type="button">Primary</button><button class="button" type="button" data-variant="secondary">Secondary</button><button class="button" type="button" data-variant="text">Text</button></div>
+              <div class="sg-row"><span class="sg-caption">small</span><button class="button" type="button" data-size="small">Primary</button><button class="button" type="button" data-size="small" data-variant="secondary">Secondary</button></div>
+              <div class="sg-row"><span class="sg-caption">icon</span><a class="button" href="#buttons">Get started <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a><button class="button" type="button" data-variant="secondary" data-icon-only aria-label="Search"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button></div>
+              <div class="sg-row"><span class="sg-caption">disabled</span><button class="button" type="button" disabled>Primary</button><button class="button" type="button" data-variant="secondary" disabled>Secondary</button></div>
+            </div>
+            <div data-surface="dark">
+              <div class="sg-row"><span class="sg-caption">default</span><button class="button" type="button">Primary</button><button class="button" type="button" data-variant="secondary">Secondary</button><button class="button" type="button" data-variant="text">Text</button></div>
+              <div class="sg-row"><span class="sg-caption">small</span><button class="button" type="button" data-size="small">Primary</button><button class="button" type="button" data-size="small" data-variant="secondary">Secondary</button></div>
+              <div class="sg-row"><span class="sg-caption">icon</span><a class="button" href="#buttons">Get started <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a><button class="button" type="button" data-variant="secondary" data-icon-only aria-label="Search"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button></div>
+              <div class="sg-row"><span class="sg-caption">disabled</span><button class="button" type="button" disabled>Primary</button><button class="button" type="button" data-variant="secondary" disabled>Secondary</button></div>
+            </div>
+            <div data-surface="brand">
+              <div class="sg-row"><span class="sg-caption">brand</span><button class="button" type="button">Primary</button><button class="button" type="button" data-variant="secondary">Secondary</button><button class="button" type="button" data-variant="text">Text</button></div>
+            </div>
+            <div data-surface="alternate">
+              <div class="sg-row"><span class="sg-caption">alternate</span><button class="button" type="button">Primary</button><button class="button" type="button" data-variant="secondary">Secondary</button><button class="button" type="button" data-variant="text">Text</button></div>
+            </div>
+          </div>
+          <div class="sg-example">
+            <div class="sg-example__stage">
+              <div class="button-group" data-stack="mobile"><a class="button" href="#buttons">View projects <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a><a class="button" data-variant="secondary" href="#buttons">About the studio</a></div>
+            </div>
+            <p class="sg-caption">button-group data-stack="mobile": full-width 52px stack below 48em</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="links" aria-labelledby="links-title">
+        <div class="container">
+          <h3 class="text-card-title" id="links-title">Links</h3>
+          <p class="text-muted">Navigates to another page or place on this one, in text or on its own. Use a button instead for an action that changes state without changing location.</p>
+          <dl class="meta-list">
+            <dt>Inline</dt><dd>Any <code>&lt;a&gt;</code> in text. Always underlined: 1px at rest, 2px on hover.</dd>
+            <dt>.link</dt><dd>A standalone action. <code>data-variant</code>: default, arrow (arrow nudges 4px), external.</dd>
+            <dt>Accessibility</dt><dd>The underline is the cue, not colour — links stay identifiable for colour-blind readers and in print. The arrow and external icons are <code>aria-hidden</code>: they reinforce the link's own text, and "external" links open in the same tab, so the icon is a hint, not a warning that needs its own announcement.</dd>
+          </dl>
+          <div class="sg-surfaces">
+            <div data-surface="default">
+              <p>Read the <a href="#links">accessibility statement</a> before you start.</p>
+              <div class="cluster" data-gap="6">
+                <a class="link" href="#links">Open the Style Guide</a>
+                <a class="link" data-variant="arrow" href="#links">View pattern <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+                <a class="link" data-variant="external" href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a>
+              </div>
+            </div>
+            <div data-surface="dark">
+              <p>Read the <a href="#links">accessibility statement</a> before you start.</p>
+              <div class="cluster" data-gap="6">
+                <a class="link" href="#links">Open the Style Guide</a>
+                <a class="link" data-variant="arrow" href="#links">View pattern <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+                <a class="link" data-variant="external" href="https://github.com/benwellby/samla-ui">GitHub <svg class="icon" data-size="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="tags" aria-labelledby="tags-title">
+        <div class="container">
+          <h3 class="text-card-title" id="tags-title">Tags, badges, avatars and dividers</h3>
+          <p class="text-muted">Small labelling primitives: a tag categorises or filters, a badge reports status, an avatar identifies a person. Pick by what the label means, not by how it looks.</p>
+          <dl class="meta-list">
+            <dt>tag</dt><dd>Content labels and filters. <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>. Selected via <code>data-selected</code>, <code>aria-pressed</code> or <code>aria-current</code>.</dd>
+            <dt>badge</dt><dd>Status: <code>data-status</code> stable, review, error, planned, neutral. Text always accompanies the dot. <code>data-variant="pill"</code> for versions and counts.</dd>
+            <dt>avatar</dt><dd>Image or initials. <code>data-size</code>: small, medium, large. Group with <code>avatar-group</code>.</dd>
+            <dt>Accessibility</dt><dd>A filter tag is a real <code>&lt;button&gt;</code> with <code>aria-pressed</code>, so its selected state is announced, not just shown by colour. Status badges pair the dot with text for the same reason — never colour alone.</dd>
+          </dl>
+          <div class="sg-surfaces">
+            <div data-surface="default">
+              <ul class="tag-list" role="list"><li><span class="tag">Static</span></li><li><a class="tag" href="#tags">Linked tag</a></li><li><button class="tag" type="button" aria-pressed="false">Filter</button></li><li><button class="tag" type="button" aria-pressed="true">Selected</button></li></ul>
+              <div class="cluster" data-gap="5"><span class="badge" data-status="stable">Stable</span><span class="badge" data-status="review">In review</span><span class="badge" data-status="error">Deprecated</span><span class="badge" data-status="planned">Planned</span><span class="badge" data-variant="pill">v1.0</span></div>
+              <div class="cluster" data-gap="4"><span class="avatar" data-size="small">RH</span><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar" data-size="large"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar-group"><span class="avatar" data-size="small"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar" data-size="small"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar" data-size="small">+4</span></span></div>
+            </div>
+            <div data-surface="dark">
+              <ul class="tag-list" role="list"><li><span class="tag">Static</span></li><li><a class="tag" href="#tags">Linked tag</a></li><li><button class="tag" type="button" aria-pressed="false">Filter</button></li><li><button class="tag" type="button" aria-pressed="true">Selected</button></li></ul>
+              <div class="cluster" data-gap="5"><span class="badge" data-status="stable">Stable</span><span class="badge" data-status="review">In review</span><span class="badge" data-status="error">Deprecated</span><span class="badge" data-status="planned">Planned</span><span class="badge" data-variant="pill">v1.0</span></div>
+              <div class="cluster" data-gap="4"><span class="avatar" data-size="small">RH</span><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="avatar" data-size="large"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="breadcrumb" aria-labelledby="breadcrumb-title">
+        <div class="container">
+          <h3 class="text-card-title" id="breadcrumb-title">Breadcrumb and pagination</h3>
+          <p class="text-muted">Two ways to say where the reader is: breadcrumb shows the path down through the site, pagination shows a position within one long list.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>Breadcrumb: an ordered list of ancestor pages ending at the current one. Pagination: previous, a list of page numbers, next.</dd>
+            <dt>Accessibility</dt><dd>Both are <code>&lt;nav&gt;</code> landmarks with an <code>aria-label</code>. The current item carries <code>aria-current="page"</code>. On mobile, pagination shows only the current page between previous and next.</dd>
+          </dl>
+          <div class="sg-example">
+            <div class="sg-example__stage stack" data-gap="6">
+              <nav class="breadcrumb" aria-label="Breadcrumb example"><ol><li><a href="#breadcrumb">Home</a></li><li><a href="#breadcrumb">Projects</a></li><li><a href="#breadcrumb" aria-current="page">Millbrook Riverside Park</a></li></ol></nav>
+              <nav class="pagination" aria-label="Pagination example">
+                <a class="pagination__link" href="#breadcrumb"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg> Previous</a>
+                <ol class="pagination__list"><li><a class="pagination__link" href="#breadcrumb">1</a></li><li><a class="pagination__link" href="#breadcrumb" aria-current="page">2</a></li><li><a class="pagination__link" href="#breadcrumb">3</a></li><li><a class="pagination__link" href="#breadcrumb">4</a></li></ol>
+                <a class="pagination__link" href="#breadcrumb">Next <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="forms" aria-labelledby="forms-title">
+        <div class="container">
+          <h3 class="text-card-title" id="forms-title">Form controls</h3>
+          <dl class="meta-list">
+            <dt>field</dt><dd>Label above, control, help below, error below help. <code>field__optional</code> marks optional fields.</dd>
+            <dt>Controls</dt><dd><code>input</code> (text, email, tel, number, url, search, password, date, textarea), <code>select</code>, <code>check</code> (checkbox, radio), <code>switch</code>, <code>file</code>, <code>input-group</code> (input + button).</dd>
+            <dt>Validation</dt><dd><code>form[data-validate]</code>: samla.js shows inline errors with an icon, sets <code>aria-invalid</code> and <code>aria-describedby</code>, and adds a focusable error summary when there is more than one problem.</dd>
+            <dt>Accessibility</dt><dd>Every control has a visible <code>&lt;label&gt;</code>. Groups use <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>. 16px text prevents zoom on iOS. Errors never rely on colour alone.</dd>
+          </dl>
+          <div class="sg-surfaces">
+            <div data-surface="default">
+              <div class="field"><label class="field__label" for="f-text">Full name</label><input class="input" id="f-text" type="text" autocomplete="name"></div>
+              <div class="field"><label class="field__label" for="f-email">Work email</label><input class="input" id="f-email" type="email" placeholder="name@company.com" aria-describedby="f-email-help"><p class="field__help" id="f-email-help">We only use this to send release notes.</p></div>
+              <div class="field"><label class="field__label" for="f-url">Website</label><input class="input" id="f-url" type="url" value="samla" aria-invalid="true" aria-describedby="f-url-error"><p class="field__error" id="f-url-error"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v4M8 10.5v1"/></svg>Enter a full address, including https://</p></div>
+              <div class="field"><label class="field__label" for="f-tel">Telephone <span class="field__optional">(optional)</span></label><input class="input" id="f-tel" type="tel" autocomplete="tel"></div>
+              <div class="field"><label class="field__label" for="f-num">Team size</label><input class="input" id="f-num" type="number" min="1" value="12"></div>
+              <div class="field"><label class="field__label" for="f-select">Project type</label><select class="select" id="f-select"><option>Park or open space</option><option>Street</option><option>Masterplan</option></select></div>
+              <div class="field"><label class="field__label" for="f-disabled">Reference</label><input class="input" id="f-disabled" type="text" value="FW-2041" disabled></div>
+              <div class="field"><label class="field__label" for="f-area">Message</label><textarea class="input" id="f-area"></textarea></div>
+              <div class="field"><label class="field__label" for="f-search">Search</label><div class="input-group"><input class="input" id="f-search" type="search" placeholder="Parks, streets…"><button class="button" type="button" data-icon-only aria-label="Search"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button></div></div>
+              <fieldset class="fieldset"><legend class="fieldset__legend">Services</legend><label class="check"><input type="checkbox" checked> Parks</label><label class="check"><input type="checkbox"> Streets</label><label class="check"><input type="checkbox" disabled> Unavailable</label></fieldset>
+              <fieldset class="fieldset"><legend class="fieldset__legend">Studio</legend><label class="check"><input type="radio" name="sg-studio" checked> Bristol</label><label class="check"><input type="radio" name="sg-studio"> Glasgow</label></fieldset>
+              <label class="switch"><input type="checkbox" role="switch" checked> Email me updates</label>
+              <div class="field"><span class="field__label" id="f-file-label">Attachments</span><div class="file"><input class="file__input" id="f-file" type="file" aria-labelledby="f-file-label"><label class="file__label" for="f-file"><span><strong>Choose a file</strong> or drag it here</span><span>PDF up to 20 MB</span><span class="file__name" aria-live="polite"></span></label></div></div>
+            </div>
+            <div data-surface="dark">
+              <div class="field"><label class="field__label" for="fd-text">Full name</label><input class="input" id="fd-text" type="text"></div>
+              <div class="field"><label class="field__label" for="fd-email">Work email</label><input class="input" id="fd-email" type="email" placeholder="name@company.com" aria-describedby="fd-email-help"><p class="field__help" id="fd-email-help">We only use this to send release notes.</p></div>
+              <div class="field"><label class="field__label" for="fd-url">Website</label><input class="input" id="fd-url" type="url" value="samla" aria-invalid="true" aria-describedby="fd-url-error"><p class="field__error" id="fd-url-error"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v4M8 10.5v1"/></svg>Enter a full address, including https://</p></div>
+              <div class="field"><label class="field__label" for="fd-select">Project type</label><select class="select" id="fd-select"><option>Park or open space</option><option>Street</option></select></div>
+              <div class="field"><label class="field__label" for="fd-area">Message</label><textarea class="input" id="fd-area"></textarea></div>
+              <fieldset class="fieldset"><legend class="fieldset__legend">Services</legend><label class="check"><input type="checkbox" checked> Parks</label><label class="check"><input type="checkbox"> Streets</label></fieldset>
+              <fieldset class="fieldset"><legend class="fieldset__legend">Studio</legend><label class="check"><input type="radio" name="sg-studio-d" checked> Bristol</label><label class="check"><input type="radio" name="sg-studio-d"> Glasgow</label></fieldset>
+              <label class="switch"><input type="checkbox" role="switch" checked> Email me updates</label>
+            </div>
+          </div>
+          <div class="sg-example">
+            <form class="sg-example__stage form" action="#" method="post" data-validate data-demo>
+              <p class="text-card-title">Try validation</p>
+              <div class="form-grid">
+                <div class="field"><label class="field__label" for="v-name">Name</label><input class="input" id="v-name" type="text" required></div>
+                <div class="field"><label class="field__label" for="v-email">Email</label><input class="input" id="v-email" type="email" required></div>
+                <div class="field" data-span="full"><label class="check"><input type="checkbox" required> I agree to the terms</label></div>
+              </div>
+              <div class="button-group"><button class="button" type="submit">Submit</button></div>
+              <div class="notice" data-status="positive" role="status" tabindex="-1" data-form-success hidden><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><p>Submitted. Nothing was sent: this is a demo form.</p></div>
+            </form>
+            <p class="sg-caption">form data-validate: submit empty to see the error summary and inline errors</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="accordion" aria-labelledby="accordion-title">
+        <div class="container">
+          <h3 class="text-card-title" id="accordion-title">Accordion and disclosure</h3>
+          <p class="text-muted">Optional or secondary content the reader chooses to reveal: FAQs, footnotes, dense specifications. Not for content every reader needs — that belongs in the page, not behind a trigger.</p>
+          <dl class="meta-list">
+            <dt>Built on</dt><dd>Native <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code>. Works without JavaScript; a shared <code>name</code> makes the group exclusive.</dd>
+            <dt>Variants</dt><dd><code>data-size</code>: default, small.</dd>
+            <dt>Accessibility</dt><dd>Keyboard and screen-reader support come from the native elements: no <code>role</code> or <code>aria-expanded</code> to manage by hand. The trigger is the full-width <code>&lt;summary&gt;</code>, so it stays a 44px+ target even when the label text is short.</dd>
+          </dl>
+          <div class="grid" data-columns="2">
+            <div class="accordion">
+              <details class="accordion__item" name="sg-acc" open><summary class="accordion__trigger">Can I use Samla with my own brand?<span class="accordion__icon" aria-hidden="true"></span></summary><div class="accordion__panel"><p>Yes. Replace the brand and surface tokens and every component follows.</p></div></details>
+              <details class="accordion__item" name="sg-acc"><summary class="accordion__trigger">Does it need a JavaScript framework?<span class="accordion__icon" aria-hidden="true"></span></summary><div class="accordion__panel"><p>No. Pages render as static HTML.</p></div></details>
+              <details class="accordion__item" name="sg-acc"><summary class="accordion__trigger">Which platforms are supported?<span class="accordion__icon" aria-hidden="true"></span></summary><div class="accordion__panel"><p>Any. Implementations keep the same class names and contracts.</p></div></details>
+            </div>
+            <div class="stack" data-gap="6">
+              <div class="accordion" data-size="small">
+                <details class="accordion__item"><summary class="accordion__trigger">Small accordion item<span class="accordion__icon" aria-hidden="true"></span></summary><div class="accordion__panel"><p>For dense lists such as footnotes or specifications.</p></div></details>
+                <details class="accordion__item"><summary class="accordion__trigger">Not exclusive: several can be open<span class="accordion__icon" aria-hidden="true"></span></summary><div class="accordion__panel"><p>Omit the name attribute.</p></div></details>
+              </div>
+              <div data-surface="dark" style="padding: var(--space-component)">
+                <div class="accordion">
+                  <details class="accordion__item" open><summary class="accordion__trigger">On a dark surface<span class="accordion__icon" aria-hidden="true"></span></summary><div class="accordion__panel"><p>Rules, hover fill and focus come from the surface.</p></div></details>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="tabs" aria-labelledby="tabs-title">
+        <div class="container">
+          <h3 class="text-card-title" id="tabs-title">Tabs</h3>
+          <p class="text-muted">Use for panels of equal weight the reader compares one at a time, in a space too tight to show them all — a spec sheet, a set of related views. If the panels form a sequence, use an accordion or a page instead.</p>
+          <dl class="meta-list">
+            <dt>Behaviour</dt><dd>Without JavaScript every panel shows with its own heading. samla.js adds the tablist, roving tabindex, arrow keys, Home and End.</dd>
+            <dt>Variants</dt><dd><code>data-orientation</code>: horizontal, vertical. <code>data-variant</code>: line, contained.</dd>
+            <dt>Accessibility</dt><dd>The tablist, <code>aria-selected</code> and panel association are managed by samla.js. Arrow keys move focus and selection together (roving tabindex); Home and End jump to the first and last tab.</dd>
+          </dl>
+          <div class="grid" data-columns="2">
+            <div class="sg-example">
+              <div class="sg-example__stage">
+                <div class="tabs">
+                  <div class="tabs__list">
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-1">Overview</button>
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-2">Specification</button>
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-3">Maintenance</button>
+                  </div>
+                  <section class="tabs__panel" id="sg-tab-1"><h4 class="tabs__heading">Overview</h4><p>Eleven hectares of former railway sidings returned to the river.</p></section>
+                  <section class="tabs__panel" id="sg-tab-2"><h4 class="tabs__heading">Specification</h4><p>Five terraces built from ballast and spoil already on site.</p></section>
+                  <section class="tabs__panel" id="sg-tab-3"><h4 class="tabs__heading">Maintenance</h4><p>A thirty-year plan agreed with the council's parks team.</p></section>
+                </div>
+              </div>
+              <p class="sg-caption">data-orientation="horizontal" data-variant="line" (default)</p>
+            </div>
+            <div class="sg-example">
+              <div class="sg-example__stage" data-surface="dark">
+                <div class="tabs" data-orientation="vertical" data-variant="contained">
+                  <div class="tabs__list">
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-4">Overview</button>
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-5">Specification</button>
+                    <button class="tabs__tab" type="button" aria-controls="sg-tab-6">Maintenance</button>
+                  </div>
+                  <section class="tabs__panel" id="sg-tab-4"><h4 class="tabs__heading">Overview</h4><p>Eleven hectares of former railway sidings returned to the river.</p></section>
+                  <section class="tabs__panel" id="sg-tab-5"><h4 class="tabs__heading">Specification</h4><p>Five terraces built from ballast and spoil already on site.</p></section>
+                  <section class="tabs__panel" id="sg-tab-6"><h4 class="tabs__heading">Maintenance</h4><p>A thirty-year plan agreed with the council's parks team.</p></section>
+                </div>
+              </div>
+              <p class="sg-caption">data-orientation="vertical" data-variant="contained" — used by the homepage code viewer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="media" aria-labelledby="media-title">
+        <div class="container">
+          <h3 class="text-card-title" id="media-title">Image and video</h3>
+          <dl class="meta-list">
+            <dt>Variants</dt><dd><code>data-ratio</code>: square, portrait, standard, photo, video, cinema. <code>data-fit</code>: cover, contain.</dd>
+            <dt>Content</dt><dd>Image with width, height and alt; optional caption. Video: a poster image and <code>.media__play[data-src]</code>, which loads the player only on request.</dd>
+            <dt>Performance</dt><dd>Always set width and height. <code>loading="lazy"</code> below the fold, <code>fetchpriority="high"</code> on the largest image above it.</dd>
+            <dt>Accessibility</dt><dd>Alt text describes the image's content or purpose, never "image of…". Purely decorative images (backgrounds, textures) use <code>alt=""</code> so screen readers skip them. The play button's <code>aria-label</code> states the run time, not just "play".</dd>
+          </dl>
+          <div class="grid" data-columns="3">
+            <figure class="media" data-ratio="square"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Site plan" width="1600" height="1200" loading="lazy"><figcaption class="media__caption">square</figcaption></figure>
+            <figure class="media" data-ratio="portrait"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Street" width="1600" height="1200" loading="lazy"><figcaption class="media__caption">portrait</figcaption></figure>
+            <figure class="media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Park" width="1600" height="1200" loading="lazy"><figcaption class="media__caption">photo, with caption</figcaption></figure>
+          </div>
+          <div class="grid" data-columns="2">
+            <figure class="media" data-ratio="video">
+              <div class="media__frame">
+                <img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy">
+                <button class="media__play" type="button" data-src="https://player.vimeo.com/video/76979871?autoplay=1&amp;dnt=1" aria-label="Play video, 3 minutes"><span class="media__play-icon"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5l10 5.5-10 5.5z"/></svg></span></button>
+              </div>
+              <figcaption class="media__caption">video: poster with play, loads an embed on click</figcaption>
+            </figure>
+            <figure class="media" data-ratio="video"><div class="media__frame"><span class="media__placeholder">Placeholder 16:9</span></div><figcaption class="media__caption">no image yet: stone placeholder</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="prose" aria-labelledby="prose-title">
+        <div class="container">
+          <h3 class="text-card-title" id="prose-title">Rich text and tables</h3>
+          <dl class="meta-list">
+            <dt>prose</dt><dd>Wrap CMS rich text in <code>.prose</code>. It styles bare elements, so editors need no classes. Measure is capped at 68ch.</dd>
+            <dt>table</dt><dd><code>.table</code> inside <code>.table-scroll</code>. Use <code>&lt;caption&gt;</code>, <code>scope</code> on headers and <code>data-align="end"</code> for numbers.</dd>
+          </dl>
+          <div class="sg-example">
+            <div class="sg-example__stage">
+              <div class="prose">
+                <p class="text-lead">Landscapes can store carbon, cool cities and support wildlife, but only if they are designed with care.</p>
+                <h2>Heading level two</h2>
+                <p>Running text with <a href="#prose">an inline link</a>, <strong>strong emphasis</strong>, <em>emphasis</em>, <code>inline code</code> and <kbd>Ctrl</kbd> + <kbd>P</kbd>.</p>
+                <h3>Heading level three</h3>
+                <ul><li>An unordered list item</li><li>A second item, long enough to wrap onto another line at narrow widths so the hanging indent is visible</li></ul>
+                <ol><li>An ordered step</li><li>Another step</li></ol>
+                <blockquote><p>A tree planted in the right soil will outlive every other decision on the drawing.</p></blockquote>
+                <figure><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Planting plan" width="1600" height="1200" loading="lazy"><figcaption>A figure with a caption.</figcaption></figure>
+                <pre><code>&lt;div class="prose"&gt;…&lt;/div&gt;</code></pre>
+                <div class="table-scroll">
+                  <table>
+                    <caption>Embodied carbon, kgCO₂e per m²</caption>
+                    <thead><tr><th scope="col">Surface</th><th scope="col">2020</th><th scope="col">2025</th></tr></thead>
+                    <tbody><tr><th scope="row">Concrete paving</th><td>82</td><td>61</td></tr><tr><th scope="row">Natural stone</th><td>64</td><td>48</td></tr></tbody>
+                  </table>
+                </div>
+                <hr>
+                <p class="text-small text-muted">Small print after a rule.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- COMPONENTS                                                          -->
+      <!-- =================================================================== -->
+
+      <section class="sg-section" id="components" aria-labelledby="components-title">
+        <div class="container">
+          <div class="sg-title"><h2 class="text-section-heading" id="components-title">Components</h2><p>Reusable combinations of primitives, with finite variants. Defined in <code>assets/css/components/</code>.</p></div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="section-header" aria-labelledby="sh-title">
+        <div class="container">
+          <h3 class="text-card-title" id="sh-title">Section header</h3>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>label, title, intro?, action?</dd>
+            <dt>Variants</dt><dd><code>data-align</code>: hang (default, Swiss hanging label), stack, center. <code>data-rule</code>: strong (default), none.</dd>
+            <dt>Guidance</dt><dd>Opens almost every section. The heading level follows the outline; the size is a text class.</dd>
+            <dt>Accessibility</dt><dd>The label is a <code>&lt;p&gt;</code>, not a heading — it's a visual eyebrow, not a level in the outline. Only <code>.section-header__title</code> is a real heading, at whatever level the page's outline calls for.</dd>
+          </dl>
+          <div class="sg-example">
+            <div class="sg-example__stage">
+              <header class="section-header">
+                <p class="section-header__label">Principles</p>
+                <h4 class="section-header__title text-section-heading">Four ideas the whole system is built on.</h4>
+                <p class="section-header__intro">An optional intro sits under the heading, in the same column.</p>
+                <div class="section-header__action"><a class="link" href="#section-header">All principles</a></div>
+              </header>
+            </div>
+            <p class="sg-caption">data-align="hang" (default)</p>
+          </div>
+          <div class="grid" data-columns="2">
+            <div class="sg-example"><div class="sg-example__stage"><header class="section-header" data-align="stack"><p class="section-header__label">Stacked</p><h4 class="section-header__title text-section-heading">Label above the heading.</h4></header></div><p class="sg-caption">data-align="stack"</p></div>
+            <div class="sg-example"><div class="sg-example__stage" data-surface="dark"><header class="section-header" data-align="center" data-rule="none"><p class="section-header__label">Centred</p><h4 class="section-header__title text-section-heading">For centred CTAs and landing pages.</h4></header></div><p class="sg-caption">data-align="center" data-rule="none", dark</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="cards" aria-labelledby="cards-title">
+        <div class="container">
+          <h3 class="text-card-title" id="cards-title">Card</h3>
+          <dl class="meta-list">
+            <dt>Replaces</dt><dd>Media card, article card, case study card, profile card, service card, location card. One component, different content.</dd>
+            <dt>Content</dt><dd>media?, meta?, title, summary?, tags?, person?, action?, url?</dd>
+            <dt>Variants</dt><dd><code>data-layout</code>: stacked, horizontal, overlay. <code>data-variant</code>: plain, panel, bordered. <code>data-size</code>: default, large.</dd>
+            <dt>Accessibility</dt><dd><code>.card__link</code> on the title stretches over the card: one link, one accessible name. Keep other links out of linked cards; the action text is <code>aria-hidden</code>.</dd>
+          </dl>
+          <ul class="grid" data-columns="3" role="list">
+            <li>
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta"><span>Case study</span><span>Halden, 2025</span></p>
+                <h4 class="card__title"><a class="card__link" href="#cards">Millbrook Riverside Park</a></h4>
+                <p class="card__summary">Eleven hectares of railway sidings returned to the river.</p>
+                <ul class="card__tags tag-list" role="list"><li><span class="tag">Parks</span></li><li><span class="tag">Ecology</span></li></ul>
+              </article>
+              <p class="sg-caption" style="margin-top: var(--space-3)">plain, with tags</p>
+            </li>
+            <li>
+              <article class="card" data-variant="panel">
+                <p class="card__meta">Article / 6 min read</p>
+                <h4 class="card__title"><a class="card__link" href="#cards">Designing parks for hotter summers</a></h4>
+                <p class="card__summary">Shade, water and soil: what a decade of heatwaves has taught us.</p>
+                <div class="card__person"><span class="avatar" data-size="small"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span class="text-small">Ruth Hallam</span></div>
+                <span class="card__action" aria-hidden="true">Read article <svg class="icon" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+              </article>
+              <p class="sg-caption" style="margin-top: var(--space-3)">panel, no media, with person and action</p>
+            </li>
+            <li>
+              <article class="card" data-variant="bordered">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta">02</p>
+                <h4 class="card__title"><a class="card__link" href="#cards">Streets and public realm</a></h4>
+                <p class="card__summary">Street redesigns that make walking the obvious choice.</p>
+                <span class="card__action" aria-hidden="true">Explore <svg class="icon" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+              </article>
+              <p class="sg-caption" style="margin-top: var(--space-3)">bordered, service</p>
+            </li>
+            <li>
+              <article class="card">
+                <figure class="card__media media" data-ratio="portrait"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500" loading="lazy"></figure>
+                <h4 class="card__title"><a class="card__link" href="#cards">Mairi Campbell</a></h4>
+                <p class="card__meta">Partner, Glasgow</p>
+              </article>
+              <p class="sg-caption" style="margin-top: var(--space-3)">profile: portrait media, meta after title</p>
+            </li>
+            <li>
+              <article class="card" data-layout="overlay">
+                <figure class="card__media media"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta">Featured</p>
+                <h4 class="card__title"><a class="card__link" href="#cards">Kelvin Meadows</a></h4>
+                <p class="card__summary">A community meadow made permanent.</p>
+              </article>
+              <p class="sg-caption" style="margin-top: var(--space-3)">overlay: text over media on a scrim</p>
+            </li>
+            <li data-surface="dark" style="padding: var(--space-component)">
+              <article class="card">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta">On dark</p>
+                <h4 class="card__title"><a class="card__link" href="#cards">Oakmere Fields</a></h4>
+                <p class="card__summary">Cards inherit the surface.</p>
+              </article>
+            </li>
+          </ul>
+          <div class="sg-example">
+            <div class="sg-example__stage">
+              <article class="card" data-layout="horizontal" data-size="large">
+                <figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+                <p class="card__meta"><span>Essay</span><span>12 June 2026</span></p>
+                <h4 class="card__title"><a class="card__link" href="#cards">Designing parks for hotter summers</a></h4>
+                <p class="card__summary">Shade, water and soil: what a decade of heatwaves has taught us about the parks we design.</p>
+              </article>
+            </div>
+            <p class="sg-caption">data-layout="horizontal" data-size="large": featured items</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <h3 class="text-card-title" id="features-title">Feature</h3>
+          <p class="text-muted">The workhorse for any short, repeated point: a numbered step, a value, a service summary. Reach for a card only once the item needs its own image.</p>
+          <dl class="meta-list">
+            <dt>Replaces</dt><dd>Feature item, feature card, step, value, principle, service summary.</dd>
+            <dt>Content</dt><dd>index? or icon?, title, text, link?</dd>
+            <dt>Variants</dt><dd><code>data-variant</code>: rule, plain, panel. <code>data-size</code>: default, large, xlarge. <code>data-layout</code>: stacked, row. <code>data-accent</code>.</dd>
+            <dt>Accessibility</dt><dd>The index number and icon are decorative — the title carries the meaning. Choose the heading level (<code>&lt;h3&gt;</code>/<code>&lt;h4&gt;</code>) from where the list sits in the outline, not from <code>data-size</code>.</dd>
+          </dl>
+          <ol class="grid" data-columns="4" role="list">
+            <li class="feature"><span class="feature__index">01</span><h4 class="feature__title">Rule (default)</h4><p class="feature__text">An ink hairline above, mono index, small text.</p></li>
+            <li class="feature" data-size="large"><svg class="feature__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M12 15v7M8 22h8"/></svg><h4 class="feature__title">Large, with icon</h4><p class="feature__text">Card Title and body text.</p></li>
+            <li class="feature" data-variant="panel"><span class="feature__index">03</span><h4 class="feature__title">Panel</h4><p class="feature__text">Filled with the surface's subtle colour.</p></li>
+            <li class="feature" data-accent><span class="feature__index">04</span><h4 class="feature__title">Accent</h4><p class="feature__text">A brand rule marks the current item.</p></li>
+          </ol>
+          <div class="sg-example">
+            <div class="sg-example__stage">
+              <ol class="feature-list" role="list">
+                <li class="feature" data-layout="row" data-size="xlarge"><h4 class="feature__title">Designed, not decorated.</h4><div class="feature__body"><p class="feature__text">Row layout, xlarge: principles, values and service lists.</p></div></li>
+                <li class="feature" data-layout="row" data-size="large"><h4 class="feature__title">Streets and public realm</h4><div class="feature__body"><p class="feature__text">Row layout, large, with a link.</p><a class="link" data-variant="arrow" href="#features">Streets <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div></li>
+              </ol>
+            </div>
+            <p class="sg-caption">feature-list with data-layout="row"</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="quotes" aria-labelledby="quotes-title">
+        <div class="container">
+          <h3 class="text-card-title" id="quotes-title">Quote</h3>
+          <p class="text-muted">A real, attributed statement — someone's actual words. If there's no name and role behind it, it's not a quote; write it as regular copy instead.</p>
+          <dl class="meta-list">
+            <dt>Replaces</dt><dd>Blockquote, pull quote, testimonial.</dd>
+            <dt>Content</dt><dd>text, name?, role?, avatar?</dd>
+            <dt>Variants</dt><dd><code>data-size</code>: default, large, display. <code>data-variant</code>: plain, rule, panel.</dd>
+            <dt>Accessibility</dt><dd>The quote is a native <code>&lt;blockquote&gt;</code> and the attribution a <code>&lt;figcaption&gt;</code>, so assistive tech announces it as a quotation with its source, not as an unrelated paragraph.</dd>
+          </dl>
+          <div class="grid" data-columns="2">
+            <figure class="quote" data-variant="rule">
+              <blockquote class="quote__text"><p>We kept every tree that could be kept. The oldest birch is now the centre of the play area.</p></blockquote>
+              <figcaption class="quote__cite"><span><span class="quote__name">Sam Whitfield</span><span class="quote__role">Partner, Ecology</span></span></figcaption>
+            </figure>
+            <figure class="quote" data-variant="panel">
+              <blockquote class="quote__text"><p>I drew the planting plan for a park I now walk through on my way to work.</p></blockquote>
+              <figcaption class="quote__cite"><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span><span class="quote__name">Priya Nair</span><span class="quote__role">Landscape Architect</span></span></figcaption>
+            </figure>
+          </div>
+          <div class="sg-example">
+            <div class="sg-example__stage" data-surface="dark">
+              <figure class="quote" data-size="large">
+                <blockquote class="quote__text"><p>Fieldwork listened longer than anyone we have worked with. The park works because the people who use it helped design it.</p></blockquote>
+                <figcaption class="quote__cite"><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span><span class="quote__name">Amara Okafor</span><span class="quote__role">Head of Parks, Halden Council</span></span></figcaption>
+              </figure>
+            </div>
+            <p class="sg-caption">data-size="large" on dark: testimonial sections</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="stats" aria-labelledby="stats-title">
+        <div class="container">
+          <h3 class="text-card-title" id="stats-title">Stat</h3>
+          <p class="text-muted">A headline number with the label that explains it — proof points on an about or case study page. For more than a handful of related figures, use a table instead.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>value, label, text?. Wrap in <code>&lt;dl class="stat-list"&gt;</code>: the label is the <code>&lt;dt&gt;</code>, the value its <code>&lt;dd&gt;</code>, shown first visually.</dd>
+            <dt>Variants</dt><dd><code>data-size</code>: default, small. <code>stat-list data-columns</code>: 2, 3, 4.</dd>
+            <dt>Accessibility</dt><dd>The label stays the <code>&lt;dt&gt;</code> in source order — a screen reader hears "hectares of public space, 146", label before value — while CSS alone reorders the big number first for sighted readers. The pairing is never rebuilt with two unrelated elements.</dd>
+          </dl>
+          <dl class="stat-list">
+            <div class="stat"><dt class="stat__label">Hectares of public space</dt><dd class="stat__value">146</dd><dd class="stat__text">Designed since 2009.</dd></div>
+            <div class="stat"><dt class="stat__label">Trees planted</dt><dd class="stat__value">18,400</dd><dd class="stat__text">94% five-year survival.</dd></div>
+            <div class="stat" data-size="small"><dt class="stat__label">Residents engaged</dt><dd class="stat__value">32k</dd></div>
+            <div class="stat" data-size="small"><dt class="stat__label">Awards</dt><dd class="stat__value">11</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="sg-section" id="logos" aria-labelledby="logos-title">
+        <div class="container">
+          <h3 class="text-card-title" id="logos-title">Logo item and logo list</h3>
+          <dl class="meta-list">
+            <dt>Variants</dt><dd><code>data-layout</code>: rail (one row, scrolls on small screens), grid (divided).</dd>
+            <dt>Accessibility</dt><dd>Alt text is the organisation's name. Logos are muted until hover.</dd>
+          </dl>
+          <ul class="logo-list" data-layout="grid">
+            <li class="logo"><img src="https://placehold.co/110x40/ECEAE4/5C5B57" alt="Halden Council" width="110" height="40" loading="lazy"></li>
+            <li class="logo"><img src="https://placehold.co/150x40/ECEAE4/5C5B57" alt="Oakmere Homes" width="150" height="40" loading="lazy"></li>
+            <li class="logo"><img src="https://placehold.co/140x40/ECEAE4/5C5B57" alt="Northgate Trust" width="140" height="40" loading="lazy"></li>
+            <li class="logo"><img src="https://placehold.co/120x40/ECEAE4/5C5B57" alt="Parallel Developments" width="120" height="40" loading="lazy"></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sg-section" id="lists" aria-labelledby="lists-title">
+        <div class="container">
+          <h3 class="text-card-title" id="lists-title">Meta list, link list, social links</h3>
+          <p class="text-muted">Three ways to list things that aren't cards: facts as pairs, links as rows, icons as a compact row of their own.</p>
+          <dl class="meta-list">
+            <dt>meta-list</dt><dd>Key and value pairs: facts, contact details, job details. <code>data-layout</code>: inline, stacked, columns.</dd>
+            <dt>link-list</dt><dd>Rows of links with an arrow: documentation, jobs, events. Optional meta column. <code>data-size</code>: default, small.</dd>
+            <dt>social-links</dt><dd>44px icon links with visually hidden names.</dd>
+            <dt>Accessibility</dt><dd>Each social icon's platform name (e.g. "Instagram") is present as a <code>.visually-hidden</code> span — read by a screen reader, not shown visually, since the icon alone isn't a reliable label.</dd>
+          </dl>
+          <div class="grid" data-columns="3">
+            <dl class="meta-list"><dt>Client</dt><dd>Halden Council</dd><dt>Completed</dt><dd>April 2025</dd><dt>Area</dt><dd>11.2 hectares</dd></dl>
+            <dl class="meta-list" data-layout="stacked"><dt>New projects</dt><dd><a href="#lists">projects@fieldwork.example</a></dd><dt>Telephone</dt><dd><a href="#lists">0117 946 0000</a></dd></dl>
+            <dl class="meta-list" data-layout="columns"><div><dt>Release</dt><dd>1.0</dd></div><div><dt>Output</dt><dd>Static HTML</dd></div><div><dt>Team</dt><dd>24</dd></div><div><dt>Studios</dt><dd>2</dd></div></dl>
+          </div>
+          <div class="grid" data-columns="2">
+            <ul class="link-list">
+              <li><a class="link-list__item" href="#lists"><span class="link-list__title">Getting started</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              <li><a class="link-list__item" href="#lists"><span class="link-list__title">Senior Landscape Architect</span><span class="link-list__meta">Glasgow, full time</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            </ul>
+            <div data-surface="dark" style="padding: var(--space-component)">
+              <ul class="link-list" data-size="small">
+                <li><a class="link-list__item" href="#lists"><span class="link-list__title">Foundations</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+                <li><a class="link-list__item" href="#lists"><span class="link-list__title">Components</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              </ul>
+              <ul class="social-links" style="margin-top: var(--space-4)">
+                <li><a href="#lists"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.5"/><circle cx="8" cy="8" r="2.75"/><path d="M11.75 4.25v.01"/></svg><span class="visually-hidden">Instagram</span></a></li>
+                <li><a href="#lists"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 7v4.5M5 4.75v.01M7.75 11.5V7M7.75 9c0-1.25.75-2 1.75-2s1.5.75 1.5 2v2.5"/></svg><span class="visually-hidden">LinkedIn</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="notice" aria-labelledby="notice-title">
+        <div class="container">
+          <h3 class="text-card-title" id="notice-title">Notice</h3>
+          <p class="text-muted">An in-page message about the current state of things — a closure, a confirmation, a warning. For a single field's own validation error, use the field's own error text instead.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>title?, text.</dd>
+            <dt>Variants</dt><dd><code>data-status</code>: info, positive, warning, error. Always an icon plus text.</dd>
+            <dt>Accessibility</dt><dd><code>role="status"</code> for polite updates, <code>role="alert"</code> for errors after an action.</dd>
+          </dl>
+          <div class="grid" data-columns="2" data-gap="tight">
+            <div class="notice"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4.5M8 4.5v.5"/></svg><div class="notice__body"><p class="notice__title">Studio closed 24 December</p><p>We reopen on 2 January.</p></div></div>
+            <div class="notice" data-status="positive"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><div class="notice__body"><p class="notice__title">Enquiry sent</p><p>A partner will reply within two working days.</p></div></div>
+            <div class="notice" data-status="warning"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2l6.5 12h-13z"/><path d="M8 6.5v3.5M8 11.5v.5"/></svg><div class="notice__body"><p class="notice__title">Path closed for planting</p><p>Use the river entrance until March.</p></div></div>
+            <div class="notice" data-status="error"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v4M8 10.5v1"/></svg><div class="notice__body"><p class="notice__title">Upload failed</p><p>Files must be under 20 MB.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="header" aria-labelledby="header-title">
+        <div class="container">
+          <h3 class="text-card-title" id="header-title">Site header and navigation</h3>
+          <dl class="meta-list">
+            <dt>Variants</dt><dd><code>data-logo</code>: left, center. <code>data-behaviour</code>: static, sticky, overlay. <code>data-mobile</code>: dropdown, drawer, fullscreen. Menus: <code>data-variant</code> dropdown or mega.</dd>
+            <dt>Behaviour</dt><dd>Without JavaScript the navigation is a wrapped list and menus open on hover or focus. samla.js adds the mobile toggle, click-to-open menus, Escape, outside click and a focus trap for drawer and full-screen panels.</dd>
+            <dt>Accessibility</dt><dd><code>&lt;nav aria-label="Primary"&gt;</code>; toggles use <code>aria-expanded</code> and <code>aria-controls</code>; the current page has <code>aria-current="page"</code>.</dd>
+          </dl>
+          <div class="sg-example">
+            <div class="sg-example__stage" data-bleed style="min-height: 26rem">
+              <header class="site-header" data-behaviour="static">
+                <div class="site-header__inner container">
+                  <div class="site-header__brand"><a class="wordmark" href="#header"><span class="wordmark__mark" aria-hidden="true"></span>Fieldwork</a></div>
+                  <nav class="site-nav" aria-label="Example: dropdown and mega">
+                    <ul class="site-nav__list">
+                      <li class="site-nav__item"><a class="site-nav__link" href="#header" aria-current="page">Projects</a></li>
+                      <li class="site-nav__item">
+                        <button class="site-nav__link site-nav__toggle" type="button">Services <svg class="icon" data-icon="chevron-down" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+                        <div class="site-nav__menu" data-variant="dropdown"><ul class="site-nav__menu-list"><li><a class="site-nav__menu-link" href="#header">Parks and open space</a></li><li><a class="site-nav__menu-link" href="#header">Streets and public realm</a></li><li><a class="site-nav__menu-link" href="#header">Masterplanning</a></li></ul></div>
+                      </li>
+                      <li class="site-nav__item">
+                        <button class="site-nav__link site-nav__toggle" type="button">Practice <svg class="icon" data-icon="chevron-down" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+                        <div class="site-nav__menu" data-variant="mega">
+                          <div class="container site-nav__mega">
+                            <div class="site-nav__mega-intro"><p class="label">Practice</p><p class="text-card-title">A mega menu spans the header.</p></div>
+                            <div class="site-nav__mega-group"><p class="site-nav__menu-heading label">Studio</p><ul class="site-nav__menu-list"><li><a class="site-nav__menu-link" href="#header">About<span class="site-nav__menu-desc">How we work</span></a></li><li><a class="site-nav__menu-link" href="#header">People<span class="site-nav__menu-desc">The team</span></a></li></ul></div>
+                            <div class="site-nav__mega-group"><p class="site-nav__menu-heading label">Join us</p><ul class="site-nav__menu-list"><li><a class="site-nav__menu-link" href="#header">Careers<span class="site-nav__menu-desc">Three open roles</span></a></li></ul></div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="site-nav__item"><a class="site-nav__link" href="#header">Journal</a></li>
+                    </ul>
+                  </nav>
+                  <div class="site-header__actions">
+                    <a class="button" data-size="small" href="#header">Start a project</a>
+                    <button class="site-header__toggle" type="button" aria-label="Open menu"><svg class="icon" data-icon="menu" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 8h16M3 14h16"/></svg><svg class="icon" data-icon="close" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button>
+                  </div>
+                </div>
+              </header>
+            </div>
+            <p class="sg-caption">data-logo="left" data-behaviour="static", with a dropdown (Services) and a mega menu (Practice)</p>
+          </div>
+          <div class="sg-example">
+            <div class="sg-example__stage" data-bleed>
+              <header class="site-header" data-logo="center" data-behaviour="static" data-surface="alternate">
+                <div class="site-header__inner container">
+                  <div class="site-header__brand"><a class="wordmark" href="#header"><span class="wordmark__mark" aria-hidden="true"></span>Fieldwork</a></div>
+                  <nav class="site-nav" aria-label="Example: centred logo">
+                    <ul class="site-nav__list"><li class="site-nav__item"><a class="site-nav__link" href="#header">Projects</a></li><li class="site-nav__item"><a class="site-nav__link" href="#header">Practice</a></li><li class="site-nav__item"><a class="site-nav__link" href="#header">Journal</a></li></ul>
+                  </nav>
+                  <div class="site-header__actions"><a class="button" data-size="small" data-variant="secondary" href="#header">Contact</a><button class="site-header__toggle" type="button" aria-label="Open menu"><svg class="icon" data-icon="menu" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 8h16M3 14h16"/></svg><svg class="icon" data-icon="close" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button></div>
+                </div>
+              </header>
+            </div>
+            <p class="sg-caption">data-logo="center" on the alternate surface</p>
+          </div>
+          <div class="sg-example">
+            <div class="sg-example__stage" data-bleed style="position: relative; min-height: 18rem; background: url('https://placehold.co/1600x480/ECEAE4/5C5B57') center / cover">
+              <header class="site-header" data-behaviour="overlay" data-surface="image">
+                <div class="site-header__inner container">
+                  <div class="site-header__brand"><a class="wordmark" href="#header"><span class="wordmark__mark" aria-hidden="true"></span>Fieldwork</a></div>
+                  <nav class="site-nav" aria-label="Example: overlay">
+                    <ul class="site-nav__list"><li class="site-nav__item"><a class="site-nav__link" href="#header">Programme</a></li><li class="site-nav__item"><a class="site-nav__link" href="#header">Graduates</a></li></ul>
+                  </nav>
+                  <div class="site-header__actions"><a class="button" data-size="small" href="#header">Apply</a><button class="site-header__toggle" type="button" aria-label="Open menu"><svg class="icon" data-icon="menu" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 8h16M3 14h16"/></svg><svg class="icon" data-icon="close" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button></div>
+                </div>
+              </header>
+            </div>
+            <p class="sg-caption">data-behaviour="overlay" data-surface="image": transparent over a hero</p>
+          </div>
+          <p class="text-small text-muted">Mobile variants are live in the <a href="#responsive">responsive previews</a>: the Samla site uses dropdown, Fieldwork templates use drawer, the landing page uses fullscreen. The sticky variant is the header at the top of this page.</p>
+        </div>
+      </section>
+
+      <section class="sg-section" id="footer" aria-labelledby="footer-title">
+        <div class="container">
+          <h3 class="text-card-title" id="footer-title">Site footer</h3>
+          <p class="text-muted">Closes every page with wayfinding the header doesn't have room for, plus legal and utility links. Not a second navigation for the primary pages already in the header.</p>
+          <dl class="meta-list">
+            <dt>Variants</dt><dd><code>data-layout</code>: simple (one row), columns (intro, link groups, newsletter, bottom bar). Any surface.</dd>
+            <dt>Content</dt><dd>Wordmark, a handful of link groups (label + list), optional newsletter field, and a bottom bar of legal links and a copyright line.</dd>
+            <dt>Accessibility</dt><dd>The footer is a landmark; each link group is a <code>&lt;nav&gt;</code> with its own <code>aria-label</code> so screen reader users can tell them apart from the header's primary navigation.</dd>
+          </dl>
+        </div>
+        <div class="container stack" data-gap="5">
+          <div class="sg-example">
+            <footer class="site-footer" data-surface="dark" data-layout="simple">
+              <div class="container">
+                <div class="site-footer__bar">
+                  <a class="wordmark" href="#footer"><span class="wordmark__mark" aria-hidden="true"></span>Fieldwork</a>
+                  <ul class="site-footer__links"><li><a href="#footer">About</a></li><li><a href="#footer">People</a></li><li><a href="#footer">Privacy</a></li></ul>
+                  <p class="site-footer__meta">© 2026 Fieldwork Landscape Ltd</p>
+                </div>
+              </div>
+            </footer>
+            <p class="sg-caption">data-layout="simple"</p>
+          </div>
+          <div class="sg-example">
+            <footer class="site-footer" data-surface="alternate" data-layout="columns">
+              <div class="container">
+                <div class="site-footer__main">
+                  <div class="site-footer__intro"><a class="wordmark" href="#footer"><span class="wordmark__mark" aria-hidden="true"></span>Fieldwork</a><p>Landscape architecture for parks, streets and squares.</p></div>
+                  <nav class="site-footer__group" aria-label="Example footer: work"><p class="label">Work</p><ul><li><a href="#footer">Projects</a></li><li><a href="#footer">Services</a></li></ul></nav>
+                  <nav class="site-footer__group" aria-label="Example footer: practice"><p class="label">Practice</p><ul><li><a href="#footer">About</a></li><li><a href="#footer">People</a></li></ul></nav>
+                  <div class="site-footer__newsletter"><div class="field"><label class="field__label" for="sg-footer-email">Newsletter</label><div class="input-group"><input class="input" id="sg-footer-email" type="email"><button class="button" type="button">Subscribe</button></div></div></div>
+                </div>
+                <div class="site-footer__bar"><p class="site-footer__meta">© 2026 Fieldwork</p><ul class="site-footer__links"><li><a href="#footer">Privacy</a></li><li><a href="#footer">Cookies</a></li></ul></div>
+              </div>
+            </footer>
+            <p class="sg-caption">data-layout="columns" on the alternate surface</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="overlays" aria-labelledby="overlays-title">
+        <div class="container">
+          <h3 class="text-card-title" id="overlays-title">Dropdown, dialog, drawer and tooltip</h3>
+          <p class="text-muted">Floating layers that sit above the page rather than inside its flow. Reach for the lightest one that does the job: a tooltip for a definition, a dropdown for a short menu, a dialog only when the reader must act or decide before continuing.</p>
+          <dl class="meta-list">
+            <dt>dropdown</dt><dd>Button plus a menu of links or actions. Without JavaScript the options render inline. Escape and outside click close it.</dd>
+            <dt>dialog</dt><dd>Native <code>&lt;dialog&gt;</code>: focus is trapped and restored by the browser. Open with <code>data-dialog-open="id"</code>; close with <code>data-dialog-close</code>, Escape or a backdrop click. <code>data-variant</code>: modal, drawer. <code>data-size</code>: default, large.</dd>
+            <dt>tooltip</dt><dd>Supplementary text on hover and focus, dismissed with Escape. Never the only place information lives.</dd>
+            <dt>Accessibility</dt><dd>Native <code>&lt;dialog&gt;</code> traps and restores focus for free. The dropdown toggle carries <code>aria-expanded</code>; its trigger button gets focus back on close. A tooltip trigger is a real button with <code>aria-describedby</code>, so its content reaches assistive tech the same way hover reaches a mouse.</dd>
+          </dl>
+          <div class="sg-example">
+            <div class="sg-example__stage cluster" data-gap="5" style="min-height: 13rem; align-items: flex-start">
+              <div class="dropdown">
+                <button class="button" type="button" data-variant="secondary" data-size="small" aria-expanded="false" aria-controls="sg-dropdown" data-dropdown-toggle>Sort: Newest <svg class="icon" data-size="12" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+                <div class="dropdown__menu" id="sg-dropdown"><a class="dropdown__item" href="#overlays" aria-current="true">Newest</a><a class="dropdown__item" href="#overlays">Oldest</a><a class="dropdown__item" href="#overlays">Most read</a></div>
+              </div>
+              <button class="button" type="button" data-size="small" data-dialog-open="sg-modal">Open modal</button>
+              <button class="button" type="button" data-size="small" data-variant="secondary" data-dialog-open="sg-drawer">Open drawer</button>
+              <span class="cluster" data-gap="2">
+                <span class="text-small">Biodiversity net gain</span>
+                <span class="tooltip">
+                  <button type="button" class="tooltip__trigger" aria-describedby="sg-tt"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4.5M8 4.5v.5"/></svg><span class="visually-hidden">About biodiversity net gain</span></button>
+                  <span class="tooltip__content" role="tooltip" id="sg-tt">The measurable improvement in habitat after development, required by law in England.</span>
+                </span>
+              </span>
+            </div>
+          </div>
+          <dialog class="dialog" id="sg-modal" aria-labelledby="sg-modal-title">
+            <div class="dialog__header"><h4 class="dialog__title" id="sg-modal-title">Modal dialog</h4><button class="dialog__close" type="button" data-dialog-close aria-label="Close"><svg class="icon" data-size="20" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button></div>
+            <div class="dialog__body prose"><p>Focus moved into this dialog and is trapped here. Press Escape, click the backdrop or use a button to close it; focus returns to the trigger.</p></div>
+            <div class="dialog__footer"><button class="button" type="button" data-variant="secondary" data-dialog-close>Cancel</button><button class="button" type="button" data-dialog-close>Confirm</button></div>
+          </dialog>
+          <dialog class="dialog" id="sg-drawer" data-variant="drawer" aria-labelledby="sg-drawer-title">
+            <div class="dialog__header"><h4 class="dialog__title" id="sg-drawer-title">Filters</h4><button class="dialog__close" type="button" data-dialog-close aria-label="Close"><svg class="icon" data-size="20" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"/></svg></button></div>
+            <div class="dialog__body stack" data-gap="5">
+              <fieldset class="fieldset"><legend class="fieldset__legend">Type</legend><label class="check"><input type="checkbox" checked> Parks</label><label class="check"><input type="checkbox"> Streets</label><label class="check"><input type="checkbox"> Masterplanning</label></fieldset>
+              <fieldset class="fieldset"><legend class="fieldset__legend">Studio</legend><label class="check"><input type="radio" name="sg-drawer-studio" checked> Any</label><label class="check"><input type="radio" name="sg-drawer-studio"> Bristol</label><label class="check"><input type="radio" name="sg-drawer-studio"> Glasgow</label></fieldset>
+            </div>
+            <div class="dialog__footer"><button class="button" type="button" data-dialog-close>Show 12 projects</button></div>
+          </dialog>
+        </div>
+      </section>
+
+      <section class="sg-section" id="cookie" aria-labelledby="cookie-title">
+        <div class="container">
+          <h3 class="text-card-title" id="cookie-title">Cookie banner</h3>
+          <p class="text-muted">Asks for consent once, without blocking the page. Not a dialog — the reader can ignore it and keep browsing.</p>
+          <dl class="meta-list">
+            <dt>Behaviour</dt><dd>Non-modal, fixed to the bottom. Reject is as prominent as accept. The choice is stored and dispatched as a <code>samla:consent</code> event. Shown here in flow with <code>data-static</code>.</dd>
+            <dt>Accessibility</dt><dd>Carries its own <code>aria-label</code> so it announces as a distinct region, not part of the page's main content. It never traps focus or scroll: a reader can tab past it or ignore it entirely.</dd>
+          </dl>
+          <section class="cookie-banner" data-surface="dark" data-static aria-label="Cookie preferences example">
+            <p class="cookie-banner__text">We use essential cookies to run this site, and optional analytics cookies to improve it. <a href="#cookie">Cookie policy</a></p>
+            <div class="cookie-banner__actions"><button class="button" type="button" data-size="small" data-consent="accept">Accept all</button><button class="button" type="button" data-size="small" data-consent="reject">Reject non-essential</button><a class="link" href="#cookie">Manage</a></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="sg-section" id="carousel" aria-labelledby="carousel-title">
+        <div class="container">
+          <h3 class="text-card-title" id="carousel-title">Carousel</h3>
+          <p class="text-muted">A horizontally scrolling set of equally-weighted items — related projects, a small gallery. Never the only way to reach content that matters; pair it with a link to the full listing.</p>
+          <dl class="meta-list">
+            <dt>Behaviour</dt><dd>A scroll-snap track that works with touch, trackpad and keyboard without JavaScript. samla.js adds previous and next buttons and a live position label. No autoplay.</dd>
+            <dt>Variants</dt><dd><code>data-per-view</code>: 1, 2, 3 (default), auto.</dd>
+            <dt>Accessibility</dt><dd><code>aria-roledescription="carousel"</code> and an <code>aria-live</code> status announce the current position as it changes. The track itself is reachable by keyboard (<code>tabindex="0"</code>) and scrolls with arrow keys even before samla.js adds the prev/next buttons. No autoplay: nothing moves without the reader asking it to.</dd>
+          </dl>
+          <section class="carousel" aria-roledescription="carousel" aria-labelledby="carousel-title">
+            <div class="carousel__controls">
+              <p class="carousel__status" aria-live="polite"></p>
+              <button class="button" type="button" data-variant="secondary" data-size="small" data-icon-only data-carousel="prev" aria-label="Previous"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg></button>
+              <button class="button" type="button" data-variant="secondary" data-size="small" data-icon-only data-carousel="next" aria-label="Next"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+            </div>
+            <ul class="carousel__track" tabindex="0" aria-label="Projects, scrollable">
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Kelvin Meadows</a></h4></article></li>
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Garnet Street</a></h4></article></li>
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Oakmere Fields</a></h4></article></li>
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Millbrook Riverside Park</a></h4></article></li>
+              <li class="carousel__slide"><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><h4 class="card__title"><a class="card__link" href="#carousel">Kingsmead Square</a></h4></article></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section class="sg-section" id="code-block" aria-labelledby="code-block-title">
+        <div class="container">
+          <h3 class="text-card-title" id="code-block-title">Code block</h3>
+          <p class="text-muted">The one place mono type is purely decorative-adjacent and still correct: real code, meant to be read character by character and copied.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>file name?, code, line numbers (optional, <code>data-line-numbers</code> with one <code>.line</code> per line). Syntax colours: <code>tok-keyword</code>, <code>tok-property</code>, <code>tok-string</code>, <code>tok-comment</code>.</dd>
+            <dt>Behaviour</dt><dd>A copy button with <code>data-copy</code> copies the block's text.</dd>
+            <dt>Accessibility</dt><dd>Syntax colour is a bonus for sighted readers, never the only way to tell tokens apart — the underlying text reads correctly with no colour at all. The copy button's label changes to confirm the copy, not just its icon.</dd>
+          </dl>
+          <figure class="code-block">
+            <figcaption class="code-block__header"><span class="code-block__file">theme.css</span><button class="code-block__copy" type="button" data-copy><span data-copy-label>Copy</span></button></figcaption>
+<pre class="code-block__pre" data-line-numbers><code><span class="line"><span class="tok-comment">/* Rebrand a project: override raw tokens only */</span></span>
+<span class="line"><span class="tok-keyword">@layer</span> project {'{'}</span>
+<span class="line">  <span class="tok-keyword">:root</span> {'{'}</span>
+<span class="line">    <span class="tok-property">--color-brand</span>: <span class="tok-string">#2B45C9</span>;</span>
+<span class="line">    <span class="tok-property">--font-sans</span>: <span class="tok-string">'Inter'</span>, system-ui, sans-serif;</span>
+<span class="line">  {'}'}</span>
+<span class="line">{'}'}</span></code></pre>
+          </figure>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- SECTIONS                                                            -->
+      <!-- =================================================================== -->
+
+      <section class="sg-section" id="sections" aria-labelledby="sections-title">
+        <div class="container">
+          <div class="sg-title"><h2 class="text-section-heading" id="sections-title">Sections</h2><p>Page bands. Every band is a <code>.section</code> with <code>data-surface</code> and <code>data-spacing</code>, containing a section header and a layout block. Card grids, feature grids, stats, testimonials and related content are compositions, not separate sections. Defined in <code>assets/css/sections/</code>.</p></div>
+          <div class="table-scroll">
+            <table class="table">
+              <caption>Common sections and how they are composed</caption>
+              <thead><tr><th scope="col">Section</th><th scope="col">Composition</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Intro, rich content</th><td>section + section-header + <code>section__body[data-indent]</code> + prose</td></tr>
+                <tr><th scope="row">Card grid, related content</th><td>section + section-header + <code>grid[data-columns]</code> of cards</td></tr>
+                <tr><th scope="row">Feature grid, steps</th><td>section + section-header + grid of features</td></tr>
+                <tr><th scope="row">Stats, results</th><td>section + section-header + stat-list (+ quote)</td></tr>
+                <tr><th scope="row">Testimonials</th><td>section[dark] + quote[large], or a carousel of quote panels</td></tr>
+                <tr><th scope="row">Logo grid</th><td>section + section-header + logo-list[grid]</td></tr>
+                <tr><th scope="row">Video</th><td>section + section-header + media[video] with play</td></tr>
+                <tr><th scope="row">FAQ, contact</th><td>section + split (header aside, accordion or form main)</td></tr>
+                <tr><th scope="row">Newsletter</th><td>section + cta with a subscribe form</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="hero" aria-labelledby="hero-title" style="padding-bottom: 0">
+        <div class="container">
+          <h3 class="text-card-title" id="hero-title">Hero</h3>
+          <p class="text-muted">Opens the homepage or a landing page: one clear statement of what the page is for, before anything else. Every other page opens with a page header instead.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>eyebrow?, title, lead?, actions?, aside facts?, media?</dd>
+            <dt>Variants</dt><dd><code>data-layout</code>: text, split, media, centered. <code>data-align</code>: left, center. <code>data-width</code>: narrow, standard, wide. <code>data-surface</code>: default, alternate, brand, dark, image.</dd>
+            <dt>Accessibility</dt><dd>On <code>data-surface="image"</code>, a scrim sits between the photo and the text so the title and lead keep their contrast ratio regardless of what the image looks like — never rely on the photo being dark enough on its own.</dd>
+          </dl>
+        </div>
+      </section>
+      <div class="stack" data-gap="1" aria-label="Hero examples" role="group">
+        <section class="hero" data-layout="text" data-surface="alternate">
+          <div class="hero__inner container">
+            <div class="hero__content"><p class="hero__eyebrow">data-layout="text" / alternate</p><p class="hero__title text-display">Public spaces designed to be used.</p></div>
+            <dl class="hero__aside meta-list"><div><dt>Founded</dt><dd>2009</dd></div><div><dt>Studios</dt><dd>Bristol, Glasgow</dd></div></dl>
+            <div class="hero__body"><p class="hero__lead text-lead">Title across the grid, facts in columns 1 to 4, lead and actions from column 7.</p><div class="hero__actions button-group" data-stack="mobile"><a class="button" href="#hero">View projects</a><a class="button" data-variant="secondary" href="#hero">About</a></div></div>
+          </div>
+        </section>
+        <section class="hero" data-layout="split" data-surface="default">
+          <div class="hero__inner container">
+            <div class="hero__content"><p class="hero__eyebrow">data-layout="split"</p><p class="hero__title text-page-title">Parks and open space</p></div>
+            <div class="hero__body"><p class="hero__lead text-lead">Content left, media right. Here the title uses Page Title instead of Display.</p><div class="hero__actions button-group" data-stack="mobile"><a class="button" href="#hero">Discuss a project</a></div></div>
+            <figure class="hero__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+          </div>
+        </section>
+        <section class="hero" data-layout="media" data-surface="image">
+          <div class="hero__inner container">
+            <div class="hero__content"><p class="hero__eyebrow">data-layout="media" / image</p><p class="hero__title text-display">Learn landscape by building one.</p></div>
+            <div class="hero__body"><p class="hero__lead text-lead">The image fills the band behind a scrim that guarantees contrast.</p><div class="hero__actions button-group" data-stack="mobile"><a class="button" href="#hero">Register interest</a></div></div>
+            <figure class="hero__media media"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+          </div>
+        </section>
+        <section class="hero" data-layout="centered" data-surface="brand">
+          <div class="hero__inner container">
+            <div class="hero__content"><p class="hero__eyebrow">data-layout="centered" / brand</p><p class="hero__title text-page-title">One set of components, any brand.</p></div>
+            <div class="hero__body"><p class="hero__lead text-lead">A centred stack for campaigns and landing pages.</p><div class="hero__actions button-group" data-stack="mobile"><a class="button" href="#hero">Get started</a><a class="button" data-variant="secondary" href="#hero">Learn more</a></div></div>
+          </div>
+        </section>
+        <section class="hero" data-layout="text" data-surface="dark" data-width="narrow">
+          <div class="hero__inner container">
+            <div class="hero__content"><p class="hero__eyebrow">data-width="narrow" / dark</p><p class="hero__title text-page-title">A narrower title column for shorter statements.</p></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="sg-section" id="media-content" aria-labelledby="mc-title">
+        <div class="container">
+          <h3 class="text-card-title" id="mc-title">Media + content</h3>
+          <p class="text-muted">One idea explained with a single image or diagram beside it: a process, a value, a piece of work. For more than one such pairing in a row, use a card grid instead.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>label?, title, text?, media, action?.</dd>
+            <dt>Variants</dt><dd><code>data-media</code>: start, end. <code>data-align</code>: center, start.</dd>
+          </dl>
+          <div class="media-content">
+            <figure class="media-content__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+            <div class="media-content__body"><p class="label">The studio</p><p class="text-section-heading">Designers, ecologists and engineers at one table.</p><p class="text-muted">Media in columns 1 to 6, content from column 8.</p><a class="link" data-variant="arrow" href="#media-content">How we work <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
+          </div>
+          <div class="media-content" data-media="end" data-surface="alternate" style="padding: var(--space-component)">
+            <figure class="media-content__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure>
+            <div class="media-content__body"><p class="label">data-media="end"</p><p class="text-section-heading">Chartership, paid for and planned in.</p><ul class="tag-list" role="list"><li><span class="tag">LI fees paid</span></li><li><span class="tag">10 study days</span></li></ul></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="split" aria-labelledby="split-title">
+        <div class="container">
+          <h3 class="text-card-title" id="split-title">Split and FAQ</h3>
+          <p class="text-muted">Two related blocks side by side: a heading with the content it introduces, an aside with a longer main column. The FAQ pairing above is one example, not the only one.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>aside (heading, intro or facts), main (any content — accordion, list, form, media).</dd>
+            <dt>Variants</dt><dd><code>data-ratio</code>: 4-8 (default), 3-9, 5-7, 6-6. <code>data-sticky</code> keeps the aside in view.</dd>
+            <dt>Accessibility</dt><dd><code>data-sticky</code> keeps the aside visible with CSS position only — it never traps focus or scroll, so keyboard and screen reader navigation move through the page exactly as the source order suggests.</dd>
+          </dl>
+          <div class="split" data-sticky>
+            <div class="split__aside">
+              <header class="section-header"><p class="section-header__label">FAQ</p><p class="section-header__title text-section-heading">Before you apply.</p><div class="section-header__action"><a class="link" href="#split">Ask something else</a></div></header>
+            </div>
+            <div class="split__main">
+              <div class="accordion">
+                <details class="accordion__item" name="sg-faq" open><summary class="accordion__trigger">Do I need a landscape degree?<span class="accordion__icon" aria-hidden="true"></span></summary><div class="accordion__panel"><p>No. Show us how you look at places.</p></div></details>
+                <details class="accordion__item" name="sg-faq"><summary class="accordion__trigger">Bristol or Glasgow?<span class="accordion__icon" aria-hidden="true"></span></summary><div class="accordion__panel"><p>Both. You choose a home studio.</p></div></details>
+                <details class="accordion__item" name="sg-faq"><summary class="accordion__trigger">What happens after two years?<span class="accordion__icon" aria-hidden="true"></span></summary><div class="accordion__panel"><p>Most graduates stay.</p></div></details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="cta" aria-labelledby="cta-title" style="padding-bottom: 0">
+        <div class="container">
+          <h3 class="text-card-title" id="cta-title">CTA and newsletter</h3>
+          <p class="text-muted">Closes a section, or the page, with one clear next step. One CTA per view — if a page needs several, they're competing with each other.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>label?, title, text?, actions (button group or a single-field subscribe form).</dd>
+            <dt>Variants</dt><dd><code>data-layout</code>: stacked (default), inline, centered. Actions are a button group or a subscribe form. Place inside any surface.</dd>
+            <dt>Accessibility</dt><dd>The subscribe field's label is present but <code>visually-hidden</code> — the heading reads as the visible label, but the input still has its own for a screen reader. Success is announced via a <code>role="status"</code> notice, not a colour change alone.</dd>
+          </dl>
+        </div>
+      </section>
+      <div class="stack" data-gap="1" role="group" aria-label="CTA examples">
+        <section class="section" data-surface="brand" data-spacing="compact">
+          <div class="container">
+            <div class="cta" data-layout="inline">
+              <div class="cta__content"><p class="text-page-title">Have a site in mind?</p><p class="cta__text">data-layout="inline" on brand.</p></div>
+              <div class="cta__actions"><div class="button-group"><a class="button" href="#cta">Start a project</a><a class="button" data-variant="secondary" href="#cta">See our work</a></div></div>
+            </div>
+          </div>
+        </section>
+        <section class="section" data-surface="dark" data-spacing="compact">
+          <div class="container">
+            <div class="cta" data-layout="centered">
+              <div class="cta__content"><p class="text-section-heading">Get the next essay by email.</p><p class="cta__text">data-layout="centered" with a subscribe form, on dark.</p></div>
+              <div class="cta__actions">
+                <form class="subscribe" action="#" data-validate data-demo>
+                  <div class="field"><label class="field__label visually-hidden" for="sg-sub">Email address</label><div class="input-group" data-stack="mobile"><input class="input" id="sg-sub" type="email" placeholder="name@company.com" required><button class="button" type="submit">Subscribe</button></div></div>
+                  <div class="notice" data-status="positive" role="status" tabindex="-1" data-form-success hidden><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><p>Subscribed (demo).</p></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" data-surface="alternate" data-spacing="compact">
+          <div class="container">
+            <div class="cta">
+              <div class="cta__content"><p class="label">Stacked</p><p class="text-section-heading">Every project on this page started with a conversation.</p></div>
+              <div class="cta__actions"><div class="button-group"><a class="button" href="#cta">Start yours</a></div></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="sg-section" id="logo-rail" aria-labelledby="lr-title">
+        <div class="container">
+          <h3 class="text-card-title" id="lr-title">Logo rail</h3>
+          <p class="text-muted">A page band that pairs a short label with a row of logos — "Trusted by", "As featured in". For the logo list itself and its layout variants, see <a class="link" href="#logos">Logo item and logo list</a>.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>label (short, e.g. "Trusted by"), 4 to 8 logos with alt text set to the organisation's name.</dd>
+            <dt>Variants</dt><dd>Composed from <code>.logo-list</code>'s own <code>data-layout</code>: rail (default here) or grid. Any surface.</dd>
+          </dl>
+          <div class="logo-rail">
+            <p class="label">Trusted by</p>
+            <ul class="logo-list" data-layout="rail">
+              <li class="logo"><img src="https://placehold.co/110x40/ECEAE4/5C5B57" alt="Halden Council" width="110" height="40" loading="lazy"></li>
+              <li class="logo"><img src="https://placehold.co/150x40/ECEAE4/5C5B57" alt="Oakmere Homes" width="150" height="40" loading="lazy"></li>
+              <li class="logo"><img src="https://placehold.co/140x40/ECEAE4/5C5B57" alt="Northgate Trust" width="140" height="40" loading="lazy"></li>
+              <li class="logo"><img src="https://placehold.co/120x40/ECEAE4/5C5B57" alt="Parallel Developments" width="120" height="40" loading="lazy"></li>
+              <li class="logo"><img src="https://placehold.co/160x40/ECEAE4/5C5B57" alt="Linden and Co" width="160" height="40" loading="lazy"></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="gallery" aria-labelledby="gallery-title">
+        <div class="container">
+          <h3 class="text-card-title" id="gallery-title">Gallery</h3>
+          <p class="text-muted">A set of images with no single one more important than the rest — a project's finished photography, a set of plans. Give the first item real weight with the mosaic layout, or treat them all equally with grid.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>image with alt text; caption is optional per item, not required for the set.</dd>
+            <dt>Variants</dt><dd><code>data-layout</code>: grid (default), mosaic (first item large).</dd>
+            <dt>Accessibility</dt><dd>Alt text describes what's in each photo, not that it's "a gallery image" — a screen reader user hears "Terraces at Millbrook", not "image 1 of 5". A caption adds context alt text shouldn't (a date, a place); it's never a duplicate of the alt text.</dd>
+          </dl>
+          <ul class="gallery" data-layout="mosaic" role="list">
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Terraces at Millbrook" width="1600" height="1200" loading="lazy"></div><figcaption class="media__caption">Millbrook, spring</figcaption></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Site plan" width="1600" height="1200" loading="lazy"></div></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Street" width="1600" height="1200" loading="lazy"></div></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Lawn" width="1600" height="1200" loading="lazy"></div></figure></li>
+            <li><figure class="media"><div class="media__frame"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Planting plan" width="1600" height="1200" loading="lazy"></div></figure></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PATTERNS                                                            -->
+      <!-- =================================================================== -->
+
+      <section class="sg-section" id="patterns" aria-labelledby="patterns-title">
+        <div class="container">
+          <div class="sg-title"><h2 class="text-section-heading" id="patterns-title">Patterns</h2><p>Opinionated arrangements for particular content. A site may use none, some or many. Defined in <code>assets/css/patterns/</code>.</p></div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="page-header" aria-labelledby="ph-title" style="padding-bottom: 0">
+        <div class="container">
+          <h3 class="text-card-title" id="ph-title">Page header</h3>
+          <p class="text-muted">Opens every page below the homepage: it orients the reader (where am I, in what section) before the content starts. One per page, always the first thing in <code>&lt;main&gt;</code>.</p>
+          <dl class="meta-list">
+            <dt>Replaces</dt><dd>Article header, case study header, service header, job and event header, index page header.</dd>
+            <dt>Content</dt><dd>breadcrumb?, label?, title, lead?, meta facts?, actions?, media?</dd>
+            <dt>Variants</dt><dd><code>data-layout</code>: stacked (default), split, centered. Any surface.</dd>
+            <dt>Accessibility</dt><dd>The title is the page's one <code>h1</code>. The breadcrumb's current item takes <code>aria-current="page"</code>, not a visual style alone.</dd>
+          </dl>
+        </div>
+      </section>
+      <div class="stack" data-gap="1" role="group" aria-label="Page header examples">
+        <header class="page-header" data-surface="alternate">
+          <div class="page-header__inner container">
+            <nav class="breadcrumb" aria-label="Breadcrumb example, case study"><ol><li><a href="#page-header">Home</a></li><li><a href="#page-header">Projects</a></li><li><a href="#page-header" aria-current="page">Millbrook</a></li></ol></nav>
+            <p class="page-header__label">Case study / stacked</p>
+            <p class="page-header__title text-page-title">Millbrook Riverside Park</p>
+            <p class="page-header__lead text-lead">Label and facts hang in columns 1 to 3; title and lead start at column 4.</p>
+            <dl class="page-header__meta meta-list"><dt>Client</dt><dd>Halden Council</dd><dt>Completed</dt><dd>April 2025</dd></dl>
+          </div>
+        </header>
+        <header class="page-header" data-layout="split">
+          <div class="page-header__inner container">
+            <p class="page-header__label">Job / split</p>
+            <p class="page-header__title text-page-title">Senior Landscape Architect</p>
+            <p class="page-header__lead text-lead">Lead park projects from brief to opening day in our Glasgow studio.</p>
+            <dl class="page-header__meta meta-list"><dt>Location</dt><dd>Glasgow, hybrid</dd><dt>Salary</dt><dd>£48,000 to £56,000</dd><dt>Closes</dt><dd>30 October 2026</dd></dl>
+            <div class="page-header__actions button-group"><a class="button" href="#page-header">Apply now</a></div>
+            <figure class="page-header__media media" data-ratio="standard"><div class="media__frame"><img src="https://placehold.co/1200x900/ECEAE4/5C5B57" alt="" width="1200" height="900" loading="lazy"></div></figure>
+          </div>
+        </header>
+        <header class="page-header" data-layout="centered" data-surface="dark">
+          <div class="page-header__inner container">
+            <p class="page-header__label">Event / centered</p>
+            <p class="page-header__title text-page-title">Millbrook one year on: a guided walk</p>
+            <dl class="page-header__meta meta-list" data-layout="columns"><div><dt>Date</dt><dd>4 October 2026</dd></div><div><dt>Place</dt><dd>Halden</dd></div></dl>
+          </div>
+        </header>
+      </div>
+
+      <section class="sg-section" id="listing" aria-labelledby="listing-title">
+        <div class="container">
+          <h3 class="text-card-title" id="listing-title">Listing</h3>
+          <p class="text-muted">The index page above a set of similar items: browse, narrow, page through. Not for a one-off arrangement of unrelated content — that's a composition, not a listing.</p>
+          <dl class="meta-list">
+            <dt>Used for</dt><dd>Case studies, articles, services, team, events and careers indexes.</dd>
+            <dt>Parts</dt><dd>toolbar (filters, count, sort), results (card grid or link-list rows), pagination.</dd>
+            <dt>Filtering</dt><dd>Link filters (server-rendered, shareable) by default. For client-side filtering use buttons with <code>data-filter</code> inside <code>[data-filter-root]</code> and <code>data-tags</code> on results.</dd>
+            <dt>Accessibility</dt><dd>The result count (<code>.listing__count</code>) carries <code>aria-live="polite"</code>, so a screen reader announces the new total whenever a filter changes the results — without an extra live-region element to manage.</dd>
+          </dl>
+          <div class="listing" data-filter-root>
+            <div class="listing__toolbar">
+              <div class="listing__filters" role="group" aria-label="Filter examples by type"><ul class="tag-list" role="list"><li><button class="tag" type="button" data-filter="all" aria-pressed="true">All</button></li><li><button class="tag" type="button" data-filter="parks" aria-pressed="false">Parks</button></li><li><button class="tag" type="button" data-filter="streets" aria-pressed="false">Streets</button></li></ul></div>
+              <p class="listing__count" aria-live="polite" data-noun="projects">3 projects</p>
+            </div>
+            <ul class="listing__results grid" data-columns="3" role="list">
+              <li data-tags="parks"><article class="card"><figure class="card__media media" data-ratio="photo"><div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div></figure><p class="card__meta">Parks</p><h4 class="card__title"><a class="card__link" href="#listing">Millbrook Riverside Park</a></h4></article></li>
+              <li data-tags="streets"><article class="card"><figure class="card__media media" data-ratio="photo"><div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div></figure><p class="card__meta">Streets</p><h4 class="card__title"><a class="card__link" href="#listing">Garnet Street</a></h4></article></li>
+              <li data-tags="parks"><article class="card"><figure class="card__media media" data-ratio="photo"><div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div></figure><p class="card__meta">Parks</p><h4 class="card__title"><a class="card__link" href="#listing">St Agnes Park</a></h4></article></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="article-layout" aria-labelledby="al-title">
+        <div class="container">
+          <h3 class="text-card-title" id="al-title">Article layout</h3>
+          <dl class="meta-list">
+            <dt>Used for</dt><dd>Articles, case study narratives, job descriptions, legal pages. Sticky aside for author, contents and sharing; prose body from column 4.</dd>
+            <dt>Variants</dt><dd>The aside is optional — drop it for a plain single-column read. Sticky positioning is CSS-only; remove it by not adding <code>position: sticky</code> in a project override.</dd>
+            <dt>Accessibility</dt><dd>The contents list marks the section in view with <code>aria-current="true"</code>, updated by samla.js as the reader scrolls — sighted readers see it via the link style, and it's exposed to assistive tech the same way. The sticky aside never traps focus or scroll.</dd>
+          </dl>
+        </div>
+        <div class="article-layout container">
+          <aside class="article-layout__aside">
+            <div class="card__person"><span class="avatar"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span><span><strong>Ruth Hallam</strong><br><span class="text-muted">Founding partner</span></span></div>
+            <nav class="toc" aria-labelledby="sg-toc"><p class="label" id="sg-toc">Contents</p><ol><li><a href="#al-title" aria-current="true">Shade first</a></li><li><a href="#al-title">Water that stays</a></li><li><a href="#al-title">Soil is the park</a></li></ol></nav>
+          </aside>
+          <div class="article-layout__body prose">
+            <p class="text-lead">In the summer of 2022, the temperature on a play area we had opened three years earlier reached 58°C at ground level.</p>
+            <p>That afternoon changed how we design. Shade is now the first layer we draw, before paths or play.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="profile" aria-labelledby="profile-title">
+        <div class="container stack" data-gap="6">
+          <h3 class="text-card-title" id="profile-title">Profile</h3>
+          <p class="text-muted">A single person's page: team members, authors, speakers. Portrait, name and role first, facts and contact second.</p>
+          <dl class="meta-list">
+            <dt>Content</dt><dd>portrait, name, role, intro?, facts (studio, specialisms, contact)?.</dd>
+            <dt>Variants</dt><dd>Any surface. Pairs with a listing (team index) linking in, and an article layout below for longer writing.</dd>
+            <dt>Accessibility</dt><dd>The portrait's alt text is the person's name, not a generic label — the name text nearby doesn't substitute for it in every screen reader's announcement order.</dd>
+          </dl>
+          <div class="profile">
+            <figure class="profile__portrait media" data-ratio="portrait"><div class="media__frame"><img src="https://placehold.co/960x1200/ECEAE4/5C5B57" alt="Ruth Hallam" width="960" height="1200" loading="lazy"></div></figure>
+            <div class="profile__body">
+              <p class="label">Founding partner</p>
+              <p class="text-page-title">Ruth Hallam</p>
+              <p class="text-lead text-muted">Ruth co-founded Fieldwork in 2009 and leads the studio's park projects.</p>
+              <dl class="meta-list"><dt>Studio</dt><dd>Bristol</dd><dt>Specialisms</dt><dd>Parks, heritage landscapes</dd><dt>Email</dt><dd><a href="#profile">ruth@fieldwork.example</a></dd></dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section" id="domain" aria-labelledby="domain-title">
+        <div class="container">
+          <h3 class="text-card-title" id="domain-title">Careers, events, locations and results</h3>
+          <p class="text-muted">Compositions of existing parts. No new CSS.</p>
+          <div class="grid" data-columns="2">
+            <div class="stack" data-gap="3">
+              <p class="label">Careers index: link-list with meta</p>
+              <ul class="link-list">
+                <li><a class="link-list__item" href="#domain"><span class="link-list__title">Senior Landscape Architect</span><span class="link-list__meta">Glasgow, full time</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+                <li><a class="link-list__item" href="#domain"><span class="link-list__title">Ecologist</span><span class="link-list__meta">Glasgow, four days</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              </ul>
+            </div>
+            <div class="stack" data-gap="3">
+              <p class="label">Events index: link-list with dates</p>
+              <ul class="link-list">
+                <li><a class="link-list__item" href="#domain"><span class="link-list__title">Millbrook one year on</span><span class="link-list__meta"><time datetime="2026-10-04">4 October</time>, Halden</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+                <li><a class="link-list__item" href="#domain"><span class="link-list__title">Open studio: Glasgow</span><span class="link-list__meta"><time datetime="2026-11-12">12 November</time></span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              </ul>
+            </div>
+            <div class="stack" data-gap="3">
+              <p class="label">Location: bordered card + meta-list</p>
+              <article class="card" data-variant="bordered">
+                <figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Map of the Bristol studio" width="1600" height="1200" loading="lazy"></figure>
+                <h4 class="card__title">Bristol</h4>
+                <dl class="meta-list"><dt>Address</dt><dd>22 Feeder Road, Bristol BS2 0SB</dd><dt>Telephone</dt><dd><a href="#domain">0117 946 0000</a></dd></dl>
+              </article>
+            </div>
+            <div class="stack" data-gap="3">
+              <p class="label">Case study results: stat-list + quote</p>
+              <div data-surface="dark" class="stack" data-gap="6" style="padding: var(--space-component)">
+                <dl class="stat-list" data-columns="2"><div class="stat" data-size="small"><dt class="stat__label">Visits in year one</dt><dd class="stat__value">410k</dd></div><div class="stat" data-size="small"><dt class="stat__label">Net gain</dt><dd class="stat__value">38%</dd></div></dl>
+                <figure class="quote"><blockquote class="quote__text"><p>The park works because the people who use it helped design it.</p></blockquote><figcaption class="quote__cite"><span><span class="quote__name">Amara Okafor</span><span class="quote__role">Halden Council</span></span></figcaption></figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- TEMPLATES                                                           -->
+      <!-- =================================================================== -->
+
+      <section class="sg-section" id="templates" aria-labelledby="templates-title">
+        <div class="container">
+          <div class="sg-title"><h2 class="text-section-heading" id="templates-title">Templates</h2><p>Reference compositions for a fictional landscape practice, Fieldwork. Examples of composition, not fixed layouts.</p></div>
+          <ul class="link-list">
+            <li><a class="link-list__item" href="/templates/home.html"><span class="link-list__title">Homepage</span><span class="link-list__meta">Hero, logo rail, card grid, feature rows, stats, quote, CTA</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/content.html"><span class="link-list__title">Standard content page</span><span class="link-list__meta">Page header, article layout, prose, table</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/landing.html"><span class="link-list__title">Landing page</span><span class="link-list__meta">Overlay header, media hero, carousel, FAQ, newsletter</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/about.html"><span class="link-list__title">About</span><span class="link-list__meta">Split, values, stats, team, gallery</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/services.html"><span class="link-list__title">Services index</span><span class="link-list__meta">Bordered cards, process, logo grid</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/service.html"><span class="link-list__title">Service detail</span><span class="link-list__meta">Split page header, sticky split, carousel, FAQ</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/case-studies.html"><span class="link-list__title">Case studies index</span><span class="link-list__meta">Listing with client-side filter, pagination</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/case-study.html"><span class="link-list__title">Case study detail</span><span class="link-list__meta">Facts, narrative, video, gallery, results</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/articles.html"><span class="link-list__title">Articles index</span><span class="link-list__meta">Featured card, link filters, sort dropdown, events</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/article.html"><span class="link-list__title">Article detail</span><span class="link-list__meta">Author, contents, prose, related</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/contact.html"><span class="link-list__title">Contact</span><span class="link-list__meta">Validated form, details, locations</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/team.html"><span class="link-list__title">Team</span><span class="link-list__meta">Tabs by studio, careers, dialog</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/person.html"><span class="link-list__title">Person</span><span class="link-list__meta">Profile, projects, writing</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/404.html"><span class="link-list__title">404</span><span class="link-list__meta">Narrow hero, search, popular links</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sg-section" id="responsive" aria-labelledby="responsive-title">
+        <div class="container stack" data-gap="5">
+          <h3 class="text-card-title" id="responsive-title">Responsive previews</h3>
+          <p class="text-muted">Live pages at phone and tablet widths. The menus work: each shows a different <code>data-mobile</code> variant.</p>
+          <div class="sg-frames">
+            <div class="sg-frame"><iframe src="/templates/home.html" title="Fieldwork homepage at 390px, drawer navigation" width="390" height="760" loading="lazy"></iframe><span class="sg-caption">390 / home / data-mobile="drawer"</span></div>
+            <div class="sg-frame"><iframe src="/templates/landing.html" title="Landing page at 390px, full-screen navigation" width="390" height="760" loading="lazy"></iframe><span class="sg-caption">390 / landing / data-mobile="fullscreen"</span></div>
+            <div class="sg-frame"><iframe src="/" title="Samla homepage at 390px, dropdown navigation" width="390" height="760" loading="lazy"></iframe><span class="sg-caption">390 / samla / data-mobile="dropdown"</span></div>
+            <div class="sg-frame"><iframe src="/templates/case-study.html" title="Case study at 768px" width="768" height="760" loading="lazy"></iframe><span class="sg-caption">768 / case study</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</SamlaLayout>
