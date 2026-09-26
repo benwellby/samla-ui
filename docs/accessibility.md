@@ -1,12 +1,14 @@
-# Accessibility
-
+---
+title: Accessibility
+---
 Accessibility is part of each component's contract, not a later pass. Target:
 WCAG 2.2 AA.
 
 ## Built into the system
 
+
 | Area | How Samla handles it |
-| --- | --- |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Semantics | Landmarks on every page (`header`, `nav[aria-label]`, `main#main`, `footer`), one `h1`, levels from the outline, `dl` for facts and stats, `figure`/`figcaption`, `time`. |
 | Skip link | `.skip-link` is the first focusable element and targets `#main`. |
 | Focus | 2px outline, 2px offset, in `--focus` (the surface's text colour). Never removed; `:focus:not(:focus-visible)` hides it only for pointer clicks. |
@@ -19,18 +21,19 @@ WCAG 2.2 AA.
 | Progressive enhancement | Without JavaScript: navigation is a list, accordions work, all tab panels show, carousels scroll, dropdown options are inline links. |
 | Forced colours | Buttons, tags and inputs keep a visible border in Windows High Contrast. |
 
+
 ## Checklist for new work
 
-- [ ] Uses existing components; no new interaction pattern without reason.
-- [ ] Correct element first (`button` acts, `a` navigates); no `div` buttons.
-- [ ] Heading level fits the outline; size comes from a `text-*` role.
-- [ ] Works with keyboard only; focus visible and in a logical order.
-- [ ] Works on every surface, including brand and dark.
-- [ ] Images have meaningful `alt`, or `alt=""` if decorative.
-- [ ] Nothing relies on colour alone.
-- [ ] Usable at 320px wide and at 200% zoom; no horizontal scrolling.
-- [ ] Usable without JavaScript, or clearly hidden until it runs.
-- [ ] Checked with a screen reader (VoiceOver or NVDA) for new interactive parts.
+- Uses existing components; no new interaction pattern without reason.
+- Correct element first (`button` acts, `a` navigates); no `div` buttons.
+- Heading level fits the outline; size comes from a `text-*` role.
+- Works with keyboard only; focus visible and in a logical order.
+- Works on every surface, including brand and dark.
+- Images have meaningful `alt`, or `alt=""` if decorative.
+- Nothing relies on colour alone.
+- Usable at 320px wide and at 200% zoom; no horizontal scrolling.
+- Usable without JavaScript, or clearly hidden until it runs.
+- Checked with a screen reader (VoiceOver or NVDA) for new interactive parts.
 
 ## Changing the brand colour
 
