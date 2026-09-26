@@ -1,6 +1,5 @@
----
-title: Samla taxonomy
----
+# Samla taxonomy
+
 The brief's inventory, rationalised. Many listed items are variants or
 compositions of one underlying element, so the system is smaller than the
 list it serves. Use this table to find what already solves a requirement.
@@ -10,9 +9,8 @@ element; **composition** = existing parts arranged in markup, no new CSS.
 
 ## Layers
 
-
 | Layer | Contents |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --- | --- |
 | Foundations | tokens, surfaces, fonts, reset, base, typography roles, accessibility helpers |
 | Primitives | container, grid, stack, cluster, button, button-group, link, icon, media, tag, badge, avatar, divider, label, breadcrumb, pagination, field and form controls, accordion, tabs, prose, table |
 | Components | section-header, card, feature, quote, stat, logo, meta-list, link-list, social-links, notice, site-header (+ site-nav), site-footer, dropdown, dialog, cookie-banner, carousel, tooltip, code-block, subscribe |
@@ -20,12 +18,10 @@ element; **composition** = existing parts arranged in markup, no new CSS.
 | Patterns | page-header, listing, article-layout (+ toc), profile |
 | Templates | home, content, landing, about, services, service, case-studies, case-study, articles, article, contact, team, person, 404 |
 
-
 ## Navigation and structure
 
-
 | Brief item | Samla | Status |
-| ------------------- | ----------------------------------------------------------- | ------- |
+| --- | --- | --- |
 | Header | `site-header` | built |
 | Primary navigation | `site-nav` inside `site-header` | built |
 | Dropdown navigation | `site-nav__menu[data-variant="dropdown"]` | variant |
@@ -35,12 +31,10 @@ element; **composition** = existing parts arranged in markup, no new CSS.
 | Footer | `site-footer[data-layout="simple / columns"]` | built |
 | Pagination | `pagination` | built |
 
-
 ## Typography and content
 
-
 | Brief item | Samla | Status |
-| ------------------------------------ | ----------------------------------------------------------- | ---------- |
+| --- | --- | --- |
 | Heading | any `h1` to `h6` + a `text-*` role | foundation |
 | Lead | `text-lead` | foundation |
 | Rich text, lists, inline links, code | `prose` | built |
@@ -49,23 +43,19 @@ element; **composition** = existing parts arranged in markup, no new CSS.
 | Tables | `table` in `table-scroll` (also bare tables inside `prose`) | built |
 | Code block | `code-block` | built |
 
-
 ## Actions
 
-
 | Brief item | Samla | Status |
-| ------------ | ----------------------------------------------------------------- | ------- |
+| --- | --- | --- |
 | Button | `button[data-variant="primary / secondary / text"][data-size]` | built |
 | Button group | `button-group[data-stack="mobile"]` | built |
 | Text link | `link` | built |
 | Icon link | `link[data-variant="arrow / external"]`, `button[data-icon-only]` | variant |
 
-
 ## Forms
 
-
 | Brief item | Samla | Status |
-| ------------------------------------------------- | ----------------------------------------------------- | ----------- |
+| --- | --- | --- |
 | Text, email, tel, number, search inputs; textarea | `input` (by `type`) | built |
 | Select | `select` | built |
 | Checkbox, radio | `check` | built |
@@ -77,12 +67,10 @@ element; **composition** = existing parts arranged in markup, no new CSS.
 | Newsletter form | `subscribe` (field + input-group + note) | built |
 | Contact form | `form` + `form-grid` + fields | composition |
 
-
 ## Content components
 
-
 | Brief item | Samla | Status |
-| -------------------------- | ------------------------------------------------------ | ----------- |
+| --- | --- | --- |
 | Card, media card | `card` | built |
 | Article card | `card` with meta and optional person | composition |
 | Case study card | `card` with meta and tags | composition |
@@ -99,12 +87,10 @@ element; **composition** = existing parts arranged in markup, no new CSS.
 | Contact details | `meta-list[data-layout="stacked"]` + `social-links` | composition |
 | Social links | `social-links` | built |
 
-
 ## Interactive
 
-
 | Brief item | Samla | Status |
-| --------------------- | ------------------------------- | ------------- |
+| --- | --- | --- |
 | Accordion, disclosure | `accordion` on native `details` | built |
 | Tabs | `tabs` | built |
 | Modal | `dialog[data-variant="modal"]` | built |
@@ -115,12 +101,10 @@ element; **composition** = existing parts arranged in markup, no new CSS.
 | Cookie banner | `cookie-banner` | built |
 | Notice / alert | `notice[data-status]` | built (added) |
 
-
 ## Sections
 
-
 | Brief item | Samla | Status |
-| -------------------------- | ------------------------------------------------------------------------------------------ | ----------- |
+| --- | --- | --- |
 | Hero | `hero[data-layout][data-align][data-width][data-surface]` | built |
 | Intro, rich content | `section` + `section-header` + `section__body[data-indent]` + `prose` | composition |
 | Media + content | `media-content[data-media]` | built |
@@ -137,12 +121,10 @@ element; **composition** = existing parts arranged in markup, no new CSS.
 | Newsletter | `cta` + `subscribe` | composition |
 | Contact | `section` + `split` + `meta-list` + `form` | composition |
 
-
 ## Domain patterns
 
-
 | Brief item | Samla | Status |
-| ---------------------- | -------------------------------------------------------------------------------- | ----------- |
+| --- | --- | --- |
 | Services index | `page-header` + grid of bordered `card`s, or `feature-list` rows | composition |
 | Service detail content | `page-header[data-layout="split"]` + `split[data-sticky]` + `prose` | composition |
 | Case studies index | `listing` (filters, card grid, pagination) | built |
@@ -160,23 +142,21 @@ element; **composition** = existing parts arranged in markup, no new CSS.
 | Job detail | `page-header[data-layout="split"]` with meta and apply action + `article-layout` | composition |
 | Locations | bordered `card`s with `meta-list` and map media | composition |
 
-
 ## Deliberately not built
 
 - Separate card, hero or header components per content type. Variants cover them.
 - Utility classes beyond the type roles.
 - Autoplaying carousels.
 - A JavaScript framework, bundler or build step for the reference
-implementation (bundling CSS is optional: `scripts/build-css.mjs`).
+  implementation (bundling CSS is optional: `scripts/build-css.mjs`).
 - CMS schemas or content models (out of scope for v1).
 
 ## Deviations from the design file
 
 - The design's hero said "Built with Astro". The v1 reference is plain HTML,
-so the copy says what is true of this implementation.
+  so the copy says what is true of this implementation.
 - `--surface-line-strong` on dark is `#75736D` (3.9:1 on ink) rather than
-`#5C5B57` (2.9:1), so input and secondary button borders meet 3:1.
+  `#5C5B57` (2.9:1), so input and secondary button borders meet 3:1.
 - Status colours (`positive`, `warning`) and `--color-error` exist as tokens
-as the brief asks; the design's rule that errors use the brand colour is
-kept as the default value (`--color-error: #C4331A`).
-
+  as the brief asks; the design's rule that errors use the brand colour is
+  kept as the default value (`--color-error: #C4331A`).
