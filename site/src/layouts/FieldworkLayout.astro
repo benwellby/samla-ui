@@ -1,0 +1,34 @@
+---
+import FieldworkHeader from './FieldworkHeader.astro';
+import FieldworkFooter from './FieldworkFooter.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="preload" href="/assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/samla.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="/assets/js/samla.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <FieldworkHeader />
+
+  <slot />
+
+  <FieldworkFooter />
+</body>
+</html>

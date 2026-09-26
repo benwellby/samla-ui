@@ -1,0 +1,74 @@
+---
+import SamlaLayout from './SamlaLayout.astro';
+import { docsNav } from '../data/docsNav';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  current: string;
+  sourcePath: string;
+  headings: Heading[];
+}
+
+const { title, description, current, sourcePath, headings } = Astro.props;
+const toc = headings.filter((h) => h.depth === 2);
+const currentNavItem = docsNav.find((item) => item.href === current);
+---
+
+<SamlaLayout title={`${title} | Samla`} description={description} current={current} docsAssets>
+  <main id="main">
+    <header class="page-header">
+      <div class="page-header__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Samla</a></li>
+            {current === '/docs/'
+              ? <li><a href="/docs/" aria-current="page">Philosophy</a></li>
+              : <>
+                  <li><a href="/docs/">Philosophy</a></li>
+                  <li><a href={current} aria-current="page">{currentNavItem?.title ?? title}</a></li>
+                </>
+            }
+          </ol>
+        </nav>
+        <p class="page-header__label">Philosophy</p>
+      </div>
+    </header>
+
+    <div class="section" data-spacing="none">
+      <div class="article-layout container">
+        <aside class="article-layout__aside">
+          <nav class="toc" aria-labelledby="docs-nav-title">
+            <p class="label" id="docs-nav-title">Philosophy</p>
+            <ol>
+              {docsNav.map((item) => (
+                <li><a href={item.href} aria-current={item.href === current ? 'true' : undefined}>{item.title}</a></li>
+              ))}
+            </ol>
+          </nav>
+          {toc.length > 0 && (
+            <nav class="toc" aria-labelledby="toc-title">
+              <p class="label" id="toc-title">On this page</p>
+              <ol>
+                {toc.map((h) => (
+                  <li><a href={`#${h.slug}`}>{h.text}</a></li>
+                ))}
+              </ol>
+            </nav>
+          )}
+        </aside>
+        <div class="article-layout__body prose docs-prose">
+          <slot />
+          <hr>
+          <p class="text-small text-muted">Source: <a href={`https://github.com/benwellby/samla-ui/blob/main/${sourcePath}`}>{sourcePath}</a> on GitHub.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</SamlaLayout>

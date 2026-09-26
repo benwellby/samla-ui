@@ -1,0 +1,120 @@
+---
+import FieldworkLayout from '../../layouts/FieldworkLayout.astro';
+---
+
+<FieldworkLayout
+  title="Sustainability | Fieldwork"
+  description="How Fieldwork measures and reduces the carbon and ecological impact of its landscapes."
+>
+  <main id="main">
+    <!-- Template: Standard content page. Page header / Article layout with prose / CTA -->
+
+    <header class="page-header">
+      <div class="page-header__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/templates/home/">Home</a></li>
+            <li><a href="/templates/about/">Practice</a></li>
+            <li><a href="/templates/content/" aria-current="page">Sustainability</a></li>
+          </ol>
+        </nav>
+        <p class="page-header__label">Practice</p>
+        <h1 class="page-header__title text-page-title">Sustainability</h1>
+        <p class="page-header__lead text-lead">How we measure, reduce and report the carbon and ecological impact of every landscape we design.</p>
+        <dl class="page-header__meta meta-list">
+          <dt>Updated</dt><dd><time datetime="2026-06-02">2 June 2026</time></dd>
+          <dt>Owner</dt><dd>Sustainability lead</dd>
+        </dl>
+      </div>
+    </header>
+
+    <div class="section" data-spacing="none">
+      <div class="article-layout container">
+        <aside class="article-layout__aside">
+          <nav class="toc" aria-labelledby="toc-title">
+            <p class="label" id="toc-title">On this page</p>
+            <ol>
+              <li><a href="#commitments">Our commitments</a></li>
+              <li><a href="#measuring">Measuring carbon</a></li>
+              <li><a href="#biodiversity">Biodiversity net gain</a></li>
+              <li><a href="#reporting">Reporting</a></li>
+            </ol>
+          </nav>
+        </aside>
+
+        <div class="article-layout__body prose">
+          <p class="text-lead">Landscapes can store carbon, cool cities and support wildlife, but only if they are designed and built with care. These are the commitments we hold ourselves to.</p>
+
+          <h2 id="commitments">Our commitments</h2>
+          <p>Since 2021 every Fieldwork project has been assessed against a carbon budget set at stage one. Where a design cannot meet its budget, we explain why to the client in writing and propose alternatives. You can read more about our approach in <a href="/templates/article/">Designing parks for hotter summers</a>.</p>
+          <ul>
+            <li>Net zero studio operations by 2027, verified by a third party.</li>
+            <li>A 40% reduction in embodied carbon per square metre of hard landscape by 2030, against a 2020 baseline.</li>
+            <li>At least 20% biodiversity net gain on every project, exceeding the statutory 10%.</li>
+          </ul>
+
+          <h2 id="measuring">Measuring carbon</h2>
+          <p>We calculate embodied carbon for materials, transport and construction, and sequestration for planting over a sixty-year period. Calculations use published factors, so any client can check them.</p>
+
+          <figure data-width="wide">
+            <div class="table-scroll">
+              <table class="table">
+                <caption>Embodied carbon by surface type, kgCO₂e per m²</caption>
+                <thead>
+                  <tr><th scope="col">Surface</th><th scope="col" data-align="end">2020</th><th scope="col" data-align="end">2025</th><th scope="col" data-align="end">Change</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Concrete paving</th><td data-align="end">82</td><td data-align="end">61</td><td data-align="end">−26%</td></tr>
+                  <tr><th scope="row">Natural stone</th><td data-align="end">64</td><td data-align="end">48</td><td data-align="end">−25%</td></tr>
+                  <tr><th scope="row">Resin-bound gravel</th><td data-align="end">31</td><td data-align="end">27</td><td data-align="end">−13%</td></tr>
+                  <tr><th scope="row">Reinforced grass</th><td data-align="end">12</td><td data-align="end">9</td><td data-align="end">−25%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </figure>
+
+          <h3>What counts as a reduction</h3>
+          <p>Only design changes count. Offsets, credits and future grid decarbonisation are reported separately and never used to meet a budget.</p>
+
+          <blockquote>
+            <p>A tree planted in the right soil will outlive every other decision on the drawing.</p>
+          </blockquote>
+
+          <h2 id="biodiversity">Biodiversity net gain</h2>
+          <p>We use the statutory metric on every site over half a hectare, and a simplified version below that. Habitat surveys are carried out by our in-house ecologists before design starts.</p>
+          <ol>
+            <li>Survey the existing habitats and their condition.</li>
+            <li>Set a target with the client, never below 20%.</li>
+            <li>Design, then re-run the metric at each stage.</li>
+            <li>Monitor for thirty years after completion.</li>
+          </ol>
+
+          <figure>
+            <img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="Site plan showing retained hedgerows in dark green and new meadow in light green" width="1600" height="1200" loading="lazy">
+            <figcaption>Oakmere Fields: retained hedgerows (dark) and new meadow (light).</figcaption>
+          </figure>
+
+          <h2 id="reporting">Reporting</h2>
+          <p>We publish an annual report every June. Press <kbd>Ctrl</kbd> + <kbd>P</kbd> to print this page, or download the <a href="#">2025 report (PDF, 2.4 MB)</a>.</p>
+          <p>Questions about our figures can go to <a href="mailto:sustainability@fieldwork.example">sustainability@fieldwork.example</a>. Data is licensed <abbr title="Creative Commons Attribution 4.0">CC BY 4.0</abbr>.</p>
+          <hr>
+          <p class="text-small text-muted">This page is reviewed every six months. Figures are rounded to the nearest whole number.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta" data-layout="inline">
+          <div class="cta__content">
+            <p class="label">Next</p>
+            <h2 class="text-section-heading" id="cta-title">See how these commitments shape a project.</h2>
+          </div>
+          <div class="cta__actions">
+            <a class="button" href="/templates/case-study/">Read the Millbrook case study <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</FieldworkLayout>

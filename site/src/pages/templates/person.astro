@@ -1,0 +1,76 @@
+---
+import FieldworkLayout from '../../layouts/FieldworkLayout.astro';
+---
+
+<FieldworkLayout
+  title="Ruth Hallam | Fieldwork"
+  description="Ruth Hallam is a founding partner of Fieldwork and leads the studio's park projects."
+>
+  <main id="main">
+    <!-- Template: Person. Profile pattern / Projects led / Writing -->
+
+    <div class="section" data-spacing="compact">
+      <div class="container stack" data-gap="7">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/templates/home/">Home</a></li>
+            <li><a href="/templates/team/">People</a></li>
+            <li><a href="/templates/person/" aria-current="page">Ruth Hallam</a></li>
+          </ol>
+        </nav>
+        <article class="profile">
+          <figure class="profile__portrait media" data-ratio="portrait">
+            <img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="Ruth Hallam" width="1200" height="1500" fetchpriority="high">
+          </figure>
+          <div class="profile__body">
+            <p class="label">Founding partner</p>
+            <h1 class="text-page-title">Ruth Hallam</h1>
+            <p class="text-lead text-muted">Ruth co-founded Fieldwork in 2009 and leads the studio's park and open space projects.</p>
+            <div class="prose">
+              <p>Before Fieldwork, Ruth spent ten years at a large multidisciplinary practice, working on the landscapes of the London 2012 Olympic Park. She left to work on smaller, stranger places, closer to the people who use them.</p>
+              <p>She has led more than forty park projects, including Millbrook Riverside Park and the restoration of St Agnes Park. Ruth sits on the Landscape Institute's policy committee and teaches at the University of the West of England.</p>
+            </div>
+            <dl class="meta-list">
+              <dt>Studio</dt><dd>Bristol</dd>
+              <dt>Specialisms</dt><dd>Parks, heritage landscapes, planting design</dd>
+              <dt>Chartered</dt><dd>CMLI, 2004</dd>
+              <dt>Email</dt><dd><a href="mailto:ruth@fieldwork.example">ruth@fieldwork.example</a></dd>
+            </dl>
+            <ul class="social-links">
+              <li><a href="https://www.linkedin.com/"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 7v4.5M5 4.75v.01M7.75 11.5V7M7.75 9c0-1.25.75-2 1.75-2s1.5.75 1.5 2v2.5"/></svg><span class="visually-hidden">Ruth Hallam on LinkedIn</span></a></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="led-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Projects led</p>
+          <h2 class="section-header__title text-section-heading" id="led-title">Recent work</h2>
+        </header>
+        <ul class="grid" data-columns="3" role="list">
+          <li><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta"><span>Parks</span><span>2025</span></p><h3 class="card__title"><a class="card__link" href="/templates/case-study/">Millbrook Riverside Park</a></h3></article></li>
+          <li><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta"><span>Parks</span><span>2023</span></p><h3 class="card__title"><a class="card__link" href="/templates/case-study/">St Agnes Park restoration</a></h3></article></li>
+          <li><article class="card"><figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta"><span>Parks</span><span>2020</span></p><h3 class="card__title"><a class="card__link" href="/templates/case-study/">Sydney Gardens play</a></h3></article></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="writing-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Writing</p>
+          <h2 class="section-header__title text-section-heading" id="writing-title">Articles by Ruth</h2>
+        </header>
+        <div class="section__body" data-indent>
+          <ul class="link-list">
+            <li><a class="link-list__item" href="/templates/article/"><span class="link-list__title">Designing parks for hotter summers</span><span class="link-list__meta">Essay, June 2026</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/article/"><span class="link-list__title">In defence of the unmown verge</span><span class="link-list__meta">Essay, March 2026</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</FieldworkLayout>

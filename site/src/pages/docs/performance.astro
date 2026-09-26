@@ -1,0 +1,14 @@
+---
+import { getEntry, render } from 'astro:content';
+import DocsPage from '../../layouts/DocsPage.astro';
+import { extractTitle, extractDescription } from '../../data/docsMeta';
+
+const entry = await getEntry('docs', 'performance');
+const { Content, headings } = await render(entry);
+const title = extractTitle(entry.body ?? '');
+const description = extractDescription(entry.body ?? '');
+---
+
+<DocsPage title={title} description={description} current="/docs/performance/" sourcePath="docs/performance.md" headings={headings}>
+  <Content />
+</DocsPage>

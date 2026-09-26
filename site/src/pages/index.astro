@@ -1,0 +1,610 @@
+---
+import SamlaLayout from '../layouts/SamlaLayout.astro';
+---
+
+<SamlaLayout
+  title="Samla | A considered frontend foundation"
+  description="Samla provides reusable foundations, components, sections and patterns for high-quality marketing websites."
+  current="/"
+  docsAssets
+>
+  <main id="main">
+
+    <!-- Hero ---------------------------------------------------------------->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Samla / Frontend framework and design system</p>
+          <h1 class="hero__title text-display" id="hero-title">A considered frontend foundation for building better websites, faster.</h1>
+        </div>
+        <dl class="hero__aside meta-list">
+          <div><dt>Release</dt><dd>1.0</dd></div>
+          <div><dt>Built with</dt><dd>HTML, CSS, a little JavaScript</dd></div>
+          <div><dt>Output</dt><dd>Static HTML, any stack</dd></div>
+          <div><dt>Written for</dt><dd>Developers, designers and coding agents</dd></div>
+        </dl>
+        <div class="hero__body">
+          <p class="hero__lead text-lead">Samla provides reusable foundations, components, sections and patterns for high-quality marketing websites. Every new site starts from a system that has already been thought through.</p>
+          <div class="hero__actions button-group" data-stack="mobile">
+            <a class="button" href="/docs/">Get started <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a class="button" data-variant="secondary" href="/style-guide/">Explore components</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specimen ------------------------------------------------------------>
+    <section class="section" id="specimen" aria-labelledby="specimen-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Specimen</p>
+          <h2 class="section-header__title text-section-heading" id="specimen-title">This page is built from the components it describes.</h2>
+          <div class="section-header__action"><a class="link" href="/style-guide/">Open the Style Guide</a></div>
+        </header>
+
+        <div class="sg-board">
+          <div data-tile="type">
+            <div class="sg-board__head label"><span>Type</span><span>Instrument Sans / IBM Plex Mono</span></div>
+            <div class="sg-aa">
+              <div class="sg-aa__glyph" aria-hidden="true">Aa</div>
+              <div class="sg-aa__weights">
+                <span><span class="text-body" style="color: var(--surface-text)">Regular</span> 400</span>
+                <span><strong style="color: var(--surface-text)">Medium</strong> 500</span>
+                <span class="text-caption">Mono 400</span>
+              </div>
+            </div>
+            <div>
+              <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Page Title</strong><span>64/64</span></span><span class="text-page-title">Proportion</span></div>
+              <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Section Heading</strong><span>40/44</span></span><span class="text-section-heading">Hierarchy</span></div>
+              <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Card Title</strong><span>24/30</span></span><span class="text-card-title">Alignment to the grid</span></div>
+              <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Lead</strong><span>20/30</span></span><span class="text-lead">Comfortable reading at every size.</span></div>
+              <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Body</strong><span>16/26</span></span><span class="text-body">Body copy sits at a measure of 60 to 72 characters.</span></div>
+              <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Small</strong><span>14/21</span></span><span class="text-small text-muted">Help text, metadata and supporting detail.</span></div>
+              <div class="sg-type-row"><span class="sg-type-row__meta"><strong>Caption</strong><span>12/17</span></span><span class="text-caption">Figure captions, labels and tokens</span></div>
+            </div>
+          </div>
+
+          <div data-tile="colour">
+            <div class="sg-board__head label"><span>Colour</span><span>5 core tokens</span></div>
+            <div class="sg-mini-swatches">
+              <div><div class="sg-chip" style="background: var(--color-ink)"></div><strong>Ink</strong><span class="text-caption text-muted">#121212</span></div>
+              <div><div class="sg-chip" style="background: var(--color-muted)"></div><strong>Muted</strong><span class="text-caption text-muted">#5C5B57</span></div>
+              <div><div class="sg-chip" style="background: var(--color-line)"></div><strong>Line</strong><span class="text-caption text-muted">#D8D6CF</span></div>
+              <div><div class="sg-chip" style="background: var(--color-stone)"></div><strong>Stone</strong><span class="text-caption text-muted">#ECEAE4</span></div>
+              <div><div class="sg-chip" style="background: var(--color-brand)"></div><strong>Brand</strong><span class="text-caption text-muted">#C4331A</span></div>
+            </div>
+            <div class="sg-foot cluster" data-gap="5"><span class="text-caption">Ink on Paper 17.3:1</span><span class="text-caption">Muted on Paper 6.3:1</span></div>
+          </div>
+
+          <div data-tile="actions">
+            <p class="label">Actions</p>
+            <div class="stack" data-gap="2" data-align="start">
+              <button class="button" type="button">Primary</button>
+              <button class="button" type="button" data-variant="secondary">Secondary</button>
+              <a class="link" href="/style-guide/#buttons">Text link</a>
+            </div>
+            <div class="sg-states">
+              <div><span class="label">hover</span><span class="sg-state-chip" style="background: var(--color-ink-hover); color: var(--color-paper)">Primary</span></div>
+              <div><span class="label">focus</span><span class="sg-state-chip" style="background: var(--color-ink); color: var(--color-paper); outline: 2px solid var(--color-ink); outline-offset: 2px">Primary</span></div>
+              <div><span class="label">disabled</span><span class="sg-state-chip" style="background: var(--color-line); color: var(--color-muted)">Primary</span></div>
+            </div>
+          </div>
+
+          <div data-tile="form">
+            <p class="label">Form controls</p>
+            <div class="field">
+              <label class="field__label" for="spec-email">Work email</label>
+              <input class="input" id="spec-email" type="email" placeholder="name@company.com" aria-describedby="spec-email-help">
+              <p class="field__help" id="spec-email-help">We only use this to send release notes.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="spec-site">Website</label>
+              <input class="input" id="spec-site" type="url" value="samla" aria-invalid="true" aria-describedby="spec-site-error">
+              <p class="field__error" id="spec-site-error"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v4M8 10.5v1"/></svg>Enter a full address, including https://</p>
+            </div>
+            <label class="check"><input type="checkbox" checked> Send me release notes</label>
+          </div>
+
+          <div data-tile="tags">
+            <p class="label">Tags and status</p>
+            <ul class="tag-list" role="list">
+              <li><span class="tag">Static</span></li>
+              <li><span class="tag">Stack-agnostic</span></li>
+              <li><span class="tag">Accessible</span></li>
+              <li><span class="tag" data-selected>Selected</span></li>
+            </ul>
+            <div class="stack sg-foot" data-gap="3">
+              <span class="badge" data-status="stable">Stable</span>
+              <span class="badge" data-status="review">In review</span>
+              <span class="badge" data-status="planned">Planned</span>
+            </div>
+          </div>
+
+          <div data-tile="card">
+            <p class="label">Card</p>
+            <article class="card">
+              <div class="card__media media" data-ratio="standard"><div class="media__frame"><img src="https://placehold.co/1200x900/ECEAE4/5C5B57" alt="" width="1200" height="900" loading="lazy"></div></div>
+              <p class="card__meta">Pattern</p>
+              <h3 class="card__title"><a class="card__link" href="/templates/">Pricing with three tiers</a></h3>
+              <p class="card__summary">A comparison section built from the Plan card, Table and Button components.</p>
+              <span class="card__action" aria-hidden="true">View pattern <svg class="icon" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            </article>
+          </div>
+
+          <div data-tile="space">
+            <div class="sg-board__head label"><span>Space</span><span>4px base</span></div>
+            <div>
+              <div class="sg-space"><span>space-1</span><span>4</span><span class="sg-space__bar" style="width: var(--space-1)"></span></div>
+              <div class="sg-space"><span>space-2</span><span>8</span><span class="sg-space__bar" style="width: var(--space-2)"></span></div>
+              <div class="sg-space"><span>space-3</span><span>12</span><span class="sg-space__bar" style="width: var(--space-3)"></span></div>
+              <div class="sg-space"><span>space-4</span><span>16</span><span class="sg-space__bar" style="width: var(--space-4)"></span></div>
+              <div class="sg-space"><span>space-5</span><span>24</span><span class="sg-space__bar" style="width: var(--space-5)"></span></div>
+              <div class="sg-space"><span>space-6</span><span>32</span><span class="sg-space__bar" style="width: var(--space-6)"></span></div>
+              <div class="sg-space"><span>space-7</span><span>48</span><span class="sg-space__bar" style="width: var(--space-7)"></span></div>
+              <div class="sg-space"><span>space-8</span><span>64</span><span class="sg-space__bar" style="width: var(--space-8)"></span></div>
+              <div class="sg-space"><span>space-9</span><span>96</span><span class="sg-space__bar" style="width: var(--space-9)"></span></div>
+              <div class="sg-space"><span>space-10</span><span>128</span><span class="sg-space__bar" style="width: var(--space-10); background: var(--color-brand)"></span></div>
+            </div>
+            <p class="sg-foot">Sections use space-10 on desktop and space-9 on mobile.</p>
+          </div>
+
+          <div data-tile="grid">
+            <div class="sg-board__head label"><span>Grid</span><span data-grid-explorer-caption>12 columns, 24px gutter, 64px margin at 1440</span></div>
+            <div class="sg-grid-explorer" data-grid-explorer>
+              <div class="sg-grid-explorer__tabs" role="group" aria-label="Preview breakpoint">
+                <button class="sg-grid-explorer__tab" type="button" data-columns="4" data-gutter="16" data-margin="20" data-viewport="375" aria-pressed="false">Mobile</button>
+                <button class="sg-grid-explorer__tab" type="button" data-columns="8" data-gutter="20" data-margin="40" data-viewport="768" aria-pressed="false">Tablet</button>
+                <button class="sg-grid-explorer__tab" type="button" data-columns="12" data-gutter="24" data-margin="64" data-viewport="1440" aria-pressed="true">Desktop</button>
+              </div>
+              <div class="sg-grid-explorer__stage" data-grid-explorer-stage style="padding-inline: 64px">
+                <div class="sg-grid-explorer__demo" data-grid-explorer-demo aria-hidden="true" style="grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px">
+                  <span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span><span class="sg-grid-explorer__bar"></span>
+                </div>
+              </div>
+              <div class="sg-foot stack" data-gap="1">
+                <span><strong style="color: var(--surface-text)" data-grid-explorer-columns>12 columns</strong><span data-grid-explorer-detail>, 24px gutter, 64px margin at 1440.</span></span>
+                <span>Labels hang in columns 1 to 3. Content starts at column 4.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principles ---------------------------------------------------------->
+    <section class="section" aria-labelledby="principles-title">
+      <div class="container">
+        <header class="section-header" data-align="stack">
+          <h2 class="section-header__title text-section-heading" id="principles-title">Four ideas the whole system is built on.</h2>
+        </header>
+        <div class="section__body">
+          <ol class="feature-list" role="list">
+            <li class="feature" data-layout="row" data-size="xlarge">
+              <h3 class="feature__title">Designed, not decorated.</h3>
+              <div class="feature__body">
+                <p class="feature__text">Typography, spacing, grids and hierarchy carry the design. Visual quality comes from precise decisions, with nothing added to compensate for weak structure.</p>
+              </div>
+            </li>
+            <li class="feature" data-layout="row" data-size="xlarge">
+              <h3 class="feature__title">Fast by default.</h3>
+              <div class="feature__body">
+                <p class="feature__text">Predominantly static HTML with minimal JavaScript. Every page is set up for strong Core Web Vitals and technically sound SEO from the first commit.</p>
+                <ul class="tag-list" role="list">
+                  <li><span class="tag">Static HTML</span></li>
+                  <li><span class="tag">Minimal JS</span></li>
+                  <li><span class="tag">Core Web Vitals</span></li>
+                  <li><span class="tag">Structured SEO</span></li>
+                </ul>
+              </div>
+            </li>
+            <li class="feature" data-layout="row" data-size="xlarge">
+              <h3 class="feature__title">Composable.</h3>
+              <div class="feature__body">
+                <p class="feature__text">A coherent architecture in which each layer is assembled from the one beneath it, so a change to a token travels all the way to a template.</p>
+                <p class="text-caption">Foundations → Primitives → Components → Sections → Patterns → Templates</p>
+              </div>
+            </li>
+            <li class="feature" data-layout="row" data-size="xlarge">
+              <h3 class="feature__title">Built for humans and AI.</h3>
+              <div class="feature__body">
+                <p class="feature__text">Predictable conventions make Samla straightforward for developers and coding agents to understand, use and extend.</p>
+                <pre class="text-caption" style="margin: 0; overflow-x: auto; padding: var(--space-4) 1.125rem; background: var(--surface-subtle); border-radius: var(--radius-1); font-size: 0.8125rem; line-height: 1.7;"><code>&lt;section class="section" data-surface="brand"&gt;
+  &lt;a class="button" data-variant="primary"&gt;
+<span class="text-muted">/* classes say what it is, attributes say how it varies */</span></code></pre>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -------------------------------------------------------->
+    <section class="section" id="architecture" aria-labelledby="architecture-title">
+      <div class="container">
+        <header class="section-header" data-align="stack">
+          <h2 class="section-header__title text-section-heading" id="architecture-title">Six layers, each composed from the one below.</h2>
+          <p class="section-header__intro">Open a layer to see what it adds, from a single token to a whole page. Work down from Foundations, or start at Templates and take it apart.</p>
+        </header>
+
+        <div class="layer-stack">
+          <div class="accordion layer-stack__list">
+            <details class="accordion__item layer-stack__item" name="layers" open>
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">01</span><span class="layer-stack__name">Foundations</span><span class="layer-stack__text text-small text-muted">Tokens for colour, type, space, radius and motion.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <div class="cluster" data-gap="3">
+                  <span style="display: block; width: var(--space-6); height: var(--space-6); border-radius: var(--radius-1); background: var(--color-ink)"></span>
+                  <span style="display: block; width: var(--space-6); height: var(--space-6); border-radius: var(--radius-1); background: var(--color-muted)"></span>
+                  <span style="display: block; width: var(--space-6); height: var(--space-6); border-radius: var(--radius-1); background: var(--color-stone)"></span>
+                  <span style="display: block; width: var(--space-6); height: var(--space-6); border-radius: var(--radius-1); background: var(--color-brand)"></span>
+                  <span class="text-page-title" style="margin-left: var(--space-2)">Aa</span>
+                </div>
+                <p class="text-caption text-muted">--color-ink · --color-muted · --color-stone · --color-brand · --text-page-title</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">02</span><span class="layer-stack__name">Primitives</span><span class="layer-stack__text text-small text-muted">Layout, buttons, links, forms, media, tags.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <div class="cluster" data-gap="4">
+                  <button class="button" type="button">Button</button>
+                  <a class="link" href="#architecture">Link</a>
+                  <span class="tag">Tag</span>
+                </div>
+                <p class="text-caption text-muted">.button · .link · .tag</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">03</span><span class="layer-stack__name">Components</span><span class="layer-stack__text text-small text-muted">Cards, quotes, navigation, dialogs, carousels.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <article class="card" style="max-width: 16rem">
+                  <div class="card__media media" data-ratio="standard"><div class="media__frame"><img src="https://placehold.co/1200x900/ECEAE4/5C5B57" alt="" width="1200" height="900" loading="lazy"></div></div>
+                  <p class="card__meta">Pattern</p>
+                  <p class="card__title text-card-title">Assembled from primitives</p>
+                </article>
+                <p class="text-caption text-muted">.card, built from .media and .button</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">04</span><span class="layer-stack__name">Sections</span><span class="layer-stack__text text-small text-muted">Complete page bands: heroes, splits, CTAs, logo rails.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <div data-surface="alternate" style="padding: var(--space-5)">
+                  <header class="section-header" data-rule="none">
+                    <p class="section-header__label">Example</p>
+                    <p class="text-card-title">A surface, a container and a layout block.</p>
+                  </header>
+                </div>
+                <p class="text-caption text-muted">.section + data-surface + .container</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">05</span><span class="layer-stack__name">Patterns</span><span class="layer-stack__text text-small text-muted">Domain arrangements: listings, profiles, articles.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <div class="grid" data-columns="3" data-gap="tight">
+                  <span style="display: block; height: var(--space-8); background: var(--surface-subtle); border-radius: var(--radius-1)"></span>
+                  <span style="display: block; height: var(--space-8); background: var(--surface-subtle); border-radius: var(--radius-1)"></span>
+                  <span style="display: block; height: var(--space-8); background: var(--surface-subtle); border-radius: var(--radius-1)"></span>
+                </div>
+                <p class="text-caption text-muted">A Listing: repeated Cards placed on the grid</p>
+              </div>
+            </details>
+
+            <details class="accordion__item layer-stack__item" name="layers">
+              <span class="layer-stack__marker" aria-hidden="true"></span>
+              <summary class="accordion__trigger layer-stack__trigger"><span class="layer-stack__index">06</span><span class="layer-stack__name">Templates</span><span class="layer-stack__text text-small text-muted">Full-page reference compositions.</span><span class="accordion__icon" aria-hidden="true"></span></summary>
+              <div class="accordion__panel layer-stack__demo">
+                <figure class="media" data-ratio="photo" style="max-width: 20rem"><div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div></figure>
+                <p class="text-caption text-muted">Fourteen templates, no new components. See Examples.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Components ---------------------------------------------------------->
+    <section class="section" id="components" aria-labelledby="components-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Components</p>
+          <h2 class="section-header__title text-section-heading" id="components-title">A small selection, shown in context.</h2>
+          <div class="section-header__action"><a class="link" href="/style-guide/#components">All components</a></div>
+        </header>
+
+        <div class="grid">
+          <figure class="media" data-span="7">
+            <div class="sg-browser">
+              <div class="site-header" data-surface="light">
+                <div class="site-header__inner container" style="--page-gutter: var(--space-6)">
+                  <div class="site-header__brand"><span class="wordmark" style="font-size: 1.125rem">Fieldwork</span></div>
+                  <ul class="site-nav__list" aria-label="Example navigation">
+                    <li><span class="site-nav__link" style="color: var(--surface-text); font-size: var(--text-small)">Projects</span></li>
+                    <li><span class="site-nav__link" style="font-size: var(--text-small)">Practice</span></li>
+                    <li><span class="site-nav__link" style="font-size: var(--text-small)">Journal</span></li>
+                  </ul>
+                  <span class="button" data-size="small">Contact</span>
+                </div>
+              </div>
+              <div class="stack" data-gap="5" data-surface="light" style="padding: var(--space-8) var(--space-6) var(--space-7)">
+                <p class="label">Landscape architecture</p>
+                <p class="text-section-heading" style="max-width: 35rem">Public spaces designed to be used, and to last.</p>
+                <p class="text-muted" style="max-width: 27.5rem">A small studio working with councils and developers on parks, streets and squares.</p>
+                <div class="button-group"><span class="button">View projects</span><span class="button" data-variant="secondary">About the studio</span></div>
+              </div>
+              <div class="logo-rail" data-surface="light" style="padding-inline: var(--space-6); border-bottom: 0; border-top-color: var(--color-stone)">
+                <p class="label">Trusted by</p>
+                <ul class="logo-list" data-layout="rail">
+                  <li class="logo"><img src="https://placehold.co/110x40/ECEAE4/5C5B57" alt="Halden" width="110" height="40" style="height: 1.5rem"></li>
+                  <li class="logo"><img src="https://placehold.co/150x40/ECEAE4/5C5B57" alt="Oakmere" width="150" height="40" style="height: 1.5rem"></li>
+                  <li class="logo"><img src="https://placehold.co/140x40/ECEAE4/5C5B57" alt="Northgate" width="140" height="40" style="height: 1.5rem"></li>
+                  <li class="logo"><img src="https://placehold.co/120x40/ECEAE4/5C5B57" alt="Parallel" width="120" height="40" style="height: 1.5rem"></li>
+                </ul>
+              </div>
+            </div>
+            <figcaption class="media__caption">Navigation / Hero / Logo rail</figcaption>
+          </figure>
+
+          <figure class="media" data-span="5">
+            <div class="accordion">
+              <details class="accordion__item" name="home-faq" open>
+                <summary class="accordion__trigger">Can I use Samla with my own brand?<span class="accordion__icon" aria-hidden="true"></span></summary>
+                <div class="accordion__panel"><p>Yes. Samla ships with a neutral palette. Replace the brand and surface tokens and every component follows, from buttons to full templates.</p></div>
+              </details>
+              <details class="accordion__item" name="home-faq">
+                <summary class="accordion__trigger">Does it need a JavaScript framework?<span class="accordion__icon" aria-hidden="true"></span></summary>
+                <div class="accordion__panel"><p>No. Pages render as static HTML. Interactive components add small, isolated scripts only where they are needed.</p></div>
+              </details>
+              <details class="accordion__item" name="home-faq">
+                <summary class="accordion__trigger">How does Samla work with coding agents?<span class="accordion__icon" aria-hidden="true"></span></summary>
+                <div class="accordion__panel"><p>Consistent naming, documented contracts and a strict layer hierarchy give agents a clear set of rules to follow, so generated pages stay on-system.</p></div>
+              </details>
+              <details class="accordion__item" name="home-faq">
+                <summary class="accordion__trigger">Which platforms are supported?<span class="accordion__icon" aria-hidden="true"></span></summary>
+                <div class="accordion__panel"><p>Any. The reference implementation is plain HTML, CSS and vanilla JavaScript. Astro, Statamic, WordPress or React implementations keep the same class names, variants and contracts.</p></div>
+              </details>
+            </div>
+            <figcaption class="media__caption">Accordion / interactive</figcaption>
+          </figure>
+
+          <figure class="media" data-span="4">
+            <article class="card">
+              <div class="card__media media" data-ratio="photo">
+                <div class="media__frame"><img src="https://placehold.co/1200x800/ECEAE4/5C5B57" alt="" width="1200" height="800" loading="lazy"></div>
+              </div>
+              <p class="card__meta">Journal / 6 min read</p>
+              <h3 class="card__title"><a class="card__link" href="/templates/article/">Why every page starts with a grid</a></h3>
+              <p class="card__summary">Notes on proportion, measure and the columns underneath this site.</p>
+            </article>
+            <figcaption class="media__caption">Card / article</figcaption>
+          </figure>
+
+          <figure class="media" data-span="8">
+            <div data-surface="alternate" style="padding: var(--space-7) var(--space-component)">
+              <div class="grid" style="--grid-columns: 8">
+                <p class="label" data-span="3">How it works</p>
+                <p class="text-card-title" data-span="5">Three steps from brief to a live site.</p>
+                <ol class="grid" data-columns="3" data-span="12" role="list" style="grid-column: 1 / -1; margin-top: var(--space-2)">
+                  <li class="feature"><span class="feature__index">01</span><span class="feature__title">Set your tokens</span><span class="feature__text">Brand colour, type and surfaces in one file.</span></li>
+                  <li class="feature"><span class="feature__index">02</span><span class="feature__title">Compose sections</span><span class="feature__text">Assemble pages from documented patterns.</span></li>
+                  <li class="feature"><span class="feature__index">03</span><span class="feature__title">Ship static</span><span class="feature__text">Build to fast, accessible HTML.</span></li>
+                </ol>
+              </div>
+            </div>
+            <figcaption class="media__caption">Content section / steps, alternate surface</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code ---------------------------------------------------------------->
+    <section class="section" id="code" aria-labelledby="code-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Code</p>
+          <h2 class="section-header__title text-section-heading" id="code-title">Readable by people. Predictable for agents.</h2>
+          <div class="section-header__action"><a class="link" href="/docs/agents/">Read the conventions</a></div>
+        </header>
+
+        <div class="sg-code" data-surface="dark">
+          <div class="tabs" data-orientation="vertical" data-variant="contained">
+            <div class="tabs__list">
+              <button class="tabs__tab" type="button" aria-controls="code-page">Page<span class="tabs__tab-meta">templates/home.html</span></button>
+              <button class="tabs__tab" type="button" aria-controls="code-component">Component<span class="tabs__tab-meta">primitives/button.css</span></button>
+              <button class="tabs__tab" type="button" aria-controls="code-tokens">Tokens<span class="tabs__tab-meta">foundations/tokens.css</span></button>
+              <button class="tabs__tab" type="button" aria-controls="code-agents">Agent rules<span class="tabs__tab-meta">AGENTS.md</span></button>
+              <p class="tabs__foot text-caption text-muted">Excerpts from this repository</p>
+            </div>
+
+            <section class="tabs__panel" id="code-page">
+              <h3 class="tabs__heading">Page</h3>
+              <figure class="code-block">
+                <figcaption class="code-block__header"><span class="code-block__file">templates/home.html</span><button class="code-block__copy" type="button" data-copy><span data-copy-label>Copy</span></button></figcaption>
+<pre class="code-block__pre" data-line-numbers><code><span class="line"><span class="tok-keyword">&lt;section</span> <span class="tok-property">class</span>=<span class="tok-string">"hero"</span> <span class="tok-property">data-layout</span>=<span class="tok-string">"text"</span><span class="tok-keyword">&gt;</span></span>
+<span class="line">  <span class="tok-keyword">&lt;div</span> <span class="tok-property">class</span>=<span class="tok-string">"hero__inner container"</span><span class="tok-keyword">&gt;</span></span>
+<span class="line">    <span class="tok-keyword">&lt;p</span> <span class="tok-property">class</span>=<span class="tok-string">"hero__eyebrow"</span><span class="tok-keyword">&gt;</span>Landscape architecture<span class="tok-keyword">&lt;/p&gt;</span></span>
+<span class="line">    <span class="tok-keyword">&lt;h1</span> <span class="tok-property">class</span>=<span class="tok-string">"hero__title text-display"</span><span class="tok-keyword">&gt;</span>Public spaces…<span class="tok-keyword">&lt;/h1&gt;</span></span>
+<span class="line">    <span class="tok-keyword">&lt;div</span> <span class="tok-property">class</span>=<span class="tok-string">"hero__actions button-group"</span><span class="tok-keyword">&gt;</span></span>
+<span class="line">      <span class="tok-keyword">&lt;a</span> <span class="tok-property">class</span>=<span class="tok-string">"button"</span> <span class="tok-property">href</span>=<span class="tok-string">"/projects"</span><span class="tok-keyword">&gt;</span>View projects<span class="tok-keyword">&lt;/a&gt;</span></span>
+<span class="line">      <span class="tok-keyword">&lt;a</span> <span class="tok-property">class</span>=<span class="tok-string">"button"</span> <span class="tok-property">data-variant</span>=<span class="tok-string">"secondary"</span> <span class="tok-property">href</span>=<span class="tok-string">"/about"</span><span class="tok-keyword">&gt;</span>About<span class="tok-keyword">&lt;/a&gt;</span></span>
+<span class="line">    <span class="tok-keyword">&lt;/div&gt;</span></span>
+<span class="line">  <span class="tok-keyword">&lt;/div&gt;</span></span>
+<span class="line"><span class="tok-keyword">&lt;/section&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span class="tok-keyword">&lt;section</span> <span class="tok-property">class</span>=<span class="tok-string">"section"</span> <span class="tok-property">data-surface</span>=<span class="tok-string">"alternate"</span><span class="tok-keyword">&gt;</span></span>
+<span class="line">  <span class="tok-comment">&lt;!-- section-header, then a grid of features --&gt;</span></span>
+<span class="line"><span class="tok-keyword">&lt;/section&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span class="tok-keyword">&lt;section</span> <span class="tok-property">class</span>=<span class="tok-string">"section"</span> <span class="tok-property">data-surface</span>=<span class="tok-string">"brand"</span><span class="tok-keyword">&gt;</span></span>
+<span class="line">  <span class="tok-comment">&lt;!-- cta: "Start a project" --&gt;</span></span>
+<span class="line"><span class="tok-keyword">&lt;/section&gt;</span></span></code></pre>
+              </figure>
+            </section>
+
+            <section class="tabs__panel" id="code-component">
+              <h3 class="tabs__heading">Component</h3>
+              <figure class="code-block">
+                <figcaption class="code-block__header"><span class="code-block__file">assets/css/primitives/button.css</span><button class="code-block__copy" type="button" data-copy><span data-copy-label>Copy</span></button></figcaption>
+<pre class="code-block__pre" data-line-numbers><code><span class="line"><span class="tok-comment">/* data-variant: primary | secondary | text */</span></span>
+<span class="line"><span class="tok-comment">/* data-size:    default (48) | small (44)   */</span></span>
+<span class="line"></span>
+<span class="line"><span class="tok-keyword">.button</span> {'{'}</span>
+<span class="line">  <span class="tok-property">min-height</span>: var(<span class="tok-property">--control-height</span>);</span>
+<span class="line">  <span class="tok-property">padding</span>: <span class="tok-string">0 1.375rem</span>;</span>
+<span class="line">  <span class="tok-property">border-radius</span>: var(<span class="tok-property">--radius-1</span>);</span>
+<span class="line">  <span class="tok-property">background-color</span>: var(<span class="tok-property">--action-bg</span>);</span>
+<span class="line">  <span class="tok-property">color</span>: var(<span class="tok-property">--action-text</span>);</span>
+<span class="line">  <span class="tok-property">transition</span>: background-color var(<span class="tok-property">--duration-fast</span>) var(<span class="tok-property">--ease-standard</span>);</span>
+<span class="line">{'}'}</span>
+<span class="line"></span>
+<span class="line"><span class="tok-keyword">.button[data-variant="secondary"]</span> {'{'}</span>
+<span class="line">  <span class="tok-property">background-color</span>: <span class="tok-string">transparent</span>;</span>
+<span class="line">  <span class="tok-property">border-color</span>: var(<span class="tok-property">--action-border</span>);</span>
+<span class="line">{'}'}</span></code></pre>
+              </figure>
+            </section>
+
+            <section class="tabs__panel" id="code-tokens">
+              <h3 class="tabs__heading">Tokens</h3>
+              <figure class="code-block">
+                <figcaption class="code-block__header"><span class="code-block__file">assets/css/foundations/tokens.css</span><button class="code-block__copy" type="button" data-copy><span data-copy-label>Copy</span></button></figcaption>
+<pre class="code-block__pre" data-line-numbers><code><span class="line"><span class="tok-keyword">:root</span> {'{'}</span>
+<span class="line">  <span class="tok-comment">/* Colour */</span></span>
+<span class="line">  <span class="tok-property">--color-paper</span>: <span class="tok-keyword">#F7F6F2</span>;</span>
+<span class="line">  <span class="tok-property">--color-ink</span>: <span class="tok-keyword">#121212</span>;</span>
+<span class="line">  <span class="tok-property">--color-muted</span>: <span class="tok-keyword">#5C5B57</span>;</span>
+<span class="line">  <span class="tok-property">--color-brand</span>: <span class="tok-keyword">#C4331A</span>;</span>
+<span class="line"></span>
+<span class="line">  <span class="tok-comment">/* Type */</span></span>
+<span class="line">  <span class="tok-property">--font-sans</span>: <span class="tok-string">'Instrument Sans'</span>, sans-serif;</span>
+<span class="line">  <span class="tok-property">--text-display</span>: clamp(<span class="tok-keyword">2.75rem</span>, <span class="tok-keyword">1.2rem</span> + <span class="tok-keyword">5vw</span>, <span class="tok-keyword">5.75rem</span>);</span>
+<span class="line"></span>
+<span class="line">  <span class="tok-comment">/* Space */</span></span>
+<span class="line">  <span class="tok-property">--space-5</span>: <span class="tok-keyword">1.5rem</span>;</span>
+<span class="line">  <span class="tok-property">--space-10</span>: <span class="tok-keyword">8rem</span>;</span>
+<span class="line">{'}'}</span>
+<span class="line"></span>
+<span class="line"><span class="tok-keyword">[data-surface="dark"]</span> {'{'}</span>
+<span class="line">  <span class="tok-property">--surface-bg</span>: var(<span class="tok-property">--color-ink</span>);</span>
+<span class="line">  <span class="tok-property">--surface-text</span>: var(<span class="tok-property">--color-on-dark</span>);</span>
+<span class="line">  <span class="tok-property">--action-bg</span>: var(<span class="tok-property">--color-paper</span>);</span>
+<span class="line">{'}'}</span></code></pre>
+              </figure>
+            </section>
+
+            <section class="tabs__panel" id="code-agents">
+              <h3 class="tabs__heading">Agent rules</h3>
+              <figure class="code-block">
+                <figcaption class="code-block__header"><span class="code-block__file">AGENTS.md</span><button class="code-block__copy" type="button" data-copy><span data-copy-label>Copy</span></button></figcaption>
+<pre class="code-block__pre" data-line-numbers><code><span class="line"><strong># Building with Samla</strong></span>
+<span class="line"></span>
+<span class="line"><strong>## Before anything else</strong></span>
+<span class="line"><span class="tok-comment">-</span> Check whether a primitive, component, section, pattern</span>
+<span class="line">  or variant already solves the requirement.</span>
+<span class="line"></span>
+<span class="line"><strong>## Composition</strong></span>
+<span class="line"><span class="tok-comment">-</span> Build pages from sections. Avoid one-off layout CSS.</span>
+<span class="line"><span class="tok-comment">-</span> Use tokens for every colour, size and font.</span>
+<span class="line"><span class="tok-comment">-</span> Every section accepts <span class="tok-string">`data-surface`</span>.</span>
+<span class="line"></span>
+<span class="line"><strong>## Structure</strong></span>
+<span class="line"><span class="tok-comment">-</span> Choose heading levels from the outline. One <span class="tok-string">`h1`</span>.</span>
+<span class="line"><span class="tok-comment">-</span> Choose size from the type scale: <span class="tok-string">`text-section-heading`</span>.</span>
+<span class="line"><span class="tok-comment">-</span> Interactive components work without JavaScript first.</span></code></pre>
+              </figure>
+            </section>
+          </div>
+        </div>
+
+        <div class="section__notes">
+          <p><strong>Documented contracts.</strong> Every component lists its content, variants and defaults.</p>
+          <p><strong>Tokens only.</strong> Components never reference raw colours, sizes or fonts.</p>
+          <p><strong>Plain-language rules.</strong> AGENTS.md explains how the system fits together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Surfaces ------------------------------------------------------------>
+    <section class="section" id="surfaces" aria-labelledby="surfaces-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Surfaces</p>
+          <h2 class="section-header__title text-section-heading" id="surfaces-title">One set of components. Four surfaces.</h2>
+          <p class="section-header__intro">Each surface is a small set of tokens. The markup inside all four panels below is identical.</p>
+        </header>
+        <div class="stack" data-gap="3">
+          <div class="sg-surfaces" data-panel data-count="4">
+            <div data-surface="default">
+              <span class="label">data-surface="default"</span>
+              <span class="tag" style="align-self: flex-start; margin-top: var(--space-7)">New</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Sections, patterns and templates ready to compose.</p>
+              <div class="cluster" data-gap="4"><a class="button" data-size="small" href="/templates/">Get started</a><a class="link" href="/style-guide/#surfaces">Learn more</a></div>
+            </div>
+            <div data-surface="alternate">
+              <span class="label">data-surface="alternate"</span>
+              <span class="tag" style="align-self: flex-start; margin-top: var(--space-7)">New</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Sections, patterns and templates ready to compose.</p>
+              <div class="cluster" data-gap="4"><a class="button" data-size="small" href="/templates/">Get started</a><a class="link" href="/style-guide/#surfaces">Learn more</a></div>
+            </div>
+            <div data-surface="brand">
+              <span class="label">data-surface="brand"</span>
+              <span class="tag" style="align-self: flex-start; margin-top: var(--space-7)">New</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Sections, patterns and templates ready to compose.</p>
+              <div class="cluster" data-gap="4"><a class="button" data-size="small" href="/templates/">Get started</a><a class="link" href="/style-guide/#surfaces">Learn more</a></div>
+            </div>
+            <div data-surface="dark">
+              <span class="label">data-surface="dark"</span>
+              <span class="tag" style="align-self: flex-start; margin-top: var(--space-7)">New</span>
+              <p class="text-card-title">Plan your next launch with confidence.</p>
+              <p class="text-muted">Sections, patterns and templates ready to compose.</p>
+              <div class="cluster" data-gap="4"><a class="button" data-size="small" href="/templates/">Get started</a><a class="link" href="/style-guide/#surfaces">Learn more</a></div>
+            </div>
+          </div>
+          <div class="grid" data-columns="4" data-gap="tight">
+            <span class="label">bg paper / text ink / muted 6.3:1</span>
+            <span class="label">bg stone / text ink / muted 5.7:1</span>
+            <span class="label">bg brand / text white / 5.5:1</span>
+            <span class="label">bg ink / text on-dark / muted 6.7:1</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentation ------------------------------------------------------->
+    <section class="section" id="docs" data-surface="dark" aria-labelledby="docs-title">
+      <div class="container">
+        <div class="split" data-ratio="6-6">
+          <div class="split__aside" style="gap: var(--space-6)">
+            <p class="label">Documentation</p>
+            <h2 class="text-page-title" id="docs-title">From reading about Samla to building with it.</h2>
+            <p class="text-muted" style="font-size: 1.125rem">The working agreement, the accessibility checklist and the performance notes that sit behind every layer above.</p>
+            <div class="button-group" data-stack="mobile">
+              <a class="button" href="/docs/">Get started <svg class="icon" data-icon="arrow-right" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              <a class="button" data-variant="secondary" href="https://github.com/benwellby/samla-ui">View on GitHub</a>
+            </div>
+          </div>
+          <nav class="split__main" aria-label="Documentation">
+            <ul class="link-list">
+              <li><a class="link-list__item" href="/docs/"><span class="link-list__title">Getting started</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              <li><a class="link-list__item" href="/style-guide/#foundations"><span class="link-list__title">Foundations</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              <li><a class="link-list__item" href="/style-guide/#components"><span class="link-list__title">Components</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              <li><a class="link-list__item" href="/style-guide/#sections"><span class="link-list__title">Sections</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              <li><a class="link-list__item" href="/style-guide/#patterns"><span class="link-list__title">Patterns</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              <li><a class="link-list__item" href="/docs/accessibility/"><span class="link-list__title">Accessibility</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+              <li><a class="link-list__item" href="/docs/performance/"><span class="link-list__title">SEO and performance</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </main>
+</SamlaLayout>

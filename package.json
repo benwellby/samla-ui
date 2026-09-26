@@ -2,12 +2,25 @@
   "name": "samla-frontend",
   "version": "1.0.0",
   "private": true,
-  "description": "Samla Frontend v1: a stack-agnostic frontend system for marketing websites. Static reference implementation.",
+  "description": "Samla: an opinionated, stack-agnostic frontend framework for marketing websites. Tokens, primitives, components, sections and patterns in plain HTML, CSS and a little vanilla JavaScript.",
   "type": "module",
+  "main": "assets/css/samla.css",
+  "style": "assets/css/samla.css",
+  "exports": {
+    ".": "./assets/css/samla.css",
+    "./css": "./assets/css/samla.css",
+    "./js": "./assets/js/samla.js",
+    "./theme.example.css": "./assets/css/theme.example.css"
+  },
+  "files": [
+    "assets/css",
+    "assets/js",
+    "assets/fonts",
+    "docs",
+    "AGENTS.md",
+    "README.md"
+  ],
   "scripts": {
-    "setup": "git config core.hooksPath .githooks",
-    "dev": "node scripts/serve.mjs",
-    "build": "node scripts/build-docs.mjs && node scripts/sync-partials.mjs",
     "build:css": "node scripts/build-css.mjs"
   },
   "license": "UNLICENSED"

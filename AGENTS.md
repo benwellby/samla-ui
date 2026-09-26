@@ -1,31 +1,30 @@
 # Building with Samla
 
-Samla is a stack-agnostic frontend system for marketing websites: tokens,
-primitives, components, sections, patterns and templates in plain HTML, CSS
-and a little vanilla JavaScript. This file is the working agreement for
+Samla is a stack-agnostic frontend system for marketing websites: tokens, primitives, components, sections, patterns and templates in plain HTML, CSS and a little vanilla JavaScript. This file is the working agreement for
 anyone (human or agent) building with it or extending it.
 
-**Rule zero: before creating anything new, check whether an existing
-primitive, component, section, pattern or variant already solves the
-requirement.** Search `docs/taxonomy.md` and `docs/components.md` first, then
-the live Style Guide at `/style-guide/`.
+**Rule zero: before creating anything new, check whether an existing primitive, component, section, pattern or variant already solves the requirement.
+** Search `docs/taxonomy.md` and `docs/components.md` first, then the live Style Guide at `/style-guide/`.
 
 ## Run it
 
 ```bash
-node scripts/serve.mjs          # http://localhost:4321
-node scripts/build-docs.mjs     # after editing any .md file (renders /docs/)
-node scripts/sync-partials.mjs  # after editing partials/ or rebuilding docs
-node scripts/build-css.mjs      # optional: bundle to dist/samla.css
+node scripts/build-css.mjs   # optional: bundle assets/css/samla.css to dist/samla.css
 ```
 
-A pre-commit hook in `.githooks/` runs the docs and partials steps on every
-commit. Enable it once per clone with `git config core.hooksPath .githooks`.
-
-No dependencies. Pages use root-relative paths, so serve the folder rather
-than opening files directly.
+The framework itself is no dependencies, no build step: reference
+`assets/css/samla.css` and `assets/js/samla.js` directly. To see it in the
+context it's built for — the public Samla site, Style Guide and Fieldwork
+examples — go to `site/` and run `npm install && npm run dev`. See
+`site/README.md`.
 
 ## Where things live
+
+This table is the framework only. `site/` (the public Samla website) is a
+separate Astro application and the first real consumer of the framework —
+see `site/README.md` for its own structure. It never duplicates framework
+code; it renders `assets/css/samla.css`/`assets/js/samla.js` directly and
+reads `docs/*.md`/`AGENTS.md`/`README.md` as its content source.
 
 | Layer | Path | What belongs there |
 | --- | --- | --- |
@@ -35,10 +34,11 @@ than opening files directly.
 | Sections | `assets/css/sections/` | Page bands and their layout blocks: section, hero, split, media-content, cta |
 | Patterns | `assets/css/patterns/` | Domain arrangements: page-header, listing, article-layout, profile |
 | Behaviour | `assets/js/samla.js` | All JavaScript. One file, progressive enhancement |
-| Docs only | `assets/css/docs.css`, `assets/js/docs.js` | `sg-*` classes for the Style Guide and the homepage's self-describing specimen sections. Never use in a project |
-| Templates | `templates/*.html` | Reference pages for the fictional client "Fieldwork" |
-| Shared markup | `partials/*.html` | Headers and footers, stamped into pages by `sync-partials` |
-| Documentation | `*.md`, `docs/*.md` | Source of truth. `docs/*.html` is generated from it: never edit the HTML |
+| Documentation | `*.md`, `docs/*.md` | Source of truth for the framework's own specification and conventions |
+
+Reference pages for the fictional client "Fieldwork", the Style Guide, and
+the `sg-*` presentation classes used only to display it, all live in
+`site/` now — they are website presentation, not framework code.
 
 Each CSS file opens with a comment block: purpose, markup example, variants.
 That comment is the source of truth for the file; keep it current.
@@ -135,7 +135,7 @@ are in `docs/components.md`. Do not add CMS-specific markup or naming.
    domain concepts; domain-specific arrangements go in `patterns/`.
 4. Write the header comment (purpose, markup, variants), use semantic tokens
    only, and support every surface.
-5. Add it to the Style Guide (`style-guide/index.html`) using the real
-   classes, to `docs/components.md`, and to `docs/taxonomy.md`.
+5. Add it to the Style Guide (`site/src/pages/style-guide/index.astro`)
+   using the real classes, to `docs/components.md`, and to `docs/taxonomy.md`.
 6. Check it at 375, 768, 1024 and 1440 wide, keyboard only, and on a dark
    surface.

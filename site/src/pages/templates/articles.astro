@@ -1,0 +1,130 @@
+---
+import FieldworkLayout from '../../layouts/FieldworkLayout.astro';
+---
+
+<FieldworkLayout
+  title="Journal | Fieldwork"
+  description="Essays, process notes and studio news from Fieldwork."
+>
+  <main id="main">
+    <!-- Template: Articles index. Page header / Featured card / Listing (link filters, dropdown sort, featured grid) / Events rows / Newsletter CTA -->
+
+    <header class="page-header">
+      <div class="page-header__inner container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/templates/home/">Home</a></li>
+            <li><a href="/templates/articles/" aria-current="page">Journal</a></li>
+          </ol>
+        </nav>
+        <p class="page-header__label">Journal</p>
+        <h1 class="page-header__title text-page-title">Notes from the studio.</h1>
+        <p class="page-header__lead text-lead">Essays on landscape, climate and cities, plus the occasional piece of studio news.</p>
+      </div>
+    </header>
+
+    <section class="section" data-spacing="none" aria-label="Featured article">
+      <div class="container">
+        <article class="card" data-layout="horizontal" data-size="large">
+          <figure class="card__media media" data-ratio="standard"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" fetchpriority="high"></figure>
+          <p class="card__meta"><span>Essay</span><span>12 June 2026</span><span>6 min read</span></p>
+          <h2 class="card__title"><a class="card__link" href="/templates/article/">Designing parks for hotter summers</a></h2>
+          <p class="card__summary">Shade, water and soil: what a decade of heatwaves has taught us about the parks we design, and what we would do differently.</p>
+          <div class="card__person">
+            <span class="avatar" data-size="small"><img src="https://placehold.co/1200x1500/ECEAE4/5C5B57" alt="" width="1200" height="1500"></span>
+            <span class="text-small">Ruth Hallam</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="latest-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Latest</p>
+          <h2 class="section-header__title text-section-heading" id="latest-title">All articles</h2>
+        </header>
+        <div class="listing">
+          <div class="listing__toolbar">
+            <nav class="listing__filters" aria-label="Filter by topic">
+              <ul class="tag-list" role="list">
+                <li><a class="tag" href="?topic=all" aria-current="page">All</a></li>
+                <li><a class="tag" href="?topic=essay">Essays</a></li>
+                <li><a class="tag" href="?topic=process">Process</a></li>
+                <li><a class="tag" href="?topic=news">News</a></li>
+              </ul>
+            </nav>
+            <div class="dropdown" data-align="end">
+              <button class="button" type="button" data-variant="secondary" data-size="small" aria-expanded="false" aria-controls="sort-menu" data-dropdown-toggle>Newest first <svg class="icon" data-size="12" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+              <div class="dropdown__menu" id="sort-menu">
+                <a class="dropdown__item" href="?sort=newest" aria-current="true">Newest first</a>
+                <a class="dropdown__item" href="?sort=oldest">Oldest first</a>
+                <a class="dropdown__item" href="?sort=popular">Most read</a>
+              </div>
+            </div>
+          </div>
+          <ul class="listing__results grid" data-columns="3" role="list">
+            <li><article class="card"><figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta"><span>Process</span><span>4 min read</span></p><h3 class="card__title"><a class="card__link" href="/templates/article/">Why every street starts with a walk</a></h3><p class="card__summary">The observation method behind our street projects, step by step.</p></article></li>
+            <li><article class="card"><figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta"><span>News</span><span>2 min read</span></p><h3 class="card__title"><a class="card__link" href="/templates/article/">Fieldwork opens a Glasgow studio</a></h3><p class="card__summary">Eight people, one long table and a view of the Clyde.</p></article></li>
+            <li><article class="card"><figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta"><span>Essay</span><span>8 min read</span></p><h3 class="card__title"><a class="card__link" href="/templates/article/">In defence of the unmown verge</a></h3><p class="card__summary">Why a little untidiness might be the best thing a council can plant.</p></article></li>
+            <li><article class="card"><figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta"><span>Process</span><span>5 min read</span></p><h3 class="card__title"><a class="card__link" href="/templates/article/">Running a pop-up studio</a></h3><p class="card__summary">What we have learned from twelve empty shops and 4,000 conversations.</p></article></li>
+            <li><article class="card"><figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta"><span>Essay</span><span>7 min read</span></p><h3 class="card__title"><a class="card__link" href="/templates/article/">Hedgerows as infrastructure</a></h3><p class="card__summary">Planning new neighbourhoods around the oldest lines in the landscape.</p></article></li>
+            <li><article class="card"><figure class="card__media media" data-ratio="photo"><img src="https://placehold.co/1600x1200/ECEAE4/5C5B57" alt="" width="1600" height="1200" loading="lazy"></figure><p class="card__meta"><span>News</span><span>2 min read</span></p><h3 class="card__title"><a class="card__link" href="/templates/article/">Garnet Street wins a Civic Trust award</a></h3><p class="card__summary">Recognition for a street that residents designed with us.</p></article></li>
+          </ul>
+          <nav class="pagination" aria-label="Pagination">
+            <a class="pagination__link" aria-disabled="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg> Previous</a>
+            <ol class="pagination__list">
+              <li><a class="pagination__link" href="?page=1" aria-current="page">1</a></li>
+              <li><a class="pagination__link" href="?page=2">2</a></li>
+              <li><a class="pagination__link" href="?page=3">3</a></li>
+            </ol>
+            <a class="pagination__link" href="?page=2">Next <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="events-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Events</p>
+          <h2 class="section-header__title text-section-heading" id="events-title">Talks and site walks.</h2>
+        </header>
+        <div class="section__body" data-indent>
+          <ul class="link-list">
+            <li><a class="link-list__item" href="/templates/article/"><span class="link-list__title">Millbrook one year on: a guided walk</span><span class="link-list__meta"><time datetime="2026-10-04">4 October</time>, Halden</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/article/"><span class="link-list__title">Landscape Institute lecture: parks and heat</span><span class="link-list__meta"><time datetime="2026-10-21">21 October</time>, London</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/article/"><span class="link-list__title">Open studio: Glasgow</span><span class="link-list__meta"><time datetime="2026-11-12">12 November</time>, Glasgow</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-surface="alternate" aria-labelledby="newsletter-title">
+      <div class="container">
+        <div class="cta" data-layout="inline">
+          <div class="cta__content">
+            <p class="label">Newsletter</p>
+            <h2 class="text-section-heading" id="newsletter-title">Four emails a year. New projects and essays, nothing else.</h2>
+          </div>
+          <div class="cta__actions">
+            <form class="subscribe" action="#" method="post" data-validate data-demo>
+              <div class="field">
+                <label class="field__label" for="newsletter-email">Email address</label>
+                <div class="input-group" data-stack="mobile">
+                  <input class="input" id="newsletter-email" name="email" type="email" autocomplete="email" required>
+                  <button class="button" type="submit">Subscribe</button>
+                </div>
+              </div>
+              <p class="subscribe__note">Unsubscribe at any time. We never share your address.</p>
+              <div class="notice" data-status="positive" role="status" tabindex="-1" data-form-success hidden>
+                <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>
+                <p>Thanks. Check your inbox to confirm.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</FieldworkLayout>

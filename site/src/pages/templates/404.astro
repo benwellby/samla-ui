@@ -1,0 +1,48 @@
+---
+import FieldworkLayout from '../../layouts/FieldworkLayout.astro';
+---
+
+<FieldworkLayout
+  title="Page not found | Fieldwork"
+  description=""
+>
+  <main id="main">
+    <!-- Template: 404. Hero (text) / Search / Link list -->
+
+    <section class="hero" data-width="narrow" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Error 404</p>
+          <h1 class="hero__title text-display" id="hero-title">This path doesn’t lead anywhere.</h1>
+        </div>
+        <div class="hero__body">
+          <p class="hero__lead text-lead">The page may have moved, or the link may be wrong. Try a search, or start from one of these.</p>
+          <form class="field" action="/templates/articles.html" method="get" role="search">
+            <label class="field__label" for="search">Search the site</label>
+            <div class="input-group">
+              <input class="input" id="search" name="q" type="search" placeholder="Parks, streets, people…">
+              <button class="button" type="submit" data-icon-only aria-label="Search"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="popular-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__label">Popular</p>
+          <h2 class="section-header__title text-section-heading" id="popular-title">Where people usually go.</h2>
+        </header>
+        <div class="section__body" data-indent>
+          <ul class="link-list">
+            <li><a class="link-list__item" href="/templates/home/"><span class="link-list__title">Home</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/case-studies/"><span class="link-list__title">Projects</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/services/"><span class="link-list__title">Services</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+            <li><a class="link-list__item" href="/templates/contact/"><span class="link-list__title">Contact</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</FieldworkLayout>

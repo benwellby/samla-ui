@@ -1,28 +1,21 @@
-# Samla Frontend v1
+# Samla
 
 > Design once. Implement anywhere.
 
-Samla is a stack-agnostic frontend system for building high-quality marketing
-websites. It holds the visual language, primitives, components, sections,
-patterns and page templates that a new site starts from, as plain HTML, CSS
-and a little vanilla JavaScript. Astro, Statamic, WordPress or React
-implementations keep the same names, variants and contracts. They are an
-integration exercise, not a redesign.
+Samla is a stack-agnostic frontend framework for building high-quality
+marketing websites. It holds the visual language, primitives, components,
+sections, patterns and page templates that a new site starts from, as plain
+HTML, CSS and a little vanilla JavaScript. Astro, Statamic, WordPress or
+React implementations keep the same names, variants and contracts. They are
+an integration exercise, not a redesign.
 
-## Quick start
+This repository holds two things:
 
-```bash
-node scripts/serve.mjs
-```
-
-Then open:
-
-- `http://localhost:4321/` — the Samla homepage, built from the system
-- `http://localhost:4321/docs/` — this documentation, rendered
-- `http://localhost:4321/style-guide/` — every token, component and variant, live
-- `http://localhost:4321/templates/` — 14 reference templates for a fictional practice, "Fieldwork"
-
-No install step and no dependencies (Node 18+ only for the helper scripts).
+- **The framework** — everything at the root: `assets/`, `docs/*.md`,
+  `AGENTS.md`. This is Samla itself.
+- **`site/`** — the public Samla website (homepage, Philosophy docs, Style
+  Guide, Fieldwork examples), an Astro application and the first real
+  consumer of the framework. See `site/README.md` to run or deploy it.
 
 ## What's here
 
@@ -38,7 +31,6 @@ assets/
   css/sections/           section, hero, layout blocks (split, media-content, cta, logo-rail, gallery)
   css/patterns/           page-header, listing, article-layout, profile
   css/theme.example.css   How a project rebrands: raw tokens only, in @layer project
-  css/docs.css            Style Guide presentation only (sg-*), never shipped
   js/samla.js             All behaviour, progressive enhancement
   fonts/                  Instrument Sans (variable), IBM Plex Mono 400/500, WOFF2
 docs/
@@ -46,14 +38,9 @@ docs/
   components.md           Content contracts and variants for every element
   accessibility.md        Built-in accessibility and the checklist for new work
   performance.md          Performance and SEO defaults
-partials/                 Shared headers and footers, stamped into pages
 scripts/
-  serve.mjs               Zero-dependency static server
-  sync-partials.mjs       Refresh shared markup across pages
   build-css.mjs           Bundle CSS to dist/samla.css (keeps layers)
-  build-docs.mjs          Render the Markdown docs to docs/*.html
-style-guide/              The Style Guide
-templates/                Reference page templates
+site/                     The public Samla website (Astro) — see site/README.md
 ```
 
 ## The system in one paragraph
@@ -68,60 +55,14 @@ restyles everything inside it without per-component overrides. Visual
 type roles (`text-display` … `text-caption`) are independent of heading
 levels.
 
-## Editing the docs and shared markup
+## Using the framework
 
-Two parts of the site are generated from other files:
+Reference `assets/css/samla.css` and `assets/js/samla.js` from any project.
+No build step is required — `samla.css` is a plain `@import` chain; run
+`node scripts/build-css.mjs` if you'd rather ship one bundled file
+(writes `dist/samla.css`, keeping the cascade layers intact).
 
-| You edit | Generated | Command |
-| --- | --- | --- |
-| `README.md`, `AGENTS.md`, `docs/*.md` | `docs/*.html` | `node scripts/build-docs.mjs` |
-| `partials/*.html` (headers, footers) | The header and footer in every page | `node scripts/sync-partials.mjs` |
-
-Everything else (CSS, JavaScript, templates, the homepage, the Style Guide)
-is edited directly and needs no command.
-
-You don't need to run these by hand. They run automatically in two places:
-
-- **On every commit**, through a git pre-commit hook in `.githooks/`. It
-  regenerates the files and stages them with your commit. Enable it once
-  after cloning:
-
-  ```bash
-  git config core.hooksPath .githooks
-  ```
-
-  (`npm run setup` does the same). If a regenerated file also has unstaged
-  edits of yours, the hook leaves it unstaged and tells you, so work in
-  progress is never committed by accident.
-- **On every deploy**, if your host runs a build command (see Hosting below).
-
-To see doc changes in the local preview before committing, run
-`npm run build`, which runs both scripts.
-
-## Hosting
-
-Samla is a folder of static HTML, CSS and JavaScript. It deploys as-is to
-any static host and has no opinion on which one — the generated files
-(`docs/*.html`, the partial-stamped headers and footers) are committed, so
-a host doesn't need to run a build step at all. If yours does, point it at:
-
-| Setting | Value |
-| --- | --- |
-| Framework preset | None |
-| Build command | `node scripts/build-docs.mjs && node scripts/sync-partials.mjs` |
-| Build output directory | `/` |
-
-`404.html` handles unknown routes on any host that serves a custom 404 page.
-
-#### Example: Cloudflare Pages
-
-This repository happens to be deployed on Cloudflare Pages, so it also
-ships a `_headers` file (Cloudflare's own syntax for response headers:
-caching, and serving the Markdown sources as plain text). Connect the
-GitHub repo and use the build settings above; `_headers` and `404.html`
-are picked up automatically. None of this is Samla-specific — on another
-host, translate `_headers` to that host's equivalent (or drop it) and keep
-the same 404 page.
+No install step and no dependencies (Node 18+ only for `build-css.mjs`).
 
 ## Rebranding a project
 
@@ -136,8 +77,8 @@ Load a theme after `samla.css` and override raw tokens only:
 }
 ```
 
-Every component, surface and template follows. The Style Guide has a live
-brand switcher.
+Every component, surface and template follows. The Style Guide (in `/site`)
+has a live brand switcher.
 
 ## Status
 
